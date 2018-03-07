@@ -1,0 +1,725 @@
+%% -*- coding:utf-8 -*-
+\documentclass[output=paper]{LSP/langsci}
+\author{Tilman N. Höhle}
+
+\title{Featuring creatures of darkness}
+%\epigram{Change epigram in chapters/01.tex or remove it there}
+\abstract{}
+\maketitle
+% \rohead{\thechapter\hspace{0.5em}short title} % Display short title
+\ChapterDOI{10.5281/zenodo.1169693}
+\begin{document}
+\label{chap-creatures}
+\selectlanguage{english}
+\setcounter{randcount}{0}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{4}
+\footnotetext{%
+\emph{Editors’ note:} This is the previously unpublished paper version of a talk given at
+the IBM Wissenschaftszentrum in Heidelberg, September 7, 1994. It
+unifies two textual variants (of the same date) that show some minor
+differences. The citation style was adjusted to the conventions
+in this volume, and a few abbreviations in the original are systematically
+spelled out here (\emph{Scandinavian} for \emph{Scand.}, etc.).%
+}
+\setcounter{footnote}{1}
+\footnotetext{%
+	Note: The empirical aspects of the topic are also
+  displayed in a contribution to the Heinz Vater Festschrift (Sprache
+  im \isi{Fokus}, ed.\ by C.\ Dürscheid et al., Tübingen: Niemeyer 1997).}
+
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+\begin{quotation}
+``Pollard and Sag (\citeyear[Chapter~5]{PollardSag1994}), pandering shamelessly to the GB masses, propose an analysis of English relative clauses that employs [\ldots] empty relativizers [\ldots]. [\ldots] The lexical entries for these creatures of darkness stipulate numerous ad hoc structure sharings. [\ldots] \\  
+Their elimination would be a welcome result.'' \hfill Anonymous, spring 1994. \\ (\textit{pander to the N} `dem (verwerf"|lichen) N  Vorschub leisten')
+\end{quotation}
+\randnum\label{rn:15-1}Proposition:
+\begin{enumerate}
+\item[(i)] The essential characteristics of the First Null Relativizer(s) (§\ref{rn:15-7}) are empirically welcome.
+\item[(ii)] Fronted verbs (fV, i.e. \isi{V1} and V2) show the same characteristics (§§\ref{rn:15-27}ff.).
+\item[(iii)] Hence, fV are related in specific ways to the complementizer system. Note in particular §§\ref{rn:15-27} and \ref{rn:15-32}.
+\end{enumerate}
+Warning.\randnum\label{rn:15-2} This talk is going to appeal to analytic intuitions in a very sketchy manner. Many important details are not mentioned or/""and left to future work.
+
+
+\section{English FNRs}
+
+\randnum\label{rn:15-3}\pollardsag's FNR,\il{English|(} nonraising (slash-binding) variety (cf.\ \citeyear[216 (24)]{PollardSag1994}) (partial):
+\begin{exe}
+\ex
+\scalebox{.9}{
+\begin{avm}
+\onems[word]{phon \tpv{elist} \\ ss \[loc \[cat \[head \onems[rltvzr]{mod n$'$ \ldots} \\
+      val \[subj {\<\[\avml loc {\@4} \\ nonloc|inher|rel & \sliste{ \@1 }\avmr\]\>} \\ spr \tpv{elist} \\
+        comps \<\[loc \[{cat\[head \onems[verb]{vform \tpv{fin}} \\val\[\avml subj & 
+                \tpv{elist}\\spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]\\marking
+                \tpv{unmarked}\]} \\ content {\@5} \tpv{psoa}\]\\ nonloc|inher|slash \sliste{ \@4 } \]\>\]\]\\content 
+            \[ \avmtype{npro} \\ index & {\@1} \tpv{ref} \\ restr & \[\avml ft & {\@5} \\ rt & \tpv{list} \avmr\]\]\]\\
+    nonloc|to-bind|slash \sliste{ \@4 }\]\\}
+\end{avm}}
+\end{exe}
+
+\pagebreak
+\randnum\label{rn:15-4}P\&S's FNR, Subject-to-Subject Raising variety (cf.\ \citeyear[218 (28)]{PollardSag1994}) (partial):
+\begin{exe}
+\ex
+%\scalebox{.95}{
+%\oneline
+{%
+\begin{avm}
+\onems[word]{phon \tpv{elist} \\ ss {\[loc {\[cat {\[head \onems[rltvzr]{mod n$'$ \ldots} \\
+      val {\[subj {\<{\@7} {\[nonloc|inher|rel \sliste{ \@1 } \]}\>} \\ spr \tpv{elist} \\
+        comps \<{\[loc {\[{cat{\[head \onems[verb]{vform \tpv{fin}} \\val{\[\avml subj &
+                \sliste{ \@7 }\\spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]}\\marking \tpv{unmarked}\]}}\\content {\@5} \tpv{psoa}\]} \]}\>\]}\]}\\content 
+            \[\avmtype{npro} \\ index & {\@1} \tpv{ref} \\ restr & {\[ \avml ft & {\@5} \\ rt & \tpv{list} \avmr\]}\] \]}\]}\\}
+\end{avm}}
+\end{exe}
+
+\randnum\label{rn:15-5} Comment~1. Ingeniously, P\&S use the \isi{SELR} to characterize (28) as being regularly expected on the basis of (24). I drop this assumption for empirical reasons (e.g., (\ref{ex:15-10}) below).
+
+Comment~2. P\&S specify \avmbox{7} as ``\isi{NP}''. I drop that as it is unjustified on both formal and empirical grounds.
+\vspace{1em}
+
+\randnum\label{rn:15-6}The nonraising FNR (identical subscripts indicate token-identical referential indices):
+\eal%(1)
+\settowidth\jamwidth{(P\&S (11d))}
+\label{ex:15-1}
+\ex%(1a)
+\label{ex:15-1a}
+(person$_{i}$) [who$_{i}$ e$_{i}$ [\textsubscript{S}~I talked to t$_{i}$]]$_{i}$ \jambox{(P\&S (1a))}
+%\exsourcefive{(1a)}{PollardSag1994}
+\ex%(1b)
+\label{ex:15-1b}
+(person$_{i}$) [ [whose$_{i}$ brother]$_{j}$ e$_{i}$ [\textsubscript{S}~Kim likes t$_j$]]$_{i}$ \jambox{(P\&S (2))}
+%\exsourcefive{(2)}{PollardSag1994}
+\ex%(1c)
+\label{ex:15-1c}
+(person$_{i}$) [[to whom$_{i}$] e$_{i}$ [\textsubscript{S}~Kim gave a book t]]$_{i}$ \jambox{(P\&S (25))}
+%\exsourcefive{(25)}{PollardSag1994}
+\ex%(1d)
+\label{ex:15-1d}
+(minister$_{i}$) [[in the middle of whose$_{i}$ sermon] e$_{i}$ [\textsubscript{S}~the dog barked
+    t]]$_{i}$ \jambox{(P\&S (11d))}
+%\exsourcefive{(11d)}{PollardSag1994}
+\zl
+
+\pagebreak
+{\randnum}The SSR FNR:
+\eal%(2)
+\settowidth\jamwidth{(P\&S (29))}
+\label{ex:15-2}
+\ex%(2a)
+\label{ex:15-2a}
+(person$_{i}$) [who$_{i}$ e$_{i}$ [\textsubscript{VP}~gave a book to Kim]]$_{i}$ \jambox{(P\&S (29))}
+%\exsourcefive{(29)}{PollardSag1994}
+\ex%(2b)
+\label{ex:15-2b}
+(person$_{i}$) [[whose$_{i}$ sister] e$_{i}$ [\textsubscript{VP}~gave a book to Kim]]$_{i}$ \jambox{(P\&S (3))}
+%\exsourcefive{(3)}{PollardSag1994}
+\ex%(2c)
+\label{ex:15-2c}
+(person$_{i}$) [[pictures of whom$_{i}$] e$_{i}$ [\textsubscript{VP}~were on sale]]$_{i}$ \jambox{(P\&S (9))}
+%\exsourcefive{(9)}{PollardSag1994}
+\ex%(2d)
+\label{ex:15-2d}
+([\ldots{} parties]$_{i}$) [[to be admitted to one of which$_{i}$] e$_{i}$ [\textsubscript{VP}~was a privilege]]$_{i}$ \jambox{(P\&S (23))}
+%\exsourcefive{(23)}{PollardSag1994}
+\zl
+
+\noindent
+\randnum\label{rn:15-7-2}Essential characteristics.%\randnum
+\label{rn:15-7} There is a natural class of \textsqe{complementizer} elements (in particular, relativizers). Some of them
+are SS raising and some are (nonraising) slash-binding. Their
+relationship is not accounted for by the \isi{SELR}, but by other means
+(which are not yet worked out). They all take S or \isi{VP} as the only
+element of the \textsc{comps} value. With nonraising elements, there may -- but need not -- be another non-empty \textsc{valence} value (\textsc{subj}, as with P\&S, or perhaps preferably \textsc{spr}). With raising elements, the \textsc{subj} value has one element.\il{English|)}
+
+\section{German non-3rd Null Relativizer}
+
+\randnum\label{rn:15-8}Relative clauses with (functionally) first or second person pronoun
+(\textit{ich}, \textit{wir}, \textit{du}, \textit{ihr}, \textit{Sie}) or vocative antecedent and a nonsubject
+relative phrase are obligatorily \textsqe{normal}:
+
+\begin{exe}
+\ex%(3)
+\label{ex:15-3}
+\begin{xlist}
+\ex%(3a)
+\label{ex:15-3a}
+\gll lieber Freund, den               [\textsubscript{S}~wir so gerne t besuchen]~!\\
+     dear friend    whom.\textsc{masc} \hphantom{[\textsubscript{S}~}we so gladly {} visit\\
+\ex%(3b)
+\label{ex:15-3b}
+\gll
+dich, den [\textsubscript{S}~wir so gerne t besuchen] \\
+you.\textsc{sg} whom.\textsc{masc} \hphantom{[\textsubscript{S}~}we so gladly {} visit \\ 
+\ex%(3c)
+\label{ex:15-3c}
+\gll
+ich, den [\textsubscript{S}~sie so gerne t besucht] \\
+I whom.\textsc{masc} \hphantom{[\textsubscript{S}~}she so gladly {} visits \\
+\ex%(3d)
+\label{ex:15-3d}
+\gll
+Ihnen, den [\textsubscript{S}~wir so gerne t besuchen] \\
+you.\textsc{honor} whom.\textsc{masc} \hphantom{[\textsubscript{S}~}we so gladly {} visit \\
+\end{xlist}
+\end{exe}
+{\randnum}Expectedly, there are also \textsqe{normal} relative clauses with subject relative pronoun:
+\begin{exe}
+\ex%(4)
+\label{ex:15-4}
+\begin{xlist}
+\ex[?]{%(4a)
+\gll
+lieber Freund, der [uns immer so gerne besucht hat]~! \\
+dear friend who.\textsc{masc} \spacebr{}us always so gladly visited has \\}
+\ex[]{%(4b)
+\gll
+dich, der [uns so gerne besucht] \\
+you who.\textsc{masc} \spacebr{}us so gladly visits \\}
+\pagebreak
+\ex[]{%(4c)
+\gll
+ich, der [sie so gerne besucht] \\
+I who.\textsc{masc} \spacebr{}her/""them so gladly visits \\}
+\ex[]{%(4d)
+\gll
+Ihnen, der [uns so gerne besucht] \\
+you.\textsc{honor} who.\textsc{masc} \spacebr{}us so gladly visits \\}
+\end{xlist}
+\end{exe}
+%
+\randnum\label{rn:15-9}But there is an unexpected alternative:
+\begin{exe}
+\ex%(5)
+\label{ex:15-5}
+\begin{xlist}
+\ex%(5a1)
+\label{ex:15-5a1}
+\gll
+lieber Freund, der [\textsubscript{S}~Sie uns immer so gerne besucht haben]~! \\
+dear friend who.\textsc{masc} \hphantom{[\textsubscript{S}~}you.\textsc{honor} us always so gladly visited have \\
+\exi{a$^\prime$.}%(5a2)
+\gll
+lieber Freund, der [\textsubscript{S}~du uns immer so gerne besucht hast]~! \\
+dear friend who.\textsc{masc} \hphantom{[\textsubscript{S}~}you us always so gladly visited have \\
+\ex%(5b)
+\label{ex:15-5b}
+\gll
+dich, der [\textsubscript{S}~du uns so gerne besuchst] \\
+you who.\textsc{masc} \hphantom{[\textsubscript{S}~}you us so gladly visit \\
+\ex%(5c)
+\label{ex:15-5c}
+\gll
+ich, der [\textsubscript{S}~ich sie so gerne besuche] \\
+I who.\textsc{masc} \hphantom{[\textsubscript{S}~}I her/""them so gladly visit \\
+\ex%(5d)
+\label{ex:15-5d}
+\gll
+Ihnen, der [\textsubscript{S}~Sie uns so gerne besuchen] \\
+you.\textsc{honor} who.\textsc{masc} \hphantom{[\textsubscript{S}~}you.\textsc{honor} us so gladly visit \\
+\end{xlist}
+\end{exe}
+%
+\randnum\label{rn:15-10}There is agreement between the antecedent and the subject of the relative clause as to: 
+\begin{quotation}
+\textit{c-inds} (speaker, hearer, number), honorification;
+\end{quotation}
+between the antecedent and the relative pronoun (just as in (\ref{ex:15-3}) and (\ref{ex:15-4})) as to: 
+\begin{quotation}
+natural number, natural sex;
+\end{quotation}
+between the relative pronoun and the subject as to: 
+\begin{quotation}
+case (nominative).
+\end{quotation}
+\randnum\label{rn:15-11}No attempt is made here to develop precise agreement mechanisms and
+modify the properties of the sorts \textit{index} and \textit{c-inds} accordingly. But it can be seen that the arrangement of constituents in (\ref{ex:15-5}) complies with the predictions of §\ref{rn:15-7}.
+
+\pagebreak
+\randnum\label{rn:15-12}German non-3rd Null Relativizer (roughly):
+\begin{exe}
+\ex
+\scalebox{.8}{
+\begin{avm}
+\onems[word]{phon \tpv{elist} \\ ss {\[loc {\[cat {\[head \onems[rltvzr]{mod n$'$ \ldots} \\
+      val {\[subj & \tpv{elist} \\ spr & {\<{\[nonloc|inher|rel \<{\@1}\>\]}\>} \\
+        comps & \<{\[loc {\[{cat{\[head \onems[verb]{vform \tpv{fin}\\ smor {\[content & \tpv{ppro} \\ context & \ldots{} {\@1} \tpv{n3rd} \]}} \\val{\[\avml subj &
+                \tpv{elist}\\spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]}\\marking \tpv{unmarked}\]}}\\content {\@5} \tpv{psoa}\]} \]}\>\]}\]}\\content \[ \avmtype{npro} \\ index & \ldots \\ restr & {\[\avml ft & {\@5} \\ rt & \tpv{nelist} \avmr\]}\] \]}\]}\\}
+\end{avm}}
+\end{exe}
+
+\section{The attribute \textsc{smor}}
+
+\largerpage
+\randnum\label{rn:15-13}In §\ref{rn:15-12}, use is made of a new head attribute \textsc{smor}. Its value is
+intended to be the \textsc{local} value of the subject, i.e., of that phrase
+that agrees with the finite verb as to person and number, if there is
+one. In this way, information about properties of a subject contained
+in a phrase is available to anything that selects that phrase. This
+attribute allows the case of the subject in \textit{for-to} infinitives to be
+selected by \textit{for}:
+
+\begin{exe}
+\ex%(6)
+\label{ex:15-6}
+\begin{xlist}
+\ex[]{%(6a)
+[for [her to do the ugly work]] is pleasant for him}
+\ex[*]{%(6b)
+[for [she to do the ugly work]] is pleasant for him}
+\end{xlist}
+\end{exe}
+\addlines
+\randnum\label{rn:15-14}It provides information for \textsqe{comp-agreement} as in (\ref{ex:15-7}) (Eastern
+Dutch\il{Dutch!Eastern}). Notice that the complementizer's suffix is independent of the
+verb's suffix.
+\eal%(7)
+\settowidth\jamwidth{(9)}
+\label{ex:15-7}
+\ex%(7a)
+\label{ex:15-7a}
+\gll az\underline{ze} \underline{wy} de törf niet verkoopn kun\underline{t} \\
+     that.1\textsc{pl} we the peat not sell can.1\textsc{pl} \\\jambox{(Haeringen \citeyear[119]{vanHaeringen1958})}
+%\exsourcefive{119}{vanHaeringen1958}
+\ex%(7b)
+\label{ex:15-7b}
+\gll az(*-\underline{ze}) \underline{ze}/\underline{zy} de törf niet verkoopn kun\underline{t} \\
+     that(-3\textsc{pl}) they the peat not sell can.3\textsc{pl} \\
+\zl
+{\randnum}And it helps accounting for \isi{VP} topicalization with \textsqe{ergative} subjects in German:
+\begin{exe}
+\ex%(8)
+\label{ex:15-8}
+\begin{xlist}
+\ex%(8a)
+\label{ex:15-8a}
+\gll
+[der Wein ausgegangen] ist uns diesmal nicht \\
+\spacebr{}the.\textsc{nom.sg} wine come.to.an.end is for.us this.time not \\
+\ex%(8b)
+\label{ex:15-8b}
+\gll
+[die Argumente ausgegangen] sind/*ist uns diesmal nicht \\
+\spacebr{}the.\textsc{nom.pl} arguments come.to.an.end are/*is for.us this.time not \\
+\end{xlist}
+\end{exe}
+
+\section{Scandinavian \textit{som}}
+\randnum\label{rn:15-15}In Scandinavian\il{Scandinavian} languages~-- in particular, in
+Norwegian\il{Norwegian}~-- \textit{som} functions as an introduction (i)~to
+expressions of comparison, (ii)~to relative clauses, (iii)~to
+\emph{wh}-interrogative clauses. (\textit{That}-clauses are introduced by \textit{at},
+\textit{whether}-clauses by \textit{om}.)
+
+
+\subsection{Interrogative clauses}
+
+\randnum\label{rn:15-16}There is no way to predict that \textit{som} can occur
+with \emph{wh}-interrogative clauses, and it is unexpected that it is
+obligatory with subject interrogatives (\ref{ex:15-9}). With object interrogatives
+(\ref{ex:15-10}), it is possible but disprefered in Swedish and impossible in
+Norwegian\il{Norwegian}.
+\eal
+\settowidth\jamwidth{(9)}
+%(9)
+\label{ex:15-9}
+\ex[]{%(9a)
+\gll vi vet hvem som [snakker med Marit] \\
+     we know who som \spacebr{}talks with Mary \\\jambox{\citep[(7)]{Taraldsen1986}}}
+%\exsourcefive{(7)}{Taraldsen1986}
+\ex[*]{%(9b)
+\gll vi vet hvem [snakker med Marit] \\
+     we know who \spacebr{}talks with Mary \\\jambox{(8)}
+}
+%\exsourcefive{(8)}{Taraldsen1986}
+\zl
+\eal%(10)
+\settowidth\jamwidth{(9)}
+\label{ex:15-10}
+\ex[\%]{%(10a)
+\gll
+vi vet hvem som [\textsubscript{S}~Marit snakker med t] \\
+we know who som \hphantom{[\textsubscript{S}~}Mary talks with \\\jambox{(10)}}
+%\exsourcefive{(10)}{Taraldsen1986}
+\ex[]{%(10b)
+\gll
+vi vet hvem [\textsubscript{S}~Marit snakker med t] \\
+we know who \hphantom{[\textsubscript{S}~}Mary talks with \\\jambox{(9)}}
+%\exsourcefive{(9)}{Taraldsen1986}
+\zl
+\randnum\label{rn:15-17}A natural account is to postulate for Norwegian\il{Norwegian} and Swedish\il{Swedish} (i) \textit{om} as an interrogativizer that is neither slash"=binding nor raising, (ii) \textit{som}
+as a raising irogvzr, (iii) a null slash"=binding irogvzr; and for
+Swedish (iv) another \textit{som} irogvzr that is slash"=binding. Thus, the Swedish \textit{som}
+irogvzrs overtly show just the essential properties of the English\il{English} FNRs.
+
+\pagebreak
+\randnum\label{rn:15-18}Scandinavian\il{Scandinavian} \textit{om} interrogativizer (partial):
+\begin{exe}
+\ex
+\oneline{%
+\begin{avm}
+\onems[word]{phon \sliste{ \textnormal{om} } \\ 
+             ss {\[loc {\[cat  {\[head \tpv{irogvzr} \\
+                                   val {\[subj & \tpv{elist} \\ 
+                                     spr & \tpv{elist} \\
+                                     comps & \<{\[loc {\[{cat{\[head \onems[verb]{vform \tpv{fin}} \\
+                                                                val {\[\avml subj & \tpv{elist}\\
+                                                                             spr & \tpv{elist}\\
+                                                                           comps &
+                                                                           \tpv{elist}\avmr\]}\\
+                                                                marking \tpv{unmarked}\]}}\\
+                                         content \tpv{psoa}\]} \]}\>\]}\]}\\
+                           content \tpv{psoa} \]}\]}\\}
+\end{avm}
+}
+\end{exe}
+
+\randnum\label{rn:15-19}Scandinavian\il{Scandinavian} \textit{som} raising irogvzr (partial):
+\begin{exe}
+\ex
+%\scalebox{.85}{
+\oneline{%
+\begin{avm}
+\onems[word]{phon \sliste{ \textnormal{som} } \\ ss {\[loc {\[cat {\[head \tpv{irogvzr} \\
+      val {\[subj & \<{\@7} \[nloc|inher|que \sliste{ \tpv{npro} }\]\> \\ spr & \tpv{elist} \\ 
+        comps & \<{\[loc {\[{cat {\[head \onems[verb]{vform \tpv{fin}} \\val {\[\avml subj &
+                {\sliste{ \@7 }}\\spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]}\\marking \tpv{unmarked}\]}}\\content \tpv{psoa}\]} \]}\>\]}\]}\\content \tpv{psoa} \]}\]}\\}
+\end{avm}}
+\end{exe}
+\addlines[2]
+{\randnum}There is a question as to how the propagation of the nonempty \textsc{que}
+value is to be regulated. Since this involves general questions
+concerning the function and location of \textsc{to-bind}, these questions are
+not discussed here.
+
+\pagebreak
+\randnum\label{rn:15-20}Swedish \textit{som} slash-binding irogvzr (partial):
+\begin{exe}
+\ex
+\label{ex:15-99}
+\oneline{%
+\begin{avm}
+\onems[word]{phon \sliste{ \textnormal{som} } \\ ss {\[loc {\[cat & {\[head \tpv{irogvzr} \\
+      val {\[subj & \tpv{elist} \\ spr & {\<\[loc {\@4} \\ nonloc|inher|que \sliste{ \tpv{npro} }\]\>} \\
+        comps & \<{\[loc {\[{cat{\[head \onems[verb]{vform \tpv{fin}} \\val {\[\avml subj &
+                \tpv{elist} \\ spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]}\\marking
+                \tpv{unmarked}\]}}\\content \tpv{psoa}\]} \\ nonloc|inher|slash
+          \sliste{ \@4 } \]}\>\]}\]}\\content & \tpv{psoa} \]} \\ nonloc|to-bind|slash \sliste{ \@4 } \]}}
+\end{avm}}
+\end{exe}
+%\largerpage
+
+\randnum\label{rn:15-21}Scandinavian\il{Scandinavian} null slash-binding irogvzr (partial) (just like §\ref{rn:15-20}):
+\begin{exe}
+\ex
+\oneline{%
+\begin{avm}
+\onems[word]{phon \tpv{elist} \\ ss {\[loc {\[cat & {\[head \tpv{irogvzr} \\
+      val {\[subj & \tpv{elist} \\ spr & {\<\[loc {\@4} \\ nonloc|inher|que \sliste{ \tpv{npro} }\]\>} \\
+        comps & \<{\[loc {\[{cat{\[head \onems[verb]{vform \tpv{fin}} \\val {\[\avml subj &
+                \tpv{elist} \\ spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]}\\marking
+                \tpv{unmarked}\]}}\\content \tpv{psoa}\]} \\ nonloc|inher|slash \sliste{ \@4
+          } \]}\>\]}\]}\\content & \tpv{psoa} \]} \\ nonloc|to-bind|slash \sliste{ \@4 } \]}}
+\end{avm}}
+\end{exe}
+
+\subsection{Relative clauses}
+
+\randnum\label{rn:15-22}Relative clause introducing \textit{som} is distributed just like the
+interrogativizer \textit{som} is in Swedish, except that there is no (overt)
+relative phrase. Hence, there are two \textit{som} rltvzrs and one null rltvzr
+that are all similar to the Second Null Relativizer of \citet[222 (36)]{PollardSag1994}. Note that \textit{som} in Scandinavian\il{Scandinavian}, as opposed to \textit{that} in English\il{English},
+does not occur as an \textsqe{unmarked} complementizer, hence \textit{som} in
+relative clauses cannot be treated like P\&S attempt to treat \textit{that} in their §5.2.3.
+
+
+\eal%(11)
+\settowidth\jamwidth{(9)}
+\label{ex:15-11}
+\ex[]{%(11a)
+\label{ex:15-11a}
+\gll
+vi kjenner den mannen som [snakker med Marit] \\
+we know the man som \spacebr{}talks with Mary \\\jambox{(\citeauthor[(1)]{Taraldsen1986})}}
+%\exsourcefive{(1)}{Taraldsen1986}
+\ex[*]{%(11b)
+\label{ex:15-11b}
+\gll
+vi kjenner den mannen [snakker med Marit] \\
+we know the man \spacebr{}talks with Mary \\\jambox{(2)}}
+%\exsourcefive{(2)}{Taraldsen1986}
+\zl
+\largerpage[2]
+\eal%(12)
+\settowidth\jamwidth{(9)}
+\label{ex:15-12}
+\ex%(12a)
+\label{ex:15-12a}
+\gll
+vi kjenner den mannen som [\textsubscript{S}~Marit snakker med t] \\
+we know the man som \hphantom{[\textsubscript{S}~}Mary talks with \\\jambox{(3)}
+%\exsourcefive{(3)}{Taraldsen1986}
+\ex%(12b)
+\label{ex:15-12b}
+\gll
+vi kjenner den mannen [\textsubscript{S}~Marit snakker med t] \\
+we know the man \hphantom{[\textsubscript{S}~}Mary talks with \\\jambox{(4)}
+%\exsourcefive{(4)}{Taraldsen1986}
+\zl
+
+\pagebreak
+\randnum\label{rn:15-23}Scandinavian\il{Scandinavian} slash-binding \textit{som} relativizer:
+\begin{exe}
+\ex
+%\scalebox{.68}
+\oneline{\begin{avm}
+\onems[word]{phon \sliste{ \textnormal{som} } \\ ss \[loc \[cat \[head \onems[rltvzr]{mod n$'$ \ldots} \\
+      val \[subj & \tpv{elist} \\ spr & \tpv{elist} \\
+        comps & \<\[loc \[{cat\[head \onems[verb]{vform \tpv{fin}} \\val\[\avml subj &
+                \tpv{elist}\\spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]\\marking
+                \tpv{unmarked}\]} \\ content {\@5} \tpv{psoa} \]\\ nonloc|inher|slash \sliste{ \@4 } \]\>\]\]\\content 
+            	\[\avmtype{npro} \\ index & {\@1} \tpv{ref} \\ restr & \[\avml ft & {\@5} \\ rt & \tpv{nelist} \avmr\]\]
+            	 \]\\
+    nonloc|to-bind|slash \<{\@4} \[{cat\[head \tpv{noun} \\val\[\avml subj &
+                \tpv{elist}\\spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]\\marking \tpv{unmarked}\]} \\ content {\[index {\@1} \\ restr \tpv{elist}\]} \]  \>\]}
+\end{avm}}
+\end{exe}
+
+\pagebreak
+\randnum\label{rn:15-24}Scandinavian\il{Scandinavian} raising \textit{som} relativizer:
+\begin{exe}
+\ex
+%\scalebox{.75}
+\oneline{
+\begin{avm}
+\onems[word]{phon \sliste{ \textnormal{som} } \\ ss|{loc \[cat \[head \onems[rltvzr]{mod n$'$ \ldots} \\
+      val \[subj & \tpv{elist} \\ spr & \tpv{elist} \\
+        comps & \<\[loc \[{cat\[head \onems[verb]{vform \tpv{fin}} \\
+                                val\[\avml subj {\<\[loc|content|index {\@1}\]\>}\\
+                                           spr \tpv{elist}\\
+                                           comps \tpv{elist}\avmr\]\\
+                                marking \tpv{unmarked}\]} \\ content {\@5} \tpv{psoa} \]\]\>\]\]\\content 
+            	\[\avmtype{npro} \\ index & {\@1} \tpv{ref} \\ restr & \[\avml ft & {\@5} \\ rt & \tpv{nelist} \avmr\]\]
+            	\]}}
+\end{avm}}
+\end{exe}
+
+\pagebreak
+\randnum\label{rn:15-25}Scandinavian\il{Scandinavian} slash-binding null relativizer (just like §\ref{rn:15-23}):
+\begin{exe}
+\ex
+%\oneline{%
+\scalebox{.9}{%
+\begin{avm}
+\onems[word]{phon \tpv{elist} \\ ss \[loc \[cat \[head \onems[rltvzr]{mod n$'$ \ldots} \\
+      val \[subj & \tpv{elist} \\ spr & \tpv{elist} \\
+        comps & \<\[loc \[{cat\[head \onems[verb]{vform \tpv{fin}} \\val\[\avml subj &
+                \tpv{elist}\\spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]\\marking \tpv{unmarked}\]} \\ content {\@5} \tpv{psoa} \]\\ nonloc|inher|slash \<{\@4}\> \]\>\]\]\\content 
+            	\[\avmtype{npro} \\ index & {\@1} \tpv{ref} \\ restr & \[\avml ft & {\@5} \\ rt & \tpv{nelist} \avmr\]\]
+            	\]\\
+    nonloc|to-bind|slash \<{\@4} \[{cat\[head \tpv{noun} \\val\[\avml subj &
+                \tpv{elist}\\spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]\\marking \tpv{unmarked}\]} \\ content {\[index & {\@1} \\ restr & \tpv{elist}\]} \]  \>\]}
+\end{avm}}
+\end{exe}
+
+%\addlines
+%\largerpage[2]
+\section{English \textit{that}-relativizers}
+
+\randnum\label{rn:15-26}English\il{English|(} non-\emph{wh}-relative clauses pattern exactly like the Scandinavian\il{Scandinavian}
+ones. Cf.\  (\ref{ex:15-13}) and (\ref{ex:15-14}) to (\ref{ex:15-11}) and (\ref{ex:15-12}). Hence, I drop P\&S's
+assumption that there is a nominative relative pronoun \textit{that} (\citeyear[220 (33)]{PollardSag1994}). Instead, there are two \textit{that}-relativizers and one null
+relativizer corresponding exactly to the Scandinavian\il{Scandinavian} ones
+(§§\ref{rn:15-23}--\ref{rn:15-25}).
+
+\eal%(13)
+\settowidth\jamwidth{(9)}
+\label{ex:15-13}
+\ex[]{%(13a)
+  (student) that [was telling you about cell structure] \jambox{(P\&S: (32c))}}
+%\exsourcefive{(32c)}{PollardSag1994}}
+\ex[*]{%(13b)
+  (student) [was telling you about cell structure] \jambox{(cf. P\&S: (38))}}
+%\exsourcefive[cf.]{(38)}{PollardSag1994}}
+\zl
+\eal%(14)
+\settowidth\jamwidth{(9)}
+\label{ex:15-14}
+\ex[]{%(14a)
+\label{ex:15-14a}
+(student) that [\textsubscript{S}~I was telling you about t]  \jambox{(P\&S: (32a))}}
+%\exsourcefive{(32a)}{PollardSag1994}
+\ex[]{%(14b)
+\label{ex:15-14b}
+(student) [\textsubscript{S}~I was telling you about t]  \jambox{(P\&S: (32b))}}
+%\exsourcefive{(32b)}{PollardSag1994}
+\zl\il{English|)}
+
+\section{fV with and without \textsqe{subject inversion}}
+
+\randnum\label{rn:15-27}Fronted finite verbs (fV, i.e. \isi{V1} and V2) in most Germanic languages
+show exactly the same inflexional morphophonemics as their non"=fronted
+counterparts (uV). (One celebrated exception in Modern English\il{English} is
+Hudson's \citeyear{Hudson1977} \textit{aren't I}.) Therefore, many attempts to understand \textsqe{verb movement} proceed from the assumption that fronted and unfronted verbs are in an important sense \textsqe{the same} (and tend to get stuck someplace). This assumption is partially correct for fV (V2) that follow their subject (S-fV); it is incorrect for \textsqe{inverted} fV that precede their subject (\mbox{fV-S}). At the same time, (projections of) S-fV and \mbox{fV-S} share well-known properties that set them apart from (projections of) uV.
+
+\randnum\label{rn:15-28}In Old English\il{Old English} and in Middle Low German\il{Middle Low German}, a 1\textsc{pl} or 2\textsc{pl} \mbox{fV-S} can or must
+bear special inflexional properties different from the inflexion of
+S-fV and uV (\citealt{Brunner1965}, \citealt{Lasch1974}, \citealt{Sarauw1924}). Probably, the same pattern
+underlies the variation in Tatian (Old High German\il{Old High German}) of 1\textsc{pl} \textit{-mes} and
+\textit{-n}, although the figures are too small to be conclusive
+\citep{Eggenberger1961}. In Middle High German\il{Middle High German}, 1\textsc{pl} \textit{-e} and \textit{-(e)n} alternate accordingly \citep{Paul1989E}.
+
+\randnum\label{rn:15-29}Standard Dutch\il{Dutch} is well-known for its obligatory 2\textsc{sg} alternation:
+\begin{exe}
+\ex%(15)
+\label{ex:15-15}
+\begin{xlist}
+\ex%(15a)
+\label{ex:15-15a}
+\gll
+dat jij misschien ziek bent/*ben \\
+that you perhaps sick are \\
+\ex%(15b)
+\label{ex:15-15b}
+\gll
+jij bent/*ben misschien ziek \\
+you are perhaps sick \\
+\ex%(15c)
+\label{ex:15-15c}
+\gll
+(misschien) ben(*-t) jij ziek \\
+\hphantom{(}perhaps are you sick \\
+\end{xlist}
+\end{exe}
+\addlines[2]
+\randnum\label{rn:15-30}Since the \mbox{fV-S} here is characterized by the
+absence of \textit{-t}, some unusual kind of deletion rule might be
+invoked. Nothing like that is possible in dialectal data like (\ref{ex:15-16})
+from Eastern Dutch\il{Dutch}:
+%\addlines[2]
+\eal%(16)
+\settowidth\jamwidth{(9)}
+\label{ex:15-16}
+\ex%(16a)
+\label{ex:15-16a}
+\gll
+dat wii kiikt \\
+that we look \\\jambox{\citep[318]{Entjes1970}}
+%\exsourcefive{318}{Entjes1970}
+\ex%(16b)
+\label{ex:15-16b}
+wii kiikt
+\ex%(16c)
+\label{ex:15-16c}
+(XP) kiiken wii
+\end{xlist}
+\end{exe}
+There is a broad spectrum of alternations throughout different dialects of Dutch\il{Dutch}.
+
+%\addlines
+\randnum\label{rn:15-32}It is apparent that S-fV and \mbox{fV-S} correspond to raising and nonraising complementizers such as seen in §\ref{rn:15-19} and §§\ref{rn:15-18}, \ref{rn:15-20}, respectively.
+
+\randnum\label{rn:15-33}Raising S-fV \textit{kiikt} (partial); cf.\  §\ref{rn:15-19}:
+\begin{exe}
+\ex
+\scalebox{.72}{%
+%\oneline{
+\begin{avm}
+\onems[word]{phon {\<\textnormal{kiikt}\>} \\ ss \[loc \[cat & \[head & \ldots \\
+      val & \[subj & {\< {\@2} \[loc \[\avml cat|head & \tpv{noun} \\ content|index & {\[pers & \tpv{1} \\ number & \tpv{pl} \]} \avmr\]\]\>} \\
+      spr & \tpv{elist} \\
+        comps & \<\[loc \[{cat\[head & {\@3} \onems[verb]{vform \tpv{fin}} \\val & \[\avml subj & 
+                {\<{\@2}\>}\\spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]\\marking & \tpv{unmarked}\]}\\ content {\@5} \tpv{psoa} \]\\ nonloc|inher|slash \<{\@4}\> \]\>\]\]\\content & {\@5} \]\\
+    nonloc|to-bind|slash \<{\@4} {\[cat|head & {\@3} \\ content & \tpv{psoa}\]} \>\]\\}
+\end{avm}}
+\end{exe}
+
+\randnum\label{rn:15-34}Nonraising \mbox{fV-S} (\isi{V1}) \textit{kiiken} (partial); cf.\ §§\ref{rn:15-12} and \ref{rn:15-18}:
+\begin{exe}
+\ex
+%\scalebox{.7}
+\oneline{
+\begin{avm}
+\onems[word]{phon {\<\textnormal{kiiken}\>} \\ ss \[loc \[cat & \[head & \ldots \\
+      val & \[subj & \tpv{elist} \\ spr & \tpv{elist} \\
+        comps & \<\[loc \[{cat  \[head & {\@3} \onems[verb]{\avml vform \tpv{fin} \\
+        smor|content|index & {\[pers & \tpv{1}\\ numb & \tpv{pl} \]} \avmr} \\val & \[\avml subj &
+                \tpv{elist}\\spr & \tpv{elist}\\comps & \tpv{elist}\avmr\]\\marking & \tpv{unmarked}\]}\\ content  {\@5} \tpv{psoa} \]\\ nonloc|inher|slash \<{\@4}\> \]\>\]\]\\content & {\@5} \]\\
+    nonloc|to-bind|slash \<{\@4} {\[cat|head & {\@3} \\ content & \tpv{psoa}\]} \>\]\\}
+\end{avm}}
+\end{exe}
+\randnum\label{rn:15-35}Naturally, an \mbox{fV-S} gets its agreement
+information from the \textsc{smor} value of its complement. Significantly,
+\citet{vanHaeringen1958} has observed that in those dialects that show inflexion on
+complementizers as in (\ref{ex:15-7}), the complementizer inflexion is modelled on
+the inflexion of \mbox{fV-S}, not S-fV/""uV. (\citealt[Chapter~III.3]{Zwart1993} provides
+\textsqe{minimalist} discussion.)
+
+\randnum\label{rn:15-36}The accounts for \textsqe{raising} complementizers and S-fV presented here entail that the complement's subject cannot
+undergo \textsqe{short movement}. This restriction applies in particular to
+Norwegian\il{Norwegian} and Dutch\il{Dutch}, two languages that are known to be very liberal
+wrt.\ \textsqe{Comp-trace} effects. One may interpret this as a contribution to
+the growing evidence that those effects are far from being understood.
+
+\section{Non"=finite fV}
+
+\randnum\label{rn:15-37}In several (geographically scattered) dialects
+of Low German\il{Low German}, Dutch\il{Dutch} and Old Frisian\il{Old Frisian} a version of asymmetric
+coordination of non"=finite verb projections can be found where the
+non"=finite verb in a non-first conjunct is fronted:
+\eal%(17)
+\settowidth\jamwidth{(9)}
+\label{ex:15-17}
+\ex%(17a)
+\label{ex:15-17a}
+\gll
+dann wollte ich mir eine Stube mieten und [\underline{verheiraten} mich] \\ 
+then wished I for.me a flat rent and \spacebr{}get.married.\textsc{inf} myself \\\jambox{\citep[76]{Teuchert1921}} 
+%\exsourcefive{76}{Teuchert1921}
+\ex%(17b)
+\label{ex:15-17b}
+\gll
+moust es komen en [\underline{zain} ons vooltje] \\
+must.you once come and \spacebr{}see our foal \\\jambox{\citep[(101c)]{Veldman1991}}
+%\exsourcefive{(101c)}{Veldman1991}
+\ex%(17c)
+\label{ex:15-17c}
+\gll
+ik zoo noo hous goon en [\underline{nemme(n)} ze mei] \\
+I should to home go and \spacebr{}take.\textsc{inf} them with \\\jambox{\citep[465]{deBont1962}}
+%\exsourcefive{465}{deBont1962}
+\zl
+\addlines
+\randnum\label{rn:15-38}In Modern Frisian, the non"=finite verb, when fronted, takes the form of the imperative:
+\eal%(18)
+\settowidth\jamwidth{(9)}
+\label{ex:15-18}
+\ex%(18a)
+\label{ex:15-18a}
+\gll
+de plysje soe bij him komme en [syn papieren mei \underline{nimme}/*nim] \\
+the police will to him come and \spacebr{}his papers with take \\\jambox{\citep[(8)]{deHaan1990}}
+%\exsourcefive{(8)}{deHaan1990}
+\ex%(18b)
+\label{ex:15-18b}
+\gll
+de plysje soe bij him komme en [\underline{nim}/*nimme syn papieren mei] \\
+the police will to him come and \spacebr{}take.\textsc{ipv} his papers with \\\jambox{\citep[(9)]{deHaan1990}}
+%\exsourcefive{(9)}{deHaan1990}
+\zl
+\randnum\label{rn:15-39}Evidently, being fronted has been sufficient
+for non"=finite verbs to assimilate to a form (imperative) with a
+totally different meaning. This seems to indicate that \textsqe{verb movement} involves something much deeper than mere temporal precedence.
+
+
+\nocite{Hudson1977,Taraldsen1986,Sarauw1924}
+
+\sloppy
+\printbibliography[heading=subbibliography,notkeyword=this]
+\refstepcounter{mylastpagecount}\label{chap-creatures-end}
+\end{document}

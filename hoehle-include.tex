@@ -1,0 +1,84 @@
+%%% -*- coding:utf-8 -*- 
+\input{localmetadata}
+\input{localpackages}
+\input{localhyphenation}
+\input{localcommands} 
+\bibliography{localbibliography} 
+
+\begin{document}              
+
+\maketitle          
+\frontmatter 
+\tableofcontents      
+\include{chapters/preface} 
+\include{chapters/acknowledgments}
+\include{chapters/abbreviations}
+\mainmatter         
+
+
+%\part{Topologische Felder}
+\part{Topological fields}
+
+\renewcommand{\lsChapterFooterSize}{\footnotesize}
+\includepaper{chapters/Topo} %tex %%1
+
+%\part{Kleine Schriften} 
+\part{Selected papers}
+%
+\renewcommand{\lsChapterFooterSize}{\scriptsize}
+\includepaper{chapters/empirische-generalisierungen} %scanpdf%18
+
+\renewcommand{\lsChapterFooterSize}{\scriptsize}
+\includepaper{chapters/explikation-normale-wortstellung} %scanpdf %%7
+
+\renewcommand{\lsChapterFooterSize}{\footnotesize}
+\includepaper{chapters/Subjektluecken} %versionskonflikte %%3
+
+\renewcommand{\lsChapterFooterSize}{\scriptsize}
+\includepaper{chapters/composition-derivation} %%10
+
+\renewcommand{\lsChapterFooterSize}{\scriptsize}
+\includepaper{chapters/mittelfeld} %scanpdf %%5
+
+\renewcommand{\lsChapterFooterSize}{\scriptsize}
+\includepaper{chapters/Asym}  %tex %%2
+% % %\includepaper{chapters/BindingReconstruction} %word %fällt weg
+
+\renewcommand{\lsChapterFooterSize}{\footnotesize}
+\includepaper{chapters/reconstruction-coordination} %scanpdf  %%6
+
+\renewcommand{\lsChapterFooterSize}{\scriptsize}
+\includepaper{chapters/Projektionsstufen}  %tex %%4
+
+\renewcommand{\lsChapterFooterSize}{\footnotesize}
+\includepaper{chapters/verum-fokus} %scanpdf  %%8
+
+\renewcommand{\lsChapterFooterSize}{\scriptsize}
+\includepaper{chapters/komplementierer} %scanpdf %%11
+
+\renewcommand{\lsChapterFooterSize}{\scriptsize}
+\includepaper{chapters/w-w}%folder %12
+
+\includepaper{chapters/v3} %scanpdf %13
+%
+%
+%%HPSG
+
+\renewcommand{\lsChapterFooterSize}{\footnotesize}
+\includepaper{chapters/spuren-hpsg} %scanpdf %16
+
+\renewcommand{\lsChapterFooterSize}{\footnotesize}
+\includepaper{chapters/spurenlose-extraktion} %scanpdf %17
+
+\renewcommand{\lsChapterFooterSize}{\scriptsize}
+\includepaper{chapters/celr} %scanpdf %14
+
+\renewcommand{\lsChapterFooterSize}{\footnotesize}
+\includepaper{chapters/creatures-of-darkness}%scanpdf %15
+
+\renewcommand{\lsChapterFooterSize}{\footnotesize}
+\includepaper{chapters/phonology} %%9
+\input{backmatter.tex}
+
+\end{document} 
+ 

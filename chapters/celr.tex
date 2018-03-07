@@ -1,0 +1,456 @@
+%% -*- coding:utf-8 -*-
+\documentclass[output=paper]{LSP/langsci}
+\author{Tilman N. Höhle}
+\title{Complement extraction lexical rule and variable argument raising}
+%\epigram{Change epigram in chapters/01.tex or remove it there}
+\abstract{}
+\maketitle
+% \rohead{\thechapter\hspace{0.5em}short title} % Display short title
+\ChapterDOI{10.5281/zenodo.1169691}
+\begin{document}
+\label{chap-celr}
+%
+\selectlanguage{english}%
+\setcounter{randcount}{0}%
+%
+%\noindent%
+\randnum\label{rn:14-1}%
+When (i) clause union phenomena are described by lexical entries
+involving variable argument raising in the manner of \citet{HinrichsNakazawa1993b} and (ii) object extraction is accounted for without
+trace by lexical rule (\isi{CELR}), the empirical consequences that many
+authors wished to achieve by these formal constructs are
+systematically unavailable.
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{4}
+\footnotetext{%
+\emph{Editors’ note:} This is the previously unpublished paper version of a talk given at the \isi{HPSG} workshop in Tübingen on June 21, 1995. The citation style was adjusted to the conventions in this volume, and closing brackets (omitted in the original) were added to all AVMs. The text used to be available from a web page with the note: `The background of this has been developed in lecture notes (Spurenlose \isi{Extraktion} [\citealt{hoehle94b}]) in 1994.'%
+}
+
+%p.~\pageref{rn:17-1} in this vol.
+
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+\randnum\label{rn:14-2}One probable consequence is that the \isi{CELR} has to be dropped. Among
+various alternative formal options, extraction by trace appears to
+be superior.
+
+\randnum\label{rn:14-3}The grammar of \citet{PollardSagE1994} has two components: a set
+of descriptions \textsf{Descr} and a collection of metadescriptive expressions
+\textsf{Meta}. Any feature structure is grammatically well-formed only if it
+satisfies every member of \textsf{Descr}. Among the members of \textsf{Descr} are,
+e.g., the HFP, the Subcat Principle, the ID Principle, the Trace
+Principle, the various parts of~the Binding Theory.
+
+\randnum\label{rn:14-4}\citet{PollardSagE1994} assumes that a Lexicon~-- i.e., a collection of lexical entries~--
+is part of the grammar (an assumption that might be debated); and
+members of \textsf{Meta} are meant to express statements about the Lexicon and
+its members, namely:
+\enlargethispage{\baselineskip}
+\begin{enumerate}
+\item[(i)] a collection of ``generic lexical entries''
+  \citep[36f.]{PollardSagE1994}. ``Actual lexical entries'' are in a
+  relation ``instantiate'' to generic lexical entries, and the
+  ``information'' associated with either of them is ``amalgamated'' in the
+  former.  
+
+\begin{sloppypar}  
+  Clearly, generic lexical entries are descendants of the
+  \textsqe{generic lexical frames} in \citet{Flickingeretal1985}, the
+  \textsqe{(definitions of) word classes} in \citet{Flickinger1987} and
+  \citet{FlickingerNerbonne1992}, and the \textsqe{(definitions of) lexical
+  types} in \citet[192--196, 198f.\ and 200--208]{PollardSag1987}. (N.b.\ that although the types of \citealt{PollardSag1987} in general
+  correspond to the sorts of \citealt{PollardSagE1994}, the lexical
+  types of \citealt{PollardSag1987} correspond to generic lexical entries of
+  \citealt{PollardSagE1994} rather than to sorts.)
+\end{sloppypar}
+\item[(ii)] the Raising Principle and the Control Theory. These are
+well-formedness conditions on lexical entries of the form: if
+lexical entry E has property α, then E also has property β. (α and β
+are compatible.)
+\item[(iii)] a set of lexical rules. These are well"=formedness conditions on
+the Lexicon of the form: if Lexicon L has a member with property α,
+then L also has a member with property β. (α and β are
+incompatible.)
+\end{enumerate}
+\randnum\label{rn:14-5}Although \citet{PollardSagE1994} is silent about the role of the Lexicon in the grammar, a Word Principle (WP) might be inferred:
+{\exewidth{(iWP)}
+\begin{exe}
+\exi{(iWP)}
+Any feature structure of sort \textit{word} must satisfy a lexical
+entry. \\ (Hence, a lexical entry is a description.)
+\end{exe}
+}
+If the WP is thought to be a member of \textsf{Descr}, it can be formalized:
+\begin{exe}
+\exi{(fWP)}
+:\textit{word} $\Rightarrow$ (D\sub{1} $\vee$ \ldots $\vee$ D$_n$)
+\end{exe}
+In this case, the Lexicon~-- i.e., the set of D\sub{\textit{i}} in the fWP~-- is necessarily finite. But if lexical rules are used to define the Lexicon inductively, as in \citet[395 n.~1]{PollardSagE1994}, the WP must be a member of \textsf{Meta}, and there is no known way to formalize it. (Cf.\ \citealt{Pollard93}.)
+
+\randnum\label{rn:14-6}In section 9.5.1 of \citet{PollardSagE1994}, traces are abolished; i.e., the Trace Principle is tacitly replaced by a No Trace Principle to the effect that there is no sign whose \textsc{loc} value is a member of its \textsc{inher} \textsc{slash} value:
+\begin{exe}
+\exi{(NTP)}
+\label{ex:14-NTP}
+$\neg$:\textsc{ss} \textsc{loc} $\approx$ :\textsc{ss} \textsc{nonloc} \textsc{inher} \textsc{slash} \textsc{first}
+\end{exe}
+\addlines[2]
+Unslashed words with a trace complement are substituted by slashed
+words. \citet{PollardSagE1994} attempts to motivate this move by data discussed by
+\citet{PickeringBarry1991}. However, this attempt is inconsistent with the word
+order theory of \isi{HPSG}. \citegen{PickeringBarry1991} data are problematic for theories (like,
+e.g., \isi{GPSG}) in which phonologically empty constituents are subject to
+constituent order principles just like nonempty constituents are. But
+from the \isi{HPSG} word order theory it follows that empty constituents
+have no word order properties at all (cf.\ \citealt[291f.]{Moshier1990});
+hence it \textit{predicts} the possible existence of \citegen{PickeringBarry1991} data.~-- Even though
+dropping traces is unmotivated, one might wish to explore its
+consequences.
+
+\randnum\label{rn:14-7}Thus, while the word \textit{gibt} in (\ref{ex:14-1a}) is unslashed,
+the word \textit{gibt} in (\ref{ex:14-1b}) is slashed, and so are their respective lexical
+entries in (\ref{ex:14-2}).
+\begin{exe}
+\ex
+\label{ex:14-1}
+\begin{xlist}
+\ex
+\label{ex:14-1a}
+daß [er es ihr gibt]
+\ex
+\label{ex:14-1b}
+wem [er es gibt]
+\end{xlist}
+\ex
+\label{ex:14-2}
+\begin{xlist}
+\ex
+\label{ex:14-2a}
+lexical entry of unslashed \textit{gibt} \textsqe{gives} as in (\ref{ex:14-1a}):\\
+\scalebox{.72}{
+%\oneline{%
+\begin{avm}
+\onems[word]{phon \<\textnormal{gibt}\> \\ ss \[ loc \[cat \[head vform \tpv{finite} \\
+      subcat \[ first loc {\[ cat head case & \tpv{dative} \\ content index & {\@1} \]} \\ rest \[ first loc \[ cat head case & \tpv{accusative} \\ content index & {\@2} \] \\ rest \[first loc {\[ cat head case & \tpv{nominative} \\ content index & {\@3} \]} \\ rest \tpv{elist} \] \] \] \] \\ content \[\avmtype{give} \\ giver & {\@3} \tpv{ref} \\ given & {\@2} \tpv{ref} \\ receiver & {\@1} \tpv{ref}\] \]\\
+    nonloc \[ inher slash & \tpv{elist} \\ to-bind slash & \tpv{elist} \] \]}
+\end{avm}}
+\ex
+\label{ex:14-2b}
+lexical entry of slashed \textit{gibt} as in (\ref{ex:14-1b}):\\
+\scalebox{.72}{\begin{avm}
+	\onems[word]{phon \<\textnormal{gibt}\> \\ ss \[ loc \[cat \[head vform \tpv{finite} \\
+		subcat \[ first loc {\[ cat head case & \tpv{accusative} \\ content index & {\@2} \]} \\ rest \[ first loc {\[ cat head case & \tpv{nominative} \\ content index & {\@3} \]} \\ rest \tpv{elist} \] \] \] \\ content \[\avmtype{give} \\ giver & {\@3} \tpv{ref} \\ given & {\@2} \tpv{ref} \\ receiver & {\@1} \tpv{ref}\] \]\\
+		nonloc \[ inher slash & \[first & \[cat head case & \tpv{dative}\\ content index & {\@1}\] \\ rest & \tpv{elist} \]  \\ to-bind slash & \tpv{elist} \] \]}
+\end{avm}}
+\end{xlist}
+\end{exe}
+
+\randnum\label{rn:14-8}Notice that (i) to emphasize that the issue of traceless extraction by
+lexical rule is logically and empirically independent of the choice
+of valence attributes, I keep the valence attribute \textsc{subcat} as in \citet[Appendix]{PollardSagE1994}; (ii) for reasons given in §\ref{rn:14-10} the order of elements
+in the \textsc{subcat} value is as in \citet{PollardSag1987} (elements to the right are less
+oblique than those to the left).
+
+\randnum\label{rn:14-9}The perfect auxiliary \textit{hab-} \textsqe{have} in (\ref{ex:14-3}) is a
+variable argument raiser. The word \textit{hat} in (\ref{ex:14-3a}) is
+unslashed. Extractions as in (\ref{ex:14-3b})--(\ref{ex:14-3d}) are thought to be object
+extractions exactly like the extraction in (\ref{ex:14-1b}). Hence, the word \textit{hat}
+in (\ref{ex:14-3b}, \ref{ex:14-3c}) is slashed. See (\ref{ex:14-4}) and (\ref{ex:14-5}) for the lexical entries. In
+(\ref{ex:14-3d}) it is unobvious whether \textit{hat} or \textit{gegeben} should be slashed.
+\begin{exe}
+\ex
+\label{ex:14-3}
+\begin{xlist}
+\ex
+\label{ex:14-3a}
+daß [er es ihr gegeben hat]
+\ex
+\label{ex:14-3b}
+gegeben (glaubt sie) daß [er es ihr hat]
+\ex
+\label{ex:14-3c}
+es ihr gegeben (glaubt sie) daß [er hat]
+\ex
+\label{ex:14-3d}
+wem [er es gegeben hat]
+\end{xlist}
+\ex
+\label{ex:14-4}
+lexical entry of unslashed \textit{hat} \textsqe{have} as in (\ref{ex:14-3a}):\\
+\scalebox{.8}{
+\begin{avm}
+	\onems[word]{phon \<\textnormal{hat}\> \\
+		ss {\[loc {\[cat {\[ head vform \tpv{finite} \\
+						subcat {\[first & \onems[w--ss]{loc {\[cat & {\[head vform & \tpv{past-part} \\ subcat & {\@2} \]} \\ content & {\@1}  \]} } \\ rest & {\@2} \]}\]} \\ content \onems[perfect]{soa-arg {\@1} \tpv{psoa} } \]}  \\
+					nonloc {\[inher slash & \tpv{elist} \\ to-bind slash & \tpv{elist} \]} \]}\\}
+\end{avm}}
+\end{exe}
+\addlines[2]
+\paragraph*{Comment (i) on (\ref{ex:14-4})}\randnum\label{rn:14-10} Most authors follow Hinrichs \& Nakazawa in describing the \textsc{subcat} value with the help of some definite relation. As a rule, no formal explication of definite relations and no definition of the relation used is offered; nor are the ontological implications of definite relations discussed. Moreover, using a relation excludes the option of treating (\ref{ex:14-3b}, \ref{ex:14-3c}) by any general \isi{CELR}. To avoid these complications, I follow \citet{Meurers94} in the formalization of variable argument raising as shown in (\ref{ex:14-4}).
+
+\paragraph*{Comment (ii) on (\ref{ex:14-4})}\randnum\label{rn:14-11} Variable argument raisers are hypothesized to combine with a very low projection of the expression they select. For ease of exposition I assume that the projection is in fact a word. To enforce this, I partition the sort \textit{synsem} into \textit{w-ss} and \textit{p-ss} and assume these feature declarations:
+\begin{exe}
+\ex
+Approp(ss, \textit{phrase}) = \textit{p-ss} \\
+Approp(ss, \textit{word}) = \textit{w-ss}
+\end{exe}
+There is no \textit{category} attribute \textsc{lexical} (since no reason for having it is known).
+\eas
+\label{ex:14-5}
+\randnum\label{rn:14-12}lexical entry of slashed \textit{hat} as in (\ref{ex:14-3b}, \ref{ex:14-3c}): \\
+	\scalebox{.8}{
+	\begin{avm}
+	\onems[word]{phon \<\textnormal{hat}\> \\
+		ss {\[loc {\[cat {\[ head vform & \tpv{finite} \\ subcat & {\@2} \]} \\ content \onems[perfect]{soa-arg {\@1} \tpv{psoa} } \]} \\
+			nonloc {\[inher slash & {\[first & {\[cat & {\[head vform & \tpv{past-part} \\ subcat & {\@2} \]} \\ content & {\@1} \]} \\ rest & \tpv{elist} \]} \\ to-bind slash & \tpv{elist} \]} \]}}
+	\end{avm}}
+\zs
+\randnum\label{rn:14-13}The relation between (\ref{ex:14-2a}) and (\ref{ex:14-2b}) and between (\ref{ex:14-4}) and (\ref{ex:14-5}) is regular: for each lexical entry like (\ref{ex:14-2a}) and (\ref{ex:14-4}) there is a lexical entry like
+(\ref{ex:14-2b}) and (\ref{ex:14-5}), respectively. To express generalizations like this, \citet{PollardSagE1994} uses lexical rules whose syntax and intended semantics vaguely resemble \isi{GPSG}'s metarules. Syntactically, a lexical rule is a pair <Pattern, Target> whose members are expressions written in the syntax of the description language, enriched with regular expressions. A first version of the Object Extraction Lexical Rule (which is similar to the \isi{CELR} of \citealt[446]{PollardSag1992}) might be formulated as in (\ref{ex:14-6}):
+\begin{exe}
+\ex
+\label{ex:14-6}
+OELR, first version: \\
+\scalebox{.8}{
+	\begin{avm}
+	\textnormal{Pattern:} \onems{ss {\[ loc cat subcat (rest)\textsuperscript{\textnormal{n}} & {\[first loc & {\@1} \\ rest & {\@2} \]} \\ nonloc inher slash & {\@3} \]}}
+	\end{avm}}\\
+
+\scalebox{.8}{
+	\begin{avm}
+	\textnormal{Target:} \onems{ss {\[ loc cat subcat (rest)\textsuperscript{\textnormal{n}} & {\@2} \\ nonloc inher slash & {\[first & {\@1} \\ rest & {\@3} \]} \]}}
+	\end{avm}
+}
+\end{exe}
+(By (\ref{ex:14-6}), there must be lexical entries that allow subjects to be
+extracted in violation of the Comp-trace filter. I ignore this effect,
+as it is immaterial to my concerns.)
+
+\randnum\label{rn:14-14}Expressions of the form ``(α)$^{n}$'' signify a sequence of $n$ occurrences of expression α, with \textit{n} $\ge$ 0. Identity of tags across Pattern and Target signifies that identical description language expressions occur in place of the tags. (In the Coercion Lexical Rule of \citet[314]{PollardSagE1994}, tag identity across Pattern and Target is
+erroneously intended to signify token-identity of feature structures
+that satisfy lexical entries.) Identity of tags within Pattern or
+Target, however, has its usual interpretation as an abbreviation of
+path equations or (in a language with variables) identity of
+variables.
+
+\randnum\label{rn:14-15}The lexical entry (\ref{ex:14-2a}) matches the Pattern of
+(\ref{ex:14-6}) in that the expressions that the Pattern contains are contained
+in (\ref{ex:14-2a}), for $0 \leq n \leq 2$. Taking $n = 0$, tag \avmbox{1} stands for the expression (\ref{ex:14-7a}); tag \avmbox{2} stands for the expression (\ref{ex:14-7b}), and tag \avmbox{3}
+stands for the expression ``\textit{elist}''.
+\begin{exe}
+\ex
+\label{ex:14-7}
+\begin{xlist}
+\ex
+\scalebox{.8}{
+\begin{avm}
+\onems{cat head case \tpv{dative} \\ content index {\@1}}
+\end{avm}}
+\label{ex:14-7a}
+\ex
+\scalebox{.8}{
+\begin{avm}
+\onems{first loc {\[ cat head case & \tpv{accusative} \\ content index & {\@2} \]} 
+\\ rest {\[ first loc & {\[ cat head case & \tpv{nominative} \\ content index & {\@3} \]} \\ rest & \tpv{elist} \]}}
+\end{avm}}
+\label{ex:14-7b}
+\ex
+\scalebox{.8}{
+\begin{avm}
+\onems{first loc {\[ cat head case & \tpv{dative} \\ content index & {\@1} \]} \\
+rest {\[ first loc {\[ cat head case & \tpv{accusative} \\ content index & {\@2} \]} \\
+rest {\[ first loc & {\[ cat head case & \tpv{nominative} \\ content index & {\@3} \]} \\
+rest & \tpv{elist} \]} \]}}
+\end{avm}}
+\label{ex:14-7c}
+\end{xlist}
+\end{exe}
+The lexical entry (\ref{ex:14-2b}) is determined by the Target of (\ref{ex:14-6}) in
+conjunction with (\ref{ex:14-2a}) in that expression (\ref{ex:14-7a}) is the \textsc{inher} \textsc{slash} \textsc{first}
+value of (\ref{ex:14-2b}), and expression (\ref{ex:14-7b}) replaces expression (\ref{ex:14-7c}) just as
+the Target indicates. Thus, given (\ref{ex:14-6}), any Lexicon that contains (\ref{ex:14-2a})
+must also contain (\ref{ex:14-2b}).
+
+\randnum\label{rn:14-16}Notice that all other differences between (\ref{ex:14-2a})
+and (\ref{ex:14-2b}) are intended to be consequences of (\ref{ex:14-6}). If pairs of tags in
+(\ref{ex:14-2a}) and in (\ref{ex:14-2b}) are viewed as abbreviations of path equations,
+conventions must be defined that replace all relevant path equations
+of (\ref{ex:14-2a}) by the corresponding equations in (\ref{ex:14-2b}). Defining such
+conventions (and applying them correctly) is difficult. Intuitions
+might be better supported by viewing pairs of tags as pairs of
+identical variables (even if that might create problems of its own).
+
+\addlines[2]
+\randnum\label{rn:14-17}The existence of lexical entry (\ref{ex:14-5}) follows
+from (\ref{ex:14-6}) and the existence of (\ref{ex:14-4}). In fact, many more lexical entries
+are required to exist. According to \citet{PollardSagE1994}, for a lexical entry to match
+a Pattern, the expressions in the Pattern need not be contained in the
+lexical entry. Rather, lexical entry E matches Pattern P of lexical
+rule R if there is a consistent description D that contains the
+expressions of E and the expressions of P. Call the smallest such
+description D\textsuperscript{E}. There must be a lexical entry E$'$ that is determined
+by R's Target and D\textsuperscript{E}. Take the Pattern of (\ref{ex:14-6}) with $n = 1$:
+\begin{exe}
+\ex
+\label{ex:14-8}
+\scalebox{.8}{
+\begin{avm}
+\onems{ss {\[loc cat subcat rest & {\[ first loc & {\@1} \\ rest & {\@2} \]} \\
+nonloc inher slash & {\@3} \]}}
+\end{avm}}
+\end{exe}
+The expressions in (\ref{ex:14-8}) are not contained in (\ref{ex:14-4}). But there is a description D$^{(\ref{ex:14-4})}$ as in (\ref{ex:14-9}):
+\begin{exe}
+\ex
+\label{ex:14-9}
+\scalebox{.8}{
+\begin{avm}
+\onems{phon \<\textnormal{hat}\> \\
+ss {\[ loc {\[ cat {\[ head vform \tpv{finite} \\
+subcat {\[ first & \onems[w-ss]{ loc {\[ cat & { \[ head vform & \tpv{past-part} \\ subcat & {\@2} \]} \\ content & {\@1} \]} }
+\\ rest & {\@2} {\[ first loc & \tpv{loc} \\ rest & \tpv{list} \]} \]} \\
+content \onems[perfect]{ soa-arg {\@1} \tpv{psoa} } \]}  \]}\\
+nonloc {\[ inher slash & \tpv{elist} \\ to-bind slash & \tpv{elist} \]} \]}}
+\end{avm}}
+\end{exe}
+Hence, the Target of (\ref{ex:14-6}) determines lexical entry (\ref{ex:14-10}):
+\begin{exe}
+\ex
+\label{ex:14-10}
+\scalebox{.8}{
+\begin{avm}
+\onems{phon \<\textnormal{hat}\> \\
+ss {\[ loc {\[ cat {\[ head vform \tpv{finite} \\
+subcat {\[ first & \onems[w-ss]{ loc {\[ cat & { \[ head vform & \tpv{past-part} \\ subcat & {\@2} \]} \\ content & {\@1} \]} }
+\\ rest & {\@2} \tpv{list} \]} \\
+content \onems[perfect]{ soa-arg {\@1} \tpv{psoa} } \]}  \]}\\
+nonloc {\[ inher slash & {\[ first & \tpv{loc} \\ rest & \tpv{elist} \]} \\ to-bind slash & \tpv{elist} \]} \]}}
+\end{avm}}
+\end{exe}
+\randnum\label{rn:14-18}Two aspects of (\ref{ex:14-10}) are remarkable. First, the element in the \textsc{slash}
+value is not described as being identical to anything. This follows
+from the fact that the \textsc{subcat} \textsc{rest} \textsc{first} \textsc{loc} value in (\ref{ex:14-9}) is not~-- and
+cannot be~-- described as being identical to anything. Hence, the word
+\textit{hat} in (\ref{ex:14-11}) might satisfy (\ref{ex:14-10}):
+\begin{exe}
+\ex[*]{
+\label{ex:14-11}
+wem [er es meiner Tante gegeben hat]}
+\end{exe}
+Second, consider the \textsc{subcat} \textsc{rest} value with tag \avmbox{2}. The \textsc{subcat} value
+of the participle bears the same tag; hence (\ref{ex:14-11}) should be
+grammatical, and (\ref{ex:14-3d}) should be ungrammatical. (Cf.\ \citealt[19]{HinrichsNakazawa1994} for a similar observation.)
+
+\randnum\label{rn:14-19}Summarizing so far: the conjunction of 3
+assumptions~-- that variable argument raising is described in the
+manner of \citet{HinrichsNakazawa1993b}, that extraction is traceless by
+lexical rule, and that matching of rule Patterns is as liberal as \citet{PollardSagE1994}
+assumes~-- makes the grammar useless.
+
+\addlines[2]
+\randnum\label{rn:14-20}However, the situation is not that simple. By
+lexically reducing the valence list, \citet[Ch.~9]{PollardSagE1994} has lost the account
+for binding reconstruction phenomena that comes for free with
+traces. To be able to keep the descriptive results, \citet{PollardSagE1994} introduces a
+series of additional assumptions:
+\begin{enumerate}
+\item[(i)] A store for the unreduced valence list is introduced as a \textit{word} attribute. I call it \textsc{argstore}, \citet{PollardSagE1994} calls it \textsc{subcat}.
+\item[(ii)]
+\begin{enumerate}
+\item[(a)] In lexical entries with an unreduced valence list, the \textsc{argstore} value contains just the elements of the valence value in the same order.
+\item[(b)] The \textsc{argstore} value is unaffected by lexical rules reducing the valence value.
+\item[(c)] But it is unknown how assumptions (a) and (b) can be expressed as a general fact in the grammar.
+\end{enumerate}
+\item[(iii)] The notion of obliqueness is (only) explained for the \textsc{argstore} value.\linebreak Hence the Binding Theory must refer to the \textsc{argstore} value (for obliqueness) and to the valence value (for local o-command).
+\end{enumerate}
+\randnum\label{rn:14-21}By lexically reducing the valence list, \citet{PollardSagE1994} has also lost the account for many parasitic gap phenomena that the \isi{Subject Condition} was thought to provide. Hence, \citet{PollardSagE1994} adds yet another stipulation:
+%\addlines[-3]
+\begin{enumerate}
+\item[(iv)] The \isi{CELR} adds a slash to the \textit{synsem} object in the \textsc{argstore} value whose \textsc{loc} value is put into the \textsc{inher} \textsc{slash} value.
+\end{enumerate}
+\pagebreak
+\randnum\label{rn:14-22}The lexical entries~-- in particular, (\ref{ex:14-4})~-- and the OELR (\ref{ex:14-6}) have to be modified accordingly.
+\begin{exe}
+\ex
+\label{ex:14-13}
+OELR, final version (similar to \citet[378]{PollardSagE1994}):\\
+\scalebox{.9}{
+\begin{avm}
+\textnormal{Pattern:} 
+\onems{ss {\[ loc cat subcat (rest)$^n$ & {\[ first & {\@4} loc {\@1} \\ 
+                                           rest & {\@2} \]} \\ 
+                nonloc inher slash & {\@3} \]} \\ 
+                argstore (rest)$^m$ first {\@4}}
+\end{avm}}\\
+
+\scalebox{.9}{
+\begin{avm}
+\textnormal{Target:} 
+\onems{ss{\[ loc cat subcat (rest)$^n$ & {\@2} \\ 
+               nonloc inher slash & {\[ first & {\@1} \\ 
+                                      rest & {\@3} \]} \]} \\
+               argstore (rest)$^m$ first {\[ loc {\@1} \\ 
+                                             nonloc inher slash {\[ first & {\@1} \\ 
+                                                                    rest & \tpv{elist} \]} \]}}
+\end{avm}}
+\ex
+\label{ex:14-14}
+lexical entry of unslashed \textit{hat} as in (\ref{ex:14-3a}), modified:\\
+%\scalebox{.8}{
+\oneline{%
+\begin{avm}
+\onems{phon \<\textnormal{hat}\> \\ ss{\[ loc {\[ cat {\[ head vform \tpv{finite}\\ 
+subcat {\[ first & {\@3} \onems[w-ss]{ loc {\[ cat & {\[ head vform & \tpv{past-part} \\ subcat & {\@2} \]} \\ content & {\@1} \]} } \\ rest & {\@2} \]} \]}\\ content \onems[perfect]{ soa-arg {\@1} \tpv{psoa} } \]} \\ 
+nonloc {\[ inher slash & \tpv{elist} \\ to-bind slash & \tpv{elist} \]} \]}\\
+argstore {\[ first & {\@3} \\ rest & {\@2} \]}}
+\end{avm}}
+\end{exe}
+\pagebreak
+\randnum\label{rn:14-23}How does the D$^{(\ref{ex:14-14})}$ look like for $n = m = 1$? Because of the problem noted in §\ref{rn:14-20} (ii) (c), this cannot be known for sure. One
+benevolent speculation is (\ref{ex:14-15}):
+\addlines[2]
+\begin{exe}
+\ex
+\label{ex:14-15}
+\scalebox{.8}{\begin{avm}
+\onems{phon \<\textnormal{hat}\> \\ ss{\[ loc {\[ cat {\[ head vform \tpv{finite} \\ subcat {\[ first &  {\@3} \onems[w-ss]{ loc {\[ cat & {\[ head vform & \tpv{past-part} \\ subcat & {\@2} \]} \\ content & {\@1} \]} } \\ rest & {\@2} {\[ first & {\@4} loc \tpv{loc} \\ rest & {\@5} \]} \]} \]} \\ content \onems[perfect]{ soa-arg {\@1} \tpv{psoa} } \]} \\ nonloc {\[ inher slash & \tpv{elist} \\ to-bind slash & \tpv{elist} \]} \]} \\ argstore {\[ first & {\@3} \\ rest & {\@2} {\[ first & {\@4} \\ rest & {\@5} \]} \]}}
+\end{avm}}
+\end{exe}
+%\pagebreak
+In conjunction with (\ref{ex:14-15}), the Target of (\ref{ex:14-13}) apparently determines lexical entry (\ref{ex:14-16}):
+\begin{exe}
+\ex
+\label{ex:14-16}
+\scalebox{.8}{
+\begin{avm}
+\onems{phon \<\textnormal{hat}\> \\ ss{\[ loc {\[ cat {\[ head vform \tpv{finite} \\ subcat {\[ first & {\@3} \onems[w-ss]{ loc {\[ cat & {\[ head vform & \tpv{past-part} \\ subcat & {\@2} \]} \\ content & {\@1} \]} } \\ rest & {\@2} {\@5} \]} \]} \\ content \onems[perfect]{ soa-arg {\@1} \tpv{psoa} } \]} \\ nonloc {\[ inher slash & {\[ first & {\@{40}} \\ rest & \tpv{elist} \]} \\ to-bind slash & \tpv{elist} \]} \]} \\
+argstore{\[ first & {\@3} \\ rest & {\@2} {\[ first & {\[ loc {\@{40}} \\ nonloc inher slash {\[ first & {\@{40}} \\ rest & \tpv{elist} \]} \]} \\ rest & {\@5} \]} \]}}
+\end{avm}}
+\end{exe}
+I wrote ``\avmbox{2} \avmbox{5}'' for the value of \textsc{:ss loc cat subcat rest} in order to point to a problem. Upon both interpretations of tag pairs~-- as variables and as path equations~-- it seems unavoidable to assume that \avmbox{2} = \avmbox{5}. If that is correct, the \textsc{subcat} values of both the participle and the finite verb are cyclic lists. Hopefully, no feature structure will satisfy this lexical entry.
+
+\randnum\label{rn:14-24}
+Assume alternatively that for some reason (\ref{ex:14-15}) does not contain the pair of tags \avmbox{5}. Then there is no cyclicity, but the \textsc{subcat} value of the finite verb has an element of just the form that is disallowed by the No Trace Principle (§\ref{rn:14-6}).
+
+\randnum\label{rn:14-25}
+Apparently, the OELR requires the existence of realistically satisfiable slashed lexical entries only in case some element is extracted that is explicitly mentioned in the valence value. For instance, in (\ref{ex:14-3d}) only \textit{gegeben} can be slashed, but not \textit{hat}. That is, \citegen{PollardSagE1994} liberal matching conditions are of no consequence for the OELR.
+
+\randnum\label{rn:14-26}
+This may seem like a nice result, since it solves the problem noted in §\ref{rn:14-19}. But two problems remain. First, inasmuch as the result depends on the slashed member of the \textsc{argstore} value, it is suspicious, as \citegen{PollardSagE1994} \isi{Subject Condition} is known to be empirically problematic. There seem to be cases of parasitic gaps in subjects that are licensed by extraction out of an adjunct. Second, it appears that some empirical phenomena in German and in Romance languages cannot be described by slashing just the lowest verb.
+
+\randnum\label{rn:14-27}
+The possible formal alternatives seem to be the following:
+\begin{enumerate}
+\item[(i)] Drop this approach to variable argument raising and return to Johnson's idea, from which Hinrichs \& Nakazawa took their departure.
+\item[(ii)] Keep this approach, but replace lexical (extraction) rules by measures situated in \textsf{Descr}. By doing this, all formal problems disappear, and extremely flexible descriptive mechanisms become available.
+\item[(iii)] Use traces. All formal problems disappear, but the mechanisms are less flexible, apparently just flexible enough to capture the empirical phenomena.
+\end{enumerate}
+
+\nocite{King89}
+\nocite{King94}
+\nocite{Johnson83}
+
+\printbibliography[heading=subbibliography,notkeyword=this]
+\refstepcounter{mylastpagecount}\label{chap-celr-end}
+\end{document}

@@ -1,0 +1,2142 @@
+%% -*- coding:utf-8 -*-
+
+
+
+\documentclass[output=paper]{langsci/langscibook}
+\author{Tilman N. Höhle}
+\title{An architecture for phonology}
+\abstract{}
+\maketitle
+\rohead{\thechapter\hspace{0.5em}An architecture for phonology} % Display short title
+\ChapterDOI{10.5281/zenodo.1169695}
+\begin{document}
+\label{chap-phonology}
+\selectlanguage{english}
+
+%\INS{phonology|(}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{4}
+
+\footnotetext{%
+\emph{Editors’ note:} This paper was originally published in Borsley, Robert D.\ \&
+Adam Przepi{\'o}rkowski (eds.). 1999, \textit{Slavic in Head-Driven
+Phrase Structure Grammar} (Studies in Constraint-Based Lexicalism), 61--90.
+Stanford, CA: CSLI Publications.%
+}
+
+
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+\section{Why and how}
+
+
+``Phonology'' is construed here in a broad sense. It comprises the system
+of unpredictable (``distinctive'') phonological properties of expressions,
+which may be called phonemics, and the system of phonetic properties that
+are only predictable in terms of a language's phonemics in conjunction with
+phonetic rules specific to the language (but not by a theory of universal
+phonetics alone). It also includes ``morphophonology,'' which deals
+specifically with phonological phenomena that are observed when signs are
+components of larger signs.
+
+%\largerpage[2]
+An explicit empirical theory that 
+%aspires
+is
+ to integrate a subject as large
+and diversified as phonology\footnote{%
+	For information on phonology, useful
+  recent reference works are available: for data and analytical ideas that
+  have dominated discussions in (morpho-)phonology in the last decade(s),
+  \cite{kens:94}\INA{Kenstowicz, Michael} and
+  \cite{goldsmith:95:ed}\INA{Goldsmith, John A.}; and for phonetics,
+  \cite{lad:mad:96}\INA{Ladefoged, Peter}\INA{Maddieson, Ian} and
+  \cite{har:lav:97}\INA{Hardcastle, William J.}\INA{Laver, John}. Some
+  information on formal phonology can be found in \cite{bird:95}\INA{Bird,
+    Steven} and in \cite{cars:98a}.\INA{Carson-Berndsen, Julie}%
+}
+needs to
+%build 
+be built on a very clear but highly expressive formal basis grounded in a
+theory of language.  The formal theory of language and grammar developed
+in \cite{king:89}\INA{King, Paul John} and work that builds on it,
+essential aspects of which also underlie the \isi{HPSG} theory of {\small PS94}
+(i.e., \citealt{PS94a})\INA{Pollard, Carl}\INA{Sag, Ivan A.}, is exceptionally
+well suited for this task.  Moreover, the structure of signs (i.e., objects
+of sort \textit{sign}) proposed in {\small PS94} is an excellent point of
+departure for a theory of morphology that is to be able to interact
+naturally with morphophonology.
+
+In the sections to come I will outline a frame of reference
+%that is meant to be 
+expressive enough to discuss empirical phenomena with a useful degree of
+explicitness, resulting in a simple architecture for phonology in the broad
+sense (summarized in \S\ref{sectSum}). Some aspects of the architecture
+(and questions waiting to be explored) are illustrated with examples from
+Russian\il{Russian}, German and Miwok\il{Miwok}. No originality is claimed in either respect%, and
+%nothing spectacular is going to be proposed
+. My intention, on the contrary, is to remind ourselves that a framework in
+which to do formal phonology, closely related to {\small PS94}, is at hand
+(even though the multistratality that I endorse here has routinely been
+rejected). I further believe that considerations from phonology can
+contribute to the efforts (e.g., in \citealt{king:99}\INA{King, Paul John} and
+\citealt{poll:98}\INA{Pollard, Carl}) to explicate the meaning of grammars,
+and that the particular model-theoretic conceptions adopted here can in
+turn contribute to attempts to elucidate the relation between the grammar
+and physics of phonetics.
+
+
+\section{Segments and segmental strings}
+\label{sectSS}
+
+
+\subsection{Signature}
+\label{sec:1.2.1}
+
+
+As in {\small PS94}, signs bear an attribute \textsc{phon(olo\-gy)}\INS{phonology@\textsc{phonology}}. Its value is of sort
+\textit{phon}. The structure of \textit{phon} objects is described
+in Figure~\ref{F1}.
+\begin{figure}[ht]
+%% \avha{\textit{phon}
+%%       \\\textsc{segmental-string} \textit{listofsegment}
+%%       \\\textsc{hierarch} \avhr{\textit{hierarch}
+%%                       \\\textsc{syllables} \textit{listofsyllable}
+%%                       \\\textsc{feet} \textit{listoffoot}
+%%                       \\\textsc{phonwords} \textit{listofnelofsegment}}}
+\begin{avm}
+\onems[phon]{
+ segmental-string  \tpv{listofsegment}\\
+ hierarch          \[ \tpv{hierarch}\\
+                      syllables & \tpv{listofsyllable}\\
+                      feet      & \tpv{listof\/foot}\\
+                      phonwords & \tpv{listofnelofsegment}\\ \] }
+\end{avm}
+\caption{\label{F1} Structure of \textit{phon} objects}
+\end{figure}
+
+The \textsc{s(egmental)-string} value is a (possibly empty) list of segments,
+whose internal structure will be considered below. The string of segments
+is hierarchically (``prosodically'') structured, minimally into syllables,
+feet and phonological words.
+
+%\addlines[2]
+Although phonological words will play an important role
+in \S\ref{sectRuss}, the hierarchical structure shown in Figure~\ref{F1} is
+provisional. Intuitively, one might expect that a phonological word is
+constituted by a sequence of feet, a foot is constituted by a sequence of
+syllables, and the s-string (i.e., the \textsc{s-string} value) is
+exhaustively syllabified.  Then, the \textsc{phonwords} value should be a list
+of \textit{phonword} (rather than \textit{nelofsegment}) objects, and the
+attributes \textsc{syllables} and \textsc{feet} would be born by \textit{foot} and
+\textit{phonword}\/ objects, respectively.  But phenomena of extrasyllabicity
+(cf., e.g., \citealt{bage:91}\INA{Bagemihl, Bruce},
+\citealt{guss:92}\INA{Gussman, Edmund}, \citealt{hyma:92}) and\INA{Hyman, Larry M.}
+extrametricality, as well as the mismatch of syllables and phonological
+words in (\ref{gor}) below, indicate that the relations between s-strings,
+syllables, feet, and phonological words can be 
+%much less straightforward.
+far less simple.
+Thus, although it is obvious how members of \textsc{syllables}, \textsc{feet},
+and \textsc{phonwords} values can formally be related to s-string members
+(cf.\ \citealt{mast:93}\INA{Mastroianni, Michael} for syllables), there is a
+host of empirical questions that I will not enter into.%
+\begin{figure} 
+\begin{exe}
+\ex
+\label{B2}
+\begin{tabbing}
+\hspace{1,5em}\=\hspace{1,5em}\=\hspace{1,5em}\=\hspace{1,5em}\=\hspace{6em}
+\=\kill
+\textit{segment}\>\>\>\>\>\textsc{segmproper} \textit{segmproper} \\
+\>\textit{long,  short} \\
+\textit{segmproper}\>\>\>\>\>\textsc{airstream} \textit{airstream} \\
+\>\>\>\>\>\textsc{voicing} \textit{voicing} \\
+\>\>\>\>\>\textsc{velum} \textit{velum} \\
+\>\>\>\>\>\textsc{tongue} \textit{tongue} \\
+\>\textit{vowel}\>\>\>\>\textsc{airstream} \textit{pulmonic} \\
+\>\textit{consonant}\>\>\>\>\textsc{constriction} \textit{nelofplace} \\
+\>\>\textit{obstruent} \\
+\>\>\>\textit{fricative} \\
+\>\>\>\textit{affricate} \\
+\>\>\>\textit{plosive}\>\>\textsc{velum} \textit{closedvelum} \\
+\>\>\textit{sonorant}\>\>\>\textsc{airstream} \textit{pulmonic} \\
+\>\>\>\textit{nasalcon}\>\>\textsc{velum} \textit{openvelum} \\
+\>\>\>\textit{liquid} \\
+\>\>\>\>\textit{lateral, rhotictrill} \\
+\textit{voicing}\>\>\>\>\>\textsc{achievement} \textit{achievement} \\
+\>\textit{voiced} \\
+\>\>\textit{normalvoice, breathy, creaky} \\
+\>\textit{voiceless} \\
+\>\>\textit{spreadgl, closedgl} \\
+\textit{tongue}\>\>\>\>\>\textsc{vertical} \textit{vertical} \\
+\>\>\>\>\>\textsc{horizontal} \textit{horizontal} \\
+\>\textit{tense, lax} \\
+\textit{horizontal}\>\>\>\>\>\textsc{narrowing} \textit{narrowing} \\
+\>\textit{front, central, back} \\
+\textit{nelofplace}\>\>\>\>\>\textsc{first} \textit{place} \\
+\>\>\>\>\>\textsc{rest} \textit{listofplace} \\
+\textit{place}\>\>\>\>\>\textsc{achievement} \textit{achievement} \\
+\>\textit{labial}\>\>\>\>\textsc{site} \textit{sitelab} \\
+\>\textit{lingual}\>\>\>\>\textsc{laterality} \textit{lateralclosure} \\
+\>\>\textit{coronal}\>\>\>\textsc{site} \textit{sitecor} \\
+\>\>\>\textit{apical, laminar, retroflex} \\
+\>\>\textit{dorsal}\>\>\>\textsc{site} \textit{sitedors} \\
+\>\textit{pharyngeal} \\
+\>\textit{glottal}
+\end{tabbing}
+\end{exe}
+\end{figure}
+
+%\bigskip  
+%
+%\noindent
+The structure of segments is determined by the inventory of non"=atomic
+sorts and their feature declarations in (\ref{B2}) on the following page. Indentation indicates
+partitioning into subsorts; thus, e.g., \textit{vowel}\/ and \textit{consonant}\/
+partition \textit{segmproper}\/; \textit{obstruent}\/ and \textit{sonorant}\/
+partition \textit{consonant}\/; \textit{fricative}, \textit{affricate}\/ and \textit{plosive}\/ partition \textit{obstruent}\/; \textit{nasalcon}\/ and \textit{liquid}\/ partition \textit{sonorant}\/; \textit{lateral}\/ and \textit{rhotictrill}\/ partition \textit{liquid}. For \textit{segmproper}, the
+attributes \textsc{airstream}, \textsc{voicing}, \textsc{velum} and \textsc{tongue} are
+appropriate; for \textit{consonant}, \textsc{constriction} is appropriate.
+Attributes appropriate for a sort are also appropriate for that sort's
+subsorts.  Atomic sorts, for which no attribute is appropriate, are
+partitioned in (\ref{B3}).
+\begin{exe}
+\ex
+\label{B3}
+\textit{achievement}\/: \textit{full, reduced, zero}\/.\\
+\textit{airstream}\/: \textit{pulmonic, ejective, implosive, click}\/.\\
+\textit{lateralclosure}\/: \textit{sideslocked, sidesunlocked}\/.\\
+\textit{listofplace}\/: \textit{elist, nelofplace}\/.\\
+\textit{narrowing}\/: \textit{round, nonround}\/.\\
+\textit{sideslocked}\/: \textit{grooved, nongrooved}\/.\\
+\textit{sitecor}\/: \textit{upperlip, dental, alveolar, postalveolar, palatal}\/.\\
+\textit{sitedors}\/: \textit{velar, uvular}\/.\\
+\textit{sitelab}\/: \textit{upperlip, upperteeth}\/.\\
+\textit{velum}\/: \textit{openvelum, closedvelum}\/.\\
+\textit{vertical}\/: \textit{high, mid, low}\/.
+\end{exe} 
+
+
+List supersorts, such as \textit{listofsegment}\/ in Figure~\ref{F1}, are
+always partitioned analogously to \textit{listofplace}\/. Construing a string
+of segments as a list of tree-like objects with some trees sharing some
+branches, as illustrated in Figure~\ref{kuend} below, is a straight
+explication of notions that can be found, e.g.,
+in \cite[237]{clem:85}\INA{Clements, George N.}; a difference being that
+Figure~\ref{F1} (just like~\citealt{scob:97}\INA{Scobbie, James M.}) does not
+provide for ``autosegmental tiers'' independently of the \isi{segmental} string.
+In detail, there has been (and will continue to be) much discussion on the
+proper structure of segments; cf., e.g., \cite[Chapter~4]{bird:95},\INA{Bird,
+  Steven} \cite{cle:hum:95},\INA{Clements, George N.}\INA{Hume, Elizabeth
+  V.} and \cite{lade:97}\INA{Ladefoged, Peter} for three different
+proposals. I cannot hope to discuss here all aspects of~(\ref{B2}),
+(\ref{B3}). %Still, some comments are in order to make the intent of certain
+%aspects clear.
+Certain aspects will be commented upon below.
+%\bigskip
+
+%\noindent
+
+
+\subsection{``Underspecification'' vs.\ total well-typedness}
+\label{sec:1.2.2}
+
+I adopt \isi{HPSG}'s standard assumption that the objects in a model of a grammar
+are ``totally well-typed,''\footnote{%
+	In the formal theory that I rely on
+  (\citealt{king:89}\INA{King, Paul John}; cf.\ also \citealt{king:94} and
+  note~\ref{RSRL} below), a grammar G consists of a signature (such as
+  \small{PS94}, 396--399) and a set of restrictions
+  (``constraints/""principles/""rules,'' such as \small{PS94},
+  399\hspace{1pt}ff.), each of which is an expression of a formal
+  description language.  The 
+%(decidable) 
+  description language
+  of~\cite{king:89} has disjunction, classical negation, sort
+  specifications, and path equations. Let U be a set that conforms to the
+  signature in that the denotations of the maximally specific sort symbols
+  partition U, and each attribute symbol denotes a partial function from U
+  to U, respecting appropriateness.  With total well"=typedness, the
+  function is total 
+%wrt.\ 
+with respect to
+the denotations of the sorts that the attribute
+  is declared to be appropriate for. There is a denotation function \textit{D}\/ from the set of description language expressions to the powerset
+  of U\@. Thus, a description language expression denotes a subset of U\@.
+  It can require (by a path equation) that on each member of its
+  denotation, certain path values are token identical, but it cannot
+  identify any particular member of U\@.  U is a ``model'' of G just in
+  case U = $\cap \{ D(\delta) \mid \delta \in \mbox{Restrictions} \}$.
+  Crucially, the relation of a grammar's models to a natural language is as
+  lucid as it can possibly be: the members of the intended models are token
+  linguistic objects.  Specifically, for a grammar G, some natural language
+  L is intended to be an exhaustive (i.e., maximally inclusive) model of G
+  (\citealt{king:95a,king:99}).%
+}
+hence each object bears all
+attributes that are appropriate for its sort (cf.\ {\small PS94}, 396).
+Although this assumption has first been explicitly introduced
+in \cite{king:89},\INA{King, Paul John} it is less than self-evident 
+%wrt.\ 
+with respect to
+this
+theory's intended models.  There are no obvious formal or ontological
+reasons for insisting on it. Dropping it would remove a ``foundational
+problem'' in {\small PS94}'s theory of coordination ({\small PS94}, 203,
+note~39) and would be conducive to an attempt to formally reconstruct
+theories of phonemic ``underspecification'' that have loomed large in the
+eighties.
+ 
+For an illustration, we may consider some data from~\S\ref{sectRuss}.
+Slavic languages are known for a regressive voicing assimilation that
+affects obstruents at the end of words. In Russian\il{Russian}\INS{Russian}, the
+assimilation is only triggered by obstruents, in which voicing is (mostly)
+distinctive, but not by vowels and sonorants, in which voicing is
+predictable. To capture the dependence of assimilation on distinctive
+voicing, \cite{kipa:85}\INA{Kiparsky, Paul} and others suggest that
+phonemically, vowels and sonorants do not have any voicing properties
+(i.e., they do not bear a \textsc{voicing} attribute), so that the
+assimilation is phonemically triggered just by segments that do have
+voicing properties.
+
+Of course, \textit{vowel}\/ and \textit{sonorant}\/ objects that lack voicing
+properties cannot surface as such; they must map to corresponding objects
+that bear a \textsc{voicing} attribute. We thus get configurations as
+schematically described in (\ref{underspec}) for vowels:
+\begin{exe}
+\ex
+\label{underspec}
+\begin{xlist}
+\ex
+\attop{
+{\small \avhr{$\varphi$  $\pi_1$\avhr{$\sigma_2$ \\
+\textsc{tongue} \avmbox{1} \\
+\textsc{voicing} \textit{voiced} } \\ 
+$\pi_2$\avhr{\textsc{phon} $\pi_3$\avhr{$\sigma_1$\\\textsc{tongue} \avmbox{1}} } } }\\
+}
+\ex
+{\small $\neg$ \avhr{ $\pi_2$\avhr{\textsc{phon} $\pi_3$\avhr{\textsc{voicing}
+\textit{voicing} }}} }
+\end{xlist}
+\end{exe}
+The symbols $\sigma_1$ and $\sigma_2$ are meant to be variables over
+maximally specific subsorts of \textit{vowel}\/; $\varphi$ is a cover symbol
+for some phonological attribute (such as \textsc{phon} or \textsc{utterance},
+introduced below in (\ref{partialoverlap})); the $\pi_i$ are path
+variables. The descriptions in (\ref{underspec}a) and (\ref{underspec}b)
+are to be understood conjunctively: objects that satisfy (\ref{underspec}a)
+also satisfy the negative description (\ref{underspec}b). Thus, the $\pi_3$
+value does not bear a \textsc{voicing} attribute. Even if the attribute values
+of the $\pi_3$ value are identical to attribute values of the $\pi_1$
+value, as shown for \textsc{tongue}, the $\pi_1$ value cannot be identical to
+the $\pi_3$ value, as only the former bears a \textsc{voicing} attribute.
+
+When total well-typedness is dropped, $\sigma_1$ and $\sigma_2$ can be
+identical; while with total well-typedness retained, they cannot. Sort
+identity probably conforms to the intuitions underlying
+underspecificational analyses better than nonidentity.
+
+In southwestern variants of Polish\il{Polish!southwestern}, the word-final
+voicing assimilation is also triggered by vowels and sonorants; i.e.,
+distinctiveness of voicing is not relevant there. This sheds doubt on the
+attempt to account for the situation in Russian\il{Russian}\INS{Russian} by an
+ontological construct like underspecification.\footnote{%
+	Historically,
+  ``underspecification'' has more often been motivated by considerations of
+  markedness. This motivation has been obsolete at least since
+  \cite{kean:81}\INA{Kean, Mary-Louise} and
+  \cite{Hoehle82c}\INA{Hohle@H{\"o}hle, Tilman}.%
+}
+For broader critical discussion, cf.\ \cite[Chapter~9]{broe:93}\INA{Broe, Michael},
+\cite{goldsmith:95b}\INA{Goldsmith, John A.},
+\cite[{}\S{}6]{cala:95}\INA{Calabrese, Andrea},
+\cite[370]{zoll:97}\INA{Zoll, Cheryl}, and references therein.
+
+On inspection, then, the supposed empirical virtues of allowing objects not
+to bear attributes they are allowed to bear typically turn out to be
+deceptive. Moreover, segments that cannot surface in principle would
+contradict what I regard as an important leading conjecture: all segments
+are physically interpretable.  Physically uninterpretable segments should
+be admitted in the linguistic ontology only in the face of unequivocal
+positive evidence. No such evidence is known.
+
+%\addlines[2]
+Independently of these empirical considerations, experience indicates that
+working with a fully explicit theory that forgoes total well-typedness gets
+unwieldy to an extent that outweighs any doubt about its being
+ontologically well-motivated. I thus see no reason to drop, but strong
+reasons to retain, total well-typedness.
+%\bigskip
+
+%\noindent
+
+
+\subsection{Some comments on the signature}
+\label{sec:1.2.3}
+
+According to~(\ref{B2}), then, each \textit{segmproper} object bears an
+attribute \textsc{tongue} whose value bears attributes indicating the
+%traditional
+horizontal and vertical tongue positions that characterize vowel gestures.
+I follow \cite{odde:94}\INA{Odden, David} in classing the narrowing of the
+frontal oral tract associated with ``rounding'' in vowels together with the
+horizontal specification.
+
+Consonants in addition bear an attribute \textsc{constr(iction)} whose value
+indicates one or more places of consonantal constriction.  Thus, the \textsc{constr} value is a list that is treated in such a way that the order of
+list members is immaterial. In this way, double articulation of stops and
+nasals~-- which may be phonemic or may result from contextually induced
+coarticulation~-- can be captured.
+
+At the same time, consonants bear the tongue specifications that
+characterize vowels. This captures the fact that vowel gestures typically
+``act as a kind of background to the ``figure'' of the consonants''
+(\citealt[354]{bro:gol:90}\INA{Browman, Catherine P.}\INA{Goldstein, Louis}).
+It is exploited phonemically in languages that have distinctive secondary
+articulations, such as palatalization, velarization or labialization.
+
+Tense vowels often differ from lax vowels by being articulated with the
+tongue root advanced. This is not necessarily true of low vowels, though.
+A more general (if more complex) characterization might be centralization
+in lax vowels.  In consonants, the \textit{tongue}\/ subsort typically has no
+perceptually appreciable consequence. But in some languages, \textsc{tongue}
+values of sort \textit{tense}\/ and \textit{lax}\/ cooccur with a battery of
+different articulatory properties in consonants,
+cf.\ \cite{loc:lod:96}.\INA{Local, John}\INA{Lodge, Ken} Thus, the phonetic
+correlates of the subsorts of \textit{tongue}\/ are not fully universal and
+are in any case somewhat indirect.
+
+Major class and manner distinctions (vowel vs.\ consonant, sonorant vs.\ 
+obstruent, etc.) are captured in (\ref{B2}) by subsorts of \textit{segmproper}. (Inclusion of \textit{affricate}\/ among the manner sorts is
+meant to be hypothetical; it raises questions that I cannot discuss here.)
+Non-atomic sorts can thus contribute to phonetic characteristics just like
+atomic sorts.  
+
+%\cmldcomm[inline]{Der Bib-Eintrag zu jun:96 im nächsten Absatz fehlt mir. Ich vermute, dass es ``Jun, Jongho (1996) Place Assimilation is not the result of Gestural Overlap: Evidence from Korean and English. In Phonology 13.3, 377-407.'' sein könnte. Weiß das zufällig jemand? (Ich habe ``Slavic in \isi{HPSG}'' nicht und kann daher da nicht in die Bibliographie schauen.)}
+
+Considering the attribute \textsc{achievement} that is born by 
+%each 
+\textit{place} objects, there is 
+%ample 
+evidence (mainly from stops) that the
+degree of constriction that is characteristic of consonants can be reduced
+under the control of the speaker, often leading to the perception of
+assimilation or loss; see, e.g., \cite{nola:92}\INA{Nolan, Francis},
+\cite{barr:91}\INA{Barry, Martin C.}, \cite{jun:96}\INA{Jun, Jongho}. This
+can be captured 
+%by the value of the attribute \textsc{achievement} that is
+%born by each \textit{place} object.
+by the \textsc{achievement} value.  While values of sort \textit{full} and
+\textit{reduced} should be unproblematic, the value sort \textit{zero} points to
+an important topic of research.
+
+\mbox{}\cite{nola:92}\INA{Nolan, Francis} classifies as ``zero'' consonant
+productions where no closure is measured (by the method used).
+Correspondingly, hearers under ordinary conditions typically do not
+perceive a closure in cases like this.  The main difference with mere
+absence of closure lies in the fact that under favourable conditions,
+hearers do perceive a closure with more than chance frequency. Also, zero
+productions are typically found in free variation with reduced productions,
+which is natural if zero is understood as extreme reduction. Still, it is
+obvious that this concept is empirically difficult, and experiments need to
+be replicated under 
+the
+most careful control of all potentially relevant
+factors. But I take it that at least some studies have made it plausible
+that zero closure, as distinct from absence of closure, is real.
+
+In fricatives, reduced and zero achievements correspond to ``approximant''
+and vowel-like degrees of constriction, respectively. A case in point might
+be the rhotic in Standard German\INS{German!Standard}, which is a fricative (or
+approximant) when in a syllable onset, as in \textipa{[ti:.K@]} \emph{Tiere}
+`animals', but vowel-like in a coda, as in \textipa{[ti:2]} \emph{Tier} `animal'.
+(Final obstruent devoicing is only observed with unreduced constrictions.)
+
+Somewhat speculatively, I assume that the \textsc{achievement} attribute is
+also appropriate for \textit{voicing}\/ objects. Its phonetic meaning differs
+slightly for \textit{voiced}\/ and \textit{voiceless}\/ objects. I follow
+\cite{gol:bro:86}\INA{Browman, Catherine P.}\INA{Goldstein, Louis} (and
+\citealt[49\hspace*{1pt}ff.\@]{lad:mad:96}\INA{Ladefoged,
+  Peter}\INA{Maddieson, Ian}) in considering the state of the glottis to be
+the primary characteristic of systematically voiced vs.\ voiceless
+segments: in ``voiced'' segments, the vocal folds are adducted, which is
+just their neutral state in the speech mode; in ``voiceless'' segments of
+sort \textit{spreadgl}\/, they are actively abducted. For there to be voice,
+transglottal pressure must in ad\-dition be kept sufficiently high. The
+\textsc{achievement} value relates to the active gesture.
+
+\addlines
+In a \textit{voiced}\/ object, a value of sort \textit{reduced}\/ or \textit{zero}\/
+means that transglottal pressure is reduced. Thus, unvoiced word-initial
+plosives as in Standard German\INS{German!Standard} \textipa{[\r*du:]}
+\emph{du} `thou' can be analysed as having a \textsc{voicing} value of sort
+\textit{voiced}\/ that has an \textsc{achievement} value of sort \textit{zero},
+perceptually almost indistinguishable from the unaspirated \textipa{[tu:]}
+\emph{tu} `do' of Austrian German\il{German!Austrian}, which has a \textsc{voicing} value of sort \textit{spreadgl}.  (Cf.\ \citealt{fleg:82}\INA{Flege,
+  James Emil} for English\il{English}.)
+
+In a \textit{spreadgl}\/ object, an \textsc{achievement} value of a sort other
+than \textit{full}\/ means that the vocal folds are less than optimally
+abducted; in a \textit{closedgl}\/ object, it means that the vocal folds are
+not fully closed. If at the same time transglottal airflow happens to be
+large enough, sufficient transglottal pressure may build up to cause voice
+to be perceived. 
+%\bigskip
+
+%\noindent
+
+
+\subsection{On token (non-)identities}
+\label{sec:1.2.4}
+
+
+By using subsorts of \textit{segment}\/ to distinguish long from short
+segments, I try to forestall any temptation to view slots in a list of
+segments (i.e., individual \textit{nelofsegment}\/ objects) as time units. A
+physically interpreted list of segments can be viewed to be a ``timing
+tier'' in two respects.  First, the articulatory gestures that correspond
+to gesturally relevant components\footnote{%
+	An object \textit{o}\/ is a
+  ``component'' of an object \textit{o'}\/ just in case \textit{o}\/ is the value
+  of a path on \textit{o'}\/. (The path can be empty.)%
+}
+of a segment overlap temporally. A segment thus corresponds to a constellation of gestures
+during a temporal interval.  Second, the sequence of segments in the list
+corresponds to a temporal sequence of constellations of gestures.  But the
+duration of temporal intervals corresponding to segments in a given list
+varies drastically in accordance with their position in syllables and other
+factors; cf., e.g., \cite{smit:91,smit:95}\INA{Smith, Caroline L.}, and
+\cite{bro:gol:88}\INA{Browman, Catherine P.}\INA{Goldstein, Louis}. Thus,
+there is no unit of time that could consistently be associated to slots in
+a given list. But consistent association is presupposed when a segment is
+explained to be long just in case it occupies two adjacent slots, as is
+usually done in ``skeletal'' theories. Otherwise this explanation is just a
+marking device for phonological length as phonetically arbitrary as any
+other.
+
+
+The main phonological motivation for the double-slot analysis is the fact
+that phonotactically, long vowels often pattern with diphthongs and long
+consonants, with consonant clusters. Closer inspection, however, suggests
+that these phonotactical facts are more adequately captured by syllable
+theory in conjunction with a theory of phonological weight. (But I take the
+theory of weight to be a research topic rather than a fully developed
+theory; cf.\ \citealt[{}\S{}8.4]{kens:94}\INA{Kenstowicz, Michael},
+\citealt{perl:95}\INA{Perlmutter, David}, and \citealt{hum:mul:eng:97}\INA{Hume,
+  Elizabeth V.}\INA{Muller, Jennifer}\INA{van Engelenhoven, Aone} for
+overviews and discussion.)
+%\bigskip
+
+
+%\noindent
+I adopt a reformulated version of the ``Sharing Constraint'' in \cite[93,
+(3.13)]{scob:97}\INA{Scobbie, James M.}:
+\begin{exe}
+\ex
+\label{a} In a list of segments $\left\langle s_1, \ldots,
+    s_n \right\rangle$, if a component \textit{o}\/ of $s_1$ that corresponds
+  to an articulatory gesture is also a component of $s_j$, then \textit{o}  is also a component of every $s_i$\/ with $1 < i < j$.
+\end{exe}
+%
+If one token gesture is overlapped by two constellations of overlapping
+gestures, it is overlapped by each such constellation in
+between.\footnote{%Provided, of course, a physical event is assumed 
+I assume physical events to be
+  temporally connected by nec\-essity. This assumption is rejected
+  in \cite[41]{bir:kle:90}\INA{Bird, Steven}\INA{Klein, Ewan}
+  and~\cite[73]{bird:95}.%
+}
+Thus, (\ref{a}) is necessarily true for
+physically interpreted lists of segments (\textsc{utterance s-string} values;
+cf.\ \S\ref{sectPI}).  I require not only all segments, but also all lists
+of segments to be physically interpretable, hence it must be true for all
+such lists. Thus, (\ref{a}) is just a natural consequence of any
+empirically clear explication of autosegmental phonology, such as found,
+e.g., in \cite{sage:88}.\INA{Sagey, Elizabeth}
+
+As both \cite{sage:88}\INA{Sagey, Elizabeth} and
+\cite{scob:97}\INA{Scobbie, James M.} note, (\ref{a}) is inconsistent with
+many uses the ``Obligatory Contour Principle'' and ``autosegmental
+spreading'' in nonconcatenative morphology have been put to. The obvious
+conclusion, drawn in both~\cite[115\hspace{1pt}f.\@]{sage:88} and
+\cite[223\hspace{1pt}ff.\@]{scob:97}, is that ``long distance''
+identities are not token but type identities.\footnote{%
+	Two objects are
+  ``type identical'' if they have some significant property in common.
+ An important case of type identity can be enforced by ``sort equations'': a
+  description language expression of the form $\tau_1 \simeq \tau_2$
+  denotes the subset of U such that on each member, paths $\tau_1$ and
+  $\tau_2$ are defined and the values of the paths are of the same
+  maximally specific sort.  (See~\S\ref{sectMiwok} for an example.)%
+}
+One can expect to see direct evidence for type (vs.\ token) identity in
+particular with consonants, e.g., in reduplication and in Semitic\il{Semitic}
+biradicals. It is indeed well-known that long distance geminates are not
+true geminates at all%; cf.~\cite[Chapter~6]{scob:97} for discussion of these and
+%related facts (also \citealt{gafo:98}\INA{Gafos, Diamandis}).
+. Cf.\ \cite[Chapter~6]{scob:97}, and \cite{gafo:98}\INA{Gafos, Diamandis} for
+discussion of these and related facts.
+
+One particularly important sort of long distance identity is found in
+vowel harmony. Formally, the geometry of (\ref{B2}) allows a \textsc{tongue}
+value component to extend over an unrestricted number of segments, and this
+seems indeed to be the case with lip rounding in the rounding harmony of
+Turkish\il{Turkish} vowels (\citealt{boyc:90}\INA{Boyce, Suzanne E.}). But for several
+languages, there is evidence that, e.g., in a sequence such as
+\textipa{[ipi]}, there are typically two tokens of the vowel gesture,
+rather than one token extending over the whole string
+(\citealt[137]{gay:81},\INA{Gay, Thomas}
+\citealt[12]{bel:har:81},\INA{Bell-Berti, Fredericka}\INA{Harris, Katherine}
+\citealt{mca:eng:91}\INA{McAllister, Robert}\INA{Engstrand, Olle}), and there
+is no evidence that vowel harmony languages necessarily disobey this
+pattern.  Rather, there is acoustic evidence that some obey it
+(\citealt{bess:98}\INA{Bessell, Nicola J.}).  Moreover, vowel harmony systems
+often include ``transparent'' vowels that allow harmony to operate across
+them even though they fail to have the harmonically relevant phonetic
+property.  Thus, \cite[223]{scob:97}\INA{Scobbie, James M.} is clearly
+correct in assuming that vowel harmony deals essentially with identities of
+types rather than tokens.
+%\bigskip
+
+%\noindent
+
+
+\subsection{Phonemic sorts}
+\label{sec:1.2.5}
+
+%\textbf{Test:}
+%\begin{itemize}
+%\item standard \verb+\_+: \textit{sort}\_\textipa{u}, 
+%\item \verb+\underline{\hspace{0.5ex}}+: \textit{sort}\underline{\hspace{0.5ex}}\textipa{u}, 
+%\item \verb+\underline{\hspace{1ex}}+: \textit{sort}\underline{\hspace{1ex}}\textipa{u}, 
+%\item \verb+\underline{\hspace{1.5ex}}+: \textit{sort}\underline{\hspace{1.5ex}}\textipa{u}.
+%\end{itemize}
+%\textbf{End of Test}
+
+
+I posit phonemic sorts (similar to those in \citealt{mast:93}\INA{Mastroianni,
+  Michael}) as partitionings of major class and manner sorts; individual
+languages may differ (to some extent) in their inventory of phonemic sorts.
+As an illustration, some (incomplete) partitionings for German\INS{German}
+are introduced in (\ref{B5}), with some of the attending restrictions given
+in (\ref{B6}).  (`\textsc{first}' and `\textsc{rest}' are abbreviated \textsc{ft},
+\textsc{rt}; other abbreviations are transparent.)
+%
+\begin{exe}
+\ex
+\label{B5}
+  \textit{vowel}\/: \textit{sort}{\textunderscore}\textipa{i}, \textit{sort}{\textunderscore}\textipa{I}, \textit{sort}{\textunderscore}\textipa{u}, \textit{sort}{\textunderscore}ʊ, \textit{sort}{\textunderscore}\textipa{y},
+  \textit{sort}{\textunderscore}ʏ, \ldots \\
+  \textit{plosive}\/: \textit{sort}{\textunderscore}\textipa{k}, \textit{sort}{\textunderscore}\textipa{g}, \textit{sort}{\textunderscore}\textipa{t}, \textit{sort}{\textunderscore}\textipa{d}, \textit{sort}{\textunderscore}\textipa{p}, \textit{sort}{\textunderscore}\textipa{b}.\\
+  \textit{nasalcon}\/: \textit{sort}{\textunderscore}\textipa{n}, \textit{sort}{\textunderscore}\textipa{m}, \textit{sort}{\textunderscore}ŋ.
+\end{exe}
+% 
+\begin{figure}
+  \newsavebox{\tnhone}
+  \newsavebox{\tnhtwo}
+  \newsavebox{\tnhthree}
+  \savebox{\tnhone}{\avhr{
+            \textit{sort}{\textunderscore}\textipa{n}
+            \\\textsc{voicing} \avmbox{3}
+            \\\textsc{velum} \textit{openvelum}
+            \\\textsc{tongue} \avmbox{1}
+            \\\textsc{constr}  $\left\langle \avmbox{4}\avhr{\textit{apical}\/\\\textsc{laterality} \textit{nongrooved}\\\textsc{site} \textit{alveolar}} \right\rangle$}}
+  \savebox{\tnhtwo}{\avhr{\textit{short}
+            \\\textsc{segmproper} \avhr{\textit{sort}{\textunderscore}\textipa{d}
+              \\\textsc{voicing} \textit{voiced}\/
+              \\\textsc{velum} \textit{closedvelum}
+              \\\textsc{tongue}  \ldots{}
+              \\\textsc{constr} $\left\langle \avmbox{4}
+              \right\rangle$}
+            }}
+  \savebox{\tnhthree}{\avhr{\textit{short} 
+        \\\textsc{segmproper} \avhr{
+          \textit{sort}{\textunderscore}ʏ
+          \\\textsc{voicing} $\avmbox{3}$ \textit{voiced}
+          \\\textsc{velum} \avmbox{2}
+          \\\textsc{tongue} \avmbox{1}\avhr{\textit{lax}\\\textsc{vertical} \textit{high}
+            \\\textsc{horiz} \avhr{\textit{front}
+              \\\textsc{narrow} \textit{round}}} }}}
+  \avha{\textit{nelofsegment}
+    \\\textsc{ft} \avhr{\textit{short}
+      \\\textsc{segmproper} \avhr{
+        \textit{sort}{\textunderscore}{\textipa{k}}
+        \\\textsc{voicing} \textit{spreadgl}
+        \\\textsc{velum} $\avmbox{2}$ \textit{closedvelum}
+        \\\textsc{tongue} \avmbox{1}
+        \\\textsc{constr} $\left\langle \avhr{ \textit{dorsal}\/\\\textsc{laterality}
+            \textit{nongrooved}\/\\\textsc{site}
+            \textit{velar}} \right\rangle$ }   }
+    \\
+    \\\textsc{rt} \avhr
+    {\textit{nelofsegment}
+      \\\textsc{ft} \usebox{\tnhthree}
+      \\
+      \\\textsc{rt} \avhr{\textit{nelofsegment}
+        \\\textsc{ft}
+        \avhr{
+          \textit{short}
+          \\\textsc{segmproper} 
+          \usebox{\tnhone}
+          }\\
+        \\\textsc{rt} 
+        \avhr{\textit{nelofsegment}
+          \\\textsc{ft}
+          \usebox{\tnhtwo}
+          }
+        }}
+    }
+  \caption{\label{kuend} Phonemic structure of {[kʏnd]}}
+\end{figure}
+\begin{exe}
+\ex
+\label{B6}
+  \textit{sort}{\textunderscore}\textipa{i} $\rightarrow $
+  \textsc{tongue} {\small \avhr{\textit{tense}
+      \\\textsc{vertical}
+      \textit{high}
+      \\\textsc{horiz} \avhr{\textit{front}
+        \\\textsc{narrow} \textit{nonround}}
+      }
+    }
+  \\
+  \\\textit{sort}{\textunderscore}ʏ $\rightarrow $ 
+  \textsc{tongue} {\small \avhr{\textit{lax}
+      \\\textsc{vertical} \textit{high}
+      \\\textsc{horiz} \avhr{\textit{front}
+        \\\textsc{narrow} \textit{round}}
+      }
+    }
+  \\
+  \\\textit{sort}{\textunderscore}\textipa{k} $\rightarrow $ {\small
+    \avhr{\textsc{voicing} \textit{voiceless}
+      \\\textsc{constr ft site} \textit{velar}} 
+    }
+  \\
+  \\\textit{sort}{\textunderscore}\textipa{d} $\rightarrow $ {\small
+    \avhr{\textsc{voicing} \textit{voiced}
+      \\\textsc{constr ft site} \textit{alveolar}} 
+    }
+  \\
+  \\\textit{sort}{\textunderscore}\textipa{n} $\rightarrow $ 
+  \textsc{constr ft site} \textit{alveolar}
+\end{exe}
+% 
+Sorts like these do not only serve to keep descriptions more compact, but
+play a useful role in enforcing type identities and in determining which
+components of segments are (not) free to subphonemic variation.\footnote{%
+	In
+  consonants whose \textsc{constriction} value has more than one member, the
+  role of phonemic sorts is formally nontrivial. The order of list members
+  being immaterial, a voiced plosive with \textsc{constr} value $\left\langle
+    \textit{dorsal}, \textit{labial}\/ \right\rangle$ can be of \textit{sort}{\textunderscore}\textipa{b} or of \textit{sort}{\textunderscore}\textipa{g}. In a language that has a
+  phonemic double articulation sort such as \textit{sort}{\textunderscore}{\textipa{gb}}, a
+  segment with the same \textsc{constr} value could also be of that sort.
+  
+  There may be further roles for phonemic sorts. Some speakers of Standard
+  German\INS{German!Standard} progressively assimilate syllabic alveolar
+  nasals to uvular {\textipa{[K]}}: they have {\textipa{[ti:.K\textscn]}}
+  next to {\textipa{[ti:.Kn]}} \emph{Tieren} (dat.\ pl.). What sort should
+  the uvular nasal belong to? There are several possible responses, one of
+  them being that \textit{sort}{\textunderscore}\textipa{n} objects are not unconditionally
+  required to be alveolar, as they are in (\ref{B6}), but only when they
+  are in an environment that does not induce assimilation.%
+}
+
+A conceivable description of the initial four members of an \textsc{s-string}
+value for German\INS{German} \textipa{[kYndIg@]} \emph{k\"undige} `terminate'
+is given in Figure~\ref{kuend}. (I assume that in this configuration the
+tongue gestures of the vowels overlap the adjacent consonants and that with
+voiced obstruents a voicing gesture typically sets in.)
+%consonants.)
+ 
+
+
+
+
+
+\section{Phonetic strings}
+\label{sectPhonstr}
+
+
+Phonetic strings may exhibit \isi{segmental} phenomena that are not naturally
+captured by s-strings. A possible case in point are ``transitional''
+segments. For instance, corresponding to the substring \textipa{[Yn]} as
+described in Figure~\ref{kuend} there probably is a phonetic string where
+the velic opening gesture sets in before the alveolar constriction gesture
+does; this might be described as in Figure~\ref{yyn}.
+\begin{figure}[ht]
+\avha{\textsc{ft 
+ segmproper} \avhr{
+     \textit{sort}{\textunderscore}ʏ
+   \\\textsc{velum} \textit{closedvelum}
+   }
+\\
+\textsc{rt} \avhr{
+    \textsc{ft segmproper} \avhr{
+       \textit{sort}{\textunderscore}ʏ
+     \\\textsc{velum} \avmbox{1} }
+    \\
+\textsc{rt ft
+ segmproper}\avhr{\textit{sort}{\textunderscore}\textipa{n}
+                                   \\\textsc{velum} $\avmbox{1}$ \textit{openvelum}}}}
+\caption{\label{yyn} Transitional segment in {[ʏʏ̃n]}} %cmldcomm:check
+\end{figure}
+
+
+As noted earlier, segments correspond to time intervals (of varying
+durations) of overlapping articulatory gestures.  In this respect,
+transitional segments as in Figure~\ref{yyn} are no different from phonemic
+segments as in Figure~\ref{kuend}. More particularly, in Figure~\ref{kuend} the
+alveolar closure of \textipa{[nd]} and the tongue characteristics of \textipa{[kYn]} are both partially overlapped by the velar opening of \textipa{[n]}.
+The only new aspect in Figure~\ref{yyn} is the lack of alveolar closure in
+\textipa{[\~Y]}. There is thus no reason to exclude transitional
+segments from the universe of linguistic objects in principle.\footnote{%
+	On the face of it, transitional segments such as
+  {\textipa{[\~Y]}} can be avoided by allowing values of paths
+  on segments to be lists whose order of members is temporally interpreted.
+  Thus, \textipa{[Y\~Y]} would be one segment with a \textsc{velum}
+  value $\left\langle closedvelum, openvelum\/ \right\rangle$. I prefer to
+  eschew ``contour'' values like that, though: they complicate matters in
+  that they, in effect, introduce something like segments within segments,
+  yet do not, as far as I see, solve any problem that transitional segments
+  might be attended with.%
+}
+
+I assume that transitional segments do not ``feed'' morphophonological
+phenomena. It thus should be sufficient to associate strings as
+in Figure~\ref{yyn} with signs that are not embedded in another sign.
+Unembedded signs, which can be performed as (complete) utterances, need to
+be distinguished by a special sort for quite independent syntactic,
+semantic and pragmatic (e.g., illocutionary force) reasons. Adapting a
+proposal in \cite[134\hspace{1pt}ff.\@]{rich:97}\INA{Richter, Frank}, I
+partition the sort \textit{phrase} and require unembedded phrases to bear a
+distinguished phonological attribute whose value hosts a non-empty list of
+segments: 
+\begin{exe}
+\ex
+\label{partialoverlap}
+\begin{tabbing}
+\hspace{1,5em}\=\hspace{1,5em}\=\hspace{1,5em}\=\hspace{1,5em}\=\hspace{6em}
+\=\kill
+\textit{phrase}    \>\>\>\>\>                      \ldots\\
+\>\textit{embedded-phrase}\\
+\>\textit{unembedded-phrase}       \>\>\>\>\textsc{utterance} \textit{phon}
+\end{tabbing}
+\ex
+\label{UTTnel}
+\textit{unembedded-phrase} $\rightarrow$ \textsc{utterance s-string} \textit{nelofsegment} 
+\end{exe}
+% 
+For ease of expression, I reserve the term `s-string' to \textsc{phon
+  s-string} values and call an \textsc{utterance s-string} value a
+``p-string.'' Figure~\ref{yyn} can now be understood as (an informal
+rendering of) a description language expression that denotes (a set of)
+components of some p-strings.
+
+
+In simple cases, a phrase's p-string may be identical to its s-string. In
+cases where transitional segments are to be components of signs, the
+p-string is related to the s-string in the way suggested by the relation of
+\textipa{[Y\~Yn]} to \textipa{[Yn]}. In general, though, the relation is
+not necessarily that simple. For German\INS{German} \textipa{[OK.dn@]}
+\emph{ordne} `put in order', many speakers have an alternate pronunciation
+\textipa{[OK.n@]}. The plosive \textipa{[d]} cannot be overlapped by a
+lowered velum gesture, according to (\ref{B2}), hence it cannot appear as a
+member of the p-string in the latter case. The same is often observed with
+syllabic nasals, as in \textipa{[le:.N]} next to \textipa{[le:.gN]}
+\emph{legen} `lay'.  Similarly, \textipa{[b@.am.tn]} \emph{Beamten}
+`officials' has an alternate pronunciation \textipa{[b@.am.pm]}, discussed
+in \cite{kohl:92}\INA{Kohler, Klaus J.}, where the alveolar constriction of
+\textipa{[tn]} is not just overlapped, but in fact replaced, by the
+bilabial constriction from \textipa{[m]}. If these variations are to be
+accounted for by the relation of p-strings to s-strings, as seems
+reasonable, the relation cannot in general preserve segments or even
+phonemic sorts.
+
+
+
+
+
+\section{Physical interpretation} 
+\label{sectPI}
+
+%%%Intuitively, in each token \textit{unembedded-phrase}\/ object, components of
+%%%its p-string are intended to correspond to (possible) physical events. That
+%%%is, there is thought to be a total bijective function ϕ from the set
+%%%of \textsc{utterance s-string} values of a language L to the set of possible
+%%%utterance events of L such that each complete sequence of {\it
+%%%  nelofsegment}\/ objects is mapped to a complete utterance event, each
+%%%component of a gestural sort (e.g., \textit{voicing}\/, \textit{velum}\/, {\it
+%%%  place}\/, \textit{lateralclosure}\/) is mapped to an articulatory gesture,
+%%%and each \textit{segmproper}\/ component is mapped to a constellation of such
+%%%gestures during a section of the utterance.
+
+%%Intuitively, in each token \textit{unembedded-phrase}\/ object, components of
+%%its p-string  are intended to correspond to (possible) physical events. As
+%%an explication, I propose there is a total bijective function ϕ from
+%%the set of p-strings of language L to the set of u-equivalences of L, where
+%%a ``u-equivalence'' is a  set of possible utterance events. To explain this
+%%notion, I temporarily suppose that a u-equivalence is just a singleton set.
+%%Thus, each p-string (a maximal \textit{nelofsegment}\/ object) is mapped to a
+%%complete utterance event (the member of a u-equivalence) such that each
+%%component of a gestural sort (e.g., \textit{voicing, velum, place,
+%%lateralclosure}\/) can be mapped to an articulatory gesture and each {\it
+%%segment}\/ component, to a constellation of such gestures during a section
+%%of the utterance.
+
+%%A possible utterance event, and with it, the u-equivalence containing it,
+%%is  individuated by being the utterance of some possible speaker S at some
+%%temporal interval t. A set of ``repetitions of an utterance'' is a set of
+%%u-equivalences that corresponds (bijectively) to a set of congruent
+%%p-strings.
+
+%%More exactly, each repetition can vary along several continuous dimensions
+%%that are considered to be ``stylistic,'' i.e., linguistically irrelevant:
+%%loudness, pitch level, speaking rate, etc. Thus, a u-equivalence is a
+%%maximal non-denumerable set of alternative possible utterances of the same
+%%S at the same t.
+
+%%From: hoehle@uni-tuebingen.de (Tilman Hoehle)
+%%To: Adam Przepiorkowski <adamp@sfs.nphil.uni-tuebingen.de>
+%%Subject: Korrektur der Korrekturen
+%%Date: Sat, 23 Jan 1999 19:12:49 +0100
+
+%%Lieber Herr Przepiorkowski,
+
+%%in der Mail "(Letzte ?) Korrekturen", die ich gestern geschickt habe, bitte
+%%ich, den ersten Absatz von §4 durch einen Text von 3 Absaetzen zu ersetzen.
+%%Bitte nehmen Sie NICHT den dort genannten Text, sondern den HIER folgenden.
+%%(Der zweite und dritte Absatz sind geaendert; die Gesamtlaenge ist gleich.)
+
+%%Danke
+%%Tilman Hoehle
+
+%Intuitively, in each token \textit{unembedded-phrase}\/ object, components of
+%its p-string  are intended to correspond to (possible) physical events. As
+%an explication, I propose there is a total bijective function ϕ from
+%the set of p-strings of language L to the set of u-equivalences of L, where
+%a ``u-equivalence'' is a  set of possible utterance events. To explain this
+%notion, I temporarily suppose that a u-equivalence is just a singleton set.
+%Thus, each p-string (a maximal \textit{nelofsegment}\/ object) is mapped to a
+%complete utterance event (the member of a u-equivalence) such that each
+%component of a gestural sort (e.g., \textit{voicing, velum, place,
+%lateralclosure}\/) can be mapped to an articulatory gesture and each {\it
+%segment}\/ component, to a constellation of such gestures during a section
+%of the utterance.
+
+%A u-equivalence and its member(s) are associated with the same possible
+%speaker S and the same temporal interval t.  A set of ``repetitions of an
+%utterance'' is a set of u-equivalences that corresponds (bijectively) to a
+%set of congruent p-strings such that the u-equivalences differ pairwise
+%wrt.~S 
+%with respect to S 
+%or, for the same S, 
+%%wrt.~t.
+%with respect to~t.  For a given S and a given
+%p-string, the set of repetitions is denumerable.
+
+%More exactly, repetitions can vary along  continuous dimensions that are 
+%considered to be ``stylistic,'' i.e., linguistically irrelevant: loudness,
+%pitch level, speaking rate, etc. 
+%%Thus, a u-equivalence is a maximal
+%%non-denumerable set of alternative possible utterances.
+%Thus, a u-equivalence is a maximal set of alternative possible utterances,
+%and it clearly is non-denumerable.
+
+Intuitively, in a token \textit{unembedded"=phrase}\/ object, components of its
+p-string  are intended to correspond to (possible) physical events. As an
+explication, I propose there is a total bijective function ϕ from the
+set of p-strings of language L to the set of u-equivalences of L, where the
+latter partitions the  set of possible utterance events of L\@. To explain
+this, I temporarily suppose that a u-equivalence is just a singleton set.
+Thus, each p-string (a maximal \textit{nelofsegment}\/ object) is mapped to a
+complete utterance event (the member of a u-equivalence) such that each
+component of a gestural sort (e.g., \textit{voicing}, \textit{velum}\/, \textit{place}\/, \textit{lateralclosure}\/) is mapped to an articulatory gesture and
+each \textit{segment}\/ component, to a constellation of such gestures during
+a section of the utterance.
+
+More exactly, for a given (token) p-string, I take there to be a choice
+among possible utterance events that differ along  continuous dimensions
+that are  considered to be ``stylistic,'' i.e., linguistically irrelevant:
+loudness, pitch level, speaking rate, etc.  Thus, a u-equivalence actually
+is a maximal set of stylistically alternative possible utterance events; it
+clearly is non-denumerable.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We need to have ϕ in order to give an accurate empirical explication
+to our phonological notions. The apparatus sketched in the previous
+sections is unable to characterize well-known properties of gestures
+adequately. Velar closure events, e.g., differ considerably (in many
+languages) in accordance with adjacent (front or back) vowel gesture
+events; conversely, low vowel gesture events that overlap an alveolar
+constriction event are very different from the gesture events for the same
+vowel without alveolar overlap. That is, the notion of ``gesture'' that we
+have relied on is a highly abstract one; the precise properties of
+individual gesture events cannot be explicated without a detailed theory of
+the coarticulatory interaction of different gestures.
+
+Any such theory must take seriously the fact that gestures are constituted
+by actions of spatiotemporal physical entities (``articulators'' and air
+volumes) that change their location over time. To be adequate, such a
+theory~-- however abstract it might be~-- must have unrestricted recourse to
+the relevant physical theories and their attendant mathematical apparatus.
+For brevity, I call such a theory a ``physical'' theory.
+
+One 
+%(particularly interesting) 
+physical theory of that kind is known as
+``task dynamics.'' Cf.\ \cite{salt:95}\INA{Saltzman, Elliot L.} for a general
+exposition, and \cite{sal:mun:89}\INA{Munhall, Kevin G.} for a detailed one; also
+\cite{mcg:sal:95}\INA{McGowan, Richard S.} for an extension.  Adapting it to
+the present frame of reference (and simplifying somewhat), we can say that
+the physical theory defines a mapping from 
+%relevant token linguistic objects to sets of alternative
+p-strings and their component objects to maximal sets of stylistically
+alternative
+possible physical events in accordance with an object's gestural
+properties and the influences of contemporaneous and immediately preceding
+physical events.\footnote{%
+	To capture the role of syllable structure and
+  stress for the temporal duration and phasing of gestures, the physical
+  theory must access the full \textsc{utterance} value.%
+}
+
+I do not take models of grammars to include physical events. Rather,
+phonological linguistic objects are as abstract as any other linguistic
+object, and (sets of alternative) possible events constitute the
+interpretation (in the model-theoretic sense) of the relevant linguistic
+objects, with a physical theory defining the interpretation function, i.e.,
+ϕ.\footnote{%
+	I thus concur with \cite{sage:88}\INA{Sagey, Elizabeth},
+  \cite{pier:90}\INA{Pierrehumbert, Janet.}, \cite{cole:98}\INA{Coleman,
+    John} and others that the relation of phonological linguistic objects
+  to physical events is ``semantic'' in nature. I will not explore here the
+  ontologically more parsimonious hypothesis that %phonological linguistic
+  those objects are physical events themselves, so that some ϕ$'$ maps events
+  as structured by sorts and attributes to the same events as structured by
+  a physical theory.%
+}
+
+As we have seen in the previous section, and will see again later on, a
+component of an s-string is not necessarily also a component of a p-string.
+Although I consider it important that each (list of) segment(s) be
+physically interpretable in principle (cf.\ (\ref{a}) above), there is no
+reason to insist that each of them is actually interpreted. The natural
+assumption is that 
+%wrt.\ 
+with respect to 
+the set of \textit{nelofsegment}\/ objects, ϕ is
+partial in that it is only p-strings that are in its domain.
+
+There are good reasons (in particular, from acoustically hidden
+articulatory gestures; cf., e.g.,
+\citealt[363\hspace*{1pt}ff.\@]{bro:gol:90})\INA{Browman, Catherine
+  P.}\INA{Goldstein, Louis} to require (sets of alternative) articulatory
+events to be in the range of ϕ. But in principle, the range might also
+include certain kinds of acoustic events (e.g., for vowels) that are only
+secondarily related to articulatory events, as argued for
+in \cite{lade:90}\INA{Ladefoged, Peter} and
+\cite{per:mat:svi:jor:95}.\INA{Perkell, Joseph S.}\INA{Matthies, Melanie
+  L.}\INA{Svirsky, Mario A.}\INA{Jordan, Michael I.}
+
+It seems clear that the defining characteristics of ϕ can in
+%substantial parts
+large part be universal. The assumption that there is a strictly
+universal core to them is in fact a conceptual necessity if (at least major
+aspects of)~(\ref{B2}) and~(\ref{B3}) are to have the empirical import they
+are intended to have.  But it seems equally clear that they are not fully
+universal. Thus, fine details of gestures in different languages just
+escape the categorial distinctions that can be adequately captured by sorts
+of linguistic objects (cf.\ \citealt{lade:80}\INA{Ladefoged, Peter}). Some
+details of ϕ's characteristics apparently have to be learned for
+individual languages; but the learning theory for these details may be
+conceived to be quite weak.  %\bigskip
+
+%\noindent
+According to \cite{sole:95}\INA{Sole@Sol{\'e}, Maria-Josep}, Spanish\il{Spanish} shows
+in vowels before nasal consonants significant anticipatory nasalization
+which is durationally constant across varying vowel durations in differing
+speaking rates. In American English\il{English}, by contrast, anticipatory nasalization
+sets in at the beginning of the vowel (at the end of a preceding
+consonant), regardless of the vowel's duration.
+\cite{sole:95}\INA{Sole@Sol{\'e}, Maria-Josep} suggests that the
+nasalization in English\il{English} is ``phonological,'' whereas in Spanish\il{Spanish} it is an
+``automatic phonetic'' phenomenon.
+
+We can reconstruct this intuition by assuming that in English\il{English}, there is one
+fully nasal \textit{vowel}\/ object in the p-string, whereas in Spanish\il{Spanish}, there
+is no nasal vowel in it, not even a transitional one as
+in Figure~\ref{yyn}.  Rather, a transitional nasal vowel event is predicted
+by ϕ. This is formally possible since the mapping from lists of
+segments to events may be less than trivially transparent. It is also
+compatible in principle with the fact that some languages otherwise similar
+to Spanish\il{Spanish} differ in details of nasalization
+(cf.\ \citealt{clum:76}\INA{Clumeck, Harold}), since we recognize that parts of
+ϕ's characteristics can be learned.
+
+This construal appears plausible. In English\il{English}, the onset of velic lowering
+seems to be phased 
+%wrt.\ 
+with respect to
+the offset of a consonant gesture preceding the
+vowel, and there does not seem to be a natural alternative way to express
+this. In Spanish\il{Spanish}, the constant phasing of the onset of velic lowering 
+%wrt.\ 
+with respect to
+the onset of the nasal consonant gesture is in fact what we might expect of
+gestures that are coupled by a sort (subsort of \textit{nasalcon}\/). Still,
+the present state of theorizing about ϕ does not warrant the
+conjecture that transitional segments as hypothetically illustrated
+in Figure~\ref{yyn} are universally non-existent. (Cf., e.g.,
+\citealt[164]{moha:86}\INA{Mohanan, Karuvannur P.} for a candidate example.)
+
+According to \cite{cohn:93}\INA{Cohn, Abigail C.}, the velocity of velic
+opening (or closing, in persevering nasalization) in predictably nasalized
+vowels adjacent to nasal consonants is (under most circumstances) much
+slower in English\il{English} than it is in Sundanese\il{Sundanese}. Although
+\cite{cohn:93}\INA{Cohn, Abigail C.} interprets this as a difference
+between ``phonetics'' and ``phonology,'' it simply seems that in English\il{English},
+there is one (long, and hence, slow\footnote{%
+	In long consonants, the
+  closing movement is much slower than in short consonants
+  (\citealt[217\hspace{1pt}ff.\@]{smit:95}\INA{Smith, Caroline L.}). This
+  accords well with the assumption
+  in \cite[222]{krog:93}\INA{Kroger@Kr{\"o}ger, Bernd J.} that
+  articulator velocity is a function of the gesture's duration and
+  amplitude.%
+}) velic opening/""closing gesture extending through the
+consonant and the vowel, whereas in Sundanese\il{Sundanese}, there is a sequence of two
+(overlapping) velic gestures for the consonant and the vowel. If correct,
+this means that in Sundanese\il{Sundanese}, but not in English\il{English}, there are two different
+\textit{openvelum}\/ objects in adjacent p-string members.  There are thus
+many more instances of type (vs.\ token) identities in strings of segments
+than assumed in much recent work.
+Cf.\ \cite[362--365]{sal:mun:89}\INA{Saltzman, Elliot L.}\INA{Munhall,
+  Kevin G.} for related considerations on phasing relations.  %\bigskip
+
+%\noindent
+Just as with transitional segments, the question arises whether the work of
+\textsc{achievement} values can and should be done by the definition of
+ϕ. Two considerations might support this alternative.  Reductions do
+not seem to play a role in phonemics;\footnote{However, approximants and
+  fricatives are reported to contrast phonemically in some languages
+  (\citealt[76 and 324]{lad:mad:96}\INA{Ladefoged, Peter}\INA{Maddieson,
+    Ian}).%
+}
+this would follow from them not being accessible in s-string
+members. And when a \textit{place}\/ (or \textit{voicing}\/) component of an
+s-string fails to be a component of the p-string, the \textsc{achievement}
+value of that component may in many cases be spuriously ambiguous. On the
+other hand, languages are known to differ in the conditions and the extent
+to which reductions are used (cf.\ \citealt{jun:96}\INA{Jun, Jongho}).
+Relegating them to ϕ thus locates further aspects of linguistic
+knowledge outside the grammar and presupposes a rather strong learning
+theory for ϕ's characteristics.
+
+How the grammar of phonetics and the theory defining ϕ interact is a
+large topic of research that can only proceed by working out detailed
+theories of both.  The presence of the \textsc{utterance} and \textsc{achievement} attributes is thought to be conducive to this enterprise.
+
+
+
+
+
+
+\section{Morphology: Four basic issues}
+
+For morphophonology, {\small PS94}'s notion of signs is highly attractive
+in that both simple and complex signs bear a \textsc{phonology} attribute.
+This fact by itself provides the multistratality needed to account for
+``postlexical'' phonological phenomena (e.g., sandhi). This notion,
+moreover, generalizes naturally to morphology such that words are built
+from smaller signs which, by bearing their own \textsc{phonology} attributes,
+provide the strata that I hypothesize are necessary and sufficient to
+account for word-internal phonological alternations.\footnote{%
+%These notions
+%  bear significant similarity to views propounded
+%  in \cite{whee:81}\INA{Wheeler, Deirdre}.  
+The way morphology and
+  phonology interact here can be viewed as a straight explication of a core
+  idea of ``Lexical Phonology,'' e.g.,
+  in \cite[142\hspace{1pt}f.\@]{moha:86}\INA{Mohanan, Karuvannur P.}%
+}
+(See also~\cite{orgu:96}\INA{Orgun, Cemil Orhan} for a vivid defense of the
+same view.)%\bigskip
+
+
+%\noindent
+Although many aspects of morphological theory can be left open for the
+purpose of morphophonology, four basic topics need to be commented upon:
+(i)~lexical licensing, (ii)~combinatorial properties of morphemes, (iii)~phonological effects of morphological combining, (iv)~the triggering of the
+phonological effects.
+
+In natural languages the smallest signs are conventionalized tuples of (at
+least) semantic, phonological, morphosyntactic and combinatorial
+properties. To be able to account for the tuples being conventionalized
+(rather than for any formal reason), {\small PS94}, like most grammatical
+theories, requires the smallest signs in a model (in {\small PS94}: words,
+i.e., objects of sort \textit{word}\/) to be ``licensed'' by ``lexical
+entries.'' Although {\small PS94} does not indicate how licensing is to be
+formally achieved, one obvious way (taken, e.g.,
+in \citealt{Pollard93}\INA{Pollard, Carl}) is to include a ``Word
+Principle''\INS{Principle!Word} of the form (\ref{B7}) among the
+restrictions of the grammar: 
+\begin{exe}
+\ex
+\label{B7}
+% AP:
+$word \rightarrow (\mbox{le}_1 \vee   \ldots{} \vee  \mbox{le}_n\/)$   
+\end{exe}
+%$word \rightarrow (\mbox{le}$_1 \vee   \ldots{} \vee$    \mbox{le}_n\/)$   
+%}
+Thus, each word must satisfy one of \textit{n-}many lexical entries le$_i$,
+each of which is a description language expression that denotes the set of
+objects that are ``licensed'' by that entry. The set of disjuncts in the
+consequent of~(\ref{B7}), then, constitutes a ``lexicon.''
+
+In a language with productive derivational morphology or/""and compounding,
+the set of disjuncts in (\ref{B7}) would typically have to be infinite,
+which is impossible by the definition of the description language. The
+natural response (given, e.g., in \citealt{kri:ner:93}\INA{Krieger,
+  Hans-Ulrich}\INA{Nerbonne, John}) is to recognize formally that words can
+have smaller signs as components, and modify~(\ref{B7}) accordingly.
+
+Empirically, larger signs can also be conventionalized in that their
+properties do not fully derive from the properties of their component parts
+by general rule. This is sometimes seen in phrases, and often in complex
+words. To deal with cases like these, we would need to have a general
+formal theory of idioms. Although the theory of collocations sketched
+in \cite[{}\S{}4]{ric:sai:98}\INA{Richter, Frank}\INA{Sailer, Manfred}
+appears to be a promising basis to build such a theory on, I ignore these
+cases for the time being.
+
+As for the second topic, minimal signs (morphemes) differ in their
+combinatorial properties just 
+%like 
+as words differ in theirs, except that the
+selectional mechanisms for morphemes are considerably more powerful than
+those for words. Although there is no shortage of empirical research (e.g.,
+\citealt{fabb:88}\INA{Fabb, Nigel}, \citealt{ston:94}\INA{Stonham, John T.}, and
+references therein), there does not appear to be a (successful) general
+formally explicit theory of selection.
+
+Our primary interest is in the phonological effects on a parent of the
+combination of morphological daughters, i.e., the morphophonology.  The
+simplest cases of concatenative morphology are similar to phrasal \isi{segmental}
+phonology in that just the order in the parent of the daughters'
+concatenated \textsc{s-string} values must be specified, possibly including
+edge effects (sandhi). But sometimes, the resulting s-string must in
+addition conform to phonological rules (such as umlaut) that go beyond edge
+effects and may be specific to individual (classes of) daughters. In
+nonconcatenative morphology, the result of combination is nontrivial to
+begin with. The question, then, is how the particular phonological effects
+of combination are formally triggered by the elements combined. Given that
+the more complicated phonological effects on a parent are typically induced
+by affixes, one may expect this to be a consequence of the more powerful
+selectional mechanisms for morphemes.
+
+In a sketch of inflexional morphology, \cite{kri:ner:93}\INA{Krieger,
+  Hans-Ulrich}\INA{Nerbonne, John} employs an unusually expressive way of
+lexical licensing. Words are supposed to contain a ``stem'' as value of a
+path \textsc{morph stem} and an ``ending'' as value of a path \textsc{morph
+  ending}. There is a lexicon for objects of sort \textit{word}\/ as indicated
+in (\ref{KN}a) (p.~105), and there appears to be a second lexicon for \textit{word}\/ objects as indicated in (\ref{KN}b) (p.~122):
+%
+\begin{exe}
+\ex
+\label{KN}
+\begin{xlist}
+\ex
+$word  \rightarrow   \mbox{([\textsc{morph ending} e}_1 \wedge  
+\mbox{\textsc{synsem} es}_1 \wedge \mbox{ed}_1$] $\vee\ldots$ \hfill \\ 
+        \hspace*{6em} $\ldots{} \vee$ [\textsc{morph ending} e$_m \wedge \mbox{\textsc{synsem} es}_m \wedge \mbox{ed}_m$])
+%
+\ex
+$word  \rightarrow   \mbox{([\textsc{morph stem} s}_1 \wedge  
+\mbox{\textsc{synsem} ss}_1 \wedge \mbox{sd}_1$] $\vee\ldots$ \hfill \\ 
+        \hspace*{6em} $\ldots{} \vee$ [\textsc{morph stem} s$_r \wedge \mbox{\textsc{synsem} ss}_r \wedge \mbox{sd}_r$])
+\end{xlist}
+\end{exe}
+% 
+Thus, (\ref{KN}a) requires each ending e$_i$ with $1\le i\le m$\/ to
+cooccur with a certain \textsc{synsem} value of the word, described by
+es$_i$\/, and with further (e.g., phonological) properties of the word or
+some part of it, described by ed$_i$\/; and (\ref{KN}b) requires the same
+of each stem s$_i$ with $1\le i\le r$.
+
+In effect, then, the sets of disjuncts in (\ref{KN}a) and~(\ref{KN}b) are
+lexicons for objects (endings and stems) that are proper components of a
+larger \textit{word}\/ object that satisfies the antecedent. Therefore, an
+embedded object can determine any property of the word it is a component
+of. Hence, lexicons like these can easily answer most questions of
+selection (including mutual selection of the components, if there is a pair
+of such lexicons) and can specify the effects of combination directly,
+thereby answering the triggering question. Thus, the four topics remarked
+upon above receive a formally simple homogeneous treatment, just by the
+particular way of lexical licensing.  
+%Still, 
+However, expressive though this
+approach is, it has its limitations, as will be seen in a moment.
+
+For a sketch of word structure, we assume a simple extension of the sort
+hierarchy below \textit{sign}\/:
+%
+\begin{exe}
+\ex
+\label{mstruc}
+\begin{tabbing}
+\hspace{1,5em}\=\hspace{1,5em}\=\hspace{1,5em}\=\hspace{1,5em}\=\hspace{6em}
+\=\kill
+\textit{sign}\>\>\>\>\>\ldots\\
+\>\textit{phrase}\>\>\>\>\ldots\\
+\>\textit{word}\>\>\>\>\textsc{morph} \textit{morph}\\
+\>\textit{morph}\\
+\>\>\textit{simplemorph}\\
+\>\>\textit{complexmorph}  \>\>\>\textsc{mhead} \textit{morph}\\
+\>\>\>\>\>\textsc{mnonhead} \textit{morph}
+\end{tabbing}
+\end{exe}
+%
+This sketch is 
+%simplifying
+simplified in many ways; e.g., it only allows for
+morphologically endocentric structures. An example from German\INS{German}
+may illustrate structures motivated on morphological grounds
+and their
+ensuing complexities.
+\begin{figure}[t]
+\newsavebox{\tnhfour}
+\newsavebox{\tnhfive}
+\savebox{\tnhfour}{\avhr{\textit{complexmorph}
+        \\\textsc{p s-s} $\left\langle
+          \mbox{{\textipa{p, K, y:, f,
+                U, N, s}}}
+        \right\rangle$\\
+        \\\textsc{mhead} \avhr{\textit{simplemorp}h \\\textsc{p s-s}
+          $\left\langle 
+            \mbox{\textipa{s}}\right\rangle$}\\
+        \\\textsc{mnonhead} \avhr{\textit{complexmorph}
+          \\\textsc{p s-s}
+          $\left\langle \mbox
+            {{\textipa{p, K, y:, f, U,
+                  N}}}\right\rangle$\\
+          \\\textsc{mhead} \avhr{\textit{simplemorph} \\\textsc{p
+              s-s} 
+            $\left\langle \mbox{{\textipa{U,
+                    N}}}\right\rangle$}\\
+          \\\textsc{mnonhead} \avhr{\textit{simplemorph} \\\textsc{ p
+              s-s} 
+            $\left\langle \mbox{{\textipa{p,
+                    K, y:, f}}}\right\rangle$}}}}
+\savebox{\tnhfive}{\avhr{\textit{simplemorp}h
+        \\\textsc{p s-s}  $\left\langle
+          \mbox{{\textipa{l, o:, z}}}\right\rangle$}}
+  \avha{\textit{word}\/\\\textsc{p s-s} $\left\langle\mbox{{\textipa{p, K,
+            y:, f, U, N, s, l,
+            o:, s}}}\right\rangle$
+    \\\textsc{m} \avhr{\textit{complexmorph}
+      \\\textsc{p s-s} $\left\langle \mbox{{\textipa{p, K, y:, f,
+              U, N, s, l, o:,
+              z}}}
+      \right\rangle$\\
+      \\\textsc{mhead} \usebox{\tnhfive}\\
+      \\\textsc{mnonhead} 
+      \usebox{\tnhfour}}}
+  \caption{\label{p.los} Morphological structure of \emph{pr\"ufungslos}}
+\end{figure}
+
+The adjective \emph{pr\"ufungslos} `examinationless'
+in Figure~\ref{p.los}\footnote{Here and later on, phonetic symbols that
+  appear as (or in) list members are meant to informally indicate relevant
+  properties of \textit{segment}\/ and \textit{segmproper}\/ objects. They do not
+  indicate phonemic sorts.  The attribute symbols \textsc{morph},
+  \textsc{phon(ology)} and \textsc{s(egmental)-string} are abbreviated
+  \textsc{m}, \textsc{p} and \textsc{s-s}.%
+}
+contains a suffix \emph{-los}
+`-less' that derives adjectives from nouns. In it, the regular voicing
+alternation in German\INS{German} obstruents (\textipa{[z} $\sim$
+\textipa{s]}) can be seen.  I will not go into this; rather, the somewhat
+different alternation in Russian\il{Russian} obstruents will be discussed
+in \S\ref{sectRuss}.  \emph{Pr\"ufung} `examination' is a noun derived from
+the free verbal stem \emph{pr\"uf-} `examine' by the suffix \emph{-ung}
+`\mbox{-ation}'.  \emph{-s-} is a ``linking morpheme'' (Fugenmorphem) that
+com\-bines with a noun to the left to yield a bound complex that combines
+with certain suffixes, as in the present case, or with a free stem to the
+right. Thus, if being bound is analysed as a matter of selection,
+\emph{pr\"ufungs-} and \emph{-los} must mutually select each other.
+
+\addlines
+If the binary branching morphological structure assumed
+in Figure~\ref{p.los} is correct, the combinatorial properties of
+\emph{-s-} cannot be captured by a set of lexicons for components of \textit{complexmorph} objects in the manner of (\ref{KN}). A lexicon that
+contains~(\ref{s}a) (suitably enriched) as a member can account for \emph{-s-}
+being bound to its left sister.  But to capture the fact that its parent
+constituent is bound to its right sister, there would have to be another
+lexicon containing~(\ref{s}b) as a member.  It surely is irritating that
+there should be two different lexical entries for \emph{-s-}. But worse, the
+lexicon containing~(\ref{s}b) does not contain other members such that
+their disjunction could correctly capture the distribution of \emph{-s-}.
+\begin{exe}
+\ex
+\label{s}
+\begin{xlist}
+\ex
+\attop{
+  {\small
+    \avhr{\textsc{mhead} \avhr{\textit{simplemorph}\\
+        \textsc{phon s-string} $\left\langle \mbox{\textipa{s}}\right\rangle$}\\
+      \textsc{mnonhead} \ldots}
+    }
+}
+\ex
+\attop{
+  {\small 
+    \avhr{\textsc{mnonhead mhead} \avhr{\textit{simplemorph}\\
+        \textsc{phon s-string} $\left\langle \mbox{\textipa{s}} \right\rangle$}\\
+      \textsc{mhead} \ldots}}
+  }
+\end{xlist}
+\end{exe}
+%
+\enlargethispage{\baselineskip}
+\begin{sloppypar}
+\noindent
+Clarifying the interaction of lexical licensing, combinatorial properties
+of morphemes, and triggering the phonological effects of the combination of
+morphemes is thus left to future research. I henceforth concentrate on the
+effects themselves.
+\end{sloppypar}
+
+
+
+
+
+
+
+\section{Nonconcatenative morphology}
+\label{sectMiwok}
+
+
+
+Sierra Miwok\il{Miwok|(} is known for its multiform
+nonconcatenative morphology; see \cite{smit:85,smit:86}\INA{Smith, Norval}, \cite{sloa:91}\INA{Sloan,
+  Kelly Dawn} and references therein. Part of its inflexional verbal stem
+formation has also received an illustrative \isi{HPSG} analysis
+in \cite{bir:kle:94}\INA{Bird, Steven}\INA{Klein, Ewan} (based
+on~\citealt[83--95]{gold:90}).\INA{Goldsmith, John A.}
+
+For a typical derivational pattern, we consider~(\ref{lVp}) with the
+monomorphemic bases in (\ref{lVp2}),
+after~\cite[376\hspace{1pt}f.\@]{smit:85}:\INA{Smith, Norval}
+\begin{exe}
+\ex
+\label{lVp}
+\begin{xlist}
+\ex
+\emph{\textipa{P}ojsi-li:p-} `quadruplets' 
+%
+\ex
+\emph{mahko-lo:p-} `quintuplets'  
+%
+\ex
+\emph{na\textipa{P}\v{c}a-la:p-} `ten at a time' 
+\end{xlist}
+\end{exe}
+% 
+\begin{exe}
+\ex
+\label{lVp2}
+\begin{xlist}
+\ex
+\emph{\textipa{P}ojis:a-} `four'
+\ex \emph{mah:oka-} `five'
+\ex \emph{na\textipa{P}a:\v{c}a-} `ten'
+\end{xlist}
+\end{exe}
+% 
+The morpheme complexes in (\ref{lVp}) conform to a template {\small CVCCV}
+plus a suffix `l{\small V:}p', regardless of the form of the base, although
+the \isi{segmental} substance is that of the base.  The vowel of the suffix is
+type identical to the last vowel of the template. The third vowel of the
+base is elided, since it does not fit into the template.\footnote{%
+  Elisions (and insertions of ``default'' vowels and consonants) are a well-known
+  feature of Mi\-wok morphology; cf.\ the references above. Ignoring this,
+  \cite[468]{bir:kle:94}\INA{Bird, Steven}\INA{Klein, Ewan} 
+%asserts 
+  asserts that
+  ``the phonology of a complex form can only be produced by either unifying
+  or concatenating the phonologies of its parts.''%
+}
+\begin{figure}
+  \avha{\textit{complexmorph}
+    \\\textsc{p} \textsc{s-s} $\left\langle \avhr{\textit{short} \\\textsc{s} \textit{con}},
+      \avhr{\textit{short} \\\textsc{s}
+        \textit{vow}} ,
+      \avhr{\textit{short} \\\textsc{s}
+        \textit{con}}
+      ,
+      \avhr{\textit{short} \\\textsc{s} \textit{con}} ,
+      \avhr{\textit{short} \\\textsc{s}
+        \avmcirc{1}\textit{vow}} 
+      \quad | \quad \avmbox{2} 
+    \right\rangle$
+    \\
+    \\\textsc{h} \avhr{\textit{simplemorph}
+      \\\textsc{p s-s} \avmbox{2}$\left\langle \avhr{\textit{short}
+          \\\textsc{s} l} ,
+        \avhr{\textit{long} \\\textsc{s}
+          \avmcirc{1}} ,
+        \avhr{\textit{short} \\\textsc{s} p}
+      \right\rangle$
+      }\\
+    \\\textsc{n} \avhr{\textit{simplemorph}
+      \\\textsc{p s-s} $\left\langle \avhr{\textit{short}\\
+          \textsc{s} \textipa{m}},
+        \avhr{\textit{short} \\\textsc{s}
+          \textipa{a}} ,
+        \avhr{\textit{long} \\\textsc{s}
+          \textipa{h}} ,
+        \avhr{\textit{short} \\\textsc{s}
+          \textipa{o}} ,
+        \avhr{\textit{short} \\\textsc{s}
+          \textipa{k}} ,
+        \avhr{\textit{short} \\\textsc{s}
+          \textipa{a}} 
+      \right\rangle$}}
+\caption{\label{FM2} Morphophonological structure of \emph{mahko-lo:p-}}
+\end{figure}
+
+Some aspects of the intended analysis of~(\ref{lVp}b) can be seen
+in Figure~\ref{FM2}.  
+%(Here and in later figures, the attribute symbols
+%\textsc{morph}, \textsc{mhead}, \textsc{mnonhead}, \textsc{phon(onology)}, \textsc{segmproper} are abbreviated \textsc{m}, \textsc{h}, \textsc{n}, \textsc{p}, \textsc{s},
+%respectively.)
+(\textsc{mhead}, \textsc{mnonhead} and \textsc{segmproper} are abbreviated
+\textsc{h}, \textsc{n} and \textsc{s}.)
+Like~\cite[224\hspace{1pt}\nolinebreak f.\@]{scob:97}\INA{Scobbie, James M.}, and 
+%in difference to 
+unlike
+most work on nonconcatenative morphology, I see no reason to
+posit special attributes (``tiers/""planes'') just for consonants or vowels.
+The pair of encircled tags, `\avmcirc{1}', indicates sort identity; in the
+present case, identity of the phonemic sort that \textipa{[o]} belongs to.
+For the reasons noted in the previous section, I leave open how the suffix
+(the \textsc{h} value) triggers the phonological form of its parent. We can
+see that the \textsc{p s-string} value is the {\small CVCCV} template,
+followed by the \textsc{h p s-string} value (tagged \avmbox{2}).  The \textit{consonant}\/ objects of the template are \textit{segmproper}\/ objects of
+the \textsc{n p s-string} value, in left to right order; equally for the \textit{vowel}\/ objects.\footnote{\label{RSRL}%
+	Here and throughout, the
+  exposition of complex restrictions is highly informal.  Explicit
+  formulations would rely on the restricted theory of quantification and
+  relations (based on~\citealt{king:89}\INA{King, Paul John}) defined
+  in \cite[22--35]{rich:97}\INA{Richter, Frank} and explored
+  in \cite{ric:kin:97}.  See also \cite{rich:98a}.%
+}\il{Miwok|)}
+
+
+
+
+
+
+\section{Morphophonology: Russian obstruents}
+\label{sectRuss}
+
+
+
+\subsection{Background}
+\label{sec:1.7.1}
+
+
+For an illustration of classical morphophonological considerations, we turn
+to the voicing alternation in Russian\il{Russian}\il{Russian|(} obstruents. This case
+is famous since \cite[21--24]{hall:59}\INA{Halle, Morris} used it in an
+argument against ``empiricist'' versions of phonology, effectively wrecking
+their distinction between phonemes and morphophonemes.
+
+The case has gained additional fame through two kinds of ill-under\-stood
+complications. First, the labiodental fricatives seem Janus-faced in that
+they partly pattern like ordinary obstruents, partly like sonorants
+(\citealt{jako:56}\INA{Jakobson, Roman}). Second, and somewhat similarly, a
+sonorant that immediately precedes an obstruent can, under certain
+conditions, pattern like the obstruent it precedes
+(\citealt{jako:78}\INA{Jakobson, Roman}). For attempts to capture the full
+range of data, see~\cite{whee:88}\INA{Wheeler, Deirdre} and
+\cite[{}\S{}2]{kipa:85}\INA{Kiparsky, Paul} (which both rely heavily on
+``underspecification''), and references therein.
+
+Exciting though these complications are, I will disregard them and largely
+keep to the simplifying introductory description
+in \cite[22]{hall:59}:\INA{Halle, Morris} ``voicing is distinctive for
+all obstruents except /c/, /\v{c}/ and /x/, which do not possess voiced
+cognates. These three obstruents are voiceless un\-less followed by a
+voiced obstruent, in which case they are voiced. At the end of the word,
+however, this is true of all Russian\il{Russian} obstruents: they are voiceless, unless
+the following word begins with a voiced obstruent, in which case they are
+voiced.''
+
+\largerpage
+We thus find the voicing alternation at the end of the words in (\ref{RB1})
+(after Halle~ib.\@\nocite{hall:59}\INA{Halle, Morris}) just like those
+in (\ref{RB2}):
+\begin{exe}
+\ex
+\label{RB1}
+\begin{xlist}
+\ex
+\emph{\v{z}e\v{c} li}
+\textipa{[ZetSl\super{j}i]} `should one burn?'
+%
+\ex
+\emph{\v{z}e\v{c} by}  \textipa{[ZedZb1]} `were one to burn'
+\end{xlist}
+\end{exe}
+% 
+\begin{exe}
+\ex
+\label{RB2}
+\begin{xlist}
+\ex
+\emph{gorod Ufa} \textipa{[gOr@tufa]}  `(the) town Ufa'
+%
+\ex
+\emph{gorod Baku} \textipa{[gOr@dbaku]} 
+%
+\ex
+\emph{gorod} \textipa{[gOr@t]} (nom.\ sing.)
+%
+\ex
+\emph{goroda} \textipa{[gOr@d@]} (gen.\ sing.)
+\end{xlist}
+\end{exe}
+% 
+The affricate in (\ref{RB1}a) as well as the alveolar plosive
+in (\ref{RB2}a) are voiceless before the non-obstruent in the following
+word, but are voiced before the voiced obstruent in (\ref{RB1}b),
+(\ref{RB2}b).  When nothing follows, as in (\ref{RB2}c), obstruents are
+voiceless. Before a vowel in the same word, obstruents can be either voiced
+or voiceless, such as \textipa{[d]} in (\ref{RB2}d) and \textipa{[k]}
+in (\ref{RB2}b); but \textipa{[dZ, dz, G]} do not occur in this environment.
+
+These regularities need to be detailed further in three respects
+\citep[63f.]{hall:59}\INA{Halle, Morris}. (i)~By the
+``end of a word'' is meant the end of a phonological word (a domain of
+accent rules). Most prepositions constitute a proper part of a phonological
+word; hence final obstruents in them are not devoiced when followed by a
+non-obstruent. (ii)~By a ``following word'' is meant a following
+phonological word within the same ``phonemic phrase.''  There is
+considerable freedom as to how many phonemic phrases any given utterance
+may contain. (iii)~An ``obstruent cluster,'' i.e., a sequence of
+consecutive obstruents, always conforms to the last obstruent in the
+cluster with regard to voicing. This observation applies to obstruent
+clusters within morphological signs and phonological words,\footnote{%
+	In a study of obstruent voicing assimilation in prepositions,
+  \cite{bur:rob:97}\INA{Burton, Martha W.}\INA{Robblee, Karen E.} has found
+  overall acoustic evidence for regressive assimilation, but also subtle
+  remnants of the underlying voicing properties. If these subtle effects
+  prove to be reliable and significant, the question as to their
+  articulatory cause arises. For present purposes I disregard them.%
+}
+and is generalized in \cite[64]{hall:59}\INA{Halle, Morris} (following Jakobson)
+to clusters across boundaries of phonological words within a phonemic
+phrase.
+
+To formally account for the fact that the s-strings of unembedded signs are
+articulated into phonological phrases, I hypothesize the feature
+declaration~(\ref{pphrase}) and the restrictions~(\ref{pphrase2}) and~(\ref{pphrase3}):
+\begin{exe}
+\ex
+\label{pphrase}
+\begin{tabbing}
+\hspace{1,5em}\=\hspace{1,5em}\=\hspace{1,5em}\=\hspace{1,5em}\=\hspace{6em}
+\=\kill
+\textit{unembedded-phrase}         \>\>\>\>\>\textsc{phonphrases} \textit{nelofnelofsegment}
+\end{tabbing}
+\ex
+\label{pphrase2} In an \textit{unembedded-phrase} object, the
+  \textsc{phon s-string} value is the concatenation of the members of the \textsc{phonphrases} value.
+\ex
+\label{pphrase3} In an \textit{unembedded-phrase}\/ object, the
+  last segment of a phonological phrase (i.e., a member of the \textsc{phonphrases} value) is also the last segment of a phonological word
+  (i.e., a member of the \textsc{phon hierarch phonwords} value).
+\end{exe}
+
+
+I thus assume that the end of a phonological phrase coincides with the end
+of a phonological word. In the illustrative partial analyses below, I will
+assume that in simple cases, a phrase's \textsc{pws} (i.e., \textsc{phonwords})
+value is the concatenation of the \textsc{pws} values of its daughters and a
+sign's s-string is a concatenation of the members of its \textsc{pws} value,
+as in Figure~\ref{g.baku1} below.  (The latter condition fails to be
+satisfied in cases of sandhi, as in Figures~\ref{g.baku2} and~\ref{zedzbi}.)  This is not the general rule in morphology, though, and
+it is of course not true in the daughters of prepositional phrases in
+Russian\il{Russian}.\footnote{% 
+	I suggest that the lexical entries of most prepositions
+  require the s-string to be a proper prefix of the (single) member of the
+  \textsc{pws} value. In a PP headed by a preposition like that, the member of
+  the preposition's \textsc{pws} value is the concatenation of its s-string
+  and the first member of the complement daughter's \textsc{pws} value. Thus,
+  the PP's \textsc{pws} value is the concatenation of the head daughter's and
+  the complement daughter's \textsc{pws} values minus the latter's first
+  member.  The same sort of analysis can be applied to the indefinite
+  articles \textit{a}\/ and \textit{an}\/ in English\il{English} and also, probably, in
+  morphology.%
+}
+Although these cases would deserve a systematic discussion,
+I follow the literature in being inexplicit about non"=trivial details.
+(Cf.\ \citealt{ink:zec:95}\INA{Inkelas, Sharon}\INA{Zec, Draga} for some
+discussion.)
+
+Among the phonemic sorts %that I posit 
+for Russian\il{Russian} are the ones in (\ref{Rsort1}), with some of the attending
+restrictions given in (\ref{Rsort2}). The \textit{affricate} subsorts \textit{sort}{\textunderscore}\textsc{c} and \textit{sort}{\textunderscore}\textsc{\v{c}} as well as the \textit{fricative}
+subsort \textit{sort}{\textunderscore}\textsc{x} are un\-restricted as to voicing, so that,
+e.g., both \textipa{[x]} and \textipa{[G]} are of sort \textit{sort}{\textunderscore}\textsc{x}.
+\begin{exe}
+\ex
+\label{Rsort1} \textit{fricative}\/: \textit{sort}{\textunderscore}\textipa{s}, \textit{sort}{\textunderscore}\textipa{z},
+  \textit{sort}{\textunderscore}\textipa{S}, \textit{sort}{\textunderscore}\textipa{Z},  \textit{sort}{\textunderscore}\textsc{x}, \ldots\\
+  \textit{affricate}\/: \textit{sort}{\textunderscore}\textsc{c}, \textit{sort}{\textunderscore}\textsc{\v{c}}, \ldots
+%
+\ex
+\label{Rsort2}
+  \textit{sort}{\textunderscore}\textipa{s} $\rightarrow $ {\small
+    \avhr{\textsc{voicing} \textit{voiceless} \\
+      \textsc{constr ft site} \textit{alveolar}}} \\
+  \textit{sort}{\textunderscore}\textipa{Z} $\rightarrow $ {\small
+    \avhr{\textsc{voicing} \textit{voiced} \\
+      \textsc{constr ft site} \textit{postalveolar}}}\\
+  \textit{sort}{\textunderscore}\textsc{x} $\rightarrow $ 
+  \textsc{constr ft site} \textit{velar} \\
+  \textit{sort}{\textunderscore}\textsc{c} $\rightarrow $ 
+  \textsc{constr ft site} \textit{alveolar} \\
+  \textit{sort}{\textunderscore}\textsc{\v{c}} $\rightarrow $ 
+  \textsc{constr ft site} \textit{postalveolar}
+  
+\end{exe}
+% \bigskip  
+
+%\noindent
+
+
+\subsection{Ordinary obstruents}
+\label{sec:1.7.2}
+
+As a first step, we consider a set of highly simplified rules that are
+close to Halle's~(\shcite{hall:59}) introductory description:
+%
+\begin{exe}
+\ex
+\label{R1} In a phonological phrase, the elements of an
+  obstruent cluster C have the \textsc{voicing} value of C's last
+  element.\footnote{%
+  	The assumption that the \textsc{voicing} values are
+%Requiring the \textsc{voicing} values to be 
+   token identical is a speculation. They might just be type identical,
+   with the empirical consequence for the velocity of articulator movement
+   noted in our discussion of Sundanese\il{Sundanese} nasalization in \S\ref{sectPI}.%
+}
+\ex
+\label{R2} In a phonological phrase, an obstruent at its end
+  is voiceless.
+%
+\ex
+\label{R3} In a phonological phrase, if an obstruent O that
+  corresponds to an obstruent at the end of a phonological word is followed
+  by a non-obstruent, O is voiceless.
+\end{exe}
+The ground rule for the relation of a parent's \textsc{phon} value to the \textsc{phon} values of its daughters is of course that the values of
+corresponding paths in segments of parent and daughter are identical. To be
+able to work proper\-ly, (\ref{R1})--(\ref{R3}) also presuppose that the
+ground rule is not obeyed when path values cannot be identical due to the
+demands imposed on the parent by a rule. Thus, the rules must be
+complemented by appropriate specifications of delinking, a task not
+undertaken here.
+\begin{figure}
+  \newsavebox{\tnhsix}
+  \newsavebox{\tnhseven}
+  \newsavebox{\tnheight}
+  \savebox{\tnhsix}{\avhr{\textit{word}
+      \\\textsc{p} \avhr{\textsc{s-s}
+        \avmbox{22}$\left\langle 
+          \avmbox{6}, \avmbox{7}, \avmbox{8}, \avmbox{9} \right\rangle$
+        \\\textsc{ hierarch phonwords} $\left\langle
+          \avmbox{22}  \right\rangle$}\\
+      \\\textsc{m} \avhr{\textit{simplemorph}
+        \\\textsc{p s-s}
+        $\left\langle  \avmbox{6}\avhr{\textsc{s} \textit{sort}{\textunderscore}\textipa{b}},
+          \avmbox{7}\avhr{\textsc{s} \textipa{a}},
+          \avmbox{8}\avhr{\textsc{s} \textipa{k}},
+          \avmbox{9}\avhr{\textsc{s} \textipa{u}}\right\rangle$}
+      }}
+  \savebox{\tnhseven}{\avhr{\textsc{s-s} \avmbox{20}$\left\langle 
+        \avmbox{1}, \avmbox{2}, \avmbox{3}, \avmbox{4}, 
+        \avmbox{5}\avhr{\textsc{s voi} \avmbox{10}} ,
+        \avmbox{6}\avhr{\textsc{s voi} \avmbox{10}} ,
+        \avmbox{7}, \avmbox{8}, \avmbox{9}  \right\rangle$
+      \\\textsc{hierarch phonwords} $\left\langle
+        \avmbox{21}, \avmbox{22}  \right\rangle$}}
+  \savebox{\tnheight}{\avhr{\textit{word}
+      \\\textsc{p} \avhr{\textsc{s-s}
+        \avmbox{21}$\left\langle 
+          \avmbox{1}, \avmbox{2}, \avmbox{3}, \avmbox{4}, \avmbox{5}
+        \right\rangle$
+        \\\textsc{hierarch phonwords} $\left\langle
+          \avmbox{21}  \right\rangle$}\\
+      \\\textsc{m} \avhr{\textit{simplemorph}
+        \\\textsc{p s-s}
+        $\left\langle  \avmbox{1}\avhr{\textsc{s} \textipa{g}},
+          \avmbox{2}\avhr{\textsc{s} \textipa{O}},
+          \avmbox{3}\avhr{\textsc{s} \textipa{r}},
+          \avmbox{4}\avhr{\textsc{s} \textipa{O}},
+          \avmbox{5}\avhr{\textsc{s} \textit{sort}{\textunderscore}\textipa{d}}\right\rangle$}}}
+  \avha{\textit{unembedded-phrase}
+    \\\textsc{p}  \usebox{\tnhseven}
+    \\\textsc{phonphrases} $\left\langle \avmbox{20} \right\rangle$\\
+    \\\textsc{dtrs} $\cdots$\avhr{$\cdots$\usebox{\tnhsix}\\
+      \\$\cdots$\usebox{\tnheight}}}
+  \caption{\label{g.baku1} Morphophonological structure of \emph{gorod Baku}
+    (provisional)}
+\end{figure}
+
+
+Example~(\ref{RB2}b) is partially analysed in accordance
+with~(\ref{R1})--(\ref{R3}) in Figure~\ref{g.baku1}. Vowel reduction is
+disregarded. I assume that \emph{go\-rod}, \emph{Baku} and \emph{Ufa} are
+simple morphemes and hence licensed as such by lexical entries, and
+that~(\ref{RB2}a--c) can be performed as complete utterances.
+
+In~Figure~\ref{g.baku1}, no rule requires that any path value in any segment
+of a parent be different from a corresponding path value in a daughter. The
+only relevant requirement is~(\ref{R1}): the \textsc{voi(cing)} values of the
+obstruents at the phonological word boundary (tagged \avmbox{5} and \avmbox{6})
+must be identical. This is unproblematic, as they happen to be of the same
+sort anyway.
+
+The rules (\ref{R1})--(\ref{R3}) can claim to be ``surface"=true.'' Although
+this property is sometimes considered a merit in itself, (\ref{R3}) appears
+doubtful. Why should it be that obstruents are voiceless at the end of
+words whenever, of all segments, just a vowel or sonorant follows?
+Devoicing is often seen in codas. This could in fact be the relevant factor
+in (\ref{R2}); but in (\ref{R3}), there is no reason to expect an obstruent
+to be in a coda just when followed by a vowel. Actually, in (\ref{RB2}a),
+the devoiced obstruent is not in a coda but in a syllable onset, according
+to~\cite[76]{weis:87}:\INA{Weisser, Franz}
+\begin{exe}
+\ex
+\label{gor}
+\textipa{[gO.r@.tu.fa]}
+\end{exe}
+%
+(If this is correct, the domain of syllabification rules is the
+phonological phrase, rather than some smaller unit.) In any case, the
+conditioning factor for devoicing is clearly the end of the phonological
+word, quite independently of whatever follows.  That is, if a grammar is
+not just meant to reproduce the data in some fashion, but also to capture
+``natural'' rules that constitute a speaker's knowledge, (\ref{R3}) must be
+replaced by (\ref{R3'}). (Thanks to (\ref{pphrase3}), this rule subsumes
+the effects of (\ref{R2}).)
+%
+\begin{exe}
+\ex
+\label{R3'} 
+In a \emph{word} object, an obstruent at the end of a phonological word is
+voiceless.
+\end{exe}
+%
+
+Rule (\ref{R3'}) is of course no longer surface-true: an obstruent that is
+voice\-less according to (\ref{R3'}) surfaces voiced just in case a voiced
+obstruent follows in the phonological phrase.  This fact suggests that the
+generalization expressed by (\ref{R1}) might be spurious and that it should
+be replaced by the less general cluster rule~(\ref{R1'}) and a sandhi
+rule (\ref{R4}):
+%
+\begin{exe}
+\ex
+\label{R1'} In a phonological word and in a \textit{morph}\/
+  object, the elements of an obstruent cluster C have the \textsc{voicing}
+  value of C's last element.
+\end{exe}
+
+\begin{figure}[t]
+  \newsavebox{\tnhnine}
+  \newsavebox{\tnhten}
+  \newsavebox{\tnhtenhalf}
+  \newsavebox{\tnheleven}
+  \savebox{\tnhnine}{\avhr{\textsc{s-s} \avmbox{20}$\left\langle 
+        \avmbox{1}, \avmbox{2}, \avmbox{3}, \avmbox{4}, 
+        \avhr{\textsc{s} \avhr{\textit{sort}{\textunderscore}\textipa{d}
+            \\\textsc{voi} \avmbox{10}\textit{voiced}}} ,
+        \avmbox{6}\avhr{\textsc{s voi} \avmbox{10}} ,
+        \avmbox{7}, \avmbox{8}, \avmbox{9}  \right\rangle$
+      \\\textsc{hierarch phonwords} $\left\langle
+        \avmbox{21}, \avmbox{22}  \right\rangle$}}
+  \savebox{\tnhten}{\avhr{\textit{word}
+      \\\textsc{p} \textsc{s-s}
+      \avmbox{22}$\left\langle 
+        \avmbox{6}, \avmbox{7}, \avmbox{8}, \avmbox{9} \right\rangle$
+      \\
+      \\\textsc{m} \avhr{\textit{simplemorph}
+        \\\textsc{p s-s}
+        $\left\langle  \avmbox{6}\avhr{\textsc{s} \textit{sort}{\textunderscore}\textipa{b}},
+          \avmbox{7}\avhr{\textsc{s} \textipa{a}},
+          \avmbox{8}\avhr{\textsc{s} \textipa{k}},
+          \avmbox{9}\avhr{\textsc{s} \textipa{u}}\right\rangle$}
+      }}
+  \savebox{\tnhtenhalf}{\avhr{\textit{simplemorph}
+        \\\textsc{p s-s}
+        $\left\langle  \avmbox{1}\avhr{\textsc{s} \textipa{g}},
+          \avmbox{2}\avhr{\textsc{s} \textipa{O}},
+          \avmbox{3}\avhr{\textsc{s} \textipa{r}},
+          \avmbox{4}\avhr{\textsc{s} \textipa{O}},
+          \avhr{\textsc{s} \avhr{\textit{sort}{\textunderscore}\textipa{d} \\\textsc{voi} \textit{voiced}}}\right\rangle$}}
+  \savebox{\tnheleven}{\avhr{\textit{word}
+      \\\textsc{p} \textsc{s-s}
+      \avmbox{21}$\left\langle 
+        \avmbox{1}, \avmbox{2}, \avmbox{3}, \avmbox{4}, 
+        \avhr{\textsc{s} \avhr{\textit{sort}{\textunderscore}\textipa{t}
+            \\\textsc{voi} \textit{voiceless}}} \right\rangle$  \\
+      \\\textsc{m} \usebox{\tnhtenhalf}}}
+  \avha{\textit{unembedded-phrase}
+    \\\textsc{p}  \usebox{\tnhnine}
+    \\\textsc{phonphrases} $\left\langle \avmbox{20} \right\rangle$\\
+    \\\textsc{dtrs} $\cdots$\avhr{$\cdots$\usebox{\tnhten}\\
+      \\$\cdots$\usebox{\tnheleven}}}
+  \caption{\label{g.baku2} Morphophonological structure of \emph{gorod
+      Baku} (amended)}
+\end{figure}
+
+\begin{exe}
+\ex
+\label{R4} In a phonological phrase, if an obstruent O that
+  corresponds to an obstruent at the end of a phonological word is followed
+  by a voiced obstruent B, O has the \textsc{voicing} value of B.
+\end{exe}
+
+With (\ref{R3'})--(\ref{R4}) replacing (\ref{R1})--(\ref{R3}),
+Figure~\ref{g.baku1} is no longer correct, as shown in Figure~\ref{g.baku2}
+(indications of \textsc{pws} values are simplified).  By (\ref{R3'}), the word
+\emph{gorod} (tagged \avmbox{21}) ends in a voiceless obstruent, and by (\ref{R4}),
+the corresponding obstruent in the phonological phrase is voiced.  %\bigskip
+
+%\noindent
+
+
+\subsection{Obstruents with predictable voicing}
+\label{sec:1.7.3}
+
+
+The voice-unrestricted segment types \textsc{x}, \textsc{c} and \textsc{\v{c}} have
+been problematic for certain theories of phonemics. Within phonological
+words and \textit{morph}\/ objects, any such segment is voiceless if it
+precedes a non-obstruent.  If it precedes an obstruent, it is subject
+to~(\ref{R1'}).  If it is the last segment of a word, it is subject
+to~(\ref{R3'}). The situation at the end of morphemes is less obvious, as
+is shown in the partial analysis of~(\ref{RB1}b) in Figure~\ref{zedzbi}.
+\begin{figure}[t]
+  \newsavebox{\tnhtwelf}
+  \newsavebox{\tnhthirteen}
+  \newsavebox{\tnhthfo}
+  \newsavebox{\tnhfourteen}
+  \savebox{\tnhtwelf}{\avhr{\textsc{s} \avhr{\textit{sort}{\textunderscore}\textsc{\v{c}}
+        \\\textsc{voi} \avmbox{10}\textit{voiced}}}}
+  \savebox{\tnhthirteen}{\avhr{\textit{word}
+      \\\textsc{p} \textsc{s-s}
+      \avmbox{22}$\left\langle 
+        \avmbox{4}, \avmbox{5} \right\rangle$ \\
+      \\\textsc{m} \avhr{\textit{simplemorph}
+        \\\textsc{p s-s}
+        $\left\langle 
+          \avmbox{4}\avhr{\textsc{s} \textit{sort}{\textunderscore}\textipa{b}},
+          \avmbox{5}\avhr{\textsc{s} \textipa{1}}
+        \right\rangle$}
+      }}
+  \savebox{\tnhthfo}{$\left\langle 
+          \avmbox{1}\avhr{\textsc{s} \textit{sort}{\textunderscore}\textipa{Z}},
+          \avmbox{2}\avhr{\textsc{s} \textipa{e}},
+          \avmbox{3}\avhr{\textsc{s} \avhr{\textit{sort}{\textunderscore}\textsc{\v{c}}\\\textsc{voi} \avmbox{8}}}
+        \right\rangle$}
+  \savebox{\tnhfourteen}{\avhr{\textit{word}
+      \\\textsc{p} \textsc{s-s}
+      \avmbox{21}$\left\langle 
+        \avmbox{1}, \avmbox{2}, \avmbox{6}\avhr{\textsc{s}
+          \avhr{\textit{sort}{\textunderscore}\textsc{\v{c}}\\\textsc{voi} 
+            \avmbox{9}\textit{voiceless}  }}        \right\rangle$
+      \\
+      \\\textsc{m} \avhr{\textit{simplemorph}
+        \\\textsc{p
+          s-s} 
+        \usebox{\tnhthfo}}}}
+  \avha{\textit{unembedded-phrase}
+    \\\textsc{p}  \avhr{\textsc{s-s} \avmbox{20}$\left\langle \avmbox{1}, \avmbox{2},  
+        \avmbox{7}\usebox{\tnhtwelf} ,
+        \avmbox{4}\avhr{\textsc{s voi} \avmbox{10}},
+        \avmbox{5} \right\rangle$
+      \\\textsc{hierarch phonwords} $\left\langle \avmbox{21}, \avmbox{22}
+      \right\rangle$}
+    \\\textsc{phonphrases} $\left\langle \avmbox{20} \right\rangle$\\
+    \\\textsc{dtrs} $\cdots$\avhr{$\cdots$\usebox{\tnhthirteen}\\
+      \\$\cdots$\usebox{\tnhfourteen}}}
+  \caption{\label{zedzbi} Morphophonological structure of \emph{\v{z}e\v{c} by}}
+\end{figure}
+
+In the phonological phrase, \textsc{\v{c}} (tagged \avmbox{7}) is voiced,
+according to (\ref{R4}).  At the end of the phonological word, \textsc{\v{c}}
+(tagged \avmbox{6}) is voiceless, according to (\ref{R3'}). Nothing prevents
+\textsc{\v{c}} in the morpheme (tagged \avmbox{3}) to be voiceless too, so that
+possibly, $\avmbox{8} = \avmbox{9}$; but nothing enforces this identity either. The
+lexical entry for \emph{\v{z}e\v{c}} should certainly not fix the sort of \textsc{\v{c}}'s \textsc{voicing} value. Neither can the ground rule and the
+delinking specifications attending the individual rules be balanced in such
+a way that necessarily $\avmbox{8} = \avmbox{9}$. (The same problem arises with
+obstruent clusters across morpheme boundaries within words.)
+
+Naturally, no incorrect observational predictions ensue if this question is
+just left open. But this (non-)decision forces upon us genuinely spurious
+ambiguities: for each word that ends in a voice-unrestricted obstruent
+sort, there are two candidate \textit{simplemorph} objects that differ in the
+sort of the \textsc{voicing} value of the morpheme-final obstruent. If a
+grammar is meant to capture 
+the
+linguistic knowledge of speakers, nothing can
+justify an attribution to speakers of knowledge of such an ambiguity.
+Therefore, the rule for objects belonging to a voice-unrestricted sort is
+posited as in (\ref{R5}):
+%
+\begin{exe}
+\ex
+\label{R5} In a \textit{simplemorph} object, a \textsc{p s-string}
+  value component of sort \textit{sort}{\textunderscore}\textsc{c}, \textit{sort}{\textunderscore}\textsc{\v{c}} or
+  \textit{sort}{\textunderscore}\textsc{x} is voiceless if it does not precede an obstruent.
+\end{exe}
+
+
+Given that the voicing of an obstruent at the end of a morpheme must in
+general be inferred on the evidence of the morpheme occurring before a
+vowel (or a sonorant) in a phonological word, (\ref{R5}) is perfectly
+natural. Thus, by (\ref{R5}), \textsc{\v{c}} in the morpheme
+\emph{\v{z}e\v{c}} in Figure~\ref{zedzbi} is voiceless. By the ground rule,
+then, $\avmbox{8} = \avmbox{9}$ and hence, $\avmbox{3} = \avmbox{6}$.  %\bigskip
+
+%\noindent
+
+
+%\addlines[-2]
+\subsection{Concluding considerations}
+\label{sec:1.7.4}
+
+\begin{sloppypar}
+According to the rule system (\ref{R3'})--(\ref{R5}), Russian\il{Russian} has a special
+end"=of"=word rule (\ref{R3'}), which is nothing unusual, and a sandhi
+rule (\ref{R4}) that is independent of the word"=internal cluster
+rule (\ref{R1'}). On comparative grounds, both rules are far more natural
+than (\ref{R3}). One can expect, then, that Slavic languages (whose
+obstruents show similar behaviour, by and large) vary~(\ref{R4})
+independently of (\ref{R1'}). As we have noted in \S\ref{sec:1.2.2}, this is
+just what happens in southwestern variants of
+Polish\il{Polish} (cf.\ \citealt{beth:84}\INA{Bethin, Christina Y.},
+\citealt[34 and~54]{guss:92}\INA{Gussman, Edmund}, \citealt[72
+and~82\hspace{1pt}f.\@]{ruba:96}\INA{Rubach, Jerzy}): there, (\ref{R1'})
+and~(\ref{R3'}) are (basically) also in force, but in the counterpart
+to~(\ref{R4}), `obstruent B' is to be replaced by `segment B'.
+\end{sloppypar}
+
+Moreover, it is possible that the sandhi rule~(\ref{R4}) is actually not
+phonemic but phonetic in nature; cf.\ \cite{kipa:85}\INA{Kiparsky, Paul} for
+references. This might mean that the \textsc{voicing achievement} values of
+obstruents, rather than their \textsc{voicing} values, are critically affected
+by sandhi. It might also mean that~(\ref{R4}) should actually regulate not
+s-strings but p-strings. This is suggested by the observation
+in \cite[415]{isac:54}\INA{Isacenko@Isa\v{c}enko, Alexander V.} (confirmed
+in \citealt[64, note~15]{hall:59}\INA{Halle, Morris}) that in examples such
+as \emph{re\v{z}' bulku} `cut the bread' the fricative typically sets in
+voiceless.  This fact appears problematic upon (\ref{R1}) when the
+fricative is lexically voiced, but may be easier to understand
+upon~(\ref{R3'}) plus a modified version of (\ref{R4}). Conceivably,
+though, it is a rather direct consequence of there being just one long
+(hence, slow) voicing gesture throughout the obstruent cluster. To clarify
+these questions, more detailed data are required than are available to me.
+%\bigskip
+
+%\noindent
+\begin{sloppypar}
+In the discussion of Russian\il{Russian} obstruents above, several noteworthy points
+should have become apparent. First, important questions of empirical detail
+notwithstanding, the requirements of lexical licensing and of rule
+naturalness strongly motivate non-trivial forms of multistratality. Second,
+although the relation of a parent's \textsc{phon} value to those of its
+daughters (as envisaged in (\ref{R3'})--(\ref{R4}) in conjunction with the
+ground rule and the delinking specifications) is intuitively transparent,
+its logic is remarkably complex.  Specifying it in full detail is some work
+even with the resources referred to in note~\ref{RSRL} above. Third, the
+hierarchical structure imposed by \textsc{phonwords} and \textsc{phonphrases}
+values is non-trivial just in case it is not homomorphic to
+morpho-syntactic structure. But because of the lack of detailed research, we
+fail to have a general well"=founded view of how to construe the relation
+explicitly for non-trivial cases.\footnote{%
+	To account for word order
+  phenomena in Serbo-Croatian, \cite{penn:98}\INA{Penn, Gerald} proposes a
+  structure for signs that differs significantly from my highly
+  conservative proposals (which can, in principle, be combined with the
+  approach to linearization put forward in \citealt{rich:97}\INA{Richter,
+    Frank}\INA{Sailer, Manfred} or in \citealt{sail:97}). Considerable
+  exploratory work will be needed to assess the merits of either
+  proposal.%
+}
+\il{Russian|)}
+\end{sloppypar}
+
+
+
+
+\section{Summary of architecture}
+\label{sectSum}
+ 
+A natural language is conceived to be a set of totally well-typed token
+linguistic objects.  Among them, objects of sort \textit{unembedded"=phrase}\/
+are prominent in that they alone can be performed as utterances. They bear
+a distinguished phonological attribute \textsc{utterance}. Its value's \textsc{s-string} 
+%value is mapped to a 
+%set of alternative
+%possible physical events by 
+value (its ``p-string'') is mapped to a u-equivalence (a maximal
+set of stylistically alternative possible utterance events) by
+an interpretation function ϕ.
+
+ϕ is defined by a physical theory that has a universal core, but
+allows certain details to be learned for individual languages.  For a
+``grammar G of natural language L,'' L is (intended to be) an exhaustive
+model of G\@.  Knowledge of L is thus partly embodied in G and partly, in
+the theory defining ϕ.
+
+An object's \textsc{utterance s-string} value is related, but not necessarily
+identical, to its \textsc{phon s-string} value, providing room for phonetic
+regularities that are not captured by the \textsc{phon s-string} value (or by
+ϕ) alone. Components of \textsc{phon s-string} values need not be
+physically interpreted, although they are required to be interpretable.
+
+The \textsc{phon} value of a sign is related to the \textsc{phon} values of its
+component signs.  Words embed (morphological) signs, which may again embed
+signs (recursively). The relation of a sign's \textsc{phon} value to those of
+its component signs thus provides room (hypothesized to be both necessary
+and sufficient) for ``postlexical'' as well as ``lexical'' morphophonology.
+
+``Long distance'' identities in strings of segments are necessarily type
+(as opposed to token) identities. Identities in adjacent segments can (but
+need not) be token identities, since segments allow for massive gestural
+overlap. Notions from classical phonemics, which capture constant coupling
+of different gestural objects in segments, can be exploited (and explored)
+with the help of phonemic sorts 
+%(subsorts of \textit{segmproper}\/).
+(partitionings of major class and manner sorts).
+
+\INS{phonology|)}
+
+\printbibliography[heading=subbibliography,notkeyword=this]
+\refstepcounter{mylastpagecount}\label{chap-phonology-end}
+\end{document}

@@ -1,0 +1,76 @@
+% add all extra packages you need to load to this file  
+\usepackage{tabularx} 
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage{titlesec}
+\lstset{
+breaklines=true,
+}
+\usepackage{multicol}
+\usepackage{etoc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                              %%%
+%%%           Examples                           %%%
+%%%                                              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\usepackage{langsci/styles/langsci-optional} 
+
+\usepackage{eurosym}
+
+\usepackage{varioref}
+
+\usepackage{langsci/styles/avm}
+
+\avmhskip{1ex}
+
+\usepackage{todonotes}
+%\usepackage[disable]{todonotes}
+
+
+\newcommand{\todostefan}[1]{\todo[color=green!40]{\footnotesize #1}\xspace}
+\newcommand{\todofrank}[1]{\todo[color=red!40]{\footnotesize #1}\xspace}
+
+\newcommand{\inlinetodostefan}[1]{\todo[color=green!40,inline]{\footnotesize #1}\xspace}
+\newcommand{\inlinetodofrank}[1]{\todo[color=red!40,inline]{\footnotesize #1}\xspace}
+
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage[linguistics]{forest}
+
+\usepackage{amsmath}
+
+\usepackage{tipa}
+
+% cmld: gesperrter Text
+\usepackage{soul}
+\sodef\so{}{.1em}{.4em plus.1em minus .1em}{.4em plus.1em minus .1em}
+
+
+%% Stefan 17.01.2017
+
+% This is now an option of the langsci class
+
+% cmld: Hyphenation of hyphenated words
+% polyglossia not compatible with biblatex
+% alte Rechtschreibung, daher german
+%\usepackage[german,english]{babel}
+%\useshorthands{"} 
+%\addto\extrasenglish{\languageshorthands{german}}
+
+
+%\usepackage{german}
+
+\usepackage{langsci/styles/langsci-gb4e} 
+%% to add additional information to the right of examples, uncomment the following line
+% \usepackage{jambox}
+%% if you want the source line of examples to be in italics, uncomment the following line
+% \renewcommand{\exfont}{\itshape}
+
+% does not have any effect ... \gblabelsep{1ex}
+
+% https://tex.stackexchange.com/questions/29322/how-to-make-enumerate-items-align-at-left-margin
+\usepackage{enumitem}
+%\setlist[enumerate]{leftmargin=*}
+

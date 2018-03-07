@@ -1,0 +1,391 @@
+\newenvironment{styleBeispelfTi}{}{}
+\newenvironment{styleBeispelTimes}{}{}
+\newenvironment{styleBeispiel}{}{}
+\newenvironment{styleBeispielf}{}{}
+\newenvironment{styleBeispielfn}{}{}
+\newenvironment{styleBeispieli}{}{}
+\newenvironment{styleBeispielin}{}{}
+\newenvironment{styleLiteratur}{}{}
+\newenvironment{styleNormalAbst}{}{}
+\newenvironment{styleNormalEA}{}{}
+\newenvironment{styleNormalEinzug}{}{}
+\newenvironment{stylePCOhneTiteli}{}{}
+\newenvironment{styleSeiteorii}{}{}
+\newenvironment{styleStandard}{}{}
+
+\renewcommand{\sectref}[1]{Section~\ref{#1}}
+\providecommand{\sectgref}[1]{Abschnitt~\ref{#1}}
+
+
+% cmld: subsection ohne Überschrift
+\makeatletter
+\providecommand\ssubsection{\@startsection {subsection}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {-1em}%
+                                   {\normalfont\large\bfseries}}
+\makeatother
+
+
+% cmld: subsubsection ohne Überschrift
+\makeatletter
+\providecommand\ssubsubsection{\@startsection {subsubsection}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {-1em}%
+                                   {\normalfont\bfseries}}
+\makeatother
+
+% cmld: example sources for Chapter 13
+\providecommand{\exsourcefive}[3][]{\trans\strut\hfill\citep[#1][#2]{#3}}
+
+% cmld: example sources for Chapter 14
+\providecommand{\exsourcefour}[1]{\strut\hfill {#1}}
+\providecommand{\exsourcefourn}[2]{\\\strut\hfill {\citep[#1]{#2}}}
+
+% cmld: example sources for Chapter 13
+%\providecommand{\exsource}[2]{\trans\strut\hfill(from \citealt[#1]{#2})}
+\providecommand{\exsource}[2]{\jambox{(\citealt[#1]{#2})}}
+
+% cmld: Einrückung exe korrigieren (römische Zahlen sind sehr breit.)
+%\exewidth{(\hspace*{18pt})}
+
+% cmld: inter-word space in glossed examples
+%\glossglue = 0.8em plus 8pt minus 8pt
+% cmld: gloss formatting
+%\renewcommand{\eachwordtwo}{\small} %if done like this font size in examples in footnotes is wrong
+%% St.Mü. \renewcommand{\glossfont}{\small}
+
+% cmld: exe mit großen römischen Zahlen auf der obersten Ebene
+\newcounter{fundcount}
+\makeatletter
+\newcommand{\exI}{\save@counters\refstepcounter{fundcount}\renewcommand{\thexnumi}{\Roman{fundcount}}\@ifnextchar [{\@exI}{\item}\reset@counters}
+\makeatother
+
+% cmld: exe mit kleinen römischen Zahlen auf der obersten Ebene (für Fußnoten)
+\newcounter{footcount}
+\makeatletter
+\newcommand{\exF}{\save@counters\refstepcounter{footcount}\renewcommand{\thexnumi}{\roman{footcount}}\@ifnextchar [{\@exF}{\item}\reset@counters}
+\makeatother
+
+% cmld: roman numbered footnotes, numbered within each footnote
+%% St.Mü. \let\oldfootnote\footnote
+%% St.Mü. \renewcommand{\footnote}[1]{\begingroup%
+%% St.Mü. \let\exfont\fnexfont%
+%% St.Mü. \let\glossfont\fnglossfont%
+%% St.Mü. \let\transfont\fntransfont%
+%% St.Mü. \let\exnrfont\fnexnrfont%
+%% St.Mü. \renewcommand{\thexnumi}{\roman{xnumi}}%
+%% St.Mü. \oldfootnote{#1}%
+%% St.Mü. \setcounter{footcount}{0}
+%% St.Mü. \endgroup}
+
+%% St.Mü. \renewcommand{\fnexfont}{\footnotesize}
+%% St.Mü. \renewcommand{\fnglossfont}{\footnotesize}
+
+
+%\newcommand{\vref}{}
+\let\citew\citet
+
+% cmld: fix formatting and positioning of number for exe environments with tables
+\def\extab{\ex\leavevmode\vadjust{\vspace{-0.95\baselineskip}}\newline\normalfont}
+\def\extabb{\ex\leavevmode\vadjust{\vspace{-0.8\baselineskip}}\newline\normalfont}
+
+% cmld: New column types (for tabularx)
+\newcolumntype{Q}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{P}{>{\raggedright\hspace{0pt}\arraybackslash}p}
+
+
+% cmld: mssing Ref
+\providecommand{\missing}{XY [siehe Fn.~\ref{fn-herausgeber-topo}]}
+
+% cmld: Comments and notes 
+% for Luise Dorenbusch (cmld)
+ \newcounter{todocountercmld}
+ \newcommand{\cmldcomm}[2][]
+ {\refstepcounter{todocountercmld}{\todo[size=\scriptsize,
+     color=yellow, #1]{\sffamily \textbf{[CMLD~\thetodocountercmld]}
+       #2}}}
+% internal comments (int)
+ \newcounter{todocounterint}
+ \newcommand{\intcomm}[2][]
+ {\refstepcounter{todocounterint}{\todo[size=\scriptsize, color=white, #1]{\sffamily \textbf{[INTERNAL~\thetodocounterint]} #2}}}
+
+% cmld: too many bad boxes!!
+\setlength{\emergencystretch}{2pt}
+
+% cmld: AVMs
+\avmfont{\mathit}
+\providecommand{\tpv}[1]{\textnormal{\textit{#1}}}
+\avmsortfont{\scriptsize\it}
+% minimize vertical spacing
+\def\avmjvskip{0.2ex}
+\newcommand{\tp}[1]{\avmspan{\textit{#1}}}
+% types (adaptiert von Stefan Müllers merkmalstruktur.sty)
+\newcommand{\onems}[2][]{%
+  \mbox{%
+    \delimiterfactor=1000 \delimitershortfall=0pt
+    \tabcolsep=0pt
+    $\left[%
+    \begin{tabular}{>{\upshape\scshape}l}
+    \if\relax\detokenize{#1}\relax\else
+    \raisebox{1mm}{{\small\normalfont\itshape #1}}%
+    \\[-1mm]
+    \fi
+    #2%
+    \end{tabular}%
+    \right]$%
+  }%
+  \vspace{1mm}%
+}
+
+\newcommand{\onemslo}[2][]{%
+  \mbox{%
+    \delimiterfactor=1000 \delimitershortfall=0pt
+    \tabcolsep=0pt
+    $\left[%
+    \begin{tabular}{>{\upshape\scshape}l}
+    \if\relax\detokenize{#1}\relax\else
+    \raisebox{1mm}{{\small\normalfont\itshape #1}}%
+    \\[.5mm]
+    \fi
+    #2%
+    \end{tabular}%
+    \right.$%
+  }%
+  \vspace{1mm}%
+}
+
+% types und aligniert
+\providecommand{\avmtype}[1]{\raisebox{1mm}{{\small\normalfont\itshape #1}}}
+
+% cmld: temporary command for German single quotes
+%\providecommand{\textsq}[1]{{\color{red}‚}#1{\color{red}‘}}
+\providecommand{\textsq}[1]{‚#1‘}
+
+% cmld: temporary command for English single quotes
+%\providecommand{\textsqe}[1]{{\color{red}‘}#1{\color{red}’}}
+\providecommand{\textsqe}[1]{‘#1’}
+
+
+
+% cmld: Randnummern
+\usepackage{marginnote}
+\newcounter{randcount}[chapter]
+\makeatletter
+\def\randnum{\@ifnextchar[{\@with}{\@without}}
+\def\@with[#1]{\leavevmode\marginnote[\hfill#1]{#1}}
+\def\@without{\refstepcounter{randcount}\leavevmode\marginnote[\hfill\arabic{randcount}]{\arabic{randcount}}}
+\makeatother
+
+% funktioniert nicht :(
+% \makeatletter
+% \@addtoreset{randcount}{chapter}
+% \makeatother
+
+% \makeatletter
+% \providecommand{\randalph}[1]{\def\@currentlabel{#1}}
+% \makeatother
+
+\makeatletter
+\providecommand{\exalph}[1]{\def\@currentlabel{#1}}
+\makeatother
+
+% cmld: UMBRUCH
+% cmld: mainly vertical
+\providecommand{\Hack}[1]{#1}
+% cmld: mainly horizontal
+\providecommand{\hack}[1]{#1}
+
+
+\def\INS#1{}
+\def\INA#1{}
+% % allows for margin notes of index entries.
+
+% \newif\ifshowindex \showindexfalse
+
+%  \def\INS#1{\ifshowindex%
+%    \index{#1}
+%    \marginpar{\mbox{}\raggedright\scriptsize\rm #1}%
+%    \else%
+%    \index{#1}%
+%    \fi}
+
+%  \def\INA#1{\ifshowindex%
+%    \index{ZZZ-#1}%
+%    \marginpar{\mbox{}\raggedright\scriptsize\rm #1}%
+%    \else%
+%    \index{ZZZ-#1}%
+%    \fi}
+
+\let\oldavm\avm
+\def\avm{\oldavm\scshape}
+
+\def\avhr#1{\mbox{\small$\left[\begin{tabular}{@{}l@{}}#1\end{tabular}\right]$}}
+\def\avha#1{\small{\[\left[\begin{tabular}{@{}l@{}}#1
+\end{tabular}\right]\]}}
+\def\avmcirc#1{\mbox{\rlap{\mbox{$\bigcirc$}}{\kern3pt$\scriptstyle #1$\kern3pt}}}\newcommand{\shcite}[1]{\citeyear{#1}}
+
+
+
+\newcommand{\sub}[1]{\(_{\mbox{\scriptsize\textrm{#1}}}\)}
+\renewcommand{\mathrm}[1]{\text{#1}}
+
+% http://tex.stackexchange.com/questions/8255/vertically-aligning-textsuperscript-and-textsubscript-together
+\def\supsub#1#2{\rlap{\textsuperscript{\tiny #1}}\textsubscript{\tiny #2}}
+
+\newcommand{\pollardsag}{Pollard~\& Sag\xspace}
+
+
+\let\addedcitet\citet
+
+
+%https://tex.stackexchange.com/questions/75675/how-can-i-force-hyphenation-in-chapter-titles
+%\usepackage{ragged2e}
+%\renewcommand*{\raggedsection}{\RaggedRight}% default is \raggedright
+
+
+% biblatex stuff
+% get rid of initials for Carl J. Pollard and Carl Pollard in the main text:
+\ExecuteBibliographyOptions{uniquename=false}
+\DefineBibliographyStrings{german}{%
+  andothers = {et al.}
+}
+%\indexfield{author}
+
+%https://tex.stackexchange.com/questions/402044/getting-the-authors-to-show-in-the-index-while-using-shortauthor-and-biblatex/402067#402067
+
+% If the user provided a shortauthor in the bibtex entry, we use the authentic author (as with the
+% authorindex package) if it is defined, otherwise we use the author.
+% This gets F/T as shorthand right and puts the guys in the index.
+
+\renewbibmacro*{citeindex}{%
+  \ifciteindex
+    {\iffieldequalstr{labelnamesource}{shortauthor}
+      {\ifnameundef{authauthor}
+        {\indexnames{author}}
+        {\indexnames{authauthor}}}
+      {\iffieldequalstr{labelnamesource}{author}
+        {\ifnameundef{authauthor}% if defined use authauthor
+          {\indexnames{author}}
+          {\indexnames{authauthor}}} % if defined use this field 
+        {\iffieldequalstr{labelnamesource}{shorteditor}
+          {\ifnameundef{autheditor}
+            {\indexnames{editor}}
+            {\indexnames{autheditor}}}
+          {\indexnames{labelname}}}}}
+    {}}
+
+
+
+
+\newcommand{\zb}{z.\,B.\ }
+\newcommand{\Zb}{Z.\,B.\ }
+\newcommand{\ZB}{Z.\,B.\ }
+
+\newcommand{\dash}{d.\,h.\@\xspace}        % was macht dh sonst??
+
+
+\newcommand{\inThisVolume}{%
+\iflanguage{german}{%
+{in diesem Band\xspace}}{%
+{in this volume\xspace}}}
+
+\newcommand{\pages}{%
+\iflanguage{german}{%
+{S.\,}}{%
+{pp.\,}}}
+
+
+\newcommand{\editors}{%
+\iflanguage{german}{%
+{Hrsg.}}{%
+{eds.}}}
+
+\newcommand{\volume}{%
+\iflanguage{german}{%
+{{Bd.\,}}}{%
+{{Vol.\,}}}}
+
+% The \ex definition
+\newcounter{smtempcnt}
+
+%% \newcommand{\ex}[1]{\setcounter{smtempcnt}{\value{equation}}%
+%% \addtocounter{smtempcnt}{#1}%
+%% \arabic{tempcnt}}%
+
+\newcommand{\mex}[1]{\setcounter{smtempcnt}{\value{equation}}%
+\addtocounter{smtempcnt}{#1}%
+\arabic{smtempcnt}}%
+
+
+
+
+\newcommand{\spacebr}{\hspaceThis{[}}
+
+
+
+
+
+  % adds lines to both the odd and even page.
+% bloddy hell! This is really an alpha package! Do not use the draft option! 07.03.2016
+\usepackage{addlines}
+
+%% \let\addlinesold=\addlines
+%% % there is one optional argument. Second element in brackets is the default 
+%% \renewcommand{\addlines}[1][1]{
+%% \todosatz{addlines}
+%% \addlinesold[#1]
+%% }
+
+
+% do nothing now
+%\let\addlinesold=\addlines
+%\renewcommand{\addlines}[1][1]{}
+
+% for addlines to work
+\strictpagecheck
+
+
+
+
+% to get the hyperrefs right for page numbers of chapters
+\newcounter{mylastpagecount}
+
+
+
+\newcommand{\sliste}[1]{%
+\mbox{%
+$\left\langle\mbox{\upshape\scshape #1}\right\rangle$}%
+}
+
+\newcommand{\nliste}[1]{%
+$\left\langle\mbox{#1}\right\rangle$%
+}
+
+
+\newcommand{\abar}{\mbox{$\overline{\mbox{A}}$}\xspace}
+
+
+\usepackage{\stylepath jambox}
+
+
+% if we have two example environments, we avoid space by ending the first with \zmid
+\def\zmid{\z\vspace{-\baselineskip}}
+\def\zlmid{\zl\vspace{-\baselineskip}}
+%\def\zlmid{\zl}
+
+%https://tex.stackexchange.com/questions/51113/horizontal-equivalent-to-raisebox
+
+% did not work for \ea and so on.
+%% \makeatletter
+%% \newcommand*{\shifttext}[2]{%
+%%   \settowidth{\@tempdima}{#2}%
+%%   \makebox[\@tempdima]{\hspace*{#1}#2}%
+%% }
+%% \makeatother
+
+%% \newcommand{\shiftleft}[2]{\makebox[0pt][r]{\makebox[#1][l]{#2}}}
+
+
+
+

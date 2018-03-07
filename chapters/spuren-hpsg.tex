@@ -1,0 +1,407 @@
+%% -*- coding:utf-8 -*-
+\documentclass[output=paper]{LSP/langsci}
+\author{Tilman N. Höhle}
+
+\title{Spuren in {HPSG}}
+%\epigram{Change epigram in chapters/01.tex or remove it there}
+\abstract{}
+\maketitle
+% \rohead{\thechapter\hspace{0.5em}short title} % Display short title
+\ChapterDOI{10.5281/zenodo.1169687}
+\begin{document}
+\label{chap-spuren-hpsg}
+\selectlanguage{german}
+\setcounter{randcount}{0}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{4}
+\footnotetext{%
+\emph{Anmerkung der Herausgeber:} Das Papier stellt die bisher unveröffentlichte Textfassung eines
+Vortrags auf der GGS"=Tagung in Tübingen am 14.\,Mai 1994 dar.
+Formatierung, Absatz- und Beispielnumerierung sowie der
+Zitierstil wurden weitgehend an die Konventionen des Bandes
+angepasst. Den Beschreibungen der Werte von \textsc{slash} in (\ref{ex:16-2})
+wurden Mengenklammern hinzugefügt, die in der Vorlage nicht stehen.%
+}
+
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+\section{Merkmalarchitektur von HPSG}
+\label{sec:16-1}
+
+{\randnum}Die Extraktionstheorie von \isi{HPSG} ist in den Grundzügen ähnlich wie die
+von \citet{gazdaretal1985a}. Infolge einiger allgemeiner Unterschiede zwischen \isi{GPSG}
+und \isi{HPSG} haben Spuren jedoch etwas andere Eigenschaften.
+
+{\randnum}Das \textsq{X-bar System} ist reduziert. Es wird nur zwischen X\textsuperscript{0} (\textit{word}) und
+X\textsuperscript{1} (\mbox{\textit{phrase}}) unterschieden. Eine \isi{Konstituente} (\textit{sign}) ist genau dann
+ein X\textsuperscript{1}, wenn sie eine Tochter hat (ein \textsc{dtrs}"=Attribut trägt).
+
+{\randnum}Jede \isi{Konstituente} trägt ein Valenzattribut
+(hier: \textsc{subcat}, kurz \textsc{sct}), in dessen Wert die noch
+nicht abgebundenen selegierten Konstituenten aufgelistet sind. Dieses
+Attribut ist in dem Wert eines Attributs \textsc{local} (kurz:
+\textsc{l}) enthalten. Anstelle von \textsq{ID-Regeln} wie in \isi{GPSG}
+gibt es Wohlgeformtheitsbedingungen über die Kombination von
+\textsc{dtrs}"=Werten und \textsc{sct}"=Werten an Mutter und Head"=Tochter.
+
+{\randnum}Die \textsq{Wortstellung} in einem Satz
+\textit{Kim likes candy} ist dadurch beobachtbar, daß ihm eine
+zeitlich geordnete Lautfolge {kɪm\#laɪks\#kændɪ} entspricht. In
+\isi{GPSG} wird diese Ordnung auf sehr indirekte Weise erreicht.
+\pagebreak
+\begin{exe}
+\extab
+\begin{tikzpicture}[sibling distance=30pt]
+\tikzset{every tree node/.style={align=center,anchor=base}}
+\tikzset{level 1+/.style={level distance=30pt}}
+\tikzset{frontier/.style={distance from root=90pt}}
+\Tree [.{V\textsuperscript{2}[\textsc{subj} $+$]} [.N\textsuperscript{2}nom \edge[dashed]; {kɪm} ] [.{V\textsuperscript{2}[\textsc{subj} $-$]} [.V\textsuperscript{0} \edge[dashed]; {laɪks} ] [.N\textsuperscript{2}acc \edge[dashed]; {kændɪ} ] ] ]
+\end{tikzpicture}
+\end{exe}
+{\randnum}Zwischen den Kategorien
+N\textsuperscript{2}nom und V\textsuperscript{2}[\textsc{subj} $-$] und
+zwischen den Kategorien V\textsuperscript{0} und N\textsuperscript{2}acc ist eine
+transitive (und vermutlich assoziative) \textsq{lineare}
+Ordnungsbeziehung definiert (geschrieben: $<$), die möglicherweise als
+  zeitliche Ordnung verstanden werden soll. Die phonologischen
+  Ausdrücke {kɪm}, {laɪks} und {kændɪ} sind nur als Quasi"=Töchter der
+  terminalen Kategorien eingeführt \citep[104]{gazdaretal1985a}; zwischen ihnen
+  besteht (deshalb) keine definierte Ordnungsbeziehung.
+
+  {\randnum}In \isi{HPSG} trägt dagegen jede \isi{Konstituente} ein
+  \textsc{phon}"=Attribut, dessen Wert eine Liste von phonologischen
+  Ausdrücken ist. Die X\textsuperscript{0}"=Konstituenten des Satzes:
+\begin{exe}
+\extab 
+\label{rn:16-8}
+\begin{tabular}{l@{\hspace{2em}}l@{\hspace{2em}}l}
+N\textsuperscript{0}nom & V\textsuperscript{0} & N\textsuperscript{0}acc \\
+\textsc{phon} \nliste{ kɪm } & \textsc{phon} \nliste{ laɪks } & \textsc{phon} \nliste{ kændɪ } \\
+\textsc{l}|\ldots{}|\textsc{sct} \textit{elist} & \textsc{l}|\ldots{}|\textsc{sct} \nliste{ Nnom, Nacc } & \textsc{l}|\ldots{}|\textsc{sct} \textit{elist} \\
+\end{tabular}
+\end{exe}
+{\randnum}Die X\textsuperscript{1}"=Konstituenten:
+\begin{exe}
+\extab 
+\begin{tabular}{l@{\hspace{4em}}l}
+V\textsuperscript{1} & V\textsuperscript{1} \\
+\textsc{phon} \nliste{ laɪks, kændɪ } & \textsc{phon} \nliste{ kɪm, laɪks, kændɪ } \\
+\textsc{l}|\ldots{}|\textsc{sct} \nliste{ Nnom } & \textsc{l}|\ldots{}|\textsc{sct} \textit{elist} \\
+\textsc{dtrs} \ldots{} & \textsc{dtrs} \ldots{} \\
+\end{tabular}
+\end{exe}
+\randnum\label{rn:16-10}Wie in \isi{GPSG} ist eine \textsq{Spur} ein
+lexikalisches Element, das sich von anderen durch 3~stipulierte
+Eigenschaften unterscheidet: Es ist phonologisch leer; es trägt ein
+\textsc{slash}"=Attribut; und der Wert von \textsc{slash} ist identisch mit grammatisch
+relevanten anderen Eigenschaften der Spur, hier: mit dem Wert von
+\textsc{local}. Mit Hilfe des Nonlocal Feature Principles (entspricht dem
+Foot Feature Principle in \isi{GPSG}) wird der \textsc{slash}"=Wert außerdem mit dem
+\textsc{local}"=Wert des Spurbinders identifiziert.
+\begin{exe}
+\extab
+\label{rn:16-11}
+\begin{tabular}{l@{\hspace{4em}}l}
+\isi{HPSG}"=Spur: & X \\
+& \textsc{phon} \textit{elist} \\
+& \textsc{local} \avmbox{1} \\
+& \textsc{slash} $\{\avmbox{1}\}$
+\end{tabular}
+\end{exe}
+
+\section{Lineare Position von leeren Kategorien}
+
+{\randnum}\isi{Komplement}"=\isi{Extraktion} ohne Spur: \citet{pollard1985a,pollard1988a}; \citet{Cooper1990}. Mit Spur: \citet{PollardSag1987}, \citet[Kapitel 4--6]{PollardSag1992}.
+
+\randnum\label{rn:16-13}In \cite[Kapitel 9.5.1]{PollardSag1992}
+%\intcomm{Check.} 
+zitieren P\&S Beobachtungen von \citet{PickeringBarry1991} und motivieren damit eine
+Extraktionstheorie ohne Spuren:
+\begin{quotation}
+  In this section, we will offer a revised theory of filler"=gap
+  constructions that begins to make sense of the Pickering"=Barry
+  results. [\ldots{}] The basic idea is that \textsc{slash} originates not
+  on traces, but rather from the head that licences the
+  \textsqe{missing} element.
+
+  Technically, the most straightforward way to implement this idea is
+  by lexical rules.
+\end{quotation}
+{\randnum}\textbf{Klammer auf.} Außer einer
+Complement Extraction Lexical Rule (§9.5.1 (62); in \citealt{PollardSag1992iE} gegenüber
+\citealt{PollardSag1992} leicht verändert) schlagen P\&S eine Adjunct Extraction Lexical
+Rule (§9.5.2 (80)) vor. Diese Regel ist aus syntaktischen Gründen
+(vgl.\ \citealt{Hukari1993}) und aus semantischen Gründen nicht haltbar. Die
+syntaktischen Mängel kann man durch folgende Umformulierung
+beseitigen:
+\begin{exe}
+\ex
+\begin{avm}
+\avml  {\[synsem{\[local \avmbox{a} {\[category {\[head \tpv{verb}\]}\\\]}\\nonlocal|inher|slash \tpv{eset} \]}\]} \\[10mm]
+\quad $\mapsto$
+  {\[synsem{\[local|content \avmbox{2} \\nonlocal|inher|slash {\{Y$^{\prime\prime}$ {\[mod {\[local \avmbox{a} \]} \]}: \avmbox{2} \}} \]}\]}
+\avmr
+\end{avm}
+\end{exe}
+{\randnum}Es bleiben jedoch semantische Probleme
+bestehen. Bei Verwendung einer \isi{Adjunkt}"=Spur treten die nicht
+auf. \textbf{Klammer zu.}
+
+\enlargethispage{\baselineskip}
+{\randnum}\citet{Pickering1993}, \citet{PickeringBarry1991}:
+{\setlist[enumerate]{leftmargin=*}
+\begin{enumerate}[widest=(PB33)]
+\item[(PB32)] We \underline{gave} every student capable of answering every single
+  tricky question on the details of the new and extremely complicated
+  theory about the causes of political instability in small nations
+  with a history of military rulers \underline{a prize}.
+\item[(PB33)] That's the prize [which]\textsubscript{\textit{i}} we \underline{gave} every student capable
+  of answering every single tricky question on the details of the new
+  and extremely complicated theory about the causes of political
+  instability in small nations with a history of military rulers \underline{{[t]}$_i$}.
+\end{enumerate}
+}
+{\randnum}"`Sentence (PB 32) causes some processing
+difficulty, which appears to be because \textit{gave} and \textit{a prize} are separated
+by an argument of considerable length and complexity. [\ldots{}] the
+gap"=filling account predicts at least the same difficulty for (PB 33)
+as (PB 32), and this is clearly not the case."' \citep[169]{Pickering1993}
+
+{\randnum}Das Argument ist richtig für alle Theorien,
+in denen leere Kategorien (besonders Spuren) im Grundsatz denselben
+Ordnungsbedingungen unterliegen wie entsprechende nicht"=leere
+Konstituenten, \zb \isi{GPSG} und Varianten von GB. Es ist nicht richtig
+für \isi{HPSG}.
+
+{\randnum}Die relevanten Konstituenten von (\ref{ex:16-1}) sind in (\ref{ex:16-2}) gegeben. (Für \textit{Kim} und \textit{likes} s.\,o.\ (\ref{rn:16-8}).)
+\begin{exe}
+\ex%(1)
+\label{ex:16-1}
+who Kim likes t 
+\ex%(2)
+\label{ex:16-2}
+\begin{xlist}
+\extab%(2) (a)
+\label{ex:16-2a}
+\begin{tabular}{p{70pt}l}
+\textit{who}: & N\textsuperscript{1} \\
+& \textsc{phon} \nliste{ hu } \\
+& \textsc{l} \avmbox{1} [\ldots{}|\textsc{sct} \textit{elist}] \\
+& \textsc{dtrs} \ldots{}
+\end{tabular}\Hack{\vspace*{.5\baselineskip}}
+\extabb%(2) (b)
+\label{ex:16-2b}
+\begin{tabular}{p{70pt}l}
+t: & N\textsuperscript{1}acc \\
+& \textsc{phon} \textit{elist} \\
+& \textsc{local} \avmbox{1} \\
+& \textsc{dtrs} \ldots{} \\
+& \textsc{slash} $\{\avmbox{1}\}$
+\end{tabular}\Hack{\vspace*{.5\baselineskip}}
+
+\extabb%(2) (c)
+\label{ex:16-2c}
+\begin{tabular}{p{70pt}l}
+\textit{likes} t: & V\textsuperscript{1} \\
+& \textsc{phon} \nliste{ laɪks } \\
+& \textsc{l}|\ldots{}|\textsc{sct} \nliste{ Nnom } \\
+& \textsc{dtrs} \ldots{} \\
+& \textsc{slash} $\{\avmbox{1}\}$
+\end{tabular}\Hack{\vspace*{.5\baselineskip}}
+
+\extabb%(2) (d)
+\label{ex:16-2d}
+\begin{tabular}[c]{p{70pt}l}
+\textit{Kim likes} t: & V\textsuperscript{1} \\
+& \textsc{phon} \nliste{ kɪm, laɪks } \\
+& \textsc{l}|\ldots{}|\textsc{sct} \textit{elist} \\
+& \textsc{dtrs} \ldots{} \\
+& \textsc{slash} $\{\avmbox{1}\}$
+\end{tabular}\Hack{\vspace*{.5\baselineskip}}
+
+\extabb%(2) (e)
+\label{ex:16-2e}
+\begin{tabular}{p{70pt}l}
+\textit{who Kim likes} t: & V\textsuperscript{1} \\
+& \textsc{phon} \nliste{ hu, kɪm, laɪks } \\
+& \textsc{l}|\ldots{}|\textsc{sct} \textit{elist} \\
+& \textsc{dtrs} \ldots{} \\
+\end{tabular}
+\end{xlist}
+\end{exe}
+\addlines[2]
+{\randnum}Der wesentliche Punkt zeigt sich in (\ref{ex:16-2c}): Der
+\textsc{phon}"=Wert dieser \isi{VP} ist gleich dem \textsc{phon}"=Wert des Worts \textit{likes}
+(\ref{rn:16-8}). Das ergibt sich aus dem Constituent Ordering Principle:
+\begin{quotation}
+  The essential content of the COP is simply that the phonology of a
+  phrasal sign is functionally dependent upon the daughters. [\ldots{}]
+
+  In general [\ldots{}] we assume that [the \textsc{phon} value of the mother is] a
+  permutation [\ldots{}] of the \textsc{phon} values of the sign's daughters.
+\citep[169]{PollardSag1987}
+\end{quotation}
+{\randnum}Da die Spur (\ref{ex:16-2b}) die leere Liste als
+\textsc{phon}"=Wert hat, ist jede Permutation der \textsc{phon}"=Werte
+der Töchter von (\ref{ex:16-2c}) gleich dem \textsc{phon}"=Wert von \textit{likes}. Generell
+ist der \textsc{phon}"=Wert einer leeren Kategorie im
+\textsc{phon}"=Wert der Mutter niemals auf"|findbar.
+
+{\randnum}Offensichtlich kann und muß die Ordnung im
+\textsc{phon}"=Wert der maximalen \isi{Konstituente} (\ref{ex:16-2e}) als zeitliche
+Ordnung verstanden werden. Man kann die Theorie so präzisieren, daß
+dies zugleich die einzige zeitlich interpretierte Ordnungsbeziehung
+ist. Eine zeitlich interpretierte Ordnung zwischen
+Schwesterkonstituenten ist nicht ausdrücklich vorgesehen und
+überflüssig. (Eine zeitliche (transitive assoziative) Ordnung auf
+der Menge der Wörter in einem Ausdruck ist bei \citealt{Pollardetal1994b} explizit ausgeschlossen.)
+Man braucht deshalb nicht auf Spuren zu verzichten, um "`to make sense of the Pickering"=Barry results"'
+(Absatz~\ref{rn:16-13}).
+
+\section{\textit{wanna}"=Kontraktion}
+\begin{exe}
+\ex%(3) 
+\label{ex:16-3}
+\begin{xlist}
+\ex[]{%(3) (a)
+\label{ex:16-3a}
+who$_i$ you want (PRO) to leave t$_i$}
+\ex[]{%(3) (b)
+\label{ex:16-3b}
+who$_i$ you wanna leave t$_i$}
+\end{xlist}
+\ex%(4)
+\begin{xlist}
+\ex[]{%(4) (a)
+\label{ex:16-4a}
+who$_i$ you want t$_i$ to leave the room}
+\ex[\%]{%(4) (b)
+\label{ex:16-4b}
+who$_i$ you wanna (t$_i$) leave the room}
+\end{xlist}
+\end{exe}
+{\randnum}Es ist zweifelhaft oder unwahrscheinlich, daß
+die \textsq{\textit{wanna}"=Kontraktion} ein produktiver morphophonologischer
+Prozeß des heutigen Englischen\il{Englisch} ist. Daher ist es möglich oder
+notwendig, für \textit{want} in (\ref{ex:16-3a}) und \textit{wanna} in (\ref{ex:16-3b}) verschiedene
+Lexikoneinträge zu formulieren. In (\ref{ex:16-5}) ist die jeweils benötigte
+Valenzinformation gegeben.
+%% \begin{exe}
+%% \ex
+%% \label{ex:16-5}
+%% \begin{xlist}
+%% \ex%(5) (a)
+%% \label{ex:16-5a}
+%% \textit{want}: \quad Nnom\textsubscript{1} V\textsuperscript{1}[\textit{inft}, \textsc{sct} \nliste{ N\textsubscript{1} }]
+%% \ex%(5) (b)
+%% \label{ex:16-5b}
+%% \textit{wanna}: \quad Nnom\textsubscript{1}, V\textsuperscript{1}[\textit{base}, \textsc{sct} \nliste{ N\textsubscript{1} }]
+%% \end{xlist}
+%% \end{exe}
+\ea
+\label{ex:16-5}
+\begin{tabular}[t]{@{}l@{~~}l@{\quad}l}
+%\ex%(5) (a)
+%\label{ex:16-5a}
+a. & \textit{want}: & Nnom\textsubscript{1}, V\textsuperscript{1}[\textit{inft}, \textsc{sct} \nliste{ N\textsubscript{1} }]\\
+%\ex%(5) (b)
+%\label{ex:16-5b}
+b. & \textit{wanna}: & Nnom\textsubscript{1}, V\textsuperscript{1}[\textit{base}, \textsc{sct}
+  \nliste{ N\textsubscript{1} }]
+\end{tabular}
+\z
+{\randnum}Für das \textit{want} in (\ref{ex:16-4a}) ist ein anderer Lexikoneintrag nötig:
+(\mex{1}a). Für die Varianten des Englischen\il{Englisch}, in denen (\ref{ex:16-4b}) akzeptabel ist, ist
+dann ein Lexikoneintrag wie in (\mex{1}b) nötig. 
+%% \eal
+%% \ex%(6) (a)
+%% \label{ex:16-6a}
+%% \textit{want}: \quad Nnom, \avmbox{2} Nacc, V\textsuperscript{1}[\textit{inft}, \textsc{sct} \nliste{ \avmbox{2} }]
+%% \ex%(6) (b)
+%% \label{ex:16-6b}
+%% \textit{wanna}: \quad Nnom, \avmbox{2} Nacc [\textsc{local} \avmbox{3}, \textsc{slash} \{\avmbox{3}\}], V\textsuperscript{1}[\textit{base}, \textsc{sct} \nliste{ \avmbox{2} }]
+%% \zl
+\ea
+\label{ex:16-6}%
+%\ex%(6) (a)
+%\label{ex:16-6a}
+\begin{tabular}[t]{@{}l@{~~}l@{\quad}l}
+a. & \textit{want}: & Nnom, \avmbox{2} Nacc, V\textsuperscript{1}[\textit{inft}, \textsc{sct} \nliste{ \avmbox{2} }]\\
+%\ex%(6) (b)
+%\label{ex:16-6b}
+b. & \textit{wanna}: & Nnom, \avmbox{2} Nacc [\textsc{local} \avmbox{3}, \textsc{slash}
+  \{\avmbox{3}\}], V\textsuperscript{1}[\textit{base}, \textsc{sct} \nliste{ \avmbox{2} }]
+\end{tabular}
+\z
+{\randnum}Der Lexikoneintrag (\mex{0}b) ist dadurch
+\textsq{markiert}, daß durch ihn eine Spur selegiert wird und kein
+entsprechender Lexikoneintrag mit normaler \isi{NP} statt der Spur
+existiert. Es ist plausibel, daß er aufgrund positiver Evidenz
+\textsq{gelernt}, aber nicht ohne solche Evidenz aufgebaut wird.
+
+\section{Extraktion von V-Projektionen bei \textsq{kohärenter Konstruktion}}
+
+{\randnum}Wenn man annimmt, daß bei \textsq{kohärenter
+  Konstruktion} obligatorisch ein Verbalkomplex wie in (\ref{ex:16-7}) existiert,
+hat man u.\,U.\ keine Probleme mit Extraktionen wie in (\ref{ex:16-8}); aber alle
+Theorien haben Probleme mit (\ref{ex:16-9}):
+\begin{exe}
+\ex%(7)
+\label{ex:16-7}
+es möchte\textsubscript{1} jemand den Hund [füttern dürfen t$_1$]
+\ex%(8)
+\label{ex:16-8}
+\begin{xlist}
+\ex%(8) (a)
+\label{ex:16-8a}
+{[füttern]}\textsubscript{2} möchte\textsubscript{1} jemand den Hund [t$_2$ dürfen t$_1$]
+\ex%(8) (b)
+\label{ex:16-8b}
+{[füttern dürfen]}\textsubscript{2} möchte\textsubscript{1} jemand den Hund [t$_2$ t$_1$]
+\end{xlist}
+\ex%(9)
+\label{ex:16-9}
+\begin{xlist}
+\ex%(9) (a)
+\label{ex:16-9a}
+{[den Hund füttern]}\textsubscript{2} möchte\textsubscript{1} jemand [t$_2$ dürfen t$_1$]
+\ex%(9) (b)
+\label{ex:16-9b}
+{[den Hund füttern dürfen]}\textsubscript{2} möchte\textsubscript{1} jemand [t$_2$ t$_1$]
+\end{xlist}
+\end{exe}
+ {\randnum}Dieses Problem besteht in \isi{HPSG} nur dann, wenn
+ man es durch zusätzliche Stipulationen herbeiführt.
+
+\randnum Wenn man mit Spuren der in Absatz~\ref{rn:16-10} erklärten Art arbeitet, gilt in \isi{HPSG} aus empirischen (nicht aus
+formalen) Gründen ein Grundsatz der Nicht"=Zyklizität des \textsc{slash}"=Werts
+(NZ1); daraus folgt (NZ2) als Spezialfall:
+{\setlist[enumerate]{leftmargin=*}
+\begin{enumerate}[widest=(NZ2)]
+\item[(NZ1)] Ein Pfad von Attributen \textsc{slash}|$\pi$ darf nicht sich selbst als Wert enthalten.
+\item[(NZ2)] Für jeden (Teil-)Pfad $\pi_{1}$ eines Pfads $\pi$|\textsc{slash} ($\pi$ = $\pi_{1}$|$\pi_{2}$) gilt, daß der Wert von $\pi_{1}$ nicht identisch ist mit dem Wert von $\pi$|\textsc{slash}.
+\end{enumerate}
+}
+{\randnum}Die Identifizierung des \textsc{slash}"=Werts mit dem
+\textsc{local}"=Wert wie in (\ref{rn:16-11}) genügt dieser Bedingung. Dementsprechend
+können Spur und Spurbinder in allen Eigenschaften voneinander
+abweichen, die \textsq{links davon}, \dash im Wert eines $\pi_{1}$ lokalisiert sind.
+
+\randnum In den Werten der Präfixe $\pi_{1}$ (von $\pi$|\textsc{slash})
+ist nicht nur das \textsc{phon}"=Attribut mit seinem Wert untergebracht, sondern
+\zb auch die Klassifikation als \textit{word} oder \textit{phrase} (X\textsuperscript{0} bzw.\ X\textsuperscript{1}). Daher
+können die Spuren t$_2$ in (\ref{ex:16-8b}) und in (\ref{ex:16-9}) ohne weiteres vom Typ V\textsuperscript{0} sein
+(wie es bei \citealt{Kiss1993} der Fall wäre), obwohl der Spurbinder vom Typ V\textsuperscript{1}
+ist. Auch wenn ein selegierter Verbalkomplex durch irgendeine andere
+Eigenschaft ausgezeichnet ist~-- etwa durch "`[\textsc{npcomp} \textit{minus}]"' wie bei
+\citet{HinrichsNakazawa1993}~-- gibt es kein Problem, solange diese Eigenschaft im
+Wert eines $\pi_{1}$ lokalisiert und zugleich (NZ2) eingehalten ist.
+
+\nocite{GibsonHickok1993,Gorrell1993,Pickering1991}
+
+\printbibliography[heading=subbibliography,notkeyword=this]
+\refstepcounter{mylastpagecount}\label{chap-spuren-hpsg-end}
+\end{document}
+

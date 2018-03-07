@@ -1,0 +1,1657 @@
+\documentclass[output=paper]{LSP/langsci}
+\author{Tilman N. Höhle}
+\title{Spurenlose Extraktion}
+\abstract{}
+\maketitle
+% \rohead{\thechapter\hspace{0.5em}short title} % Display short title
+\ChapterDOI{10.5281/zenodo.1169689}
+\begin{document}
+\label{chap-spurenlose-extraktion}
+\selectlanguage{german}
+\setcounter{randcount}{0}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{4}
+
+\footnotetext{%
+	\emph{Anmerkung der Herausgeber:} Diese bislang unveröffentlichte Arbeit entstand als Materialsammlung
+	für ein Seminar {\em Entwicklungen in der HPSG} im Sommersemester 1994
+	an der Universität Tübingen. Die hiesige Textfassung folgt dem
+	Typoskript vom 16.9.1994, zählt jedoch die Absätze im Unterschied zur
+	Vorlage strikt fortlaufend aufsteigend und passt Formatierung,
+        Beispielnumerierung und
+	Zitierstil an die Konventionen des Bandes an. Eine kleine Anzahl
+        offenbarer Versehen der Typoskriptvorlage wurde
+        korrigiert.%
+}
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+\section{Lexikalische Elemente: Sorten oder Lexikoneinträge?}
+
+\randnum\label{rn:17-1}In einem Satz wie {\glqq}wenn Heinz scharcht und Maria nicht schnarcht{\grqq} sind
+2~Vorkommen von 1~Entität, die \textsq{lexikalisches Element} (lexical item)
+heißen soll. Die Vorkommen sind verschieden (=~nicht"=identisch), weil
+(a) ihre \textsc{content}"=Werte verschieden sind (denn die Werte der
+Schnarcher"=Rolle sind verschieden) und (b) die phonologischen
+Ausdrücke verschieden (nicht"=identisch) sind.
+
+\randnum\label{rn:17-2}Letzteres folgt aus der Annahme, daß der \textsc{phon}"=Wert
+der maximalen \isi{Konstituente} eine zeitliche Ordnung repräsentieren
+soll. Die zeitliche Relation \textsq{früher"=als} ist irreflexiv
+($a \text{ früher"=als } b \Rightarrow a \neq b$) und transitiv, also
+asymmetrisch
+($a \text{ früher"=als } b \Rightarrow \text{nicht: } b \text{
+  früher"=als } a$). Da das erste \textit{schnarcht} früher"=als \textit{Maria} ist und
+\textit{Maria} früher"=als das zweite \textit{schnarcht} ist, sind das erste und das
+zweite \textit{schnarcht} nicht"=identisch.
+
+{\randnum}Wie ist ein lexikalisches Element in der
+Grammatik zu repräsentieren?  2~Möglichkeiten: als Sorte oder als
+Disjunkt im Word Principle.
+
+%\Hack{\newpage}
+% Ergibt eine einzelne Zeile auf folgender Seite:
+%\enlargethispage{\baselineskip}
+
+\subsection{Lexikoneinträge}
+\randnum\label{rn:17-4}\citet[147]{PollardSag1987}: {\glqq}let us suppose that $\mathrm{L}_1,
+{\ldots},
+\mathrm{L}_p$ is an exhaustive list of the English\il{English} lexical signs and
+$\mathrm{R}_1, {\ldots},
+\mathrm{R}_q$ is an exhaustive list of the English\il{English} grammar rules. Then
+our theory of English\il{English} is \eqref{eq:17-283}:
+\begin{equation}
+\label{eq:17-283}
+\tag{283}
+\textrm{English} = \mathrm{P}_1 \wedge {\ldots} \wedge \mathrm{P}_{n+m} \wedge (\mathrm{L}_1 \vee
+\ldots{} \vee \ldots{} \mathrm{L}_p \vee \mathrm{R}_1 \vee \ldots{} \mathrm{R}_q)
+\end{equation}
+In other words, an object is an English\il{English} sign token just in case (i)~it satisfies all the universal and English"=specific principles, and (ii)~either it instantiates one of the English\il{English} lexical signs or it
+instantiates one of the English\il{English} grammar rules.{\grqq} (Ebenso S.\,44f.)
+
+\randnum\label{rn:17-6}Die Prinzipien $\mathrm{P}_1, \ldots{}, \mathrm{P}_{n+m}$, sind als Implikationen formuliert, und es ist klar, was es heißt, daß eine Modellierende Struktur eine \isi{Konjunktion} von Implikationen erfüllt. Die lexical signs und die grammar rules (entspr.\ ID schemata) sind jedoch als Deskriptionen formuliert, und es ist im System von \citet{PollardSag1994} nicht klar, was die in Klammern stehende Disjunktion in \eqref{eq:17-283} besagen soll, noch ist zu erkennen, was {\glqq}instantiate{\grqq} formal genau heißen soll. (Dieser Ausdruck wird in \citet{PollardSag1987} ausschließlich in dem zitierten
+Zusammenhang gebraucht und an keiner Stelle erläutert.)
+
+\randnum\label{rn:17-7}In \citet{PollardSag1994} sind die ID"=Schemata ebenfalls als Deskriptionen
+formuliert. Aber ihre Rolle in der Grammatik ist klar, da diese
+Deskriptionen Teil eines \textsq{ID Principle} (S.\,491f.) sind, das man so
+umschreiben kann (vgl.\ Absatz~\ref{rn:17-14a}):
+\begin{exe}
+\ex
+$(\textit{phrase} \wedge \textsc{dtrs} \textit{ headed"=struc}) \Rightarrow (\textrm{\isi{Schema}
+} 1 \vee \ldots{} \vee \textrm{\isi{Schema} } 6)$
+\end{exe}
+
+\randnum\label{rn:17-9}An sich wäre auch eine andere Möglichkeit denkbar. Man könnte jedes
+\isi{Schema} als Konsequens einer eigenen \isi{Implikation} formulieren. Z.\,B.\ beim
+Head"=Filler"=\isi{Schema}:
+\begin{exe}
+\ex
+$(\textit{phrase} \wedge \textsc{dtrs} \textit{ head"=filler"=struc}) \Rightarrow \textrm{\isi{Schema} } 6$
+\end{exe}
+\randnum\label{rn:17-11}Jedes ID"=\isi{Schema} wäre dann als eigenes \textsq{Prinzip} konjunktiv mit allen
+anderen Prinzipien verbunden.
+
+\randnum\label{rn:17-12}Die lexikalischen Elemente sind auch in \citet{PollardSag1994} als Deskriptionen
+formuliert. P\&S sagen nicht explizit, wie diese Deskriptionen in die
+Grammatik integriert sind. Das System wird gedanklich und formal dann
+klar, wenn man parallel zum ID Principle ein \textsq{Word Principle} annimmt:
+
+%\addlines
+\begin{exe}
+\exi{(wp)}\exalph{wp}\label{rn:17-wp2}\label{wordp}
+$\textit{word} \Rightarrow (\mathrm{LE}_1 \vee \ldots{} \vee \mathrm{LE}_p)$
+\end{exe}
+%\enlargethispage{\baselineskip}
+\randnum\label{rn:17-13}(So auch \citealt{pollard1993a}.) Ein lexikalisches Element wird so als
+Lexikoneintrag (lexical entry) dargestellt, wobei ein \textsq{Lexikoneintrag}
+ein Disjunkt (eins der $\mathrm{LE}_i$) im Word"=Prinzip ist; und das \textsq{Lexikon} ist
+die Menge der Lexikoneinträge, die im Word"=Prinzip aufgeführt sind.
+
+\randnum\label{rn:17-14}Außer den {\glqq}actual lexical entries{\grqq}, für die das Word"=Prinzip gilt,
+nehmen P\&S auch {\glqq}generic lexical entries{\grqq} an, die in einer multiplen
+Vererbungshierarchie organisiert sind \citep[36f.]{PollardSag1994}. Die entsprechen
+inhaltlich offenbar den Wortklassendefinitionen von \citet[299ff.]{FlickingerNerbonne1992}; sie setzen also die Frames und ähnliche Konzepte
+aus früheren Arbeiten fort (vgl.\ Absatz~\ref{rn:17-21}). Die genaueren Eigenschaften
+der \textsq{generic lexical entries} sind unklar (Absatz~\ref{rn:17-81a}). Jedenfalls
+können sie nicht zu den $\mathrm{LE}_i$ im Word"=Prinzip gehören.
+
+\paragraph*{Anmerkung}\randnum\label{rn:17-14a} Bei \citet{PollardSag1994} gibt es keine formal explizite
+Formulierung der Prinzipien. Die informellen Formulierungen vieler
+Prinzipien legen eine formale Deutung wie in Absatz~\ref{rn:17-7} und \ref{rn:17-9} nahe,
+\dash eine \isi{Implikation}, die als Antezedens (wie als Konsequens) eine
+Deskription von (im Prinzip) beliebiger Komplexität hat. Für eine
+korrekte Semantik solcher Implikationen braucht man die volle
+(klassische) \isi{Negation}. Das steht im Widerspruch zu \citet[8]{PollardSag1994}:
+{\glqq}[\citeauthor{Carpenter92a}] sets forth a logic very close to the one that we assume
+will underlie a fully formalized version of our theory. In very
+general terms, this can be characterized as a sorted variant of Kasper
+and Rounds's (1986) logic augmented with path inequalities, definite
+relations, and set values.{\grqq} P\&S wollen also keine volle \isi{Negation}
+annehmen. Anstelle der vollen \isi{Implikation} können sie dann bestenfalls
+ein \textsq{Constraint System} wie in \citet[228--234]{Carpenter92a} annehmen, bei dem
+nur Sorten als Antezedens von Implikationsverhältnissen zulässig
+sind. Aber eine derartige Einschränkung der Deskriptionssprache ist in
+der Theorie von \citet{PollardSag1994} weder formal noch empirisch begründet. Ich nehme
+deshalb (mit King) die volle \isi{Implikation} in Anspruch. Generell gehe
+ich davon aus, daß die Formalisierung von King (in höherem Maß als die
+von Carpenter) eine adäquate formale Grundlage für die explizit
+ausgeführten Teile von \citet{PollardSag1992,PollardSag1994} ist. Vgl.\ \citet[§§4--5]{king1992a}
+und \citet{kepser1994a}.
+
+\subsection{Sorten}
+
+{\randnum}Eine Alternative zum Verständnis von lexikalischen Elementen als
+Lexikoneinträgen scheint in Kapitel~8 von \citet{PollardSag1987} angedeutet zu
+sein. Dort wird u.\,a.\ eine \textsq{Lexical Hierarchy} eingeführt, die aus
+einer multiplen Vererbungshierarchie zwischen Untertypen des Typs
+\textit{lexical"=sign} besteht.
+
+\randnum\label{rn:17-15}Auf S.\,198 heißt es: {\glqq}In type subsumption graphs, we use dotted lines
+to connect \textsqe{instances} to the types they belong to. In terms of our
+formalism, of course, instances are just minimal types, i.e. types for
+which no finer distinctions exist. [\ldots{}] In our system of lexical
+subtypes the instances will just be individual lexical signs.{\grqq}
+
+\randnum\label{rn:17-16}Und auf S.\,207: {\glqq}Thus, for example, the place of the verb \textit{likes} in the
+lexical hierarchy is roughly as shown in (396){\grqq}. In (396) wie auch in
+(392) und (395) sind, wie es scheint, \textsq{individual lexical signs} als
+\textsq{instances} mit gestrichelten Linien in einer Typenhierarchie
+lokalisiert.
+
+\randnum\label{rn:17-17}Im System von \citet{PollardSag1994} kann man die \textsq{types} von
+ \citet{PollardSag1987} im allgemeinen als Sorten wiedergeben. Mit \textsq{individual lexical signs} sind vermutlich lexikalische Elemente gemeint. Im System von \citet{PollardSag1994} würde demnach jedem lexikalischen Element eine eigene Sorte entsprechen. Die individuellen Eigenschaften jeder solchen Sorte müßten durch eine eigene \isi{Implikation} festgelegt werden. Zu der Sorte \textit{tries} (mittelbare oder unmittelbare Subsorte von \textit{word}) gäbe es dann etwa folgenden Constraint:
+\begin{exe}
+\ex\label{rn:17-18} 
+\begin{avm}
+\tpv{tries} $\Rightarrow$
+\(
+phon|ft \textnormal{traiz} & $\wedge$ \\
+ss|loc|cat|head|vform \tpv{finite} & $\wedge$ \\
+ss|loc|cat|val|subj|ft|loc \textnormal{Nnom} & $\wedge$ \\
+ss|loc|content|nucleus|relation \tpv{try"=reln} & $\wedge$ \\
+sct|ft|loc \isi{VP}
+\)
+\end{avm}
+\end{exe}
+\randnum\label{rn:17-19}Jedes lexikalische Element wäre ein eigenes \textsq{Prinzip}, das~-- im
+Widerspruch zu \eqref{eq:17-283} in Absatz~\ref{rn:17-4}~-- mit allen anderen Prinzipien
+konjunktiv verknüpft wäre. Ein \textsq{Lexikon} gäbe es dann nicht.
+
+\randnum\label{rn:17-20}Dann kann es auch keine empirisch nützlichen Lexikonregeln
+geben. Eine \isi{Lexikonregel} sagt aus, daß es zu jedem Element $\mathrm{E}_i$ einer
+bestimmten Klasse von lexikalischen Elementen KE ein regulär
+entsprechendes anderes lexikalisches Element ${\mathrm{E}_i}^{\prime}$
+gibt. Wenn jedes lexikalische Element eine eigene Sorte darstellt,
+müßte das Element ${\mathrm{E}_i}^{\prime}$ also einer anderen Sorte
+angehören als ${\mathrm{E}_i}$. Es ist aber nicht zu sehen, wie eine
+\isi{Lexikonregel} in Abhängigkeit von den Sorten der verschiedenen $\mathrm{E}_i$
+jeweils eine andere Sorte für die verschiedenen
+${\mathrm{E}_i}^{\prime}$ bestimmen könnte. (Man kann ganz allgemein
+keine vernünftige \isi{Generalisierung} über eine Menge von Paaren von
+lexikalischen Elementen ausdrücken, wenn jedes dieser Elemente eine
+eigene Sorte konstituiert.)
+
+\randnum\label{rn:17-21}Da \citet{PollardSag1987}~-- wie auch \citet{PollardSag1994}~-- Lexikonregeln haben wollen, kann es
+nicht sein, daß lexikalische Elemente Sorten im Sinne von \citet{PollardSag1994} sein
+sollen. Nicht jedem Typ von \citet{PollardSag1987} entspricht eine
+mögliche Sorte von \citet{PollardSag1994}. (Manche Typen entsprechen vielmehr den Frames von \citealt{Flickingeretal1985}, wie besonders aus dem {\glqq}of course{\grqq} im Zitat
+Absatz~\ref{rn:17-15} hervorgeht; s.\ \citealt{roberts1977b,roberts1977a}. Vgl.\ auch \citealt[193 Anm.~3]{PollardSag1987} und \citealt[313 Anm.~10]{sagetal1992a}. Und manche anderen Typen entsprechen nicht Sorten von \citealt{PollardSag1994}, sondern den \textsq{basic concepts} von \citealt{carpenteretal1991a}.)
+
+\section{\textsc{subcat}, \textsc{comps} und \textsc{sct}}
+
+\randnum\label{rn:17-22}In der \textsc{subcat}"=Liste von \citet[Kapitel~1--8]{PollardSag1994} sind 5
+verschiedene Funktionen vereinigt. (i)~In ihr ist die Information über
+Selektionseigenschaften des Heads lokalisiert. (ii)~Die Theta"=Rollen,
+die der Head vergibt, sind mit den selegierten Elementen
+assoziiert. (iii)~Dadurch, daß das Subcat Principle auf sie Bezug
+nimmt, trägt sie zur Geometrie der Konstituentenstruktur bei. (iv)~Für
+sie ist die Obliqueheitshierarchie erklärt, die für die
+Bindungstheorie relevant ist. (v)~Gewisse Extraktionsrestriktionen
+werden mit ihrer Hilfe~-- nämlich durch das Trace Principle und durch
+die \isi{Subject Condition}~-- ausgedrückt.
+
+\paragraph*{Randbemerkung}\randnum\label{rn:17-23} Im Deutschen\il{Deutsch} ist der Zusammenhang zwischen Bindungsverhältnissen und Konstituentenstruktur (bzw.\ \isi{Wortstellung})
+kompliziert. Ein \isi{Dativobjekt} ist hinsichtlich Bindung obliquer als ein \isi{Akkusativobjekt}:
+\setcounter{xnumi}{0}
+\begin{exe}
+\ex
+\label{ex:17-1}
+\begin{xlist}
+\ex[]{
+\label{ex:17-1a}
+ich habe die Leute einander vorgestellt}
+\ex[*]{
+\label{ex:17-1b}
+ich habe den Leuten einander vorgestellt}
+\end{xlist}
+\end{exe}
+\randnum\label{rn:17-24}Aber ein \isi{Dativobjekt} kann~-- u.\,U.\ sogar bevorzugt~-- vor einem \isi{Akkusativobjekt} stehen. Einen besonders interessanten Problemtyp stellen dabei Quantoren als \textsq{sekundare Prädikate} (floating quantifiers) dar:
+\begin{exe}
+\ex
+\label{ex:17-2}
+\begin{xlist}
+\ex[]{
+\label{ex:17-2a}
+ich habe deinen Freunden dann allen den Film gezeigt}
+\ex[*]{
+\label{ex:17-2b}
+ich habe deinen Freunden den Film dann allen gezeigt}
+\ex[]{
+\label{ex:17-2c}
+ich habe die Filme dann alle deinem Freund gezeigt}
+\ex[]{
+\label{ex:17-2d}
+ich habe die Filme deinem Freund dann alle gezeigt}
+\end{xlist}
+\end{exe}
+Im folgenden ignoriere ich alle Wortstellungskomplikationen.
+\vspace{1em}
+
+%\enlargethispage{\baselineskip}
+\randnum\label{rn:17-25}In Kapitel~9 werden zunächst sämtliche Funktionen von
+\textsc{subcat} auf die 3~\textsq{Valenz}"=Merkmale \textsc{subj},
+\textsc{spr} und \textsc{comps} verteilt. Dann könnte die
+Obliqueheits\-hierarchie zwischen Elementen dieser Listenwerte definiert
+werden. Für \textsq{local o"=command} im Sinne von (116ii)/""(117ii) S.\,278f.\ muß
+tatsächlich auch das Element des \textsc{subj}"=Werts einer \isi{VP} direkt
+zugänglich sein. Die Merkmal"=Deklarationen für\Hack{\break} \textit{headed"=struc} und die
+ID"=Schemata müssen dafür sorgen, daß die Valenzmerkmale entsprechend
+den Obliqueheitsverhältnissen zur Konstituentenstruktur beitragen;
+sonst könnte \zb der \textsc{subj}"=Wert \textsq{vor} dem
+\textsc{comps}"=Wert abgebunden werden. (Das ist bei P\&S nicht
+ausgeführt.)
+
+\randnum\label{rn:17-26} 
+In Kapitel~9.5 wird die \isi{Komplement}"=\isi{Extraktion} ohne Spuren vorgeschlagen. Die Intuition ist etwa so: {\glqq}Remove symbols from the \textsc{subcat} list one by one, doing one of the following: match the symbol with a complement; or place the symbol on the head daughter's \textsc{slash} list.{\grqq} (\citealt[256]{pollard1985a}; \citealt[402]{pollard1988a}). Ganz so einfach geht es allerdings nicht. Um empirischen Extraktionsbeschränkungen Rechnung zu tragen, sollen alle Wörter im Normalfall einen leeren \textsc{slash}"=Wert haben. Am einfachsten nimmt man an, daß ihr Lexikoneintrag für \textsc{inher}|\textsc{slash} \textit{elist} spezifiziert ist. (Diese Annahme spielt etwa die Rolle, die bei \citet{gazdaretal1985a} der FCR~6 und dem FSD~3 zukommt. Ausnahme: Spuren~-- wenn man sie hat.) Bei der spurenlosen \isi{Extraktion} muß der nicht"=leere \textsc{slash}"=Wert am Head deshalb durch einen besonderen Lexikoneintrag lizensiert werden. Die regelmäßige Entsprechung eines solchen Lexikoneintrags mit nicht"=leerem \textsc{inher|slash}"=Wert zu einem Lexikoneintrag mit leerem \textsc{inher|slash}"=Wert kann (ähnlich wie bei der \isi{Subjekt}"=\isi{Extraktion}) mittels einer \isi{Lexikonregel} ausgedrückt werden, die für \textsc{comps} spezialisiert ist; dadurch entfällt das Trace Principle.
+
+\randnum\label{rn:17-27}Daraus ergibt sich unmittelbar die Vorhersage, daß das extrahierte
+Element nur zur Befriedigung von Subkategorisierungsbedürfnissen und
+zur Bedeutungskomposition beiträgt. Diese Vorhersage ist doppelt
+falsch.
+
+%\addlines[2]
+\randnum\label{rn:17-28}Erstens spielt das extrahierte Element für die Bindungstheorie eine
+Rolle, ähnlich als ob es nicht \isi{extrahiert} wäre:
+\begin{exe}
+\ex
+\label{ex:17-3}
+\begin{xlist}
+\ex[*]{
+\label{ex:17-3a}
+who\textsubscript{\textit{i}} did he\textsubscript{\textit{i}} think that Mary likes \_\_\_?}
+\ex[]{
+\label{ex:17-3b}
+who\textsubscript{\textit{i}} did she introduce \_\_\_ to himself\textsubscript{\textit{i}}?}
+\end{xlist}
+\ex
+\label{ex:17-4}
+\begin{xlist}
+\ex[]{
+\label{ex:17-4a}
+{[each other]}\textsubscript{\textit{i}} {[most people]}\textsubscript{\textit{i}} pamper \_\_\_}
+\ex[*]{
+\label{ex:17-4b}
+them\textsubscript{\textit{i}} {[most people]}\textsubscript{\textit{i}} pamper \_\_\_}
+\end{xlist}
+\end{exe}
+\addlines
+Um Prinzip~A (in \eqref{ex:17-3b} und \eqref{ex:17-4a}), Prinzip~B (in \eqref{ex:17-4b}) und Prinzip~C (in
+dem strong cross"=over"=Fall \eqref{ex:17-3a}) anwenden zu können, müssen die
+\textsc{content}"=Werte der extrahierten Ausdrücke in geeigneten
+Obliqueheitsbeziehungen stehen. Deshalb benötigt man zusätzlich zu der
+verkürzten \textsc{comps}"=Liste noch eine unverkürzte Liste. Zu dem
+Zweck wird \textsc{subcat} wieder eingeführt (als Attribut von
+\textit{word}). (Für Prinzip~C ist man jetzt auf die revidierte
+O-Command"=Definition (117iii) von Kapitel~6 (S.\,279)
+angewiesen. (117ii) muß entsprechend komplizierter formuliert werden.)
+
+%\addlines
+\randnum\label{rn:17-29}Zweitens beruht die Grundidee der \isi{Subject Condition} (84) von Kapitel~4
+(S.\,195) darauf, daß in einem Beispiel wie \eqref{ex:17-5} (= (86b) S.\,195) das
+extrahierte Element \textit{who} auf der \textsc{subcat}"=Liste von \textit{bother} ein Gegenstück
+(ein \textit{synsem}"=Objekt mit dem \textsc{local}"=Wert von \textit{who}) hat; dieses
+Gegenstück muß außerdem geslasht sein. (Insofern ist die revidierte
+Fassung der \isi{Subject Condition} (12) in Kapitel~9 (S.\,350) ein Irrtum.)
+\begin{exe}
+\ex
+\label{ex:17-5}
+who did my talking to \_\_\_ bother \_\_\_?
+\end{exe}
+Auch dafür wird die wieder eingeführte \textsc{subcat}"=Liste benutzt; vgl.\ \citet[380f. Anm.~39]{PollardSag1994}.
+
+\randnum\label{rn:17-30}Es spricht nichts dagegen, auch die Selektionseigenschaften des Heads
+und die Thetarollen"=Zuordnung wie zuvor im \textsc{subcat}"=Wert zu
+lokalisieren. Die einzige Funktion von \textsc{comps} ist dann, zusammen mit
+dem Subcat- bzw.\ Valenz"=Prinzip zur Geometrie der
+Konstituentenstruktur beizutragen. Das ist nötig, weil diese Liste bei
+\isi{Extraktion} ohne Spur gekürzt sein soll.
+
+\randnum\label{rn:17-31}P\&S beschreiben die Verkürzung der \textsc{comps}"=Liste durch die
+Complement Extraction Lexical Rule in Kapitel~9.5.1 (62) von \citet[446]{PollardSag1992} so:
+\begin{exe}
+\ex \label{ex:17-9a}
+\begin{avm}
+  \[comps \< {\ldots}, \[loc {\@1}\], {\ldots} \>\\
+    inher|slash \tpv{eset} \] ~$\mapsto$ \[comps \< {\ldots}, {\ldots} \>\\
+    inher|slash \{{\@1}\}\] 
+\end{avm}
+\end{exe}
+\randnum\label{rn:17-33}Nach \citet[378]{PollardSag1994}:
+\begin{exe}
+\ex \label{ex:17-10a}
+\scalebox{0.85}{
+%\oneline{%
+\begin{avm}
+\[\avml subcat & \< {\ldots}, {\@3}, {\ldots} \>\\
+comps & \< {\ldots}, {\@3} \[loc {\@1}\], {\ldots} \>\avmr\\
+inher|slash {\@2}
+\] ~$\mapsto$ 
+\[\avml subcat & \< {\ldots}, {\@4} \[loc {\@1}\\ inher|slash \{{\@1}\}\], {\ldots} \>\\
+comps & \< {\ldots}, {\ldots} \> \avmr\\
+inher|slash \{{\@1}\} \ $\cup$ {\@2}
+\]
+\end{avm}
+}
+\end{exe}
+\randnum\label{rn:17-34}Unterschiede in \citet{PollardSag1994} gegenüber \citet{PollardSag1992}: Erstens die
+\textsc{slash}"=Spezifikation im
+\textsc{subcat}"=Wert. Diese Stipulation soll es ermöglichen, die Grundidee der
+\isi{Subject Condition} aufrecht zu erhalten. Zweitens soll die \isi{Extraktion}
+mehrerer Komplemente desselben Verbs und/""oder die \isi{Extraktion} eines
+Komplementsubjekts (mittels \isi{SELR}, \eqref{rn:17-49}) und eines Komplements
+möglich sein. Bei Verwendung von Spuren ergibt sich das von selbst; um
+dort \isi{mehrfache Extraktion} zu beschränken, müßten besondere Maßnahmen
+ergriffen werden. Empirisch scheint \isi{mehrfache Extraktion} besonderen
+Bedingungen zu unterliegen (vgl.\ \zb \citealt{cinque1990a}), so daß es naheliegen
+würde, dafür ein neues \textsc{nonlocal}"=Merkmal mit besonderen
+Eigenschaften einzuführen.
+
+\randnum\label{rn:17-35}Um die Erörterung zu erleichtern, ersetze ich im folgenden (wie
+\citealt{pollard1993a}) sämtliche relevanten Mengen (\zb als Wert von \textsc{slash})
+durch Listen. Außerdem ersetze ich das \textsc{subcat}"=Attribut von P\&S durch
+ein Attribut \textsc{sct}, das nicht die Elemente von \textsc{subj} und \textsc{spr} enthält. Wenn man für die Obliqueheitshierarchie und die \isi{Subject Condition} eine
+einheitliche Liste als Teil eines Worts haben möchte, kann man Wörter
+so aufbauen:
+\ea
+\scalebox{.9}{%
+\begin{avm}
+  \onems[word]{phon \tpv{list}\\
+\avml ss & \[loc|cat|val \[\avml subj & \tpv{list} \\ spr & \tpv{list} \\ comps & \tpv{list}\avmr\]\\
+nloc|inher|slash \tpv{list} \] \\
+sct &\tpv{list} \\
+obl & \[sct+spr & \onems[\isi{append}]{\avml left & \tpv{list}\\ right & \tpv{list}\\ result & \tpv{list}\avmr}\\ plus"=su & \onems[\isi{append}]{\avml left & \tpv{list}\\ right & \tpv{list}\\ result & \tpv{list}\avmr}\]
+\avmr}
+\end{avm}
+}
+\z
+\randnum\label{rn:17-36}Die Obliqueheitshierarchie soll dann für den Wert von
+\textsc{obl|plus"=su|result} definiert sein, mit links obliquer als
+rechts. (Vgl.\ dazu Absatz~\ref{rn:17-90}.) Für die Bestimmung dieses Werts gilt die
+folgende \isi{Implikation}. (Die Sorte \textit{append} mit Subsorten
+\textit{append}\textsubscript{1} und \textit{append}\textsubscript{2}
+ist wie bei \citet[240]{Carpenter92a} erläutert. Diese Sortenkonstruktion geht
+auf \citet[118]{ait-kaci1984a} zurück. Zu {\glqq}junk{\grqq}"=Attributen wie \textsc{sct}+\textsc{spr} und \textsc{plus"=su} vgl.\ Absatz~\ref{rn:17-93}.)
+\begin{exe}
+\ex
+\scalebox{.9}{%
+\begin{avm}
+\tpv{word} $\Rightarrow$
+\(
+obl|sct+spr|left $\approx$ sct & $\wedge$ \\
+obl|sct+spr|right $\approx$ ss|loc|cat|val|spr & $\wedge$ \\
+obl|sct+spr|result $\approx$ obl|plus"=su|left & $\wedge$ \\
+obl|plus"=su|right $\approx$ ss|loc|cat|val|subj
+\)
+\end{avm}}
+\end{exe}
+Im folgenden verzichte ich auf die Darstellung von \textsc{obl}.
+
+\addlines[2]
+\randnum\label{rn:17-36-2}Damit die \textsc{sct}"=Liste ihre intendierte Wirkung haben
+kann, müssen bei Lexikoneinträgen, die nicht dem Output"=Muster der
+\isi{CELR} entsprechen, die \textsc{ft}"=Werte von \textsc{sct} mit den
+entsprechenden \textsc{ft}"=Werten von \textsc{ss|loc|cat|val|comps} identisch sein. Die Werte von \textsc{comps} und
+\textsc{sct} müssen sich also zueinander verhalten wie die Werte von
+\textsc{left} und \textsc{result} in diesem \textit{append}\textsubscript{2}"=Objekt:
+\begin{exe}
+\ex
+\scalebox{.9}{%
+\begin{avm}
+\onems[\isi{append}\textsubscript{2}]{\avml left & \tpv{list}\\ right & \tpv{elist}\\ result & \tpv{list}\avmr}
+\end{avm}
+}
+\end{exe}
+
+\randnum\label{rn:17-37}Die Beschreibung eines solchen
+\textit{append}\textsubscript{2}"=Objekts darf aber nicht Teil eines
+Lexikoneintrags sein; sonst würden die \textsc{sct}"=Liste und die
+\textsc{comps}"=Liste durch die \isi{CELR} in identischer Weise
+verkürzt, und das soll grade nicht sein. Wie man das Verhältnis von
+\textsc{sct}- zu \textsc{comps}"=Liste bei Basis"=Lexikoneinträgen
+einerseits und im Resultat der \isi{CELR} andererseits auf
+allgemeine Weise regeln kann, ist nicht klar. Vgl.\ \citet[379 Anm.~38]{PollardSag1994}. Ich gehe davon aus, daß das Verhältnis von \textsc{sct}- zu \textsc{comps}"=Liste in Basis"=Lexikoneinträgen schlimmstenfalls ohne Theorie, aber
+jedenfalls korrekt geregelt ist.
+
+\randnum\label{rn:17-38}Im folgenden nehme ich an, daß die Lexikoneinträge von kohärent
+konstruierenden Verben~-- kurz: K-Verben~-- im wesentlichen nach dem
+Muster des Perfekt"=Hilfsverbs \textit{hat} aufgebaut sind:
+\begin{exe}
+\ex
+\label{rn:17-39}
+\scalebox{.9}{%
+\begin{avm}
+  \onems[word]{phon|ft \textnormal{hat}\\
+      	ss|loc \[cat		\[head|vform \tpv{finite}\\
+      						val	\[	subj 	& \tpv{list} \\
+      								spr 	& \tpv{elist} \\
+      								comps 	& \[	ft & \tpv{synsem} \\
+                      								rt & \tpv{list}\]\]\]\\
+              	content \[	quants	& \tpv{elist} \\
+              				nucleus	& \[	relation & \tpv{perfect}\\ 
+              								soa"=arg & \tpv{psoa}\]\]\]\\
+       	sct \[	ft & \onems	[w-ss]	{loc|cat\[	head|vform \tpv{part2}\\
+                  								val\[\avml	subj & \tpv{list}\\
+                  											spr  & \tpv{elist}\\ 
+                  											comps& \tpv{list}\avmr\]\]}\\
+                rt & \tpv{list}\]}
+\end{avm}
+}
+\\*
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml
+{\@1}: & ss|loc|content|nucleus|soa-arg $\approx$
+sct|ft|loc|content \\
+{\@2}: & sct|ft $\approx$
+ss|loc|cat|val|comps|ft \\
+{\@3}: & sct|rt $\approx$
+sct|ft|loc|cat|val|comps \\
+{\@4}: & ss|loc|cat|val|subj $\approx$
+sct|ft|loc|cat|val|subj \\
+{\@5}: & ss|loc|cat|val|comps|rt $\approx$
+sct|rt
+\avmr
+\end{avm}
+\end{exe}
+Dabei drücken die Pfadgleichungen \avmbox{3} und \avmbox{4} die Argumentvererbung
+aus. Die Gleichungen \avmbox{2} und \avmbox{5} drücken die Zuordnung von \textsc{sct}"=und
+\textsc{comps}"=Elementen aus. Die Gleichung \avmbox{1} drückt die Thetarollen"=Zuordnung
+aus.
+
+\randnum\label{rn:17-40} N.\,b.: Die Tag"=Paare, die man in informellen Darstellungen oft benutzt,
+sind kein erklärter Bestandteil der Deskriptionssprache. Sie sind
+immer Abkürzungen für Pfadgleichungen, die ich hier (so wie \citealt[29]{king1992a}; \citealt[9]{king1994a}) mit dem Zeichen $\approx$ schreibe. \citet[52f.]{Carpenter92a} benutzt
+ein Gleichheitszeichen mit Punkt darüber.
+
+\randnum\label{rn:17-41}Anstelle von Pfadgleichungen könnte man mit
+\citet[19f. (3)]{PollardSag1994} oder mit \citet[Kapitel~10]{Carpenter92a} Variablen
+(zusammen mit einer Variablenbelegungsvorschrift) in die
+Deskriptionssprache einführen. Das ermöglicht die Benutzung von
+Definiten Klauseln (Absatz~\ref{rn:17-93}f.), und gewisse Unbequemlichkeiten bei
+Lexikonregeln könnten dadurch vielleicht gemildert werden. Insgesamt
+scheinen Pfadgleichungen jedoch den sprachwissenschaftlichen
+Bedürfnissen eher zu entsprechen. Deshalb verfolge ich diese
+Möglichkeit nicht. (Das Ergebnis von Absatz~\ref{rn:17-64} wird davon nicht
+berührt.)
+
+\randnum\label{rn:17-42}Die Sorte \textit{w-ss}, die in \eqref{rn:17-39} den Wert von \textsc{sct}|\textsc{ft} bildet, ist eine
+Subsorte von \textit{synsem}. Man kann \textit{w-ss} benutzen, um sicherzustellen, daß
+die von \textit{hat} selegierte \isi{Verbprojektion} minimal ist. Wenn man
+\zb annimmt, daß sie ein \textit{word} ist, kann man \textit{w-ss} durch die
+Merkmaldeklaration von ss so einführen:
+\begin{exe}
+\ex
+$\textit{word}: [\textsc{ss} \textit{ w-ss}] \quad \textit{phrase}:
+[\textsc{ss}   \textit{ p-ss}]$
+\end{exe}
+
+\paragraph*{Randbemerkung}\randnum\label{rn:17-43} In \citet{PollardSag1987} wird ein tief eingebettetes Attribut
+\textsc{lexical} \textit{bool} eingeführt, dessen Werte offenbar mit dem
+\textit{word/""phrase}"=Unterschied korrelieren sollen (vgl.\ S.\,52 und 198; aber
+auch S.\,73 und 194 Anm.~4). Aber sämtliche Gründe für die Existenz
+eines solchen Attributs, die auf S.\,72 angedeutet sind, sind nicht
+stichhaltig.
+
+\randnum\label{rn:17-44}Da die Argumentvererbung durch Listenidentität~-- nämlich durch die
+Pfadgleichungen \avmbox{3} und \avmbox{4}~-- ausgedrückt ist, sind die vom abhängigen
+\isi{Verb} evtl.\ geerbten Argumente
+(\dash \textsc{ft}"=Werte von dessen \textsc{subj}- und
+\textsc{comps}"=Liste) im Lexikoneintrag des K"=Verbs nicht
+als solche repräsentiert. Sie können daher nicht in Pfadgleichungen
+eingehen, und für das Raising Principle sind sie uninteressant.
+
+\section{Lexikonregeln}
+
+\randnum\label{rn:17-45}Lexikonregeln stellen Wohlgeformtheitsbedingungen für das Lexikon
+dar. Ein Lexikon L ist wohlgeformt hinsichtlich der \isi{Lexikonregel} LR
+gdw.\ es zu jedem Element E\textsubscript{\textit{i}} von L, das dem Input"=Muster (IM) von LR
+entspricht, ein Element E\textsubscript{\textit{o}} von L (oder mehrere solche Elemente) gibt,
+das sich von E\textsubscript{\textit{i}} durch die Angaben im Output"=Muster (OM) von LR
+unterscheidet.
+
+\randnum\label{rn:17-45a}Gedanklich ist es möglich, ein Lexikon~--
+anders als in Absatz~\ref{rn:17-13} und~\ref{rn:17-45}~-- \isi{rekursiv} zu
+definieren als die kleinste Menge LEX\textsubscript{\textit{r}}, für die
+(i) und (ii) gilt:
+\begin{enumerate}
+\item[(i)]Jeder Basis"=Lexikoneintrag ist in LEX\textsubscript{\textit{r}} enthalten. Die
+Basis"=Lexikoneinträge sind Deskriptionen der Sorte \textit{word} oder einer
+(direkten oder indirekten) Subsorte davon, die durch Aufzählung
+gegeben sind.
+\item[(ii)]Wenn ein Element E\textsubscript{\textit{i}} von LEX\textsubscript{\textit{r}} dem IM einer \isi{Lexikonregel} LR entspricht,
+dann ist auch jede Deskription E\textsubscript{\textit{o}} ein Element von LEX\textsubscript{\textit{r}}, die sich von E\textsubscript{\textit{i}} nur durch die Angaben im OM von LR unterscheidet; für alle LR.
+\end{enumerate}
+So soll man wohl den Vorschlag von \citet[S.\,395 Anm.\ 1]{PollardSag1994} verstehen {\glqq}to
+treat a set of lexical rules as essentially a closure operator{\grqq}. Wegen
+(ii) kann LEX\textsubscript{\textit{r}} infinit sein. Intuitiv ist die Funktion von
+Lexikonregeln in (ii) evtl.\ einleuchtender als ihre Funktion in
+Absatz~\ref{rn:17-45}. Anstelle des Word"=Prinzips (\ref{rn:17-wp2}) muß man jetzt jedoch das
+Prinzip (iii) annehmen:
+\begin{enumerate}
+\item[(iii)]Jede Modellierende Struktur von der Sorte \textit{word} muß ein Element von LEX\textsubscript{\textit{r}} erfüllen.
+\end{enumerate}
+Das Word"=Prinzip (\ref{rn:17-wp2}) unterscheidet sich von (iii) dadurch wesentlich,
+daß es in der Deskriptionssprache formuliert ist. Da LEX\textsubscript{\textit{r}} mittels
+Lexikonregeln definiert ist und diese in einer (bislang
+unformalisierten) Meta"=Deskriptionssprache formuliert sind, ist die
+Sprachebene von (iii) mindestens die der Meta"=Deskriptionssprache. Ich
+gehe durchweg von (\ref{rn:17-wp2}) aus, nicht von (iii).
+
+\randnum\label{rn:17-46}Vom Raising Principle und der Control Theory~-- beide werden von P\&S
+als Wohlgeformtheitsbedingungen für Lexikoneinträge in Anspruch
+genommen~-- sehe ich hier ab.
+
+\randnum\label{rn:17-47}Herkömmlich interpretiert man Lexikonregeln (lexical rules) in genauer
+Analogie zu den Regeln der klassischen \textsq{generativen} Phonologie. Eine
+phonologische Regel der Form
+\begin{equation*}
+\begin{avm}
+\textnormal{a} $\rightarrow$ \textnormal{a}$^{\prime}$ /
+\textnormal{b} \[\underline{\hspace{1.5em}}\\ & \\ \hspace{0.15cm}\textnormal{c}\] ~\textnormal{d}
+\end{avm}
+\end{equation*}
+versteht man so, daß es zu jeder phonologischen Kette
+$\mathrm{K} = \mathrm{BCD}$ eine phonologische Kette
+$\mathrm{K}^{\prime} =
+\mathrm{B}^{\prime}\mathrm{C}^{\prime}\mathrm{D}^{\prime}$ gibt. Dabei
+ist $\mathrm{B}^{\prime} = \mathrm{B}$ und $\mathrm{D}^{\prime} = \mathrm{D}$; b ist in B enthalten, d ist in D enthalten, a und c sind in C enthalten, und $\mathrm{C}^{\prime}$ ist wie C, nur daß $\mathrm{a}^{\prime}$ anstelle von a in $\mathrm{C}^{\prime}$ enthalten ist. Dieses Interpretationsschema kann in mehrfacher Weise differenziert und angereichert werden. In jedem Fall wird durch eine solche Regel ein gedanklich unproblematisches Verhältnis zwischen Ausdrücken in K und $\mathrm{K}^{\prime}$ dargestellt. Bei phonologischen Regeln sind die Ausdrücke in der Regel und in den Ketten phonologische Ausdrücke (Merkmalspezifikationen); bei Lexikonregeln sind es Ausdrücke der Deskriptionssprache, nämlich Ausdrücke in Lexikoneinträgen. Vgl.\ die Explikation von Metaregeln in \citet[68ff]{gazdaretal1985a}. Obwohl die Ausdrücke in den Lexikonregeln und
+die Ausdrücke in den Lexikoneinträgen syntaktisch gleich sind, ist
+ihre Semantik natürlich fundamental verschieden: Ein Lexikoneintrag
+denotiert die Modellierenden Strukturen, die ihn erfüllen; das Input"=Muster einer \isi{Lexikonregel} dagegen denotiert entweder gar nichts oder die Lexikoneinträge, die dem IM entsprechen. (Eine Deskription (ein Lexikoneintrag) und das IM einer \isi{Lexikonregel} können also auch
+nicht in einer Subsumptions- oder Unifikationsbeziehung zueinander
+stehen.)
+
+\randnum\label{rn:17-48}Die Subject Extraction Lexical Rule von P\&S setzt jedoch
+nicht voraus, daß die Ausdrücke des IM in den $\mathrm{E}_i$ enthalten
+sind. Sie setzt vielmehr voraus, daß das IM mit $\mathrm{E}_i$
+kompatibel ist, d.\,h., daß es eine (minimale) Deskription
+${\mathrm{E}_i}^{\prime}$ gibt, in der (nur) die Ausdrücke von
+$\mathrm{E}_i$ und die des IM enthalten
+sind. $\mathrm{E}_o$ unterscheidet sich dann von
+${\mathrm{E}_i}^{\prime}$ durch die Angaben im OM. In der Formulierung
+von \citet[383 (69)]{PollardSag1994}:
+\begin{exe}
+  \ex\label{rn:17-49}
+\oneline{%
+\begin{avm}
+  \[subj \<Y$^{\prime\prime}$\>\\
+  comps \sliste{ \ldots{}, \begin{tabular}[t]{@{}c@{}}
+                      X$^{\prime\prime}$[\tpv{unmarked}] \\
+                      \[subj \tpv{elist}\]
+                      \end{tabular},  \ldots{} }\]
+~$\mapsto$
+  \[comps \sliste{ \ldots{}, \begin{tabular}[t]{@{}c@{}}
+                       X$^{\prime\prime}$ \\
+                       \[subj \<\[loc {\@2}\]\>\]
+                       \end{tabular}, \ldots{} }\\
+                                      inher|slash \{{\@2}\}\]
+\end{avm}}
+\end{exe}
+
+\addlines
+\randnum\label{rn:17-50}Die empirische Annahme ist (i), daß ein \isi{Subjekt} nur bei
+abwesender Satzeinleitung \isi{extrahiert} sein kann
+(\textsq{Comp"=trace"=Effekt}; vgl.\ aber \citealt{culicover1993a}); (ii)~daß dies
+nur bei Matrixprädikaten möglich ist, die mit satzartigen Komplementen
+ohne Satzeinleitung (Marker) vorkommen können; und (iii)~daß
+fakultatives Vorkommen einer Satzeinleitung durch Unterspezifikation
+im Lexikoneintrag darzustellen ist. Bei \textit{complain} \zb muß ein
+Komplementsatz durch \textit{that} eingeleitet werden, und
+Subjektextraktion ist nicht möglich; \textit{complain} selegiert einen
+S[\textit{that}]. Dagegen kommt \textit{think} mit S[\textit{that}]
+und mit S[\textit{unmarked}] vor; in seinem Lexikoneintrag ist ein S
+angegeben, der nicht für \textsc{marking} spezifiziert ist. (Daß
+\textit{think} nicht mit beliebigen anderen Markern als Einleitung des
+Komplementsatzes vorkommt, muß dann mit irgendwelchen zusätzlichen
+Mitteln gesichert werden.) Der Lexikoneintrag der Matrixverben muß für
+die \isi{SELR} also mit S[\textit{unmarked}] kompatibel sein, ohne
+diese Spezifikation selbst zu enthalten.
+
+(Mögliche Alternativen.\randnum\label{rn:17-51} (i)~Man streicht
+{\glqq}\textit{unmarked}{\grqq} in der \isi{SELR} und verbietet wie
+\citet[162]{gazdaretal1985a} ungesättigte V"=Projektionen mit \textsc{marking}
+\textit{that} durch einen Constraint. Dann gibt es zwar einen
+Lexikoneintrag für \textit{complain} mit extrahiertem
+Komplementsubjekt, aber keine Modellierende Struktur, die diesen
+Lexikoneintrag erfüllt. (ii)~Man leitet \textit{that}"=lose
+Komplementsätze durch einen leeren Marker (oder Head) ein. Daneben
+gibt es einen leeren Marker (oder Head), der eine XP selegiert und
+einen \textsc{inher|slash}"=Wert hat, der mit dem \textsc{local}"=Wert
+des \textsc{subj}-Wert der XP identisch ist. Es gibt also keine
+\textsq{Regel} für die Subjektextraktion. Die Sorte \textit{that}
+wird in Subsorten \textit{e-that} und \textit{ne-that} zerlegt. Die
+leeren Marker haben \textsc{marking} \textit{e-that}, der Marker
+\textit{that} hat \textsc{marking} \textit{ne-that}. \textit{Complain}
+selegiert S[\textit{ne-that}], \textit{think} selegiert
+S[\textit{that}].)
+
+{\randnum}In einer expliziteren Notation kann man die \isi{SELR} so formulieren:
+\begin{exe}
+\exi{(selr)}\exalph{selr}\label{rn:17-selr}
+\begin{avm}
+\avml
+&\[ss\[loc|cat|val\[subj|ft|loc|cat|val\[\avml spr & \tpv{elist} \\ comps & \tpv{elist}\avmr\]\\
+      spr \tpv{elist}\\ comps|$\pi$|ft|loc\[cat\[marking
+          \tpv{unmarked}\\val\[\avml subj & \tpv{elist}\\ spr & \tpv{elist}\\
+            comps & \tpv{elist}\avmr\]\]\\content \tpv{psoa}\]\]\\nloc|inher|slash \tpv{elist}\]\]\\
+
+& \quad $\mapsto$ \[ss\[loc|cat|val|comps|$\pi$|ft|loc|cat|val|subj|ft|loc
+    \tpv{local}\\ nloc|inher|slash \[\avml ft & \tpv{local} \\ rt & \tpv{elist}\avmr\]\]\]\\
+& \quad ss|loc|cat|val|comps|$\pi$|ft|loc|cat|val|subj|ft|loc \\
+& \quad\quad $\approx$ ss|nloc|inher|slash|ft
+\avmr
+\end{avm}
+\end{exe}
+Dabei habe ich ergänzt, daß der \textsc{slash}"=Wert im IM \textit{elist} ist und daß das
+Objekt, dessen \isi{Subjekt} \isi{extrahiert} ist, propositional ist.
+
+\enlargethispage{2\baselineskip}
+\randnum\label{rn:17-52}Die drei Punkte in dem Ausdruck
+{\glqq}$\textsc{comps} <\ldots{}${\grqq} von \eqref{rn:17-49} sind hier durch
+eine Pfadvariable $\pi$ wiedergegeben, die im IM wie im OM
+gleichförmig als eine Folge von $n$ RT-Attributen zu interpretieren
+ist, mit $0 \leq n$. Auf eine solche Variable könnte man nur dann
+verzichten, wenn man die \isi{SELR} von \eqref{rn:17-49} nicht als eine
+\isi{Lexikonregel}, sondern als eine Menge von Lexikonregeln auf"|fassen
+würde, die sich dadurch voneinander unterscheiden, daß sie null oder
+ein oder zwei oder \ldots{} \textsc{rt}"=Attribute anstelle von $\pi$
+haben. Da es für die Länge dieses Pfades keine begründbare Obergrenze
+gibt, ist das unsinnig.\pagebreak
+
+{\randnum}Die \isi{CELR} ist weniger einfach. Eine explizitere Formulierung von (\ref{ex:17-10a}) sieht so aus:
+\begin{exe}
+\ex\label{rn:17-53}
+\begin{avm}
+\avml  {\[ss{\[loc|cat|val|comps|$\pi$& {\[\avml ft|loc & \avmbox{a}\\
+              rt & \avmbox{b}\avmr\]}\\nloc|inher|slash
+          & \avmbox{c}\]}\]} \\ 
+sct|$\pi_1$|ft $\approx$ ss|loc|cat|val|comps|$\pi$|ft \\
+\quad $\mapsto$
+  {\[ss{\[loc|cat|val|comps|$\pi$ & \avmbox{b}\\
+          nloc|inher|slash & {\[\avml ft & \avmbox{a}\\
+              rt & \avmbox{c}\avmr\]}\]}\]} \\
+\quad sct|$\pi_1$|ft|loc $\approx$ sct|$\pi_1$|ft|nloc|inher|slash|ft
+\avmr
+\end{avm}
+\end{exe}
+\randnum\label{rn:17-54}Die Pfadvariablen $\pi$ und $\pi_1$ repräsentieren wieder
+Ausdrücke, die aus null oder mehr \textsc{rt}-Attributen
+bestehen. Wegen der Möglichkeit, daß mehr als ein Objekt \isi{extrahiert}
+ist, kann die \textsc{sct}"=Liste länger als die \textsc{comps}"=Liste
+sein. Dann muß auch $\pi_1$ länger als $\pi$ sein können. Da die
+Pfadgleichung des IM außerdem mit einem Input"=Lexikoneintrag nur
+kompatibel und nicht in ihm enthalten sein muß, ist es schon in
+einfachen Fällen aufwendig, die sinnvolle Anwendung dieser
+\isi{Lexikonregel} zu sichern. Um die folgenden Überlegungen zu
+vereinfachen, unterdrücke ich deshalb die \isi{mehrfache Extraktion}. (Das
+Ergebnis in Absatz~\ref{rn:17-64} wird dadurch nicht beeinflußt.) Dann ist immer $\pi_1
+= \pi$. Daher kann man die Pfadgleichung im IM weglassen: Sie dient
+lediglich dazu, das Element der \textsc{sct}"=Liste zu identifizieren, dessen
+\textsc{local}"=Wert im OM mit seinem
+\textsc{slash}"=Wert identifiziert wird. Die revidierte Fassung der
+\isi{CELR} von (\ref{ex:17-10a}) ist dann so:
+\begin{exe}
+\exi{(celr)}\exalph{celr}\label{rn:17-celr}
+\begin{avm}
+\avml
+& \[ss\[loc|cat|val|comps|$\pi$ & \[\avml ft|loc & \avmbox{a}\\
+rt & \avmbox{b}\avmr\]\\nloc|inher|slash & \tpv{elist}\]\] \\
+& \quad $\mapsto$  
+\[ss\[loc|cat|val|comps|$\pi$ & \avmbox{b}\\
+nloc|inher|slash & \[\avml ft & \avmbox{a}\\
+rt & \tpv{elist}\avmr\]\]\] \\
+& \quad sct|$\pi$|ft|loc $\approx$ sct|$\pi$|ft|nloc|inher|slash|ft \avmr
+\end{avm}
+\end{exe}
+\addlines
+Wenn man die Pfadgleichung im OM wegläßt, hat man eine explizite
+Formulierung der \isi{CELR}"=Fassung von \citet{PollardSag1992} (\ref{ex:17-9a}).
+
+\randnum\label{rn:17-55}Durch \eqref{rn:17-celr} sollen dem
+Basis"=Lexikoneintrag von \textit{gibt}, den ich wie in \eqref{rn:17-g-b} ansetze (s.\,u.), die beiden geslashten
+Lexikoneinträge in \eqref{rn:17-g-d} und \eqref{rn:17-g-a} zugeordnet werden. Da von der
+\textsc{comps}"=Liste ein Ausdruck (der \textsc{local}"=Wert \avmbox{a})
+entfernt werden soll, nehme ich jetzt, anders als in \eqref{rn:17-39}, an, daß
+die Komplementselektionseigenschaften des Verbs für die
+\textsc{comps}"=Liste (nicht für die \textsc{sct}"=Liste) formuliert
+sind. (Diese Annahme ist nicht zwingend, da die Ausdrücke des IM in
+einem Lexikoneintrag nicht enthalten sein müssen, sondern mit ihm nur
+kompatibel sein müssen (Absatz~\ref{rn:17-48}). Ich möchte den Verzicht auf die
+Enthaltenseins"=Forderung aber nicht schon durch die Form der
+Lexikoneinträge erzwingen.)
+
+{\randnum}Basis"=Lexikoneintrag von \textit{gibt}:
+\begin{exe}
+\exi{(g-b)}\exalph{g-b}\label{rn:17-g-b}
+\begin{avm}
+\onems[word]{phon|ft \textnormal{gibt} \\
+  ss \[loc \[cat \[head|vform \tpv{finite}\\
+      val \[subj|ft|loc & \textnormal{Nnom} \\
+        spr & \tpv{elist} \\
+        comps & \[ft|loc & \textnormal{Ndat} \\
+          rt & \[\avml ft|loc & \textnormal{Nakk} \\
+            rt & \tpv{elist}\avmr\]\]\] \]\\
+    content \[quants & \tpv{elist} \\
+      nucleus & \[\avml relation & \tpv{give} \\
+        	giver & \tpv{ref} \\
+        	givee & \tpv{ref} \\
+        	given & \tpv{ref} \avmr\]\]\]\\
+    nloc|inher|slash \tpv{elist}\]\\
+  sct\[ft & \tpv{synsem} \\
+    rt & \[\avml 	ft & \tpv{synsem} \\
+      				rt & \tpv{elist}\avmr\]\]}
+\end{avm}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml {\@1}: & ss|loc|content|nucleus|giver \\
+&\quad $\approx$ ss|loc|cat|val|subj|ft|loc|content|index \\
+{\@2}: & ss|loc|content|nucleus|given $\approx$
+sct|rt|ft|loc|content|index \\
+{\@3}: & ss|loc|content|nucleus|givee $\approx$
+sct|ft|loc|content|index \\
+{\@4}: & sct|ft $\approx$
+ss|loc|cat|val|comps|ft \\
+{\@5}: & sct|rt|ft $\approx$
+ss|loc|cat|val|comps|rt|ft
+\avmr
+\end{avm}
+\end{exe}
+Die Pfadgleichungen \avmbox{1}--\avmbox{3} drücken die Thetarollen"=Zuordnung aus;
+\avmbox{4} und \avmbox{5} die Zuordnung von \textsc{sct}- und \textsc{comps}"=Elementen.
+
+\pagebreak
+{\randnum}Lexikoneintrag von \textit{gibt} mit \isi{Extraktion} des Dativobjekts:
+\begin{exe}
+\exi{(g-d)}\exalph{g-d}\label{rn:17-g-d}
+\begin{avm}
+\onems[word]{phon|ft \textnormal{gibt} \\ ss \[loc \[cat \[head|vform \tpv{finite}\\
+      val \[subj|ft|loc & \textnormal{Nnom} \\ spr & \tpv{elist} \\
+        comps & \[\avml ft|loc & \textnormal{Nakk} \\ rt & \tpv{elist}\avmr\]\]\]\\content \[quants & \tpv{elist} \\ nucleus & \[\avml relation & \tpv{give} \\ giver & 
+        \tpv{ref} \\ givee & \tpv{ref} \\ given & \tpv{ref} \avmr\]\]\]\\
+    nloc|inher|slash \[\avml ft & \textnormal{Ndat}\\ rt & \tpv{elist}\avmr\]\]\\
+sct\[ft & \tpv{synsem} \\rt & \[\avml ft & \tpv{synsem} \\rt & \tpv{elist}\avmr\]\]}
+\end{avm}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml {\@1}: & ss|loc|content|nucleus|giver \\
+& $\approx$ ss|loc|cat|val|subj|ft|loc|content|index \\
+{\@2}: & ss|loc|content|nucleus|given $\approx$
+sct|rt|ft|loc|content|index \\
+{\@3}: & ss|loc|content|nucleus|givee $\approx$
+sct|ft|loc|content|index \\
+{\@{4^{\prime}}}: & sct|ft|loc $\approx$
+ss|nloc|inher|slash|ft \\
+{\@{5^{\prime}}}: & sct|rt|ft $\approx$
+ss|loc|cat|val|comps|ft \\
+{\@6}: & sct|ft|loc $\approx$
+sct|ft|nloc|inher|slash|ft
+\avmr
+\end{avm}
+\end{exe}
+%\Hack{\enlargethispage{-2\baselineskip}}
+{\randnum}Lexikoneintrag von \textit{gibt} mit \isi{Extraktion} des Akkusativobjekts:
+\begin{exe}
+\exi{(g-a)}\exalph{g-a}\label{rn:17-g-a}
+\begin{avm}
+\onems[word]{phon|ft \textnormal{gibt} \\ ss \[loc \[cat \[head|vform \tpv{finite}\\
+      val \[subj|ft|loc & \textnormal{Nnom} \\ spr & \tpv{elist} \\
+        comps & \[\avml ft|loc & \textnormal{Ndat} \\ rt &
+          \tpv{elist}\avmr\]\]\]\\content \[quants & \tpv{elist} \\ nucleus & \[\avml relation & \tpv{give} \\ giver & 
+        \tpv{ref} \\ givee & \tpv{ref} \\ given & \tpv{ref} \avmr\]\]\]\\
+    nloc|inher|slash \[\avml ft & \textnormal{Nakk}\\ rt & \tpv{elist}\avmr\]\]\\
+sct\[ft & \tpv{synsem} \\rt & \[\avml ft & \tpv{synsem} \\rt & \tpv{elist}\avmr\]\]}
+\end{avm}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml {\@1}: & ss|loc|content|nucleus|giver \\
+& $\approx$ ss|loc|cat|val|subj|ft|loc|content|index \\
+{\@2}: & ss|loc|content|nucleus|given $\approx$
+sct|rt|ft|loc|content|index \\
+{\@3}: & ss|loc|content|nucleus|givee $\approx$
+sct|ft|loc|content|index \\
+{\@4}: & sct|ft $\approx$
+ss|loc|cat|val|comps|ft \\
+{\@{5^{\prime\prime}}}: & sct|rt|ft|loc $\approx$
+ss|nloc|inher|slash|ft \\
+{\@6}: & sct|rt|ft|loc $\approx$
+sct|rt|ft|nloc|inher|slash|ft
+\avmr
+\end{avm}
+\end{exe}
+Man sieht, daß die durch \eqref{rn:17-celr} zu bestimmenden Unterschiede nicht nur
+den \textsc{comps}"=Wert und den \textsc{slash}"=Wert betreffen, sondern auch die
+Pfadgleichungen \avmbox{4} und \avmbox{5}. (Die Gleichung \avmbox{6} ist durch die Gleichung
+im OM von \eqref{rn:17-celr} bedingt.)
+
+\randnum\label{rn:17-56}Ich betrachte zunächst \eqref{rn:17-g-a}. Unter die \eqref{rn:17-celr} mit π = \textsc{rt} fällt der Lexikoneintrag \eqref{rn:17-g-b}. Der Ausdruck \avmbox{a} ist in \eqref{rn:17-g-b} dann der \textsc{local}"=Wertausdruck {\glqq}Nakk{\grqq}. Dieser Ausdruck bildet in \eqref{rn:17-g-a} den Wert von \textsc{slash|ft}. Der Ausdruck \avmbox{b} in \eqref{rn:17-g-b} ist {\glqq}\textit{elist}{\grqq}; er bildet in \eqref{rn:17-g-a} den Wert von \textsc{comps|rt}. Soweit trägt \eqref{rn:17-g-a} der Tatsache Rechnung, daß das extrahierte Element die Forderung von \textit{gibt} nach einem \isi{Akkusativobjekt} erfüllt. In \eqref{rn:17-g-b} ist der \textsc{ss}"=Wert- und damit auch der \textsc{local}"=Wert des Akkusativobjekts durch die Pfadgleichung \avmbox{5} mit dem zweiten \textsc{sct}"=Element identifiziert. Es wäre unsinnig, diese Pfadgleichung in \eqref{rn:17-g-a} zu übernehmen; sie muß durch \avmbox{5^{\prime\prime}} ersetzt werden. Man muß dafür eine Pfadgleichungskonvention folgender Art annehmen:
+\begin{enumerate}
+\item[(pgk)]\exalph{pgk}\label{rn:17-pgk}
+\begin{enumerate}
+\item[(i)]Wenn es in einer Input"=Deskription $\mathrm{E}_i$ einen
+  Ausdruck A gibt, der in einem Output"=Lexikoneintrag $\mathrm{E}_o$
+  nicht in derselben Position steht, dann fehlen in $\mathrm{E}_o$ alle
+  Pfadgleichungen $G$, in die A oder ein Bestandteil von A in $\mathrm{E}_i$
+  eingeht.
+\item[(ii)]Wenn A oder ein Bestandteil von A in $\mathrm{E}_o$ in
+  einer (anderen) Position $P$ steht, dann gibt es in $\mathrm{E}_o$
+  Pfadgleichungen $G^{\prime}$, die wie $G$ sind, aber der Position
+  $P$ entsprechen.
+\end{enumerate}
+\end{enumerate}
+\randnum\label{rn:17-57}In (\ref{rn:17-g-b}) geht der Ausdruck
+{\glqq}\textsc{loc} Nakk{\grqq} als Wert in die Pfadgleichung
+\avmbox{5} ein, und dieser Ausdruck fehlt in (\ref{rn:17-g-a}); also
+fehlt auch \avmbox{5}. Der Bestandteil \avmbox{a} (nämlich
+{\glqq}Nakk{\grqq}) steht in (\ref{rn:17-g-a}) in einer anderen
+Position. Daher gibt es in (\ref{rn:17-g-a}) die Pfadgleichung
+\avmbox{5^{\prime\prime}}.~-- Es ist zweifellos umständlich, die
+Konvention (\ref{rn:17-pgk}) präzise zu
+explizieren, scheint aber nicht aussichtslos zu sein. (Schwierig ist
+besonders, daß die linke Seite von \avmbox{5} nicht genauso ist wie
+die linke Seite von \avmbox{5^{\prime\prime}}. Falls es nicht gelingt,
+mittels einer Konvention wie \eqref{rn:17-pgk} \avmbox{5} durch
+\avmbox{5^{\prime\prime}} zu ersetzen, ist die \isi{CELR} nicht
+explizierbar.)
+
+\randnum\label{rn:17-58}Das Verhältnis zwischen (\ref{rn:17-g-b}) und (\ref{rn:17-g-d}) ist weitgehend entsprechend. Die Pfadvariable $\pi$ ist als leerer Pfad
+interpretiert. Der Ausdruck {\glqq}\textsc{loc} Ndat{\grqq} fehlt in (\ref{rn:17-g-d}),
+also auch die Pfadgleichung \avmbox{4}. Der Ausdruck \avmbox{a}, nämlich
+{\glqq}Ndat{\grqq}, steht in (\ref{rn:17-g-d}) in einer anderen Position; daher ist
+in (\ref{rn:17-g-d}) die Gleichung \avmbox{4^{\prime}}. Aber der Ausdruck \avmbox{b} ist jetzt eine nicht"=leere Liste: der Wert von \textsc{comps|rt} in (\ref{rn:17-g-b}) und der Wert von \textsc{comps} in (\ref{rn:17-g-d}). \avmbox{b} geht in (\ref{rn:17-g-b}) nicht in eine Pfadgleichung ein. Aber ein Bestandteil von \avmbox{b}, nämlich der Ausdruck
+{\glqq}\textsc{loc} Nakk{\grqq}, ist Wert der Gleichung \avmbox{5}. Daher fehlt \avmbox{5}
+in (\ref{rn:17-g-d}); und da dieser Bestandteil in (\ref{rn:17-g-d}) eine andere Position
+einnimmt, ist in (\ref{rn:17-g-d}) die Gleichung \avmbox{5^{\prime}}.
+
+\randnum\label{rn:17-59}Wenn die \isi{CELR} in dieser Weise interpretiert werden
+kann und (\ref{rn:17-g-d}) und\linebreak (\ref{rn:17-g-a}) als regelmäßige Entsprechungen zu (\ref{rn:17-g-b}) ausgewiesen sind, erfüllt das \textit{gibt} in (\ref{ex:17-6a}) den Lexikoneintrag (\ref{rn:17-g-b}); das \textit{gibt} in (\ref{ex:17-6b}) erfüllt den Lexikoneintrag (\ref{rn:17-g-a}), und das \textit{gibt} in (\ref{ex:17-6c})
+erfüllt den Lexikoneintrag (\ref{rn:17-g-d}).
+\begin{exe}
+\ex
+\label{ex:17-6}
+\begin{xlist}
+\ex
+\label{ex:17-6a}
+daß er es ihr gibt
+\ex
+\label{ex:17-6b}
+was [er \_\_\_ ihr gibt]
+\ex
+\label{ex:17-6c}
+wem [er es \_\_\_ gibt]
+\end{xlist}
+\end{exe}
+
+{\randnum}Um die Wirkung von (\ref{rn:17-celr}) auf K"=Verben zu betrachten, braucht man einen gegenüber (\ref{rn:17-39}) modifizierten Lexikoneintrag für \textit{hat}:
+\begin{exe}
+\exi{(h-b)}\exalph{h-b}\label{rn:17-h-b}
+\oneline{%
+\begin{avm}
+\onems[word]{phon|ft \textnormal{hat} \\ ss \[loc \[cat \[head|vform \tpv{finite}\\
+      val \[subj & \tpv{list} \\ spr & \tpv{elist} \\
+        comps & \[ft & \onems[w-ss]{loc|cat\[head|vform \tpv{part2}\\val\[\avml subj &
+                \tpv{list}\\spr & \tpv{elist}\\comps & \tpv{list}\avmr\]\]}\\ rt & \tpv{list}\]\]\]\\content \[quants & \tpv{elist} \\ nucleus & \[\avml relation & \tpv{perfect} \\ soa"=arg & \tpv{psoa} \avmr\]\]\]\\
+    nloc|inher|slash \tpv{elist}\]\\
+sct\[\avml ft & \tpv{synsem} \\rt & \tpv{list}\avmr\]}
+\end{avm}
+}
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml {\@1}: & ss|loc|content|nucleus|soa-arg $\approx$
+sct|ft|loc|content \\
+{\@2}: & sct|ft $\approx$
+ss|loc|cat|val|comps|ft \\
+{\@3}: & sct|rt $\approx$
+sct|ft|loc|cat|val|comps \\
+{\@4}: & ss|loc|cat|val|subj $\approx$
+sct|ft|loc|cat|val|subj \\
+{\@5}: & ss|loc|cat|val|comps|rt $\approx$
+sct|rt
+\avmr
+\end{avm}
+\end{exe}
+
+{\randnum}Die (\ref{rn:17-celr}) mit dem leeren Pfad als $\pi$ ordnet (\ref{rn:17-h-b}) den Lexikoneintrag (\ref{rn:17-h-v}) zu:
+\begin{exe}
+\exi{(h-v)}\exalph{h-v}\label{rn:17-h-v}
+\begin{avm}
+\onems[word]{phon|ft \textnormal{hat} \\ ss\[loc \[cat \[head|vform
+          \tpv{finite}\\val \[\avml subj & \tpv{list} \\ spr & \tpv{elist} \\
+        comps & \tpv{list}\avmr\]\]\\
+      content \[quants & \tpv{elist} \\
+        nucleus & \[\avml relation & \tpv{perfect} \\ soa-arg & \tpv{psoa}\avmr\]\]\]\\
+    nloc|inher|slash \[ft|cat & \[head|vform \tpv{part2} \\val \[\avml subj & \tpv{list} \\ spr & \tpv{elist} \\
+        comps & \tpv{list}\avmr\]\]\\ rt & \tpv{elist}\]\]\\
+sct\[\avml ft & \tpv{synsem} \\rt & \tpv{list}\avmr\]}
+\end{avm}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml {\@1}: & ss|loc|content|nucleus|soa-arg $\approx$
+sct|ft|loc|content \\
+{\@{2'}}: & sct|ft|loc $\approx$
+ss|nloc|inher|slash|ft \\
+{\@3}: & sct|rt $\approx$
+sct|ft|loc|cat|val|comps \\
+{\@4}: & ss|loc|cat|val|subj $\approx$
+sct|ft|loc|cat|val|subj \\
+{\@{5'}}: & ss|loc|cat|val|comps $\approx$
+sct|rt \\
+{\@6}: & sct|ft|loc $\approx$
+sct|ft|nloc|inher|slash|ft
+\avmr
+\end{avm}
+\end{exe}
+Die Pfadgleichung \avmbox{2^{\prime}} ergibt sich daraus, daß der Ausdruck \avmbox{a} in
+anderer Position steht; die Gleichung \avmbox{5^{\prime}} daraus, daß \avmbox{b} in anderer
+Position steht.
+
+\randnum\label{rn:17-60}Das \textit{hat} in (\ref{ex:17-7a}) erfüllt den Lexikoneintrag (\ref{rn:17-h-b}). Das \textit{hat} in (\ref{ex:17-7b}) erfüllt den Lexikoneintrag (\ref{rn:17-h-v}); ebenso das in (\ref{ex:17-7c}, \ref{ex:17-7d}).
+
+\begin{exe}
+\ex
+\label{ex:17-7}
+\begin{xlist}
+\ex
+\label{ex:17-7a}
+daß er es ihr [gegeben hat]
+\ex
+\label{ex:17-7b}
+gegeben (glaube ich daß) er es ihr [\_\_\_ hat]
+\ex
+\label{ex:17-7c}
+ihr gegeben (glaube ich daß) er es [\_\_\_hat]
+\ex
+\label{ex:17-7d}
+es ihr gegeben (glaube ich kaum daß) er [\_\_\_ hat]
+\end{xlist}
+\end{exe}
+
+
+\randnum\label{rn:17-61}Was geschieht, wenn (\ref{rn:17-celr}) mit π = $\textsc{rt|rt}$ auf (\ref{rn:17-h-b}) \textsq{angewendet} wird? Bei dieser Interpretation von π ist das IM von (\ref{rn:17-celr}) nicht in (\ref{rn:17-h-b}) enthalten, aber es ist damit kompatibel. Das heißt, es gibt eine Deskription (\ref{rn:17-h-b'}), die die Ausdrücke von (\ref{rn:17-h-b}) und vom IM der (\ref{rn:17-celr}) enthält:
+\begin{exe}
+\exi{(h-b')}\exalph{h-b'}\label{rn:17-h-b'}
+\scalebox{0.95}{
+\begin{avm}
+\onems[word]{phon|ft \textnormal{hat} \\ ss\[loc \[cat \[head|vform
+          \tpv{finite}\\val \[subj & \tpv{list} \\ spr & \tpv{elist} \\
+        comps & {\[ft &\onems[w-ss]{loc|cat\[head|vform \tpv{part2}\\val\[\avml subj &
+                \tpv{list}\\spr & \tpv{elist}\\comps & \tpv{list}\avmr\]\]}\\
+        rt &{\[ft & \tpv{synsem} \\ rt & {\[\avml ft|loc & \tpv{local} \\ rt & \tpv{list}\avmr\]}\]}\]}\]\]\\
+      content \[quants & \tpv{elist} \\
+        nucleus & \[\avml relation & \tpv{perfect} \\ soa-arg & \tpv{psoa}\avmr\]\]\]\\
+    nloc|inher|slash \tpv{elist} \]\\
+sct\[\avml ft & \tpv{synsem} \\rt & \tpv{list}\avmr\]}
+\end{avm}}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml {\@1}: & ss|loc|content|nucleus|soa-arg $\approx$
+sct|ft|loc|content \\
+{\@2}: & sct|ft $\approx$
+ss|loc|cat|val|comps|ft \\
+{\@3}: & sct|rt $\approx$
+sct|ft|loc|cat|val|comps \\
+{\@4}: & ss|loc|cat|val|subj $\approx$
+sct|ft|loc|cat|val|subj \\
+{\@5}: & ss|loc|cat|val|comps|rt $\approx$
+sct|rt
+\avmr
+\end{avm}
+\end{exe}
+{\randnum}Diese Deskription unterscheidet sich von (\ref{rn:17-h-b}) nur durch die längere
+\textsc{comps}"=Lis\-te. Gemäß dem OM von (\ref{rn:17-celr}) scheint dann ein Lexikoneintrag wie (\ref{rn:17-h-c}) als regelmäßige Entsprechung zu (\ref{rn:17-h-b}) ausgewiesen zu sein:
+
+\begin{exe}
+\exi{(h-c)}\exalph{h-c}\label{rn:17-h-c}
+\scalebox{0.95}{\begin{avm}
+\onems[word]{phon|ft \textnormal{hat} \\ ss\[loc \[cat \[head|vform
+          \tpv{finite}\\val \[subj & \tpv{list} \\ spr & \tpv{elist} \\
+        comps & {\[ft & \onems[w-ss]{loc|cat\[head|vform \tpv{part2}\\val\[\avml subj
+                & \tpv{list}\\spr & \tpv{elist}\\comps & \tpv{list}\avmr\]\]}\\
+        rt & {\[\avml ft & \tpv{synsem} \\ rt & \tpv{list}\avmr\]}\]}\]\]\\
+      content \[quants & \tpv{elist} \\
+        nucleus & \[\avml relation & \tpv{perfect} \\ soa-arg & \tpv{psoa}\avmr\]\]\]\\
+    nloc|inher|slash {\[\avml ft \tpv{local} \\ rt \tpv{elist}\avmr\]}\]\\
+sct\[\avml ft & \tpv{synsem} \\rt & \tpv{list}\avmr\]}
+\end{avm}}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml {\@1}: & ss|loc|content|nucleus|soa-arg $\approx$
+sct|ft|loc|content \\
+{\@2}: & sct|ft $\approx$
+ss|loc|cat|val|comps|ft \\
+{\@3}: & sct|rt $\approx$
+sct|ft|loc|cat|val|comps \\
+{\@4}: & ss|loc|cat|val|subj $\approx$
+sct|ft|loc|cat|val|subj \\
+{\@5}: & ss|loc|cat|val|comps|rt $\approx$
+sct|rt \\
+{\@6}: & sct|rt|rt|ft|loc $\approx$
+sct|rt|rt|ft|nloc|inher|slash|ft
+\avmr
+\end{avm}
+\end{exe}
+\Hack{\enlargethispage{-\baselineskip}}
+Die Pfadgleichungen in (\ref{rn:17-h-c}) sind identisch mit denen von (\ref{rn:17-h-b}), nur daß
+\avmbox{6} aus dem OM von (\ref{rn:17-celr}) hinzugekommen ist. (Wenn \eqref{ex:17-9a} statt (\ref{ex:17-10a}) zugrundegelegt wäre, würde auch dieser Unterschied entfallen.) Keiner
+der \textsq{bewegten} Ausdrücke geht in eine Pfadgleichung ein. Der Ausdruck \avmbox{a}~-- nämlich {\glqq}\textit{local}{\grqq}~-- ist in (\ref{rn:17-h-b'}) der Wert von \textsc{comps|rt|rt|ft|loc} und in (\ref{rn:17-h-c}) der Wert von \textsc{slash|ft}. Der Ausdruck \avmbox{b}~-- nämlich {\glqq}\textit{list}{\grqq}~-- ist in (\ref{rn:17-h-b'}) der Wert von \textsc{comps|rt|rt|rt} und in (\ref{rn:17-h-c}) der Wert von \textsc{comps|rt|rt}. In (\ref{rn:17-h-b}) sind diese Ausdrücke nicht vorhanden, und es gibt kein Prinzip, aus dem hervorgehen würde, daß sie in (\ref{rn:17-h-b'}) in eine Gleichung eingehen müßten.
+
+\randnum\label{rn:17-62}Wenn das richtig ist, ist wegen
+\avmbox{2}, \avmbox{3} und \avmbox{5} der \textsc{comps|rt}"=Wert dieses \textit{hat} jedoch identisch mit dem
+\textsc{comps}"=Wert des selegierten Verbs, und das dritte Element auf der
+\textsc{comps}"=Liste von \textit{hat} ist wegen \avmbox{6}
+geslasht. (Unsinnigerweise hat der \textsc{slash}"=Wert von \textit{hat} keinerlei Beziehung dazu. Diesem Mangel könnte man
+durch Verwendung der Gleichung im IM von (\ref{rn:17-53}) abhelfen.) Demnach
+müßte \textit{hat} ein (mindestens) zweistelliges \isi{Verb} und mindestens zwei (von
+diesem \isi{Verb} geerbte) Objekte selegieren, deren zweites die
+Eigenschaften einer Spur hat. Da es Komplementspuren laut Annahme aber
+nicht gibt, gibt es keine Modellierende Struktur, die diesen
+Lexikoneintrag erfüllt.
+
+\randnum\label{rn:17-63}Tatsächlich steht die Pfadgleichung \avmbox{5} von (\ref{rn:17-h-c}) jedoch nicht in Übereinstimmung mit der \eqref{rn:17-pgk}. In \eqref{rn:17-h-b'} geht der Ausdruck (\ref{ex:17-30}) als Wert in die Gleichung \avmbox{5} ein.
+\begin{exe}
+\ex\label{ex:17-30}
+\begin{avm}
+{\[ft & \tpv{synsem} \\rt & {\[\avml ft|loc & \tpv{local} \\ rt & \tpv{list}\avmr\]}\]}
+\end{avm}
+\end{exe}
+Dieser Ausdruck ist in (\ref{rn:17-h-c}) nicht (insbesondere nicht an derselben Stelle) enthalten. Nach (\ref{rn:17-pgk}) (i)~müßte die Gleichung \avmbox{5} deshalb entfallen. Ein Teilausdruck davon, nämlich \avmbox{a} {\glqq}\textit{local}{\grqq}, tritt in (\ref{rn:17-h-c}) als Wert von \textsc{slash|ft} auf. Nach (\ref{rn:17-pgk}) (ii)~sollte dann durch eine Gleichung \avmbox{5^{\prime}} Identität des \textsc{slash|ft}"=Werts und des \textsc{sct|rt}"=Werts
+ausgesagt sein. Da die Sorten dieser Werte inkompatibel sind (\textit{local} und \textit{list}), ist diese Forderung nicht erfüllbar. Außerdem sind zwei Teilausdrücke, nämlich {\glqq}\textsc{ft} \textit{synsem}{\grqq} und {\glqq}\textsc{rt} \textit{list}{\grqq}, in (\ref{rn:17-h-c}) im Wert von
+\textsc{comps|rt} enthalten. Demnach sollte eine Gleichung den Wert von \textsc{comps|rt} und den von \textsc{sct|rt} identifizieren; insofern scheint \avmbox{5} in (\ref{rn:17-h-c}) durchaus berechtigt zu sein, mit den oben besprochenen Folgen.
+
+\randnum\label{rn:17-64}Wenn dieses Verständnis von \eqref{rn:17-pgk} richtig ist (und (\ref{rn:17-pgk}) sich präzisieren läßt), wird ein Lexikoneintrag $\mathrm{E}_o$ nur dann
+durch (\ref{rn:17-celr}) als regelmäßige Entsprechung zu einem Lexikoneintrag
+$\mathrm{E}_i$ ausgewiesen, wenn das IM der \eqref{rn:17-celr} in $\mathrm{E}_i$
+enthalten ist. Ein Beispiel wie (\ref{ex:17-8a}) kann dann nur auf einen (entsprechend der (\ref{rn:17-celr})) geslashten Lexikoneintrag von \textit{gegeben} zurückgeführt werden:
+\hack{\enlargethispage{-\baselineskip}}
+\begin{exe}
+\ex
+\label{ex:17-8}
+\begin{xlist}
+\ex
+\label{ex:17-8a}
+was [er \_\_\_ ihr [gegeben hat]]
+\ex
+\label{ex:17-8b}
+was [du dich immer geweigert hast [\_\_\_ deinen Eltern zu gestehen]]
+\end{xlist}
+\end{exe}
+(Die Möglichkeit, das \isi{Komplement} eines infiniten Verbs zu extrahieren,
+ist unabhängig durch Fälle wie (\ref{ex:17-8b}) gesichert.) Nach dieser Analyse
+hat \textit{hat} in (\ref{ex:17-8a}) eine zweistellige \textsc{sct}"=Liste, deren erstes Element~--
+der ss"=Wert von \textit{gegeben}~-- geslasht ist. Bei Verwendung von Spuren hätte
+\textit{hat} eine dreistellige \textsc{comps}"=Liste, und \textit{gegeben} wäre nicht geslasht.
+
+\section{Unterspezifizierter LE plus Constraints (U+C)}
+
+\randnum\label{rn:17-70}Die massiven
+Explikationsprobleme der Lexikonregeln rühren daher, daß sie eine
+Beziehung zwischen Lexikoneinträgen ausdrücken, also auf Ausdrücken
+der Deskriptionssprache operieren; vgl.\ \citet[395 Anm.~1]{PollardSag1994}. Man
+kann prüfen, wie ihre intendierten Effekte in der Deskriptionssprache
+selbst erreicht werden können. Eine Möglichkeit ist, das Konzept des
+Lexikoneintrags konsequent auszunutzen. Verschiedene Vorkommen
+desselben lexikalischen Elements unterscheiden sich gewöhnlich in
+einigen Details; vgl.\ Absatz~\ref{rn:17-1}. Sie können einen einzigen Lexikoneintrag
+erfüllen, weil dieser in manchen Hinsichten unterspezifiziert
+ist. Statt für geslashte und ungeslashte Wörter verschiedene
+Lexikoneinträge zu formulieren, kann man für Wörter, die geslasht sein
+können, einen einzigen stark unterspezifizierten Lexikoneintrag nach
+folgendem Muster benutzen:
+\begin{exe}
+\ex\label{rn:17-71}
+\begin{avm}
+\onems[word]{phon {{\[\avml ft & $\alpha$ \\ rt & \tpv{elist} \avmr\]}} \\
+      ss{\[loc {\[cat & {\[head & $\beta$ \\ marking & \tpv{unmarked} \\val &
+                  {\[subj & {\[\avml ft & $\gamma$ \\ rt & \tpv{elist}\avmr\]} \\ spr
+                     & \tpv{elist} \\ comps & \tpv{list}\]}\]}\\
+      content & $\delta$ \\ context & $\varepsilon$\]}\\
+    nloc|inher|slash \tpv{list} \]}\\
+sct $\zeta$ \\ ex \tpv{ex}}
+\end{avm}
+\end{exe}
+
+\addlines[-1]
+\noindent
+Im allgemeinen sind nur die als $\alpha$--$\zeta$ gekennzeichneten Teile genauer
+spezifiziert. (Ich nehme wie in (\ref{rn:17-39}) an, daß
+Selektionseigenschaften im \textsc{sct}"=Wert ausgedrückt sind.)
+
+
+\randnum\label{rn:17-72}Der Wert \textit{ex} des Attributs \textsc{ex} hat die Untersorten
+\textit{nix} und \textit{slex}. Während \textit{nix} atomar ist, ist
+\textit{slex} so aufgebaut:
+\begin{exe}
+\ex
+\begin{avm}
+  \tpv{slex} $\Rightarrow$ {\[element-von \onems[\isi{append}]{\avml left		& {\@1} \tpv{list} \\
+                                                               right	& \tpv{nelist} \\
+                                                               result	& \tpv{nelist} \avmr} \\ 
+                              in-comps \onems[\isi{append}]{\avml left   & {\@1} \\ 
+                                                            right  & \tpv{list} \\ 
+                                                            result & \tpv{list}\avmr} \]}
+\end{avm}
+\end{exe}
+{\randnum}Das \textit{slex}"=Objekt wird so eingesetzt, daß durch den
+\textsc{right|ft}"=Wert von \textsc{element"=von} ein Element einer
+Liste identifiziert wird, die identisch mit dem Wert von
+\textsc{element-von|result} ist. Der \textsc{element-von|left}"=Wert
+hat dabei etwa die Funktion, die die Pfadvariable $\pi$ bei der (\ref{rn:17-selr}) und der (\ref{rn:17-celr}) hat. Der \textsc{in-comps|result}"=Wert wird dann aus dem
+\textsc{left}"=Wert und dem \textsc{element-von|right|rt}"=Wert
+aufgebaut und mit dem \textsc{comps}"=Wert identifiziert; s.\,u.\ (\ref{rn:17-sl-s}) und (\ref{rn:17-sl-o}).
+
+\randnum\label{rn:17-73}Durch geeignete Constraints zerlegt man die Menge der Wörter
+(\dash der Modellierenden Strukturen von der Sorte \textit{word}), die einen
+Lexikoneintrag der Form (\ref{rn:17-71}) erfüllen können, in geslashte und
+ungeslashte Wörter; bei ersteren kann man dann zwei Arten (mit
+\isi{Extraktion} eines Objekts bzw.\ \isi{Extraktion} des Subjekts eines
+propositionalen Objekts) unterscheiden. Damit erhält man zugleich (im
+Unterschied zu Absatz~\ref{rn:17-37}) eine allgemeine Theorie für die Zuordnung
+zwischen den Elementen der \textsc{sct}- und \textsc{comps}"=Listen und
+außerdem~-- anders als in Absatz~\ref{rn:17-26}~-- eine allgemeine Theorie für die
+\textsc{inher|slash}"=Werte in Wörtern.
+
+{\randnum}Für ungeslashte Wörter gilt folgende \isi{Implikation}:
+\begin{exe}
+\exi{(sl-e)}\exalph{sl-e}\label{rn:17-sl-e}
+\begin{avm}
+\( \tpv{word} $\wedge$ ex \tpv{nix} \)~$\Rightarrow$ \(ss|nloc|inher|slash
+  \tpv{elist} $\wedge$ \\ sct $\approx$ ss|loc|cat|val|comps \)
+\end{avm}
+\end{exe}
+
+{\randnum}Geslashte Wörter mit \isi{Extraktion} eines Komplementsubjekts müssen folgende Deskription erfüllen:
+\begin{exe}
+\exi{(sl-s)}\exalph{sl-s}\label{rn:17-sl-s}
+\oneline{
+\begin{avm}
+\onems[word]{ss {\[loc|cat|val {\[subj|ft|loc|cat|val {\[\avml spr & \tpv{elist}\\
+                comps & \tpv{elist}\avmr\]} \\ comps {\@4}\]}\\
+        nloc|inher|slash {\[ft & {\@6} \\ rt & \tpv{elist}\]}\]}\\ sct {\@8}
+    \\ ex \onems[slex]{element-von {\[left & {\@9} \tpv{list} \\ right & {\[ft|loc & {\[cat {\[head & {\@{11}}
+                        \\ marking & {\@{12}} \tpv{unmarked} \\ val & {\[\avml subj &
+                            \tpv{elist} \\
+                            spr & {\@{13}} \tpv{elist} \\ comps & {\@{14}} \tpv{elist} \avmr\]} \]} \\ content 
+                    {\@{15}} \tpv{psoa} \]} \\ rt & {\@{10}}\]} \\ result & {\@8} \]} \\
+        in-comps {\[left & {\@9} \\ right & {\[ft|loc & {\[cat {\[head & {\@{11}}
+                        \\ marking & {\@{12}} \\ val & {\[ subj|ft|loc & {\@6} \\
+                            spr & {\@{13}} \\ comps & {\@{14}} \]} \]} \\ content
+                    {\@{15}}\]} \\ rt & {\@{10}}\]} \\ result & {\@4} \]}}}
+\end{avm}}
+\end{exe}
+\randnum\label{rn:17-74}Anders als bei der \isi{Lexikonregel} (\ref{rn:17-selr}) ist es hier
+unvermeidbar, daß ein Wort, das die Deskription (\ref{rn:17-sl-s}) erfüllt, mit dem
+Lexikoneintrag für das Wort lediglich kompatibel ist. Ein geslashtes
+Vorkommen von \textit{thinks} \zb kann (\ref{rn:17-sl-s}) erfüllen, weil im
+Lexikoneintrag von \textit{thinks} für das \isi{Komplement} kein Wert für
+\textsc{marking} angegeben ist. Ein geslashtes Vorkommen von \textit{complain}
+dagegen kann (\ref{rn:17-sl-s}) nicht erfüllen, da im Lexikoneintrag von \textit{complain}
+für das \isi{Komplement} \textsc{marking} \textit{that} spezifiziert ist.
+
+{\randnum}Geslashte Wörter mit \isi{Extraktion} eines Komplements müssen folgende
+Deskription erfüllen:
+\begin{exe}
+\exi{(sl-o)}\exalph{sl-o}\label{rn:17-sl-o}
+\scalebox{.81}{%
+\begin{avm}
+\avml
+& \onems[word]{ss {\[loc|cat|val|comps & {\@4} \\
+                     nloc|inher|slash & {\[ft & {\@6} \\ 
+                                         rt & \tpv{elist}\]}\]}\\ 
+               sct {\@8}\\
+               ex \onems[slex]{element-von {\[left   & {\@9} \tpv{list} \\ 
+                                              right  & {\[ft|loc & {\@6} \\ 
+                                                         rt     & {\@{10}}\]} \\ 
+                                              result & {\@8} \]} \\
+                              in-comps     {\[left   & {\@9} \\ 
+                                              right  & {\@{10}} \\ 
+                                              result & {\@4} \]}}}\\
+& ex|element-von|right|ft|nloc|inher|slash|ft \\ 
+& \quad $\approx$ ex|element-von|right|ft|loc
+\avmr
+\end{avm}}
+\end{exe}
+Die \isi{Extraktion} von mehreren Objekten (oder eines Objekts und eines \isi{Komplement}"=Subjekts) ist hier nicht möglich.
+
+\enlargethispage{\baselineskip}
+{\randnum}Für geslashte Wörter gilt also folgende \isi{Implikation}:
+\begin{exe}
+\exi{(sl-n)}\exalph{sl-n}\label{rn:17-sl-n}
+\begin{avm}
+(\tpv{word} $\wedge$ ex \tpv{slex})~$\Rightarrow$ (\textnormal{sl-s} $\vee$ \textnormal{sl-o})
+\end{avm}
+\end{exe}
+
+
+{\randnum}Lexikoneintrag für \textit{gibt} entsprechend (\ref{rn:17-71}):
+\begin{exe}
+\ex\label{rn:17-75}
+\scalebox{.81}{%
+\begin{avm}
+\onems[word]{phon|ft \textnormal{gibt} \\ ss|loc {\[ cat
+          {\[\avml head|vform & \tpv{finite} \\ val|subj|ft|loc &
+              \textnormal{Nnom} \avmr\]} \\ content
+{\[quants & \tpv{elist} \\ nucleus & 
+    {\[\avml relation & \tpv{give} \\ giver & \tpv{ref} \\ givee & \tpv{ref} \\
+        given & \tpv{ref} \avmr\]} \]} \]} \\ sct {\[ft|loc & 
+          \textnormal{Ndat} \\ rt & {\[\avml ft|loc & \textnormal{Nakk} \\ rt &
+              \tpv{elist} \avmr\]}\]} \\ ex \tpv{ex}}
+\end{avm}}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml {\@1}: & ss|loc|content|nucleus|giver \\ 
+& $\approx$ ss|loc|cat|val|subj|ft|loc|content|index \\
+{\@2}: & ss|loc|content|nucleus|given $\approx$
+sct|rt|ft|loc|content|index \\
+{\@3}: & ss|loc|content|nucleus|givee $\approx$
+sct|ft|loc|content|index
+\avmr
+\end{avm}
+\end{exe}
+\randnum\label{rn:17-76}Alle Vorkommen von \textit{gibt} in (\ref{ex:17-6}) erfüllen das
+Word"=Prinzip, indem sie (\ref{rn:17-75}) erfüllen. Das \textit{gibt} in (\ref{ex:17-6a}) erfüllt außerdem die \isi{Implikation} (\ref{rn:17-sl-e}). Die in (\ref{ex:17-6b}) und (\ref{ex:17-6c}) erfüllen (\ref{rn:17-sl-n}) mit der Deskription (\ref{rn:17-sl-o}), wobei in \eqref{ex:17-6b} der Wert von \textsc{ex|element-von|left} eine 1-stellige Liste und der Wert von \textsc{ex|{\allowbreak}element-von|{\allowbreak}right|rt} \textit{elist} ist; in \eqref{ex:17-6c} ist \textit{elist} der Wert von \textsc{ex|element-von|left}.
+
+{\randnum}Lexikoneintrag für \textit{hat}:
+\begin{exe}
+\ex\label{rn:17-77}
+\scalebox{.85}{%
+\begin{avm}
+\onems[word]{phon|ft \textnormal{hat}\\ ss|loc{\[ cat|head|vform \tpv{finite} \\content{\[ quants & \tpv{elist} \\
+          nucleus & {\[\avml relation & \tpv{perfect}\\ soa-arg & \tpv{psoa} \avmr\]} \]} \]}\\sct{\[ ft & \onems[w-ss]{loc \textnormal{Vpart2}} \\rt & \tpv{list} \]}
+  \\ ex \tpv{ex}}
+\end{avm}}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml {\@1}: & ss|loc|content|nucleus|soa-arg $\approx$
+sct|ft|loc|content \\
+{\@2}: & ss|loc|cat|val|subj $\approx$
+sct|ft|loc|cat|val|subj \\
+{\@3}: & sct|rt $\approx$
+sct|ft|loc|cat|val|comps
+\avmr
+\end{avm}
+\end{exe}
+{\randnum}Alle Vorkommen von \textit{hat} in \eqref{ex:17-7} erfüllen diesen Lexikoneintrag; (\ref{ex:17-7}b--d)
+außerdem (\ref{rn:17-sl-o}) mit \textit{elist} als Wert von \textsc{ex|element-von|left}.
+
+\randnum\label{rn:17-78}Auch in \eqref{ex:17-26} wird \eqref{rn:17-77} von allen Vorkommen von \textit{hat} erfüllt (\eqref{ex:17-26a} $=$~\eqref{ex:17-8a}):
+\begin{exe}
+\ex
+\label{ex:17-26}
+\begin{xlist}
+\ex
+\label{ex:17-26a}
+was [er \_\_\_ ihr [gegeben hat]]
+\ex
+\label{ex:17-26b}
+wem [er es \_\_\_ [gegeben hat]]
+\end{xlist}
+\end{exe}
+Das \textit{hat} in \eqref{ex:17-26a} erfüllt die \isi{Implikation} (\ref{rn:17-sl-n}) mit der
+Deskription (\ref{rn:17-sl-o}) und einer 2-stelligen Liste als Wert von
+\textsc{ex|element-von|left}; dabei efüllt \textit{gegeben} die \isi{Implikation}
+(\ref{rn:17-sl-e}), und der \textsc{local}"=Wert von \textit{was} ist auf den
+\textsc{sct}"=Listen von beiden Verben repräsentiert. Wenn in \eqref{ex:17-26a}
+\textit{hat} die \isi{Implikation} (\ref{rn:17-sl-e}) erfüllt, dann erfüllt
+\textit{gegeben} die \isi{Implikation} (\ref{rn:17-sl-n}) so wie \textit{gibt} in \eqref{ex:17-6b}, und der
+\textsc{local}"=Wert von \textit{was} ist nur auf der
+\textsc{sct}"=Liste von \textit{gegeben} repräsentiert. Entsprechend
+bei \eqref{ex:17-26b}.
+
+\addlines[2]
+\randnum\label{rn:17-79}Sinngemäß genauso bei \eqref{ex:17-27c} u.\,ä., unabhängig davon, ob die
+Konstituentenstruktur wie in \eqref{ex:17-27a} oder wie in \eqref{ex:17-27b} ist:
+\begin{exe}
+\ex
+\label{ex:17-27}
+\begin{xlist}
+\ex
+\label{ex:17-27a}
+daß er es ihr [[geben dürfen] soll]
+\ex
+\label{ex:17-27b}
+daß er es ihr [geben [dürfen soll]]
+\ex
+\label{ex:17-27c}
+was er \_\_\_ ihr [geben dürfen soll]
+\end{xlist}
+\end{exe}
+Wenn \textit{geben} geslasht ist, also (\ref{rn:17-sl-o}) erfüllt, dann sind
+\textit{dürfen} und \textit{soll} ungeslasht, erfüllen also (\ref{rn:17-sl-e}). Wenn
+\textit{dürfen} geslasht ist, sind \textit{geben} und \textit{soll}
+es nicht; und wenn \textit{soll} geslasht ist, sind \textit{geben}
+und \textit{dürfen} es nicht.
+
+\randnum\label{rn:17-80}Die \isi{Extraktion} mittels des U+C"=Verfahrens ist bei K"=Verben daher
+systematisch mehrdeutig. Bei \isi{Extraktion} mittels Spur geht sie
+eindeutig vom maximal regierenden \isi{Verb} aus; bei \isi{Extraktion} mittels
+\isi{Lexikonregel} geht sie eindeutig vom minimal regierenden \isi{Verb} aus.
+
+\randnum\label{rn:17-81}Falls diese Ambiguität unerwünscht ist, kann man sie nicht
+etwa dadurch beseitigen, daß man den \textsc{ex}"=Wert \textit{slex}
+nur bei finiten Verben zuläßt, denn infinite Verben lassen bei
+\textsq{inkohärenter} Konstruktion Komplementextraktion zu;
+vgl.\ \eqref{ex:17-8b}. Allerdings könnte man dem Lexikoneintrag von K"=Verben die
+Beschreibung
+\begin{exe}
+\ex
+\begin{avm}
+\avml
+sct|ft|nloc|inher|slash \tpv{elist}
+\avmr
+\end{avm}
+\end{exe}
+hinzufügen. Damit würde, wie bei Spuren, die \isi{Extraktion} innerhalb
+eines Kohärenzfelds eindeutig vom maximal regierenden \isi{Verb} ausgehen.
+
+\randnum\label{rn:17-81a}Die Implikationen (\ref{rn:17-sl-e}) und (\ref{rn:17-sl-n}) haben eine komplexe Deskription als Antezedens. Es kann im U+C-Verfahren sinnvoll sein, statt dessen oder in Ergänzung dazu Subsorten von \textit{word} einzuführen, die als Antezedens solcher Implikationen dienen, und es könnte nützlich sein, dabei multiple Vererbung zuzulassen. Auf diese Weise könnte die angenommene {\glqq}hierarchy of lexical sorts (subsorts of \textit{word}) [\ldots{}] roughly as described in \citet[Chapter~8]{PollardSag1987}{\grqq} \citep[395]{PollardSag1994} sinnvoll eingesetzt werden. Es ist aber zu beachten, daß weder die Lexikoneinträge noch die Implikationen des U+C"=Verfahrens formal etwas mit den {\glq}generic lexical entries{\grq} von \citet[36f.]{PollardSag1994} (Absatz~\ref{rn:17-14}) zu tun haben. Über die heißt es (S.\,36): {\glqq}each generic lexical entry specifies [\ldots{}] values of certain features or relationships among values of different features [\ldots{}] that must hold of all lexical entries that instantiate the generic entry. The hierarchical organization of lexical entries (both generic and actual) has the effect of amalgamating the information associated with one actual entry with the information associated with all of the generic entries that it instantiates{\grqq}. Anders als Lexikoneinträge im Sinne von Absatz~\ref{rn:17-13} und Implikationen denotieren die \textsq{generic lexical entries} also keine Modellierenden Strukturen. Vielmehr soll die in ihnen enthaltene \textsq{Information} mit der von Lexikoneinträgen {\glqq}verschmelzen{\grqq}, die zu ihnen in einer \textsq{Instantiierungs}"=Relation stehen. Weder der Begriff der Instantiierung noch der der Information oder der des Verschmelzens ist formal expliziert.
+\pagebreak
+
+\section{\textit{word} in \textit{word} (W-in-W)}
+
+%\addlines[2]
+{\randnum}Alternativ kann man Vorschläge von Manfred Sailer und Detmar Meurers
+(p.\,M.\ 30.5.94) aufnehmen und in ein Wort ein \textit{word}"=Objekt
+einbetten. Dafür zerlege ich die Sorte \textit{word} in die Subsorten
+\textit{normal"=word} und \textit{slashed"=word} (kurz:
+\textit{sld"=word}) und baue Wörter mit Objektextraktion nach
+folgendem Muster auf:
+\begin{exe}
+\exi{(sw1)}\exalph{sw1}\label{rn:17-sw1}
+\scalebox{.9}{%
+\begin{avm}
+\avml
+  &\onems[sld-word]{phon {\@1} \\
+      ss{\[loc {\[cat & {\[head & {\@2} \\val & {\[subj & {\@3} \\ spr & {\@{16}} \\
+                      comps & {\@4}
+                    \]}\]}\\
+              content & {\@5} \]}\\
+          nloc|inher|slash {\[ft & {\@6} \\ rt & {\@7} \]}\]} \\ wort
+      \onems[word]{phon {\@1} \\ ss {\[loc {\[cat & {\[head & {\@2} \\val
+                      & {\[\avml subj & {\@3} \\ spr & {\@{16}} \tpv{elist} \\
+                          comps & {\@8}
+                      \avmr\]}\]}\\
+              content & {\@5} \]}\\
+          nloc|inher|slash {\@7} \]}}\\ ex 
+      \onems[slex]{element-von
+      			\[\avmtype{append} \\ left & {\@9} \tpv{list} \\ 
+      						right & {		\[ft|loc & {\@6} \\ 
+      									rt & {\@{10}}\]} \\ 
+      						result & {\@8}\] \\
+    	in-comps \[\avmtype{append} \\ left & {\@9}
+        \\ right & {\@{10}} \\ result & {\@4}\]}}\\
+& ex|element-von|right|ft|nloc|inher|slash|ft \\
+& \quad $\approx$ ex|element-von|right|ft|loc
+\avmr
+\end{avm}}
+\end{exe}
+
+\randnum\label{rn:17-82}Wenn eine Modellierende Struktur \textit{MS} ein Wort
+$W_o$ enthält, das die Deskription (\ref{rn:17-sw1}) erfüllt, dann
+enthält $W_o$~-- also auch \textit{MS}~-- als Wert von \textsc{wort} ein Wort
+$W_i$, das seinerseits das Word"=Prinzip (\ref{rn:17-wp2}) erfüllen muß, zu dem es
+also einen Lexikoneintrag LE$_\mathrm{v}$ geben muß. ($W_i$ kann, wenn man
+es nicht explizit verhindert, wiederum von der Sorte \textit{sld-word}
+sein. Insofern kann man (\ref{rn:17-sw1}) als eine rekursive Verallgemeinerung von
+(\ref{rn:17-sl-o}) auf"|fassen.) Der Wert von \textsc{wort} ist jedoch nicht selbst
+ein Element des Lexikons (vgl.\ Absatz~\ref{rn:17-13}); deshalb ist (\ref{rn:17-sw1}) keine
+\isi{Lexikonregel}. Eher hat (\ref{rn:17-sw1}) Ähnlichkeit mit klassischen
+Transformationsregeln, indem \textit{MS} eine \textsq{Vorgängerstruktur}
+von $W_o$ enthält, die die Eigenschaften des
+\textsq{Vorgänger"=Lexikoneintrags} LE$_\mathrm{v}$
+erfüllt. (Tatsächlich kann man diese Methode so verallgemeinern, daß
+ein \textit{sign} als Wert eines \textsq{Junk"=Slots} in ein \textit{sign}
+\isi{eingebettet} ist. Damit kann man eine formale Rekonstruktion
+transformationeller Grammatiken entwickeln.) Nach dem Sprachgebrauch
+von \citet[4]{PollardSag1994} ist eine Deskription wie (\ref{rn:17-sw1}) \textsq{multi"=stratal}
+und damit \textsq{derivational}.
+
+\randnum\label{rn:17-83}Man kann (\ref{rn:17-sw1}) auf zwei verschiedene Weisen gebrauchen: im U+C-Verfahren als Konsequens einer \isi{Implikation} für die Sorte \textit{sld"=word} oder aber als eigenen Lexikoneintrag. Wenn der Lexikoneintrag von \textit{gibt} usw.\ für die unterspezifizierte Obersorte \textit{word} formuliert ist, wird man parallel zu (\ref{rn:17-sl-n}) und (\ref{rn:17-sl-e}) Implikationen für \textit{sld"=word} und \textit{normal"=word} formulieren. (Also etwa $\textit{slashed"=word} \Rightarrow \mathrm{(\ref{rn:17-sw1})}$; und \textit{normal"=word} wie (\ref{rn:17-sl-e}), aber ohne das Attribut \textsc{ex}.) Für ein geslashtes Vorkommen von \textit{gibt} wie in \eqref{ex:17-6b} ist der Lexikoneintrag von \textit{gibt} dann zweimal relevant, denn sowohl $W_o$ als auch $W_i$ muß ihn erfüllen. Die \textsc{comps}"=Liste des Lexikoneintrags muß deshalb unspezifiziert sein.
+
+\randnum\label{rn:17-84}Ich will statt dessen (\ref{rn:17-sw1}) als einen Lexikoneintrag ähnlich wie Trace bei \citet{PollardSag1994} verwenden (den \zb das geslashte \textit{gibt} erfüllt) und
+Lexikoneinträge von der Sorte \textit{normal"=word} für ungeslashte Wörter annehmen. Die Lexikoneinträge sind also für die Subsorten spezifiziert. Für \textit{sld"=word} nehme ich keine besondere \isi{Implikation} an (sondern nur Merkmal"=Deklarationen). (Für eine Variante dieses
+Verfahrens vgl.\ jetzt \citealt[77--80]{Meurers94}.)
+
+
+\randnum\label{rn:17-85}Beim U+C-Verfahren müssen die Beschreibungen in den
+Implikationen (\ref{rn:17-sl-e}) und (\ref{rn:17-sl-n}) (bzw.\ in den Implikationen für
+\textit{normal"=word} und \textit{sld"=word}) monoton gegenüber dem
+Lexikoneintrag von der Sorte \textit{word} sein. In (\ref{rn:17-sw1}) könnte man das
+Verhältnis zwischen dem \textsc{ss}"=Wert und dem \textsc{wort}"=Wert
+bzgl.\ der \textsc{comps}"=Liste intuitiv als
+\textsq{nicht"=monoton} betrachten (obwohl keinerlei
+nicht"=monotone Mechanismen involviert sind): Hier gibt es, wenn der
+Wert von \textsc{wort} die Sorte \textit{normal"=word} hat, eine
+ungekürzte \textsc{comps}"=Liste (den Wert von
+\textsc{wort|ss|loc|cat|val|{\allowbreak}comps}). Wenn man (\ref{rn:17-sw1}) als Lexikoneintrag
+benutzt, kann man daher auf das \textsc{sct}"=Attribut verzichten;
+vorausgesetzt, man wendet die Bindungstheorie und die Subject
+Condition nur auf die unreduzierte und nicht (auch) auf die reduzierte
+\textsc{comps}"=Liste an.
+
+\randnum\label{rn:17-86}Wegen der \textsq{Nicht"=Monotonie} und der möglichen
+Rekursion kann die in (\ref{rn:17-sw1}) benutzte Methode W-in-W sehr flexibel für
+vielfältige Zwecke eingesetzt werden. Während Lexikonregeln und das
+U+C-Verfahren völlig traditionellen Vorstellungen entsprechen, ist das
+W-in-W-Verfahren eine konzeptuell interessante Neuerung. Durch
+Lexikonregeln wird die Zahl der Lexikoneinträge vervielfacht: Zu jedem
+geeigneten LE\textsubscript{\textit{i}} gibt es einen (oder mehr) weiteren LE\textsubscript{\textit{o}}. Beim
+U+C-Verfahren bleibt die Zahl der Lexikoneinträge unberührt: Geslashte
+und ungeslashte Wörter fallen als verschiedene Vorkommenstypen unter
+denselben Lexikoneintrag. Beim W"=in"=W"=Verfahren gibt es genau einen
+neuen Lexikoneintrag: Alle ge{\-}slash{\-}ten Wörter fallen darunter, und ihre
+Beziehung zum entsprechenden ungeslashten Wort ist durch den
+Lexikoneintrag für den \textsc{wort}"=Wert ausgedrückt. Die Probleme eines
+\isi{rekursiv} definierten (evtl.\ infiniten) Lexikons (Absatz~\ref{rn:17-45a}) stellen
+sich nicht.
+
+\randnum\label{rn:17-87}Das \textit{gibt} in \eqref{ex:17-6a} ist dann ein \textit{normal"=word}. Das in
+(\ref{ex:17-6b}, \ref{ex:17-6c}) ist ein \textit{sld"=word} mit einem \textit{normal"=word} als
+\textsc{wort}"=Wert. Die Ergebnisse bei \eqref{ex:17-7}, \eqref{ex:17-26} und \eqref{ex:17-27} sind
+entsprechend. Vgl.\ Absatz~\ref{rn:17-78}--\ref{rn:17-81}.
+
+\randnum\label{rn:17-88}Für die Subjektextraktion (vgl.\ (\ref{rn:17-sl-s})) kann man dann einen weiteren
+Lexiko\/neintrag der Sorte \textit{sld"=word}
+ansetzen:%Skalieren ist ok, vielleicht AVM auf ganze Seite
+\begin{exe}
+\exi{(sw2)}\exalph{sw2}\label{rn:17-sw2}
+%\scalebox{0.82}{
+\oneline{%
+\begin{avm}
+  \onems[sld-word]{phon {\@1} \\
+      ss{\[loc {\[cat {\[head & {\@2} \\val & {\[subj & {\@3} \\[-1mm] spr & {\@{16}} \\[-1mm]
+                      comps & {\@4}
+                    \]}\]}\\
+              content {\@5} \]}\\
+          nloc|inher|slash {\[ft & {\@6} \\[-1mm] rt & {\@7} \]}\]} \\ wort
+      \onems[word]{phon {\@1} \\ ss {\[loc {\[cat {\[head & {\@2} \\val & 
+                      {\[subj & {\@3} |ft|loc|cat|val {\[\avml spr & \tpv{elist}
+                              \\[-1mm] comps & \tpv{elist} \avmr\]} \\ spr & {\@{16}} \tpv{elist} \\
+                          comps & {\@8}
+                        \]}\]}\\
+                  content {\@5} \]}\\
+              nloc|inher|slash {\@7} \tpv{elist} \]}}\\ ex
+      \onems[slex]{element-von
+          {\[left & {\@9} \tpv{list} \\ right & 
+              {\[ft|loc 
+                  {\[cat
+                      {\[head & {\@{11}} \\ marking & {\@{12}} \tpv{unmarked} \\
+                          val & 
+                          {\[\avml subj & \tpv{elist} \\[-1mm] spr & {\@{13}} \tpv{elist} \\[-1mm]
+                              comps & {\@{14}} \tpv{elist} \avmr\]}\]} \\ content
+                      {\@{15}} \tpv{psoa}\]} \\ rt {\@{10}}\]} \\ result & 
+              {\@8} \]} \\in-comps
+          {\[left & {\@9} \\ right & 
+              {\[ft|loc 
+                  {\[cat
+                      {\[head & {\@{11}} \\ marking & {\@{12}} \\
+                          val &
+                          {\[subj|ft|loc & {\@6} \\[-1mm] spr & {\@{13}} \\[-1mm]
+                              comps & {\@{14}} \]}\]} \\ content {\@{15}} \]} \\
+                  rt {\@{10}}\]} \\ result & {\@4} \]}}}
+\end{avm}}
+\end{exe}
+
+\randnum\citet[387]{PollardSag1994} schlagen in Kapitel~9.5.2 (80) eine grob skizzierte Adjunct Extraction Lexical Rule vor, bei der in Analogie zur \isi{SELR} das Matrixverb zu einem Objektsatz geslasht ist, aus dem ein \isi{Adjunkt} \isi{extrahiert} ist. Es gibt jedoch syntaktische Indizien dafür, daß der nicht"=leere \textsc{inher|slash}"=Wert in dem Objektsatz seinen Ursprung hat \citep{hukarietal1993a}. Eine entsprechende \isi{Lexikonregel} genau zu formulieren (vgl.\ \citealt{hoehle1994a}) ist schwierig. Als ein dritter Lexikoneintrag der Sorte \textit{sld"=word} sähe das so aus:
+\begin{exe}
+\ex
+\begin{avm}
+  \onems[sld-word]{phon {\@1} \\
+      ss{\[loc {\[ \avml cat & \tpv{category} \\ content & {\@4} \avmr\]} \\[4mm]
+          nloc|inher|slash {\[ft & {\[ cat {\[ head|mod|loc \tpv{local}
+                      \\ val {\[\avml spr & \tpv{elist} \\ comps & \tpv{elist} \avmr\]} \]} \\ content {\@4} \]} \\[11mm] rt & {\@7} \]}\]} \\ wort
+      \[\avmtype{word} \\ phon & {\@1} \\ ss & {\[\avml loc|cat|head & \tpv{verb} \\
+              nloc|inher|slash & {\@7} \tpv{elist} \avmr\]}\]\\ ex \tpv{nix}}
+\end{avm}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml
+{\@2}: & ss|loc|cat $\approx$ wort|ss|loc|cat \\
+{\@3}: & ss|nloc|inher|slash|ft|cat|head|mod|loc $\approx$ wort|ss|loc
+\avmr
+\end{avm}
+\end{exe}
+
+{\randnum}Diese Analyse läßt allerdings nicht zu, daß das extrahierte \isi{Adjunkt}
+in \eqref{ex:17-11} außerhalb des \isi{Skopus} von {\glqq}irgendwelche Aufsätze{\grqq} liegt:
+\begin{exe}
+\ex
+\label{ex:17-11}
+morgen früh denkt sie daß sie \_\_\_ irgendwelche Aufsätze liest
+\end{exe}
+Darüber hinaus ist die Theorie der Bedeutungskomposition von
+modifiziertem und modifizierendem Ausdruck, die dabei vorausgesetzt
+ist \citep[Kapitel~8.3]{PollardSag1994}, äußerst zweifelhaft. (Bei Verwendung von
+Spuren treten diese Probleme nicht auf.)
+
+
+\section{Komplemente in einem Listenwert von \textit{append}}
+
+\randnum\label{rn:17-90}\citet{meurers1993a} folgend, habe ich durchweg die Ordnung von \citet{PollardSag1987}
+auf der \textsc{sct}-
+bzw.\ \textsc{comps}"=Liste angenommen, bei der links obliquer als rechts ist. Der Grund
+dafür ist, daß sich damit die Argumentanhebung bei K"=Verben einfach
+und natürlich darstellen läßt. Wenn man die umgekehrte Ordnung von
+\citet{PollardSag1994} benutzt und dabei die selegierte V"=\isi{Projektion} am Ende der Liste
+haben möchte, muß man besondere Hilfsmittel benutzen.
+
+\randnum\label{rn:17-91}Eine Möglichkeit ist, ein Attribut \textsc{k-verb} mit einem Wert der Sorte
+\textit{append} einzuführen. Der Lexikoneintrag von \textit{hat} wäre dann nicht wie in \eqref{rn:17-77}, sondern so zu formulieren:
+\begin{exe}
+\ex
+\begin{avm}
+\onems[word]{phon|ft \textnormal{hat}\\ ss|loc{\[ cat|head|vform \tpv{finite}  \\content{\[ quants & \tpv{elist} \\
+          nucleus & {\[\avml relation & \tpv{perfect}\\ soa-arg & 
+              \tpv{psoa} \avmr\]} \]} \]}\\sct \tpv{nelist} \\ k-verb
+  \[ \avmtype{append} \\ left & \tpv{list} \\ right & {\[ ft & \onems[w-ss]{loc \textnormal{Vpart2}} \\ rt & \tpv{elist} \]} \\ result & \tpv{nelist}\]}
+\end{avm}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml
+{\@1}: & ss|loc|content|nucleus|soa-arg $\approx$
+k-verb|right|ft|loc|content \\
+{\@2}: & ss|loc|cat|val|subj $\approx$
+k-verb|right|ft|loc|cat|val|subj \\
+{\@3}: & k-verb|left $\approx$
+k-verb|right|ft|loc|cat|val|comps \\
+{\@4}: & sct $\approx$
+k-verb|result
+\avmr
+\end{avm}
+\end{exe}
+Für die \isi{Extraktion} nach dem U+C"=Verfahren ändert sich dadurch
+nichts. Beim W"=in"=W"=Verfahren würde man für \textit{normal"=word}
+in der Gleichung \avmbox{4} {\glqq}\textsc{sct}{\grqq} durch
+{\glqq}\textsc{ss|loc|cat|val|comps}{\grqq} ersetzen; ansonsten ergibt
+sich auch da keine Änderung.
+
+{\randnum}Für die Benutzung von Lexikonregeln wäre der Lexikoneintrag von \textit{hat}
+nicht wie \eqref{rn:17-h-b}, sondern so zu formulieren:
+\begin{exe}
+\ex\label{rn:17-92}
+\begin{avm}
+\onems[word]{phon|ft \textnormal{hat}\\ ss{\[ loc{\[ cat {\[head|vform
+              \tpv{finite} \\ val {\[\avml subj & \tpv{list} \\ spr & \tpv{elist} \\
+                      comps & \tpv{nelist}\avmr\]}\]} \\content{\[ quants & \tpv{elist} \\
+          nucleus & {\[\avml relation & \tpv{perfect}\\ soa-arg & \tpv{psoa} \avmr\]} \]} \]} \\ nloc|inher|slash \tpv{elist} \]}\\sct \tpv{nelist} \\ k-verb
+  \[ \avmtype{append} \\ left & \tpv{list} \\ right & {\[ ft & \onems[w-ss]{loc|cat {\[
+                  head|vform \tpv{part2} \\ val {\[\avml subj & \tpv{list} \\ spr & \tpv{elist} \\
+                      comps & \tpv{list}\avmr\]} \]}} \\ rt & \tpv{elist} \]} \\ result & \tpv{nelist}\]}
+\end{avm}
+
+\hack{\vspace*{.5\baselineskip}}
+\begin{avm}
+\avml
+{\@1}: & ss|loc|content|nucleus|soa-arg $\approx$
+k-verb|right|ft|loc|content \\
+{\@3}: & k-verb|left $\approx$
+k-verb|right|ft|loc|cat|val|comps \\
+{\@4}: & ss|loc|cat|val|subj $\approx$
+k-verb|right|ft|loc|cat|val|subj \\
+{\@6}: & sct $\approx$
+k-verb|result \\
+{\@7}: & sct $\approx$
+ss|loc|cat|val|comps
+\avmr
+\end{avm}
+\end{exe}
+Die Gleichungen \avmbox{2} und \avmbox{5} von \eqref{rn:17-h-b}:
+\begin{exe}
+\exi{}
+\begin{avm}
+\avml
+{\@2}: & sct|ft $\approx$
+ss|loc|cat|val|comps|ft \\
+{\@5}: & ss|loc|cat|val|comps|rt $\approx$
+sct|rt
+\avmr
+\end{avm}
+\end{exe}
+dürfen nicht Teil dieses Lexikoneintrags sein, da weder die Länge der
+\textsc{result}"=Liste (die mit der \textsc{sct}"= und der \textsc{comps}"=Liste identisch ist) noch ihr erstes Element bekannt ist. Wenn das IM von \eqref{rn:17-celr} mit $\pi = \textsc{rt|rt}$ mit diesem Lexikoneintrag vereinigt wird, sollte ein Lexikoneintrag eines geslashten \textit{hat} zugeordnet sein, mit dem \eqref{ex:17-7b} analysiert werden kann. Dabei treten jedoch die Probleme auf, die in Zusammenhang mit \eqref{ex:17-8a} zur Sprache gekommen sind. Die Beispiele (\ref{ex:17-7}b--d) sind mit der \eqref{rn:17-celr} unter Voraussetzung von diesem Lexikoneintrag nicht analysierbar. Alternative Formulierungen führen zu denselben Problemen. Allenfalls eine besondere \isi{Lexikonregel}, die auf dem Wert von \textsc{k-verb|right|ft} operiert, könnte erfolgreich sein.
+
+\randnum\label{rn:17-93}In der Literatur ist es üblicher, anstelle eines \textit{append}"=Objekts als Teil der Modellierenden Struktur eine Definite Relation \textsf{append} als Bestandteil der Deskriptionssprache im Lexikoneintrag anzunehmen. Die Intuition ist dabei~-- wie auch bei Lexikonregeln~--, daß man zwar einen Zusammenhang zwischen verschiedenen Eigenschaften von Modellierenden Strukturen beobachtet, diesen Zusammenhang aber nur in einer Theorie über die Strukturen und nicht in den Strukturen selbst zum Ausdruck bringen möchte. Die Annahme von speziellen Attributen ({\glqq}junk slots{\grqq}) wie \textsc{wort}, \textsc{ex} und \textsc{k-verb} sowie Sorten wie \textit{slex} und \textit{append} (und deren Attributen) \zb in \eqref{rn:17-sw1} und Absatz~\ref{rn:17-91} wird von manchen Autoren als ontologisch anstößig empfunden.
+
+\randnum\label{rn:17-94}Obwohl Definite Relationen und Funktionen (so wie
+Lexikonregeln) nicht zu den formalisierten Teilen der
+\isi{HPSG}"=Theorie gehören, nimmt man gewöhnlich an, daß eine
+Beschreibung eines \textit{append}"=Objekts mit den Listen A, B, C und
+eine Beschreibung der Listen A, B, C mittels eines
+\textsf{append}"=Ausdrucks äquivalente Aussagen über A, B, C
+machen. Wenn das korrekt ist, ergeben sich dieselben Schlüsse für die
+Selektion von \isi{Verb}"=Projektionen durch K-Verben und die spurenlose
+\isi{Extraktion}.
+
+\printbibliography[heading=subbibliography,notkeyword=this]
+\label{chap-spurenlose-extraktion-end}
+\end{document}

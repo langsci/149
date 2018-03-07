@@ -1,0 +1,1730 @@
+\documentclass[output=paper]{langsci/langscibook}
+\author{Tilman N. Höhle}
+\title{Subjektlücken in Koordinationen}
+\abstract{}
+\maketitle
+% \rohead{\thechapter\hspace{0.5em}short title} % Display short title
+\ChapterDOI{10.5281/zenodo.1169669}
+\begin{document}
+\selectlanguage{german}
+%\chapter{Subjektlücken in Koordinationen}
+\label{chap-subjektluecken}
+Im Deutschen\il{Deutsch} muß man topologisch 3 verschiedene Satztypen unterscheiden, die die (vereinfachten) Schemata in (\ref{ex:4-1}) erfüllen:
+%\exewidth{(5)}
+\begin{exe}
+\extab
+\label{ex:4-1}
+\begin{tabular}{llcllccl}
+a. & E-Sätze  & \multicolumn{2}{c}{(C)~~~} & (\textit{KM}*) & (\isi{VZ}) & V* & (\textit{KN}*) \\
+b. & F1-Sätze &                   & FIN & (\textit{KM}*) & (\isi{VZ}) & (V*) & (\textit{KN}*) \\
+c. & F2-Sätze & \textit{K}        & FIN & (\textit{KM}*) & (\isi{VZ}) & (V*) & (\textit{KN}*) \\
+\end{tabular}
+\end{exe}
+"`\textit{K}"', "`\textit{KM}"' und "`\textit{KN}"' repräsentieren Konstituenten beliebiger Art; "`C"' steht für Konjunktionen (\textit{daß}, \textit{ob} usw.) und konjunktional gebrauchte Konstituenten (die ein \isi{Interrogativpronomen} o.\,ä.\ enthalten); "`\isi{VZ}"' bezeichnet Konverben (‚\isi{Verb}\-zu\-sätze‘, ‚trennbare Verbalpräfixe‘) wie \textit{auf} in \textit{auf"|hören} und \textit{an} in \textit{anfangen}. "`V"' steht für Verben beliebiger Art in beliebiger \isi{Flexionsform} (finit oder infinit); wenn "`V*"' durch eine Kette von Verben realisiert ist, bilden diese das Schlußfeld eines Kohärenzfelds im Sinne von \citet[60]{Bech1955}. Die Position FIN wird durch ein lexikalisches Element ausgefüllt, das die Finitheitskategorien (Person (2./""1./""3.), Numerus (Singular/""\isi{Plural}), Modus (Indikativ/""Konjunktiv/""\isi{Imperativ}), morphologisches ‚\isi{Tempus}‘ (\isi{Präsens}/""\isi{Präteritum})) realisiert; das ist im Deutschen\il{Deutsch} ein finites \isi{Verb}. F1- und F2"=Sätze fasse ich als "`F"=Sätze"' zusammen. ("`F"' soll an "`FIN"' und an "`frontal"' erinnern.)
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{4}
+\footnotetext{%
+	\emph{Anmerkung der Herausgeber:} Diese hier erstmals veröffentlichte Arbeit (fertiggestellt April 1983, Universität Köln) fand als ‚graues Papier‘ -- in 2 textidentischen, aber nach Layout und Paginierung unterschiedlichen Versionen -- weite Verbreitung. Editorische Eingriffe in den vorliegenden Abdruck beschränken sich auf Anpassungen an das einheitliche Bandformat. Zum Bezug dieser Arbeit zu \textit{Topologische Felder} (ebenfalls 1983 entstanden) vgl.\ die Herausgeber"=Anmerkung zu letzterer Arbeit (\inThisVolume, S.\, \pageref{fn-herausgeber-topo}).%
+}
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+Ich möchte ein Phänomen bei Koordinationen in F-Sätzen besprechen: die \isi{SLF}"=\isi{Koordination} (\sectgref{sec:4-3}). Es ist keine theoretische Interpretation dieses Phänomens bekannt. Eine adäquate Interpretation hat auf jeden Fall Implikationen für die Theorie der \isi{Koordination}; möglicherweise außerdem für die Theorie der F-Sätze und deren hierarchische Strukturierung. (Gewisse Aspekte von \isi{SLF}"=Koordinationen werden bei \citet[61–67, 94f, 98f]{Kunze1972} und bei \citet[28f]{Hankamer1973} besprochen; bei \citet[§1192b]{Behaghel1928} gibt es einige Beispiele. Ansonsten ist das Phänomen offenbar unbeachtet geblieben, besonders bei \cite{Kohrt1976}, \mbox{Neijt} (\citeyear{Neijt1979}), \cite{Hankamer1979}.) Damit die Eigenarten der \isi{SLF}"=\isi{Koordination} hervortreten, muß man kurz die normalen Koordinationsphänomene betrachten (Abschnitte~\ref{sec:4-1} und \ref{sec:4-2}).
+
+% \begin{styleSeiteorii}
+% 2
+% \end{styleSeiteorii}
+
+\section{Typen von Koordinationen}%1.
+\label{sec:4-1}
+
+\addlines[2]
+Die \isi{Koordination} von (uneingebetteten) vollständigen Sätzen ist syntaktisch weitgehend uninteressant. Von syntaktischem Interesse sind Koordinationen dann, wenn die koordinierten Satzbestandteile \textsuperscript{1}\textit{B}, \ldots, \textit{\textsuperscript{n}}\textit{B} einen gemeinsamen Bezug zu einem Satzbestandteil \textit{A} haben. Man kann zunächst 3 Typen unterscheiden: \isi{Gapping}, \isi{Linkstilgung} und phrasale \isi{Koordination}.
+
+\ssubsection{}%1.1.
+\label{subsec:4-1-1}
+Bei \isi{Gapping} wie in (\ref{ex:4-2}) ist (mindestens) ein \isi{Verb} im ersten \isi{Konjunkt} gemeinsamer Bestandteil:
+
+\begin{exe}
+\ex
+\label{ex:4-2}
+\begin{xlist}
+\ex%2.a.
+\label{ex:4-2a}
+Karl füttert den Kater und Heinz \_\_\_ den Hund
+
+\ex%b.
+\label{ex:4-2b}
+ich glaube, daß Karl den Kater füttert und Heinz den Hund \_\_\_ 
+\end{xlist}
+\end{exe}
+Hier sind sowohl \textit{Karl} als auch \textit{Heinz} \isi{Subjekt} zu \textit{füttert}, und sowohl \textit{den Kater} als auch \textit{den Hund} sind Objekt zu \textit{füttert}.
+
+\ssubsection{}%1.2.
+\label{subsec:4-1-2}
+%\addlines[3]
+Bei Linkstilgungen wie in (\ref{ex:4-3}) ist eine Kette von Konstituenten am Ende des letzten Konjunkts gemeinsamer Bestandteil:
+
+\begin{exe}
+\ex
+\label{ex:4-3}
+\begin{xlist}
+\ex%3.a.
+\label{ex:4-3a}
+Karl tritt für die große \_\_\_ und Heinz tritt für die kleine Lösung ein
+
+\ex%b.
+\label{ex:4-3b}
+ich glaube, daß Karl für die große \_\_\_ und sie glaubt, daß er für die kleine Lösung eintritt
+\end{xlist}
+\end{exe}
+Hier sind sowohl \textit{große} als auch \textit{kleine} Attribut zu \textit{Lösung}; in
+(\ref{ex:4-3a}) gehört das Konverb \textit{ein} sowohl zu dem ersten als auch zu dem
+zweiten \textit{tritt}; in (\ref{ex:4-3b}) sind sowohl \textit{Karl} als auch \textit{er} \isi{Subjekt} zu
+dem idiomatischen Konverb"=\isi{Verb}"=Komplex \textit{eintritt}.
+
+\ssubsection{}%1.3.
+\label{subsec:4-1-3}
+Als phrasale \isi{Koordination} bezeichne ich den Fall, daß koordinierte Satzbestandteile \textsuperscript{1}\textit{B}, \ldots, \textit{\textsuperscript{n}}\textit{B} einen gemeinsamen grammatischen Bezug zu einer \isi{Konstituente} \textit{A} desselben Gesamtsatzes haben und (\ref{ex:4-4}) gilt:
+
+% \begin{styleSeiteorii}
+% 3
+% \end{styleSeiteorii}
+\begin{exe}
+\ex
+\label{ex:4-4}
+\begin{xlist}
+\ex%4.a.
+\label{ex:4-4a}
+\textsuperscript{1}\textit{B}, \ldots, \textit{\textsuperscript{n}}\textit{B} sind 
+\begin{xlist}
+\ex%(i)
+{\exalph{4ai}\label{ex:4-4ai}
+Konstituenten, die }
+\ex%(ii)
+{\exalph{4aii}\label{ex:4-4aii}
+\isi{kongruent} sind und }
+\ex%(iii)
+{\exalph{4aiii}\label{ex:4-4aiii}
+gemeinsam eine \isi{Konstituente} \textit{B} bilden.}
+\end{xlist}
+\ex%b.
+\label{ex:4-4b}
+Für alle \textit{i}, \textit{j} (1 ${\leq}$ \textit{i}, \textit{j} ${\leq}$ \textit{n}): \\
+\textit{\textsuperscript{i}}\textit{B} enthält eine freie Spur $^i$t gdw.
+\begin{xlist}
+\ex%(i)
+\label{ex:4-4bi}
+\textit{\textsuperscript{j}}\textit{B} eine freie Spur \textit{\textsuperscript{j}}t enthält und
+\ex%(ii)
+\label{ex:4-4bii}
+\textsuperscript{\textit{i}}t und \textsuperscript{\textit{j}}t von derselben \isi{Konstituente} \textit{D} unmittelbar gebunden werden.
+\end{xlist}
+\end{xlist}
+\end{exe}
+"`Kongruent"' in (\ref{ex:4-4aii}) bezeichnet ein intuitives und explikationsbedürftiges Konzept: Die Konjunkte müssen in gewisser Weise übereinstimmen. Ich will hier annehmen, daß aus einer adäquaten Explikation folgt, daß auf jeden Fall Anzahl, Kategorie und Reihenfolge der unmittelbaren Konstituenten von \textit{\textsuperscript{j}}\textit{B} in allen Konjunkten übereinstimmen, und wir werden einige Implikationen dieser Annahme verfolgen. Wegen (\ref{ex:4-4aiii}) fällt \isi{Gapping} wie in (\ref{ex:4-2a}) nicht unter phrasale \isi{Koordination}. Aus (\ref{ex:4-4a}) folgt, daß \textit{A} nicht in \textit{B} enthalten ist.
+
+Die Bedingung (\ref{ex:4-4b}) subsumiert den CSC (Coordinate Structure Constraint) und einen wesentlichen Aspekt der ATB"=Phänomene (across"=the"=board rule application) von \citet[§4.2]{Ross1967}. Wenn ein Satzbestandteil \textit{X} eine ‚freie Spur‘ enthält, ist die Spur nicht in \textit{X} gebunden. Die Qualifikation "`unmittelbar (gebunden)"' soll mittelbare Bindung wie bei Parasitic Gaps ausschließen. Aus (\ref{ex:4-4b}) folgt, daß \textit{D} nicht in \textit{B} enthalten ist. \textit{D} kann mit \textit{A} identisch sein. Linkstilgungen wie in (\ref{ex:4-3}) können nur dann unter phrasale \isi{Koordination} fallen, wenn man sie als (Right Node) Raising mit Spuren analysiert. Dafür gibt es im Deutschen\il{Deutsch} keinen Anhaltspunkt; ich gehe davon aus, daß der gemeinsame Bestandteil bei Linkstilgungen Teil des letzten Konjunkts ist.
+
+Wenn man die durch Klammern angedeuteten Konstituentenstrukturen annimmt (die plausibel, aber nicht selbstverständlich sind), kann man E-Sätze wie (\ref{ex:4-5}) und F2-Sätze wie (\ref{ex:4-6}) als phrasale Koordinationen analysieren:
+%\pagebreak
+
+% \begin{styleSeiteorii}
+% 4
+% \end{styleSeiteorii}
+\begin{exe}
+\ex
+\label{ex:4-5}
+\begin{xlist}
+\ex%5.a.
+\label{ex:4-5a}
+ Karl glaubt, daß Heinz seiner Tante [[die Briefmarken zeigt] oder [die Puppen verkauft]]
+
+\ex%b.
+\label{ex:4-5b}
+ ich glaube, daß [sowohl [Heinz schläft] als auch [Karl döst]]
+
+\ex%c.
+\label{ex:4-5c}
+ Karl glaubt, daß ihn [[jeder liebt] und [keiner haßt]]
+\end{xlist}
+
+\ex
+\label{ex:4-6}
+\begin{xlist}
+\ex%6.a.
+\label{ex:4-6a}
+ damals [[zeigte Heinz seiner Tante die Briefmarken] und [verkaufte Karl seinem Onkel die Puppen]]
+
+\ex%b.
+\label{ex:4-6b}
+ damals hat [sowohl [Heinz seiner Tante die Briefmarken gezeigt] als auch [Karl seinem Onkel die Puppen verkauft]]
+
+\ex%c.
+\label{ex:4-6c}
+ damals hat Heinz seiner Tante [[die Briefmarken gezeigt] und [die Puppen verkauft]]
+\end{xlist}
+\end{exe}
+Phrasale \isi{Koordination} und \isi{Linkstilgung} können kombiniert auftreten:
+
+\begin{exe}
+\ex%7
+\label{ex:4-7}
+ich glaube, daß ihn [[Heinz seiner Tante \_\_\_ ] und [Karl seinem Onkel zeigt]]
+\end{exe}
+Für (\ref{ex:4-4aii}) zählt die Lücke in (\ref{ex:4-7}) offenbar als gefüllt. Ebenso bei \isi{Gapping}:
+
+\begin{exe}
+\ex%8
+\label{ex:4-8}
+ ich glaube, daß Heinz [[die Briefmarken seiner Tante zeigt] und [die Puppen seinem Onkel \_\_\_ ]]
+\end{exe}
+\ssubsection{}%1.4.
+\label{subsec:4-1-4}
+Man muß mindestens für expositorische Zwecke neben \isi{Gapping}, \isi{Linkstilgung} und phrasaler \isi{Koordination} einen vierten Typ unterscheiden: gespaltene Konjunkte wie in (\ref{ex:4-9}):
+
+\begin{exe}
+\ex
+\label{ex:4-9}
+\begin{xlist}
+\ex%9.a.
+\label{ex:4-9a}
+ seine Tante füttert den Hund oder sein Onkel
+
+\ex%b.
+\label{ex:4-9b}
+ seine Tante hat den Hund gefüttert oder den Kater
+
+\ex%c.
+\label{ex:4-9c}
+ den Hund gefüttert hat seine Tante oder den Ochsen getränkt
+\end{xlist}
+\end{exe}
+Es könnte sein, daß diese nachgestellten koordinierten Konstituenten die Reste von Sätzen sind, die durch \isi{Gapping} reduziert sind. Diese Annahme hat Vorzüge. (i)~Da bei \isi{Gapping} auf jeden Fall das unabhängige (im Allgemeinen also das finite) \isi{Verb} getilgt wird, ist es klar, warum (\ref{ex:4-10}) unmöglich ist \citep[64]{Neijt1979}:
+
+% \begin{styleSeiteorii}
+% 5
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex
+\label{ex:4-10}
+\begin{xlist}
+\ex[*]{%10.a.
+\label{ex:4-10a}
+seine Tante füttert den Hund oder tränkt}
+\ex[*]{%b.
+\label{ex:4-10b}
+seine Tante will den Hund füttern oder soll}
+\end{xlist}
+\end{exe}
+(ii)~Da \isi{Gapping}~-- im Gegensatz zur \isi{Linkstilgung}~-- nicht über adverbiale Konjunktionen hinweg möglich ist (vgl.\ (\ref{ex:4-11})), ist klar, warum (\ref{ex:4-12}) unmöglich ist:
+
+\begin{exe}
+\ex
+\label{ex:4-11}
+\begin{xlist}
+\ex[*]{%11.a.
+\label{ex:4-11a}
+Karl war hier, bevor seine Tante den Hund gefüttert hatte und nachdem sein Onkel den Kater \_\_\_ }
+
+\ex[*]{%b.
+\label{ex:4-11b}
+Karl ging weg, weil seine Tante den Hund fütterte oder obwohl sein Onkel den Kater \_\_\_}
+\end{xlist}
+
+\ex
+\label{ex:4-12}
+\begin{xlist}
+\ex[*]{%12.a.
+\label{ex:4-12a}
+Karl war hier, bevor seine Tante den Hund gefüttert hatte und nachdem}
+
+\ex[*]{%b.
+\label{ex:4-12b}
+Karl ging weg, weil seine Tante den Hund fütterte oder obwohl}
+\end{xlist}
+\end{exe}
+Gegen diese Annahme spricht, daß es gespaltene Konjunkte wie in (\ref{ex:4-13}) gibt, zu denen weder parallele volle Sätze (\ref{ex:4-14}) noch klare \isi{Gapping}"=Parallelen (\ref{ex:4-15}) existieren:
+\begin{exe}
+\ex
+\label{ex:4-13}
+\begin{xlist}
+\ex%13.a.
+\label{ex:4-13a}
+weder Karl liebt den Hund noch Heinz
+
+\ex%b.
+\label{ex:4-13b}
+sowohl Karl liebt den Hund als auch Heinz
+\end{xlist}
+\ex
+\label{ex:4-14}
+\begin{xlist}
+\ex%14.a.
+\label{ex:4-14a}
+\begin{xlist}
+\ex[*]{%i.
+\label{ex:4-14ai}
+weder Karl liebt den Hund noch Heinz liebt den Hund}
+\ex[*]{%ii.
+\label{ex:4-14aii}
+weder Karl liebt den Hund noch Heinz liebt den Kater}
+\end{xlist}
+\ex%b.
+\label{ex:4-14b}
+\begin{xlist}
+\ex[*]{%i.
+\label{ex:4-14bi}
+sowohl Karl liebt den Hund als auch Heinz liebt den Hund}
+\ex[*]{%ii.
+\label{ex:4-14bii}
+sowohl Karl liebt den Hund als auch Heinz liebt den Kater}
+\end{xlist}
+\end{xlist}
+\ex
+\label{ex:4-15}
+\begin{xlist}
+\ex[*]{%15.a.
+\label{ex:4-15a}
+weder Karl liebt den Hund noch Heinz den Kater}
+\ex[*]{%b.
+\label{ex:4-15b}
+sowohl Karl liebt den Hund als auch Heinz den Kater}
+\end{xlist}
+\end{exe}
+Falls gespaltene Konjunkte nicht auf \isi{Gapping} zurückgehen, ist es
+möglich, daß Beispiele wie (\ref{ex:4-16}) syntaktisch 2-deutig sind: \textit{den Hund
+füttert oder den Ochsen tränkt} kann eine \isi{Konstituente} sein, dann
+liegt phrasale \isi{Koordination} vor; oder \textit{oder den Ochsen tränkt} könnte
+ein nachgestelltes gespaltenes \isi{Konjunkt} sein:
+
+% \begin{styleSeiteorii}
+% 6
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex%16.
+\label{ex:4-16}
+ich glaube, daß meine Tante den Hund füttert oder den Ochsen tränkt
+\end{exe}
+\section{Phrasale Koordination}%2.
+\label{sec:4-2}
+
+Bei Koordinationen in F-Sätzen herrschen strenge Gesetzmäßigkeiten. Für Sätze der Form (\ref{ex:4-17}), wo \textit{X} und \textit{Y} Ketten sind und "`\&"' eine \isi{koordinierende Konjunktion} repräsentiert, gilt, wie es scheint, (\ref{ex:4-18}):
+
+\begin{exe}
+\ex%17
+\label{ex:4-17}
+(\textsuperscript{1}\textit{K}) \quad \textsuperscript{1}FIN \quad \textit{X} \quad \& \quad (\textsuperscript{2}\textit{K}) \quad \textsuperscript{2}FIN \quad \textit{Y}
+
+\ex%18
+\label{ex:4-18}
+Die koordinierten Satzbestandteile von (\ref{ex:4-17}) haben einen gemeinsamen\linebreak grammatischen Bezug zu einem Bestandteil \textit{A} gdw.\ \isi{Linkstilgung} vorliegt oder die Bedingungen (\ref{ex:4-4}) für phrasale \isi{Koordination} erfüllt sind.
+\end{exe}
+(\isi{Gapping} kommt hier aus erwähnten Gründen nicht in Frage; ebensowenig gespaltene Konjunkte.)
+
+Im einzelnen. (i)~Wenn weder \textsuperscript{1}\textit{K} noch \textsuperscript{2}\textit{K} vorhanden ist~-- also ein F1-Satz vorliegt –, ist ausschließlich \isi{Linkstilgung} möglich, da bei vorhandenem \textsuperscript{1}FIN und \textsuperscript{2}FIN kein Teil von \textit{X} mit einem Teil von \textit{Y} eine \isi{Konstituente} bildet, wie es für phrasale \isi{Koordination} nötig wäre; vgl.\ (\ref{ex:4-19}) gegenüber (\ref{ex:4-20}):
+
+\begin{exe}
+\ex
+\label{ex:4-19}
+\begin{xlist}
+\ex[]{%19.a.
+\label{ex:4-19a}
+zeigt Karl die Briefmarken \_\_\_ oder verkauft Heinz die Puppen dem Onkel?}
+
+\ex[]{%b.
+\label{ex:4-19b}
+zeigt Karl \_\_\_ oder verkauft Heinz die Puppen dem Onkel?}
+\end{xlist}
+\ex
+\label{ex:4-20}
+\begin{xlist}
+\ex[*]{%20.a.
+\label{ex:4-20a}
+zeigt Karl dem Onkel die Briefmarken oder verkauft Heinz der Tante \_\_\_?}
+
+% \begin{styleSeiteorii}
+% 7
+% \end{styleSeiteorii}
+
+\ex[*]{%b.
+\label{ex:4-20b}
+zeigt Karl \_\_\_ der Tante oder verkauft Heinz die Puppen dem Onkel?}
+\end{xlist}
+\end{exe}
+(ii)~Wenn sowohl \textsuperscript{1}\textit{K} als auch \textsuperscript{2}\textit{K} vorhanden ist, ist aus entsprechenden Gründen ebenfalls nur \isi{Linkstilgung} möglich; vgl.\ (\ref{ex:4-21}) gegenüber (\ref{ex:4-22}):
+
+\begin{exe}
+\ex
+\label{ex:4-21}
+\begin{xlist}
+\ex%21.a.
+\label{ex:4-21a}
+morgen zeigt Karl der Tante \_\_\_ und übermorgen zeigt Heinz dem Onkel die Briefmarken
+
+\ex%b.
+\label{ex:4-21b}
+morgen zeigt Karl \_\_\_ und übermorgen zeigt Heinz dem Onkel die Briefmarken
+
+\ex%c.
+\label{ex:4-21c}
+morgen zeigt \_\_\_ und übermorgen verkauft Heinz dem Onkel die Briefmarken
+\end{xlist}
+\ex
+\label{ex:4-22}
+\begin{xlist}
+\ex[*]{%22.a.
+\label{ex:4-22a}
+morgen zeigt Karl der Tante die Briefmarken, und übermorgen zeigt Heinz dem Onkel \_\_\_}
+
+\ex[*]{%b.
+\label{ex:4-22b}
+morgen zeigt Karl der Tante die Briefmarken, und übermorgen zeigt Heinz \_\_\_ }
+
+\ex[*]{%c.
+\label{ex:4-22c}
+morgen zeigt \_\_\_ der Tante die Briefmarken, und übermorgen verkauft Karl dem Onkel die Puppen}
+\end{xlist}
+\end{exe}
+(iii)~Ich betrachte nur Fälle, in denen die \isi{Koordination} semantisch einheitlich ist, also \zb nicht Koordinationen von \isi{Imperativsatz} und \isi{Deklarativsatz} wie (\ref{ex:4-23}):
+
+\begin{exe}
+\ex%23
+\label{ex:4-23}
+zeig ihm eine Briefmarke, und er zeigt dir (seinerseits) eine Briefmarke
+\end{exe}
+(Hier ist auch \isi{Linkstilgung} nicht möglich; wir gehen darauf nicht weiter ein.) Unter dieser Voraussetzung ist (\ref{ex:4-17}) mit vorhandenem \textsuperscript{2}\textit{K} nicht möglich, wenn kein \textsuperscript{1}\textit{K} vorhanden ist. (iv)~Wenn \textsuperscript{1}\textit{K}, aber nicht \textsuperscript{2}\textit{K} vorhanden ist, muß phrasale \isi{Koordination} vorliegen, wobei \textsuperscript{1}\textit{K} eine gemeinsame \isi{Konstituente} ist. Soweit es weitere gemeinsame Konstituenten gibt, müssen sie auf \isi{Linkstilgung} zurückgehen.
+
+Die Beispiele in (\ref{ex:4-24}) sind einwandfrei, da sie als phrasale \isi{Koordination} analysiert werden können:
+
+% \begin{styleSeiteorii}
+% 8
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex
+\label{ex:4-24}
+\begin{xlist}
+\ex%24.a.
+\label{ex:4-24a}
+Karl\textsubscript{i} [[zeigt (t\textsubscript{i}) der Tante die Briefmarken] und [verkauft (t\textsubscript{i}) dem Onkel die Puppen]]
+
+\ex%b.
+\label{ex:4-24b}
+der Tante\textsubscript{i }[[zeigt Karl (t\textsubscript{i}) die Briefmarken] und [verkauft Heinz (t\textsubscript{i}) die Puppen]]
+
+\ex%c.
+\label{ex:4-24c}
+die Briefmarken\textsubscript{i }[[zeigt Karl der Tante (t\textsubscript{i})] und [verkauft Heinz dem Onkel (t\textsubscript{i})]]
+\end{xlist}
+\end{exe}
+Dies ist deshalb möglich, weil (i)~die beiden Konjunkte \isi{kongruent} sind, (ii)~zusammen eine \isi{Konstituente} bilden und (iii)~einen gemeinsamen Bezug zu der \isi{Konstituente} in der \textit{K}{}"=Position haben; und wenn es Gründe gibt, diese erste \isi{Konstituente} an eine freie Spur in einem der Konjunkte zu binden, sprechen dieselben Gründe dafür, sie an eine eben solche freie Spur in allen Konjunkten (unmittelbar) zu binden. (\ref{ex:4-18}) ist hier erfüllt.
+
+Die Beispiele in (\ref{ex:4-25}) sind vermutlich deshalb unmöglich, weil sie (\ref{ex:4-18}) nicht erfüllen:
+
+\begin{exe}
+\ex
+\label{ex:4-25}
+\begin{xlist}
+\ex[*]{%25.a.
+\label{ex:4-25a}
+der Tante zeigt Karl die Briefmarken und verkauft Heinz dem Onkel die Puppen}
+
+\ex[*]{%b.
+\label{ex:4-25b}
+der Tante soll Karl die Briefmarken zeigen und muß Heinz dem Onkel die Puppen verkaufen}
+\end{xlist}
+\end{exe}
+Intuitiv ist klar, daß \textit{der Tante} (i)~hier Objekt zu \textit{zeigt} bzw.\ \textit{zeigen} ist, aber nicht zu \textit{verkauft} bzw \textit{verkaufen}, (ii)~bei dieser Satzstruktur aber Objekt zu beiden Verben sein müßte. Dieser Intuition kann man dadurch Rechnung tragen, daß man dort, wo in vergleichbaren Sätzen wie (\ref{ex:4-24a}) ein \isi{Dativobjekt} stehen würde, eine Spur einsetzt, an die \textit{der Tante} gebunden ist:
+
+\begin{exe}
+\ex
+\label{ex:4-26}
+\begin{xlist}
+\ex%26.a.
+\label{ex:4-26a}
+der Tante\textsubscript{i} [[zeigt Karl t\textsubscript{i} die Briefmarken] und [verkauft Heinz t\textsubscript{i} dem Onkel die Puppen]]
+
+% \begin{styleSeiteorii}
+% 9
+% \end{styleSeiteorii}
+
+\ex%b.
+\label{ex:4-26b}
+der Tante\textsubscript{i} [[soll Karl t\textsubscript{i} die Briefmarken zeigen] und [muß Heinz t\textsubscript{i} dem Onkel die Puppen verkaufen]]
+\end{xlist}
+\end{exe}
+(Für die Annahme, daß Konstituenten in \textit{K} an Spuren nach der FIN"=Position gebunden sein müssen, gibt es unabhängige Gründe.) Wenn diese Strukturierungen alle Bedingungen von (\ref{ex:4-4}) erfüllen, verletzen sie doch durch die Spur im letzten \isi{Konjunkt} die Kookkurrenzrestriktionen von \textit{verkauf-}. Dies entspricht der Intuition; aber es ist offen, wodurch die Einsetzung der Spur erzwungen wird. Ich will hier ein Prinzip wie (\ref{ex:4-27}) annehmen:
+
+\begin{exe}
+\ex%27
+\label{ex:4-27}
+Wenn zwei Konjunkte \textit{\textsuperscript{i}}\textit{B} und \textit{\textsuperscript{j}}\textit{B} \isi{kongruent} sind, müssen sie (\ref{ex:4-4b}) erfüllen.
+\end{exe}
+Wir können annehmen, daß \textit{zeigt Karl t\textsubscript{i} die Briefmarken} und \textit{verkauft Heinz dem Onkel die Puppen} \isi{kongruent} sind. Unter dieser Annahme verlangt (\ref{ex:4-27}) eine Spur im zweiten \isi{Konjunkt}; wenn die Spur nicht eingesetzt wird, ist (\ref{ex:4-27}) verletzt.
+
+Genau das gleiche gilt dann für Beispiele wie (\ref{ex:4-28a}) mit der Struktur (\ref{ex:4-28b}):
+
+\begin{exe}
+\ex
+\label{ex:4-28}
+\begin{xlist}
+\ex[*]{%28.a.
+\label{ex:4-28a}
+dem Onkel zeigt Karl der Tante die Briefmarken und verkauft Heinz die Puppen}
+
+\ex%b.
+\label{ex:4-28b}
+dem Onkel\textsubscript{i} [[zeigt Karl (t\textsubscript{i}) der Tante die Briefmarken] und [verkauft Heinz t\textsubscript{i} die Puppen]]
+\end{xlist}
+\end{exe}
+Vergleichen wir (\ref{ex:4-29a}) mit (\ref{ex:4-30}):
+
+\begin{exe}
+\ex
+\label{ex:4-29}
+\begin{xlist}
+\ex%29.a.
+\label{ex:4-29a}
+den Ochsen füttert Karl und tränkt Heinz
+
+\ex%b.
+\label{ex:4-29b}
+den Ochsen\textsubscript{i} [[füttert Karl t\textsubscript{i}] und [tränkt Heinz t\textsubscript{i}]]
+\end{xlist}
+\ex
+\label{ex:4-30}
+\begin{xlist}
+\ex[*]{%30.a.
+\label{ex:4-30a}
+den Ochsen schläft Heinz und füttert Karl}
+
+\ex[*]{%b.
+\label{ex:4-30b}
+den Ochsen füttert Karl und schläft Heinz}
+\end{xlist}
+\end{exe}
+Mit der Strukturierung (\ref{ex:4-29b}) erfüllt (\ref{ex:4-29a}) die Bedingungen von (\ref{ex:4-4}) und die Kookkurrenzrestriktionen der Prädikate. Die naheliegende Strukturierung für (\ref{ex:4-30a}) ist (\ref{ex:4-31}) (entsprechend für (\ref{ex:4-30b})):
+
+% \begin{styleSeiteorii}
+% 10
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex%31
+\label{ex:4-31}
+den Ochsen\textsubscript{i} [[schläft Heinz] und [füttert Karl t\textsubscript{i}]]
+\end{exe}
+Hier enthält das \isi{Konjunkt} \textit{füttert Karl t\textsubscript{i}} eine freie Spur, die im anderen \isi{Konjunkt} keine Entsprechung hat (oder eine dort vorhandene Spur verletzt die Restriktionen des Verbs). (\ref{ex:4-27}) wird dadurch aber nur dann verletzt, wenn die Konjunkte \isi{kongruent} sind. Wenn die \isi{Konstituente} 3 unmittelbare Konstituenten hat, hat die \isi{Konstituente} \textit{schläft Heinz} nur 2 unmittelbare Konstituenten. Die beiden Konjunkte sind dann nicht \isi{kongruent}, und (\ref{ex:4-27}) kommt nicht zur Wirkung. Wir haben jedoch bei (\ref{ex:4-5b}) und (\ref{ex:4-6b}) angenommen, daß die Satzabschnitte nach der \isi{Konjunktion} bzw nach der FIN"=Position eine \isi{Konstituente} bilden; dementsprechend müßte (\ref{ex:4-30a}) die Strukturierung (\ref{ex:4-32}) erhalten:
+
+\begin{exe}
+\ex%32
+\label{ex:4-32}
+den Ochsen\textsubscript{i} [[schläft [Heinz]] und [füttert [Karl t\textsubscript{i}]]]
+\end{exe}
+\addlines[-2]
+Hier haben die Konjunkte die gleiche Anzahl von unmittelbaren Konstituenten. Ob \textit{Heinz} und \textit{Karl t\textsubscript{i}} dieselbe Kategorie haben, ist nicht unmittelbar klar. Wenn nicht, sind sie nicht \isi{kongruent}. Dagegen spricht jedoch (\ref{ex:4-33}):
+
+\begin{exe}
+\ex
+\label{ex:4-33}
+\begin{xlist}
+\ex%33.a.
+\label{ex:4-33a}
+Karl stimmte zu und nickte
+
+\ex%b.
+\label{ex:4-33b}
+Karl schläft oder füttert den Ochsen
+\end{xlist}
+\end{exe}
+Die FIN"=Positionen, in denen \textit{stimmte} und \textit{nickte} in (\ref{ex:4-33a}) bzw \textit{schläft} und \textit{füttert} in (\ref{ex:4-33b}) sich befinden, sind in systematischer Hinsicht keine Verbpositionen; schon deshalb ist es nicht möglich, \textit{stimmte zu} bzw \textit{füttert den Ochsen} als eine \isi{Projektion} von V anzusehen, die mit einer gleichartigen V"=\isi{Projektion} koordiniert sein könnte, in der \textit{nickte} bzw \textit{schläft} enthalten wäre; dies gilt erst recht, wenn \textit{Karl} jeweils an Spuren gebunden ist. Nach unseren Annahmen müssen die Sätze die Struktur (\ref{ex:4-34}) haben:
+
+\begin{exe}
+\ex
+\label{ex:4-34}
+\begin{xlist}
+\ex%34.a.
+\label{ex:4-34a}
+Karl\textsubscript{i} [[stimmte [t\textsubscript{i} zu]] und [nickte [t\textsubscript{i}]]]
+
+\ex%b.
+\label{ex:4-34b}
+Karl\textsubscript{i} [[schläft [t\textsubscript{i}]] oder [füttert [t\textsubscript{i} den Ochsen]]]
+\end{xlist}
+\end{exe}
+% \begin{styleSeiteorii}
+% 11
+% \end{styleSeiteorii}
+Da dies vermutlich eine phrasale \isi{Koordination} ist, müssen die Konstituenten \textit{t\textsubscript{i} zu} und \textit{t\textsubscript{i}} im letzten \isi{Konjunkt} von (\ref{ex:4-33a}) bzw \textit{t\textsubscript{i}} im ersten \isi{Konjunkt} von (\ref{ex:4-34b}) und \textit{t\textsubscript{i} den Ochsen} die gleiche Kategorie haben; ich nenne sie willkürlich O. Dann ist anzunehmen, daß auch \textit{Heinz} und \textit{Karl t\textsubscript{i}} in (\ref{ex:4-32}) Konstituenten von der Kategorie O sind. Unter dieser Voraussetzung sind die Konjunkte \isi{kongruent}, so daß (\ref{ex:4-27}) verletzt ist.
+
+Nach diesen Überlegungen haben die Sätze in (\ref{ex:4-35}) die Struktur (\ref{ex:4-36}):
+
+\begin{exe}
+\ex
+\label{ex:4-35}
+\begin{xlist}
+\ex%35.a.
+\label{ex:4-35a}
+Karl hat seinen Hund verstoßen und lebt jetzt allein
+
+\ex%b.
+\label{ex:4-35b}
+den Kerl kenne ich nicht und habe ich nie gesehen
+\end{xlist}
+\ex
+\label{ex:4-36}
+\begin{xlist}
+\ex%36.a.
+\label{ex:4-36a}
+Karl\textsubscript{i} [[hat [t\textsubscript{i} seinen Hund verstoßen]] und [lebt [t\textsubscript{i} jetzt allein]]]
+
+\ex%b.
+\label{ex:4-36b}
+den Kerl\textsubscript{i} [[kenne [ich t\textsubscript{i} nicht]] und [habe [ich t\textsubscript{i} nie gesehen]]]
+\end{xlist}
+\end{exe}
+Die adverbialen Ausdrücke in den \textit{K}{}"=Positionen von (\ref{ex:4-37}) müssen, wie aufgrund unserer Annahmen über Konstituentenstrukturen zu erwarten ist, jeweils als gemeinsame Konstituenten für beide Konjunkte interpretiert werden:
+
+\begin{exe}
+\ex
+\label{ex:4-37}
+\begin{xlist}
+\ex%37.a.
+\label{ex:4-37a}
+am Morgen traf Karl seinen Freund und ging Heinz mit Fritz spazieren
+
+\ex%b.
+\label{ex:4-37b}
+in Mainz fährt Karl am Abend los und kommt Heinz am Morgen an
+
+\ex%c.
+\label{ex:4-37c}
+in Köln wohnen ein paar Mafiahäuptlinge und beherrscht ein sizilianischer Clan den gesamten Großhandel
+\end{xlist}
+\end{exe}
+%\largerpage
+Daß dies eine grammatische Notwendigkeit und keine rein pragmatische (diskurs{\-}ähnliche) Erscheinung ist, zeigt sich an (\ref{ex:4-38}):
+
+\begin{exe}
+\ex
+\label{ex:4-38}
+\begin{xlist}
+\ex[*]{%38.a.
+\label{ex:4-38a}
+am Morgen traf Karl seinen Freund und ging Heinz bis zum Abend mit Fritz spazieren}
+
+% \begin{styleSeiteorii}
+% 12
+% \end{styleSeiteorii}
+
+\ex[*]{%b.
+\label{ex:4-38b}
+in Mainz fährt Karl am Abend los und kommt Heinz am Morgen in Bonn an}
+
+\ex[*]{%c.
+\label{ex:4-38c}
+in Köln wohnen ein paar Mafiahäuptlinge und beherrscht ein sizilianischer Clan von dort aus den gesamten Großhandel}
+\end{xlist}
+\end{exe}
+In (\ref{ex:4-38a}) ist \textit{am Morgen} mit der Angabe \textit{bis zum Abend} im zweiten \isi{Konjunkt} nicht kompatibel; in (\ref{ex:4-38b}) ist \textit{in Mainz} mit \textit{in Bonn} nicht kompatibel; in (\ref{ex:4-38c}) ist \textit{in Köln} mit \textit{von dort aus} nicht kompatibel; vgl.\ (\ref{ex:4-39}):
+
+\begin{exe}
+\ex[*]{%39
+\label{ex:4-39}
+in Köln beherrscht ein sizilianischer Clan von dort aus den gesamten Großhandel}
+\end{exe}
+Entsprechende Diskurse sind dagegen einwandfrei.
+
+\section{SLF"=Koordination}%3.
+\label{sec:4-3}
+
+\ssubsection{}%3.1.
+\label{subsec:4-3-1}
+Es gibt einen Typ von Koordinationen, der mit (\ref{ex:4-18}) nicht vereinbar ist:
+
+\begin{exe}
+\ex
+\label{ex:4-40}
+\begin{xlist}
+\ex%40.a.
+\label{ex:4-40a}
+hoffentlich sieht uns keiner und zeigt uns an
+
+\ex%b.
+\label{ex:4-40b}
+wann hat jemand einen Einfall und sagt uns die Lösung?
+
+\ex%c.
+\label{ex:4-40c}
+stehen da schon wieder welche rum und verteilen Flugblätter?
+
+\ex%d.
+\label{ex:4-40d}
+nimmt man den Deckel ab und rührt die Füllung um, steigen übelriechende Dämpfe auf
+
+\ex%e.
+\label{ex:4-40e}
+gehen Sie lieber nach Hause und bringen Ihre Angelegenheiten in Ordnung!
+\end{xlist}
+\end{exe}
+Wir haben hier F"=Sätze: (\ref{ex:4-40a}) ist ein deklarativer und (\ref{ex:4-40b}) ein interrogativer F2-Satz; (\ref{ex:4-40c}) ist ein interrogativer, (\ref{ex:4-40d}) ein konditionaler und (\ref{ex:4-40e}) ein imperativischer F1-Satz. Das charakterisierende Kennzeichen ist, daß das \isi{Subjekt} des ersten Konjunkts zugleich als \isi{Subjekt} des letzten Konjunkts fungiert. Beispiele dieses Typs erfüllen das \isi{Schema} (\ref{ex:4-41}):
+
+% \begin{styleSeiteorii}
+% 13
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex%41
+\label{ex:4-41}
+(\textit{K}) \ FIN \ \textsuperscript{1}\textit{X} \ SU \ \textsuperscript{2}\textit{X} \quad \& \quad FIN \ \textsuperscript{1}\textit{Y} \ \textit{SL} \ \textsuperscript{2}\textit{Y}
+\end{exe}
+Dabei steht "`SU"' für das \isi{Subjekt} und "`\textit{SL}"' für eine Subjektlücke. Dieses Symbol soll theoretisch neutral sein und nur zum Ausdruck bringen, daß im zweiten \isi{Konjunkt} ein (mit der Realisierung von SU identisches) \isi{Subjekt} impliziert, aber nicht ausgedrückt ist. Ob dem Symbol syntaktisch eine \isi{Konstituente} (etwa eine Spur oder ein PRO"=Element) oder gar nichts entspricht, lasse ich vorläufig offen. In jedem Fall haben die beiden Konjunkte einen gemeinsamen grammatischen Bezug zu SU, ohne daß die Bedingungen von (\ref{ex:4-18}) erfüllt sind. Sätze, die das \isi{Schema} (\ref{ex:4-41}) erfüllen, nenne ich \isi{SLF}"=Koordinationen.
+
+\ssubsection{}%3.2.
+\label{subsec:4-3-2}
+Als Realisierungen von \textit{\&} finden sich außer \textit{und} auch \textit{oder}, \textit{aber} und \textit{sondern}:
+
+\begin{exe}
+\ex
+\label{ex:4-42}
+\begin{xlist}
+\ex%42.a.
+\label{ex:4-42a}
+im Fasching tanzt jeder auf der Straße oder macht mindestens ein fröhliches Gesicht
+\ex%b.
+\label{ex:4-42b}
+da standen ein paar Leute rum, rührten aber keinen Finger
+\ex%c.
+\label{ex:4-42c}
+ist Karl etwa nicht zur Arbeit gegangen, sondern hat sich ins Bett gelegt?
+\end{xlist}
+\end{exe}
+Die Stellung des \textit{aber} nach dem finiten \isi{Verb} in (\ref{ex:4-42b}) weicht von der Stellung der anderen koordinierenden Partikeln ab; die erwartete Stellung vor dem \isi{Verb} ist ausgeschlossen:
+
+\begin{exe}
+\ex[*]{%43
+\label{ex:4-43}
+da standen ein paar Leute rum, aber rührten keinen Finger}
+\end{exe}
+Dies ist unerklärt, findet sich aber auch in anderen Fällen, \zb bei phrasaler \isi{Koordination} wie in (\ref{ex:4-44}):
+
+\begin{exe}
+\ex
+\label{ex:4-44}
+\begin{xlist}
+\ex[]{%44.a.
+\label{ex:4-44a}
+ein paar Leute standen da rum, rührten aber keinen Finger}
+
+\ex[*]{%b.
+\label{ex:4-44b}
+ein paar Leute standen da rum, aber rührten keinen Finger}
+\end{xlist}
+\end{exe}
+Die Doppelkonjunktionen \textit{weder~-- noch} und \textit{sowohl~-- als auch} finden sich~-- anders als bei gespaltenen Konjunkten, vgl.\ (\ref{ex:4-13})~-- weder bei \isi{SLF}"=Koordinationen (\ref{ex:4-45}) noch bei phrasaler \isi{Koordination} wie in (\ref{ex:4-46}):
+
+% \begin{styleSeiteorii}
+% 14
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex
+\label{ex:4-45}
+\begin{xlist}
+\ex[*]{%45.a.
+\label{ex:4-45a}
+hoffentlich tränkt Karl weder den Ochsen noch füttert den Hund}
+
+\ex[*]{%b.
+\label{ex:4-45b}
+morgen tränkt Karl sowohl den Ochsen als auch füttert den Hund}
+\end{xlist}
+\ex
+\label{ex:4-46}
+\begin{xlist}
+\ex[*]{%46.a.
+\label{ex:4-46a}
+Karl tränkt weder den Ochsen noch füttert den Hund}
+
+\ex[*]{%b.
+\label{ex:4-46b}
+Karl tränkt sowohl den Ochsen als auch füttert den Hund}
+\end{xlist}
+\end{exe}
+Bei \textit{weder~-- noch} ist zwar mit \textit{weder} in der \textit{K}{}"=Position eine \isi{Koordination} vollständiger F2-Sätze möglich wie in (\ref{ex:4-47a}); dazu gibt es jedoch keine \isi{SLF}"=Parallele (\ref{ex:4-47b}):
+\begin{exe}
+\ex
+\label{ex:4-47}
+\begin{xlist}
+\ex[]{%47.a.
+\label{ex:4-47a}
+weder tränkt Karl den Ochsen, noch füttert er den Hund}
+
+\ex[*]{%b.
+\label{ex:4-47b}
+weder tränkt Karl den Ochsen noch füttert den Hund}
+\end{xlist}
+\end{exe}
+
+\ssubsection{}%3.3.
+\label{subsec:4-3-3}
+Bei \isi{SLF}"=Koordinationen kann im letzten \isi{Konjunkt} keine \isi{Konstituente} (außer dem \isi{Subjekt}) ausgelassen werden:
+
+\begin{exe}
+\ex
+\label{ex:4-48}
+\begin{xlist}
+\ex[]{%48.a.
+\label{ex:4-48a}
+morgen zeigt Karl dem Onkel die Briefmarken und bietet \textit{SL} sie ihm zum Verkauf an}
+
+\ex[*]{%b.
+\label{ex:4-48b}
+morgen zeigt Karl dem Onkel die Briefmarken und bietet \textit{SL} \underline{\hspace{0.7cm}} ihm zum Verkauf an}
+
+\ex[*]{%c.
+\label{ex:4-48c}
+morgen zeigt Karl dem Onkel die Briefmarken und bietet \textit{SL} \underline{\hspace{0.7cm}} zum Verkauf an}
+\end{xlist}
+\end{exe}
+In (\ref{ex:4-48a}) ist eine normale \isi{SLF}"=\isi{Koordination}. Sobald außer dem \isi{Subjekt} noch eine (\ref{ex:4-48b}) oder mehrere (\ref{ex:4-48c}) Konstituenten ausgelassen werden, sind die Beispiele unakzeptabel. Dies dürfte daran liegen, daß \isi{Gapping} und \isi{Linkstilgung} die einzigen existierenden Tilgungsoperationen sind. (Falls in \isi{SLF}"=Koordinationen das \isi{Subjekt} infolge einer Tilgungsoperation fehlt, müßte dies jedenfalls eine speziell für diesen Fall zugeschnittene Regel sein.)
+
+Auch wenn die auszulassende \isi{Konstituente} in der \textit{K}{}"=Position steht, ergeben sich keine akzeptablen Beispiele:
+
+% \begin{styleSeiteorii}
+% 15
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex[*]{%49
+\label{ex:4-49}
+die Briefmarken zeigt Karl dem Onkel und bietet \textit{SL} \underline{\hspace{0.7cm}} zum Verkauf an}
+\end{exe}
+Mit \textit{die Briefmarken} in der \textit{K}{}"=Position gibt es nur zwei Möglichkeiten: Entweder eine \isi{SLF}"=\isi{Koordination} mit Objektpronomen wie in (\ref{ex:4-50a}), oder phrasale \isi{Koordination} (mit einem \isi{Subjekt} im letzten \isi{Konjunkt}) wie in (\ref{ex:4-50b}):
+
+\begin{exe}
+\ex
+\label{ex:4-50}
+\begin{xlist}
+\ex%50.a.
+\label{ex:4-50a}
+die Briefmarken zeigt Karl dem Onkel und bietet \textit{SL} sie ihm zum Verkauf an
+
+\ex%b.
+\label{ex:4-50b}
+die Briefmarken zeigt Karl dem Onkel und bietet er ihm zum Verkauf an
+\end{xlist}
+\end{exe}
+\addlines[-1]
+Die phrasale \isi{Koordination} in (\ref{ex:4-50b}) entspricht den Erwartungen; die Einsetzung eines Akkusativobjekts im letzten \isi{Konjunkt} (auch eines anaphorischen \textit{sie}) ist völlig unmöglich; vgl.\ (\ref{ex:4-25}). Aber (\ref{ex:4-50a}) ist~-- wie auch (\ref{ex:4-49})~-- sehr bemerkenswert. Wenn die beiden Teilketten \textit{zeigt Karl dem Onkel} und \textit{bietet \textit{SL} ihm zum Verkauf an} (i)~\isi{kongruent} wären und (ii)~gemeinsam eine \isi{Konstituente} bilden würden, wären (\ref{ex:4-27}) und (\ref{ex:4-4a}) erfüllt. Unter dieser Voraussetzung müßte (\ref{ex:4-49}) möglich und (\ref{ex:4-50a}) unmöglich sein; tatsächlich ist es genau umgekehrt. Das Verhältnis von (\ref{ex:4-51}) zu (\ref{ex:4-52}) ist von gleicher Art:
+
+\begin{exe}
+\ex
+\label{ex:4-51}
+\begin{xlist}
+\ex%51.a.
+\label{ex:4-51a}
+die Unterlagen brachte ich ins Büro und zeigte \textit{SL} *(sie) den Kollegen
+
+\ex%b.
+\label{ex:4-51b}
+die Fibeltexte versteht er und kann \textit{SL} *(sie) mit etwas Übung flüssig lesen
+
+\ex%c.
+\label{ex:4-51c}
+solchen Leuten stellt man keinen Scheck aus, sondern gibt \textit{SL} *(ihnen) einen Gutschein
+\end{xlist}
+\ex
+\label{ex:4-52}
+\begin{xlist}
+\ex%52.a.
+\label{ex:4-52a}
+die Unterlagen brachte ich (*sie) ins Büro und zeigte ich (*sie) den Kollegen
+
+% \begin{styleSeiteorii}
+% 16
+% \end{styleSeiteorii}
+
+\ex%b.
+\label{ex:4-52b}
+die Fibeltexte versteht er (*sie) und kann er (*sie) mit etwas Übung flüssig lesen
+
+\ex%c.
+\label{ex:4-52c}
+solchen Leuten stellt man (*ihnen) keinen Scheck aus, sondern gibt man (*ihnen) einen Gutschein
+\end{xlist}
+\end{exe}
+In (\ref{ex:4-51}) ist jeweils eine \isi{SLF}"=\isi{Koordination}, bei der die
+Auslassung der \isi{Anapher} im letzten \isi{Konjunkt} unmöglich ist; in
+(\ref{ex:4-52}) ist jeweils eine phrasale \isi{Koordination}, bei der keine
+\isi{Anapher} der \isi{Konstituente} in der \textit{K}{}"=Position auftreten
+kann. (Konstruktionen wie (\ref{ex:4-52}) sind nicht immer gut und in
+gewissen Fällen unmöglich. Wir kommen in \sectgref{subsec:4-3-6} darauf zurück. Es
+scheint auch für Konstruktionen wie (\ref{ex:4-51}) Beschränkungen zu
+geben; darauf gehen wir nicht ein.)
+
+\isi{SLF}"=Koordinationen können offenbar nicht die Bedingungen für phrasale
+\isi{Koordination} erfüllen. Das könnte daran liegen, daß die beiden
+Teilketten "`FIN \textsuperscript{1}\textit{X} SU
+\textsuperscript{2}\textit{X}"' und "`FIN \textsuperscript{1}\textit{Y}
+\textit{SL} \textsuperscript{2}\textit{Y}"' in (\ref{ex:4-41}) nicht
+gemeinsam eine \isi{Konstituente} bilden; dann ist (\ref{ex:4-4aiii}) nicht
+erfüllt. Man könnte erwarten, durch Extrapositionsphänomene darüber
+Aufschluß zu erhalten. Extraponierte Sätze stehen in einer
+\textit{KN}{}"=Position (vgl.\ (\ref{ex:4-1})). Bei \isi{SLF}"=Koordinationen
+gibt es für extraponierte Sätze, die zum \isi{Subjekt} gehören, zwei
+Möglichkeiten:
+
+\begin{exe}
+\ex
+\label{ex:4-53}
+\begin{xlist}
+\ex%53.a.
+\label{ex:4-53a}
+gestern ist jemand, den ich noch nie gesehen hatte, gekommen und hat die Sachen abgeholt
+
+\ex%b.
+\label{ex:4-53b}
+gestern ist jemand gekommen, den ich noch nie gesehen hatte, und hat die Sachen abgeholt
+
+\ex%c.
+\label{ex:4-53c}
+gestern ist jemand gekommen und hat die Sachen abgeholt, den ich noch nie gesehen hatte
+\end{xlist}
+\end{exe}
+In (\ref{ex:4-53a}) ist der \isi{Relativsatz}, der sich auf \textit{jemand} bezieht, Teil derselben \isi{Nominalphrase} wie sein Bezugswort; in (\ref{ex:4-53b}) ist er ans Ende des ersten Konjunkts extraponiert, in (\ref{ex:4-53c}) ans Ende des ganzen Satzes. Dieselben Möglichkeiten bestehen bei phrasaler \isi{Koordination}:
+
+\begin{exe}
+\ex
+\label{ex:4-54}
+\begin{xlist}
+\ex%54.a.
+\label{ex:4-54a}
+ein Kerl, den ich noch nie gesehen hatte, ist gestern gekommen und hat die Sachen abgeholt
+
+% \begin{styleSeiteorii}
+% 17
+% \end{styleSeiteorii}
+
+\ex%b.
+\label{ex:4-54b}
+ein Kerl ist gestern gekommen, den ich noch nie gesehen hatte, und hat die Sachen abgeholt
+
+\ex%c.
+\label{ex:4-54c}
+ein Kerl ist gestern gekommen und hat die Sachen abgeholt, den ich noch nie gesehen hatte
+\end{xlist}
+\end{exe}
+Bei gespaltenen Konjunkten (die (\ref{ex:4-4aiii}) mit Sicherheit nicht erfüllen) ergeben sich jedoch dieselben Möglichkeiten:
+
+\begin{exe}
+\ex
+\label{ex:4-55}
+\begin{xlist}
+\ex%55.a.
+\label{ex:4-55a}
+gestern hat jemand, den ich noch nie gesehen hatte, das Radio abgeholt und die Standuhr
+
+\ex%b.
+\label{ex:4-55b}
+gestern hat jemand das Radio abgeholt, den ich noch nie gesehen hatte, und die Standuhr
+
+\ex%c.
+\label{ex:4-55c}
+gestern hat jemand das Radio abgeholt und die Standuhr, den ich noch nie gesehen hatte
+\end{xlist}
+\end{exe}
+(Die zweite Extrapositionsmöglichkeit besteht weder bei SLF- oder phrasaler \isi{Koordination} noch bei gespaltenen Konjunkten, wenn sich der extraponierte Satz auf ein Objekt bezieht.)
+
+Unabhängig davon, ob in \isi{SLF}"=Koordinationen (\ref{ex:4-4aiii}) erfüllt ist, besteht ein wesentliches Problem: Wenn (\ref{ex:4-27}) korrekt ist, müßte das letzte \isi{Konjunkt} die Bedingung (\ref{ex:4-4b}) erfüllen. Da das erste \isi{Konjunkt} eine Spur enthält, an die die \isi{Konstituente} in der \textit{K}{}"=Position gebunden ist, müßte das zweite \isi{Konjunkt} eine ebensolche Spur enthalten; dies ist aber grade nicht der Fall. Dieses Problem ist gelöst, wenn die beiden Konjunkte nicht \isi{kongruent} sind. Das könnte daraus resultieren, daß (i)~zur Erfüllung der Kongruenzbedingung in F"=Sätzen auch Übereinstimmung in den unmittelbaren Konstituenten der O-\isi{Konstituente} herrschen muß und (ii)~\textit{SL} keine syntaktische Realisierung hat. (Diese zweite Annahme ist plausibel: Wenn \textit{SL} eine Spur oder ein PRO"=Element wäre, würde \textit{SL} völlig ungewöhnlichen Bedingungen unterliegen. Die erste Annahme ist nur erfolgreich, wenn man die Existenz einer Verbalphrase annimmt, die dann, wenn in einem F-Satz kein infinites \isi{Verb} enthalten ist, ein leeres \isi{Verb} enthalten müßte, \zb in (\ref{ex:4-19}), (\ref{ex:4-21}), (\ref{ex:4-24}), (\ref{ex:4-33}), (\ref{ex:4-35}).) Aus dieser Annahme folgt, daß in (\ref{ex:4-51}) eine \isi{Anapher} an einer Stelle stehen kann, wo in (\ref{ex:4-52}) eine Spur stehen muß. Warum die \isi{Anapher} obligatorisch ist, werden wir in \sectgref{subsec:4-3-5} sehen.
+
+\addlines
+Da bei \isi{SLF}"=Koordinationen der Spur im ersten \isi{Konjunkt} keine Spur im letzten \isi{Konjunkt} entsprechen muß, sind u.\,a.\ auch Komplexe mit infiniten Verben in der \textit{K}{}"=Position möglich:
+
+% \begin{styleSeiteorii}
+% 18
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex%56
+\label{ex:4-56}
+hergekommen sind sie und haben (*sie) uns die Hühner weggenommen
+\end{exe}
+Und wenn das letzte \isi{Konjunkt} ein \isi{Prädikat} enthält, das keine \isi{Konstituente} zuläßt, die der \isi{Konstituente} in der \textit{K}{}"=Position entspricht, ergeben sich erwartungsgemäß Beispiele wie (\ref{ex:4-57}):
+
+\begin{exe}
+\ex
+\label{ex:4-57}
+\begin{xlist}
+\ex%57.a.
+\label{ex:4-57a}
+diese Unterlagen nehme ich mit ins Büro und spreche mal mit den Kollegen
+
+\ex%b.
+\label{ex:4-57b}
+das Gepäck ließ er fallen und rannte zum Hinterausgang
+
+\ex%c.
+\label{ex:4-57c}
+um die Toten kümmert er sich vorbildlich, vernachlässigt aber die Verletzten
+
+\ex
+diesem Vorschlag ist die Kommission gefolgt und hat eine neue Unterkommission eingesetzt
+\end{xlist}
+\end{exe}
+(Bei phrasaler \isi{Koordination} ist dergleichen unmöglich; vgl.\ (\ref{ex:4-30b}).)\footnote{%
+	Anm.\ der Herausgeber: Dieser Satz findet sich nur in einer der uns vorliegenden ‚grauen’ Versionen der vorliegenden Arbeit.%
+}
+
+Zu solchen Beispielen gibt es jedoch keine \isi{Interrogativsatz}"=Parallelen. Beispiele wie (\ref{ex:4-58}) sind~-- im Gegensatz zu solchen wie (\ref{ex:4-40b})~-- unakzeptabel:
+\begin{exe}
+\ex
+\label{ex:4-58}
+\begin{xlist}
+\ex[*]{%58.a.
+\label{ex:4-58a}
+was nimmst du mit ins Büro und sprichst mit den Kollegen?}
+\ex[*]{%b.
+\label{ex:4-58b}
+was ließ er fallen und rannte zum Hinterausgang?}
+% \begin{styleSeiteorii}
+% 19
+% \end{styleSeiteorii}
+\ex[*]{%c.
+\label{ex:4-58c}
+welchem Vorschlag ist die Kommission gefolgt und hat eine neue Unterkommission eingesetzt?}
+\end{xlist}
+\end{exe}
+Es scheint, daß unabhängig von den Bedingungen für phrasale \isi{Koordination} in Interrogativsätzen die Restriktion gilt, daß die interrogative \isi{Konstituente} in gewisser Weise mit allen Prädikaten des Satzes verknüpft sein muß. Es ist nicht klar, wie das präzise zu formulieren ist und worauf es eventuell zurückgeführt werden kann. Wenn die Beobachtung korrekt ist, bedeutet sie jedoch, daß die strukturellen ATB"=Phänomene nicht anhand von Interrogativsätzen untersucht werden können.
+
+In interrogativen Parallelen zu (\ref{ex:4-51}) ist es~-- so wie in (\ref{ex:4-51}) selbst~-- erwartungsgemäß ganz unmöglich, eine Objektanapher auszulassen:
+
+\begin{exe}
+\ex
+\label{ex:4-59}
+\begin{xlist}
+\ex%59.a.
+\label{ex:4-59a}
+was für Sachen bringst du ins Büro und zeigst \textit{SL} *(sie) den Kollegen?
+
+\ex%b.
+\label{ex:4-59b}
+was für Texte versteht er und kann \textit{SL} *(sie) mit etwas Übung flüssig lesen?
+
+\ex%c.
+\label{ex:4-59c}
+was für Leuten stellt man keine Schecks aus, sondern gibt \textit{SL} *(ihnen) einen Gutschein?
+\end{xlist}
+\end{exe}
+Hier ist allerdings die phrasale \isi{Koordination} wie in (\ref{ex:4-52}) stark bevorzugt.
+
+\ssubsection{}%3.4.
+\label{subsec:4-3-4}
+Für Linkstilgungen scheint eine sehr strenge Parallelitätsbedingung zu gelten (die stärker ist als die Kongruenzbedingung von (\ref{ex:4-4aii})):
+
+\begin{exe}
+\ex
+\label{ex:4-60}
+\begin{xlist}
+\ex[]{%60.a.
+\label{ex:4-60a}
+Karl versprach (der Tante) \underline{\hspace{0.7cm}} und Heinz zeigte der Tante etwas ganz Besonderes}
+
+\ex[*]{%b.
+\label{ex:4-60b}
+Karl erblickte \underline{\hspace{0.7cm}} und Heinz zeigte der Tante etwas ganz Besonderes}
+
+\ex[*]{%c.
+\label{ex:4-60c}
+Karl zeigte der Tante \underline{\hspace{0.7cm}} und Heinz erblickte etwas ganz Besonderes}
+\end{xlist}
+\end{exe}
+% \begin{styleSeiteorii}
+% 20
+% \end{styleSeiteorii}
+Hinsichtlich der Anzahl, der Kategorie und der Einbettungsverhältnisse der ausgelassenen Konstituenten herrscht bei Linkstilgungen außerordentlich große Freiheit, aber wenn eine auszulassende \isi{Konstituente} Teil einer nicht"=parallelen Struktur ist wie in (\ref{ex:4-60b}) und (\ref{ex:4-60c}), ist die Auslassung schlecht oder unmöglich. Auch in \isi{SLF}"=Koordinationen sind Linkstilgungen schlecht (\ref{ex:4-61}); entsprechende Linkstilgungen in anderen Koordinationen sind dagegen einwandfrei (\ref{ex:4-62}):
+
+\begin{exe}
+\ex
+\label{ex:4-61}
+\begin{xlist}
+\ex[*]{%61.a.
+\label{ex:4-61a}
+morgen überprüft sie \_\_\_ und repariert \textit{SL} den Lautsprecher}
+
+\ex[*]{%b.
+\label{ex:4-61b}
+hoffentlich sieht keiner \_\_\_ und klaut \textit{SL} die Sachen}
+
+\ex[*]{%c.
+\label{ex:4-61c}
+vertreibt die Firma \_\_\_ oder produziert \textit{SL} Kühlschränke?}
+
+\ex[*]{%d.
+\label{ex:4-61d}
+offerieren wir dem Onkel \_\_\_ und verkaufen \textit{SL} der Tante doch ein paar Briefmarken!}
+\end{xlist}
+\ex
+\label{ex:4-62}
+\begin{xlist}
+\ex%62.a.
+\label{ex:4-62a}
+morgen überprüft sie \_\_\_ und repariert sie den Lautsprecher
+
+\ex%b.
+\label{ex:4-62b}
+vertreibt die Firma \_\_\_ oder produziert sie Kühlschränke?
+
+\ex%c.
+\label{ex:4-62c}
+offerieren wir dem Onkel \_\_\_ und verkaufen wir der Tante doch ein paar Briefmarken!
+\end{xlist}
+\end{exe}
+Wenn die Konjunkte bei \isi{SLF}"=Koordinationen nicht \isi{kongruent} sind, genügen sie vermutlich auch nicht der strengen Parallelitätsbedingung. Die Unakzeptabilität von (\ref{ex:4-61}) folgt also möglicherweise aus der Annahme, daß \textit{SL} keine syntaktische Realisation hat.
+
+\ssubsection{}%3.5.
+\label{subsec:4-3-5}
+Aus diesen Annahmen folgt, daß Beispiele wie (\ref{ex:4-51}) und (\ref{ex:4-57}) möglich sind. Aus ihnen folgt nicht, daß Beispiele wie (\ref{ex:4-63}) unmöglich sind:
+
+\begin{exe}
+\ex
+\label{ex:4-63}
+\begin{xlist}
+\ex[*]{%63.a.
+\label{ex:4-63a}
+die Unterlagen brachte ich sie ins Büro und zeigte \textit{SL} den Kollegen}
+
+\ex[*]{%b.
+\label{ex:4-63b}
+das Gepäck rannte er zum Hinterausgang und ließ \textit{SL} fallen}
+\end{xlist}
+\end{exe}
+Die vergleichbaren Beispiele (\ref{ex:4-28a}) und (\ref{ex:4-30a}) haben wir auf eine Verletzung von (\ref{ex:4-27}) zurückgeführt; das ist hier nicht möglich. Nach unseren Annahmen sollte (\ref{ex:4-63}) ebenso gut möglich sein wie (\ref{ex:4-51}) und (\ref{ex:4-57}).
+
+% \begin{styleSeiteorii}
+% 21
+% \end{styleSeiteorii}
+
+Möglicherweise kann man ein allgemeines Prinzip wie (\ref{ex:4-64}) annehmen:
+
+\begin{exe}
+\ex
+\label{ex:4-64}
+\begin{xlist}
+\ex%64.a.
+\label{ex:4-64a}
+Ein nicht"=erstes \isi{Konjunkt} enthält eine freie Spur gdw.
+\begin{xlisti}
+\ex die beiden Konjunkte \isi{kongruent} sind und
+\ex das erste \isi{Konjunkt} eine freie Spur enthält.
+\end{xlisti}
+\ex%b.
+\label{ex:4-64b}
+Die Spuren sind an dieselbe \isi{Konstituente} \textit{D} gebunden.
+\end{xlist}
+\end{exe}
+Aus (\ref{ex:4-64}) folgen (\ref{ex:4-4b}) und (\ref{ex:4-27}), und das Prinzip trägt den Beispielen (\ref{ex:4-63}) sowie dem Umstand, daß die \isi{Anapher} bei (\ref{ex:4-51}) und (\ref{ex:4-57}) obligatorisch ist, Rechnung. Intuitiv kann man das Auftreten von freien Spuren in nicht"=ersten Konjunkten nach (\ref{ex:4-64}) als Folge ihrer Kongruenzeigenschaft verstehen.
+
+\ssubsection{}%3.6.
+\label{subsec:4-3-6}
+Viele der bislang besprochenen Fälle legen die Vermutung nahe, daß zu jedem Beispiel mit \isi{SLF}"=\isi{Koordination} ein entsprechendes Beispiel mit phrasaler \isi{Koordination} und/""oder \isi{Koordination} ganzer Sätze existiert. Diese Vermutung ist unrichtig.
+
+Zunächst ist klar, daß in vielen Fällen mit indefinitem \isi{Subjekt} keine semantisch gleichwertige Ausdrucksweise mit einer \isi{Anapher} oder einer wörtlichen Wiederholung des Subjekts an Stelle von \textit{SL} möglich ist. So ist (\ref{ex:4-65a}) unmöglich und (\ref{ex:4-65b}) nicht gleichwertig mit (\ref{ex:4-40a}):
+
+\begin{exe}
+\ex
+\label{ex:4-65}
+\begin{xlist}
+\ex[*]{%65.a.
+\label{ex:4-65a}
+hoffentlich sieht uns keiner\textsubscript{i} und zeigt er\textsubscript{i} uns an}
+
+\ex[]{%b.
+\label{ex:4-65b}
+hoffentlich sieht uns keiner und zeigt uns keiner an}
+\end{xlist}
+\end{exe}
+Bei (\ref{ex:4-65b}) richtet sich die Hoffnung darauf, weder gesehen
+noch angezeigt zu werden; bei (\ref{ex:4-40a}) richtet sie sich
+darauf, nicht aufgrund des Gesehenwerdens angezeigt zu werden. Dieser
+Unterschied ist charakteristisch: \isi{SLF}"=Koordinationen haben immer eine
+Interpretation, die einen unmittelbaren natürlichen Zusammenhang
+zwischen den Prädikaten supponiert. Bei wiederholten Subjekten (in der
+\isi{Koordination} vollständiger Sätze und bei phrasaler \isi{Koordination}) ist
+diese ‚fusionierte‘ Interpretation unmöglich; bei phrasaler
+\isi{Koordination} mit dem \isi{Subjekt} als gemeinsamer Bezugskonstituente der
+Konjunkte ist sie im Allgemeinen nicht notwendig. (Im Englischen\il{Englisch} zeichnen sich
+phrasale Koordinationen mit fusionierter Interpretation nach
+\citet{Hutchinson1975} dadurch aus, daß sie~-- so wie
+\isi{SLF}"=Koordinationen~-- nicht dem CSC unterliegen. Im einzelnen sind
+die Fakten jedoch wesentlich anders als im Deutschen\il{Deutsch}.)
+
+Ganz klar ist das häufig bei F1"=Sätzen. In (\ref{ex:4-66}) haben wir zwei getrennte Fragen: nach dem Rumstehen und nach dem Verteilen der Flugblätter:
+
+% \begin{styleSeiteorii}
+% 22
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex%66
+\label{ex:4-66}
+stehen da schon wieder welche rum und verteilen sie Flugblätter?
+\end{exe}
+In (\ref{ex:4-40c}) dagegen wird nach einer komplexen Tätigkeit: dem mit Flugblätterverteilen verbundenen Rumstehen gefragt. Zu (\ref{ex:4-42c}) gibt es gar keine akzeptable Alternative mit lexikalischer Realisierung von \textit{SL}:
+
+\begin{exe}
+\ex%67
+\label{ex:4-67}
+ist Karl etwa nicht zur Arbeit gegangen, sondern (*er) hat (*er) sich ins Bett gelegt?
+\end{exe}
+Ähnlich verhält sich (\ref{ex:4-68}):
+
+\begin{exe}
+\ex%68
+\label{ex:4-68}
+weder befolgt er unsere Anweisungen und kümmert sich um die Hunde, noch tut er sonst was nützliches
+\end{exe}
+Hier haben wir wie in (\ref{ex:4-47a}) zwei F2-Sätze, die durch \textit{weder~-- noch} verknüpft sind; das \textit{weder} steht in der \textit{K}{}"=Position des ersten F2-Satzes, der eine \isi{SLF}"=\isi{Koordination} darstellt. Hier scheint eine phrasale \isi{Koordination} mit \textit{er} in \textit{K} (\ref{ex:4-69a}) möglich zu sein, aber in keinem Fall kann \textit{er} im zweiten \isi{Konjunkt} wiederholt werden (\ref{ex:4-69b}), (\ref{ex:4-69c}):
+\begin{exe}
+\ex
+\label{ex:4-69}
+\begin{xlist}
+\ex[]{%69.a.
+\label{ex:4-69a}
+er befolgt weder unsere Anweisungen und kümmert sich um die Hunde, noch \ldots}
+
+% \begin{styleSeiteorii}
+% 23
+% \end{styleSeiteorii}
+
+\ex[*]{%b.
+\label{ex:4-69b}
+weder befolgt er unsere Anweisungen und kümmert er sich um die Hunde, noch \ldots}
+
+\ex[]{%c.
+\label{ex:4-69c}
+er befolgt weder unsere Anweisungen und (*er) kümmert (*er) sich um die Hunde, noch \ldots}
+\end{xlist}
+\end{exe}
+Auch zu (\ref{ex:4-70a}) gibt es eine Alternative mit phrasaler \isi{Koordination}, aber keine Möglichkeit, \textit{SL} durch ein \isi{Pronomen} zu realisieren:
+
+\begin{exe}
+\ex
+\label{ex:4-70}
+\begin{xlist}
+\ex[]{%70.a.
+\label{ex:4-70a}
+wahrscheinlich steht Karl im Flur und schwatzt mit den Kollegen}
+
+\ex[]{%b.
+\label{ex:4-70b}
+Karl steht wahrscheinlich im Flur und schwatzt mit den Kollegen}
+
+\ex[*]{%c.
+\label{ex:4-70c}
+wahrscheinlich steht Karl im Flur und schwatzt er mit den Kollegen}
+
+\ex[]{%d.
+\label{ex:4-70d}
+Karl steht wahrscheinlich im Flur, und er schwatzt mit den Kollegen}
+\end{xlist}
+\end{exe}
+Eine \isi{Koordination} vollständiger Sätze wie in (\ref{ex:4-70d}) ist zwar möglich, aber semantisch nicht mit (\ref{ex:4-70b}) gleichwertig. Darauf kommen wir zurück.
+
+\addlines
+In allen Fällen, wo die Realisierung des Subjekts im letzten \isi{Konjunkt} ausgeschlossen oder schlecht ist, sind Konstruktionen wie (\ref{ex:4-52}) naturgemäß ebenfalls ausgeschlossen; etwa in (\ref{ex:4-71b}):
+
+\begin{exe}
+\ex
+\label{ex:4-71}
+\begin{xlist}
+\ex[]{%71.a.
+\label{ex:4-71a}
+uns heißt keiner willkommen und schließt \textit{SL} uns in die Arme}
+
+\ex[*]{%b.
+\label{ex:4-71b}
+uns heißt keiner\textsubscript{i }willkommen und schließt er\textsubscript{i} in die Arme}
+\end{xlist}
+\end{exe}
+Es gibt darüber hinaus Fälle, in denen solche Konstruktionen aus undurchsichtigen Gründen ausgeschlossen sind. So gibt es neben den \isi{SLF}"=Koordinationen in (\ref{ex:4-72}) die phrasale \isi{Koordination} (\ref{ex:4-73a}) mit dem \isi{Subjekt} in \textit{K} und die \isi{Koordination} vollständiger Sätze (\ref{ex:4-73b}), aber die phrasale \isi{Koordination} mit dem Objekt in \textit{K} ist unmöglich:
+
+% \begin{styleSeiteorii}
+% 24
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex
+\label{ex:4-72}
+\begin{xlist}
+\ex[]{%72.a.
+\label{ex:4-72a}
+neulich ist mir dein Onkel begegnet und hat mir unter die Arme gegriffen
+}
+\ex[]{%b.
+\label{ex:4-72b}
+mir ist neulich dein Onkel begegnet und hat mir unter die Arme gegriffen
+}
+\end{xlist}
+\ex
+\label{ex:4-73}
+\begin{xlist}
+\ex[]{%73.a.
+\label{ex:4-73a}
+dein Onkel ist mir neulich begegnet und hat mir unter die Arme gegriffen}
+
+\ex[]{%b.
+\label{ex:4-73b}
+dein Onkel ist mir neulich begegnet, und er hat mir unter die Arme gegriffen}
+
+\ex[*]{%c.
+\label{ex:4-73c}
+mir ist neulich dein Onkel begegnet und hat er unter die Arme gegriffen}
+\end{xlist}
+\end{exe}
+Ähnlich bei (\ref{ex:4-74}) und (\ref{ex:4-75}):
+
+\begin{exe}
+\ex
+\label{ex:4-74}
+\begin{xlist}
+\ex[]{%74.a.
+\label{ex:4-74a}
+offenbar beunruhigt den Jungen diese Vorstellung und macht ihn ganz krank
+}
+\ex[]{%b.
+\label{ex:4-74b}
+den Jungen beunruhigt diese Vorstellung offenbar und macht ihn ganz krank
+}
+\end{xlist}
+\ex
+\label{ex:4-75}
+\begin{xlist}
+\ex[]{%75.a.
+\label{ex:4-75a}
+diese Vorstellung beunruhigt den Jungen offenbar und macht ihn ganz krank}
+
+\ex[]{%b.
+\label{ex:4-75b}
+diese Vorstellung beunruhigt den Jungen offenbar, und sie macht ihn ganz krank}
+
+\ex[*]{%c.
+\label{ex:4-75c}
+den Jungen beunruhigt diese Vorstellung offenbar und macht sie ganz krank}
+\end{xlist}
+\end{exe}
+Prädikate wie \textit{begegn-} und \textit{beunruhig-} weisen auch in anderen Zusammenhängen besondere Eigenschaften auf; aber wie daraus die Unmöglichkeit von (\ref{ex:4-73c}) und (\ref{ex:4-75c}) folgen könnte, ist nicht klar. Dieses Problem berührt jedoch (\ref{ex:4-72}) und (\ref{ex:4-74}) nicht; diese Beispiele haben die normalen Eigenschaften von \isi{SLF}"=Koordinationen.
+
+\ssubsection{}%3.7.
+\label{subsec:4-3-7}
+Gegen die Annahme, daß eine \isi{Konstituente} in \textit{K} bei \isi{SLF}"=Koordinationen nicht für beide Konjunkte als gemeinsame \isi{Konstituente} fungieren kann, scheinen Beispiele wie (\ref{ex:4-42}a,b) und (\ref{ex:4-53}) zu sprechen. Der adverbiale Ausdruck in \textit{K} scheint dort allen Konjunkten gemeinsam zu sein. Dies kann jedoch nicht generell gelten; die Beispiele in (\ref{ex:4-76}) zeigen, daß der adverbiale Ausdruck in\textit{ K} nur zum ersten \isi{Konjunkt} gehört:
+
+% \begin{styleSeiteorii}
+% 25
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex
+\label{ex:4-76}
+\begin{xlist}
+\ex%76.a.
+\label{ex:4-76a}
+am Morgen traf Karl seinen Freund und ging bis zum Abend mit ihm spazieren
+
+\ex%b.
+\label{ex:4-76b}
+in Mainz fährt Karl am Abend los und kommt am Morgen in Bonn an
+
+\ex%c.
+\label{ex:4-76c}
+in Köln wohnen ein paar Mafiahäuptlinge und beherrschen von dort aus den gesamten Großhandel
+\end{xlist}
+\end{exe}
+Vgl.\ demgegenüber die unakzeptablen Beispiele mit phrasaler \isi{Koordination} in (\ref{ex:4-38}).
+
+Das \isi{Adverbiale} in \textit{K} kann sich nicht ausschließlich auf ein nicht"=erstes \isi{Konjunkt} beziehen:
+
+\begin{exe}
+\ex
+\label{ex:4-77}
+\begin{xlist}
+\ex[*]{%77.a.
+\label{ex:4-77a}
+bis zum Abend traf Karl am Morgen seinen Freund und ging mit ihm spazieren}
+
+\ex[*]{%b.
+\label{ex:4-77b}
+in Bonn fährt Karl in Mainz am Abend los und kommt am Morgen an}
+
+\ex[*]{%c.
+\label{ex:4-77c}
+von Köln aus wohnen ein paar Mafiahäuptlinge dort und beherrschen den gesamten Großhandel}
+\end{xlist}
+\end{exe}
+Das entspricht genau dem, was wir in den Abschnitten~\ref{subsec:4-3-3} und~\ref{subsec:4-3-5} bei Objekten gefunden haben.
+
+Möglicherweise ist der Bezug, den ein nicht"=erstes \isi{Konjunkt} zu dem Ausdruck in \textit{K} manchmal zu haben scheint, rein pragmatischer Art, wie er ähnlich auch in Diskursen möglich ist. So wird man, ähnlich wie in (\ref{ex:4-53}), auch in (\ref{ex:4-78}) den Tag des Abholens mit dem Tag des Kommens identifizieren:
+
+\begin{exe}
+\ex%78
+\label{ex:4-78}
+gestern ist jemand gekommen, den ich noch nie vorher gesehen habe; er hat die Sachen abgeholt
+\end{exe}
+Dafür spricht auch die Tatsache, daß ein \isi{Prädikat}, das obligatorisch an ein \isi{Adverbiale} gebunden ist, bei \isi{SLF}"=Koordinationen nicht in einem nicht"=ersten \isi{Konjunkt} auftreten kann:
+\begin{exe}
+\ex
+\label{ex:4-79}
+\begin{xlist}
+\ex%79.a.
+\label{ex:4-79a}
+in Bonn arbeitet Karl schon seit langem, wohnt aber erst seit kurzem *(dort)
+\ex%b.
+\label{ex:4-79b}
+im Süden hält man sich vernünftigerweise nicht im Sommer auf, sondern verbringt den Herbst *(dort)
+\end{xlist}
+\end{exe}
+Auch in anderen Fällen scheint ein lokales \isi{Adverbiale} in \textit{K} keinen möglichen Bezug auf das zweite \isi{Konjunkt} haben zu können:
+\begin{exe}
+\ex%80
+\label{ex:4-80}
+in Bonn wohnt Karl schon seit langem, arbeitet aber erst seit kurzem
+\end{exe}
+Der Satz hat nicht die \isi{Implikation}, daß Karl (erst seit kurzem) in Bonn arbeitet, sondern daß er erst seit kurzem einer Arbeit nachgeht, wobei der Ort der Arbeit unbestimmt ist.
+
+Eine Schwierigkeit scheinen Interrogativsätze mit adverbialem Interrogativum zu sein; vgl.\ außer (\ref{ex:4-40b}) auch (\ref{ex:4-81}):
+
+\begin{exe}
+\ex%81
+\label{ex:4-81}
+wo tritt die Kommission zusammen und beratschlagt über die Petition?
+\end{exe}
+Wenn die Beobachtungen im Zusammenhang mit (\ref{ex:4-58}) richtig sind, muß das Interrogativum mit beiden Konjunkten verknüpft sein; eben dies ist bei den Adverbialen\isi{Adverbiale} in (\ref{ex:4-76}), (\ref{ex:4-79}), (\ref{ex:4-80}) aber nicht der Fall. Wir haben jedoch schon bei (\ref{ex:4-58}) gesehen, daß diese Beziehung des Interrogativums zu dem zweiten \isi{Konjunkt} vermutlich nicht syntaktischer Natur ist; jedenfalls scheinen die nicht"=interrogativen Beispiele in (\ref{ex:4-57}) den Fällen mit \isi{Adverbiale} durchaus zu entsprechen.
+
+Fälle wie (\ref{ex:4-82}) scheinen dafür zu sprechen, daß doch ein in engerem Sinne grammatischer Bezug zwischen dem temporalen \isi{Adverbiale} in \textit{K} und dem zweiten \isi{Konjunkt} besteht:
+
+% \begin{styleSeiteorii}
+% 27
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex
+\label{ex:4-82}
+\begin{xlist}
+\ex[?]{%82.a.
+\label{ex:4-82a}
+gestern ist dein Freund zu uns gekommen und will bei uns mitspielen}
+
+\ex[?]{%b.
+\label{ex:4-82b}
+gestern haben alle ihre Sachen gepackt und wollen ausziehen}
+
+\ex[?]{%c.
+\label{ex:4-82c}
+gestern hat Karl sich eine eigene Matratze gekauft und schläft allein}
+\end{xlist}
+\end{exe}
+Mit \isi{Präteritum} bzw Perfekt im letzten \isi{Konjunkt} sind die Beispiele einwandfrei:
+
+\begin{exe}
+\ex
+\label{ex:4-83}
+\begin{xlist}
+\ex%83.a.
+\label{ex:4-83a}
+gestern ist dein Freund zu uns gekommen und wollte bei uns mitspielen
+
+\ex%b.
+\label{ex:4-83b}
+gestern haben alle ihre Sachen gepackt und wollten ausziehen
+
+\ex%c.
+\label{ex:4-83c}
+gestern hat Karl sich eine eigene Matratze gekauft und hat allein geschlafen
+\end{xlist}
+\end{exe}
+Möglicherweise sind diese Verhältnisse jedoch eine Folge der ‚fusionierten‘ Interpretation, die den \isi{SLF}"=Koordinationen eigentümlich ist. Eine solche fusionierte Interpretation zu konstruieren ist bei Gleichzeitigkeit der Konjunktinhalte wie in (\ref{ex:4-83}) kein Problem, kann aber schwierig sein, wenn wie in (\ref{ex:4-82}) ein \isi{Konjunkt} ein Vergangenheitstempus und das andere \isi{Präsens} hat. Durch geeignete \isi{Adverbiale} im letzten \isi{Konjunkt} kann eine solche Interpretation aber in manchen Fällen erzwungen werden; (\ref{ex:4-84}) scheint durchaus akzeptabel:
+
+\begin{exe}
+\ex
+\label{ex:4-84}
+\begin{xlist}
+\ex%84.a.
+\label{ex:4-84a}
+gestern haben alle ihre Sachen gepackt und wollen heute ausziehen
+
+\ex%b.
+\label{ex:4-84b}
+gestern hat Karl sich eine eigene Matratze gekauft und schläft ab sofort allein
+\end{xlist}
+\end{exe}
+\begin{sloppypar}
+\noindent
+Diese Deutungsversuche stützen sich auf die Tatsache, daß temporale und lokale Angaben häufig eine Lokalisierung fixieren, die über längere Diskursstrecken hinweg konstant bleiben kann. Die semantische Relevanz von \isi{Satzadverbialen} wie \textit{vielleicht}, \textit{hoffentlich}, \textit{wahrscheinlich} ist dagegen strikt auf den Satz be\-schränkt, in dem sie vorkommen. In einem Diskurs wie (\ref{ex:4-85}) ist nur der erste Satz im Bereich des Adverbials; der zweite wird als zweifelsfrei wahr hingestellt:
+\end{sloppypar}
+
+% \begin{styleSeiteorii}
+% 28
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex
+\label{ex:4-85}
+\begin{xlist}
+\ex%85.a.
+\label{ex:4-85a}
+wahrscheinlich ist gestern jemand gekommen; er hat die Sachen abgeholt
+
+\ex%b.
+\label{ex:4-85b}
+hoffentlich sind deine Freunde schon angekommen; sie verteilen Flugblätter
+\end{xlist}
+\end{exe}
+In \isi{SLF}"=Koordinationen (\ref{ex:4-86a}), in phrasalen Koordinationen (\ref{ex:4-86b}) und bei gespaltenen Konjunkten (\ref{ex:4-86c}) ist es dagegen möglich oder sogar unvermeidbar, die Sätze so zu interpretieren, daß das zweite \isi{Konjunkt} im Bereich des Adverbials ist:
+
+\begin{exe}
+\ex
+\label{ex:4-86}
+\begin{xlist}
+\ex%86.a.
+\label{ex:4-86a}
+wahrscheinlich ist gestern jemand gekommen und hat die Sachen abgeholt
+
+\ex%b.
+\label{ex:4-86b}
+deine Freunde sind hoffentlich schon angekommen und verteilen Flugblätter
+
+\ex%c.
+\label{ex:4-86c}
+Karl hat wahrscheinlich den Hund gefüttert und den Kater
+\end{xlist}
+\end{exe}
+Interessanterweise ist es auch bei der \isi{Koordination} vollständiger Sätze wie in (\ref{ex:4-87}) möglich, die gesamte \isi{Koordination} als Bereich des Adverbials zu interpretieren:
+
+\begin{exe}
+\ex%87
+\label{ex:4-87}
+hoffentlich füttert Karl den Hund und Heinz füttert den Kater
+\end{exe}
+Soweit \isi{Gapping} mit der \isi{Wortstellung} von (\ref{ex:4-88}) akzeptabel ist, ist die Interpretation mit weitem Bereich hier zwingend:
+
+\begin{exe}
+\ex%88
+\label{ex:4-88}
+Karl füttert hoffentlich den Hund und Heinz \_\_\_ den Kater
+\end{exe}
+\addlines[2]
+Bei der \isi{SLF}"=\isi{Koordination} in (\ref{ex:4-86a}) steht das \isi{Adverbiale} in \textit{K}. Das muß nicht so sein; (\ref{ex:4-89}) kann in genau derselben Weise mit weitem Bereich des Adverbials interpretiert werden:
+
+% \begin{styleSeiteorii}
+% 29
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex%89
+\label{ex:4-89}
+gestern ist wahrscheinlich jemand gekommen und hat die Sachen abgeholt
+\end{exe}
+Derartige Satzadverbiale können (oder müssen, in gewissen Fällen) zwar in \isi{SLF}"=Koordinationen als Konstituenten fungieren, zu denen alle Konjunkte einen gemeinsamen Bezug haben. Dies ist jedoch keine spezifische Eigenschaft von \isi{SLF}"=Koordinationen, sondern gilt, wie wir gesehen haben, ganz allgemein für Koordinationen. Und anders als bei allen anderen Arten von gemeinsamen Konstituenten, die wir bei den verschiedenen Koordinationstypen besprochen haben, scheint es kaum irgendwelche spezifischen, im engeren Sinne grammatischen Bedingungen zu geben. Es scheint ein allgemeines Prinzip zu gelten:
+
+\begin{exe}
+\ex%90
+\label{ex:4-90}
+Wenn ein \isi{Adverbiale} \textit{A} im ersten \isi{Konjunkt} einer \isi{Koordination} das gesamte \isi{Konjunkt} (abgesehen von Adverbialen\is{Adverbiale} wie \textit{A}) in seinem Bereich haben kann, dann kann es auch die nicht"=ersten Konjunkte in seinem Bereich haben.
+\end{exe}
+Zu den adverbialen Ausdrücken rechnet man oft auch die Negationspartikel \textit{nicht}, und in der Tat gilt für sie weitgehend das gleiche wie für \textit{hoffentlich} usw. Es gibt eine wichtige Einschränkung: Bei der \isi{Koordination} vollständiger Sätze wie in (\ref{ex:4-91}) kann das letzte \isi{Konjunkt} nicht im Bereich von \textit{nicht} liegen:
+
+\begin{exe}
+\ex
+\label{ex:4-91}
+\begin{xlist}
+\ex%91.a.
+\label{ex:4-91a}
+Karl füttert nicht den Hund, und Heinz ist fleißig
+
+\ex%b.
+\label{ex:4-91b}
+Karl füttert nicht den Hund, oder Heinz füttert den Kater
+
+\ex%c.
+\label{ex:4-91c}
+Karl füttert nicht den Hund, aber Heinz ist fleißig
+\end{xlist}
+\end{exe}
+Bei \isi{Gapping} scheint die \isi{Koordination} mit \textit{nicht} nicht möglich zu sein (\ref{ex:4-92a}); bei \textit{aber} (\ref{ex:4-92b}) ist nur das erste \isi{Konjunkt} im Bereich von \textit{nicht}; bei \textit{oder} (\ref{ex:4-92c}) ist das Urteil nicht ganz klar: Die Beschränkung des Bereichs auf das erste \isi{Konjunkt} ist stark bevorzugt, aber die Extension auf das letzte \isi{Konjunkt} scheint nicht ganz unmöglich zu sein:
+
+\begin{exe}
+\ex
+\label{ex:4-92}
+\begin{xlist}
+\ex[*]{%92.a.
+\label{ex:4-92a}
+Karl füttert nicht den Hund, und Heinz den Kater}
+
+% \begin{styleSeiteorii}
+% 30
+% \end{styleSeiteorii}
+
+\ex[]{%b.
+\label{ex:4-92b}
+Karl füttert nicht den Hund, aber Heinz den Kater}
+
+\ex[]{%c.
+\label{ex:4-92c}
+Karl füttert nicht den Hund oder Heinz den Kater}
+\end{xlist}
+\end{exe}
+Bei \isi{SLF}"=Koordinationen (\ref{ex:4-93a}), phrasaler \isi{Koordination} (\ref{ex:4-93b}) und gespaltenen Konjunkten (\ref{ex:4-93c}) kann das letzte \isi{Konjunkt} im Bereich von \textit{nicht} sein:
+
+\begin{exe}
+\ex
+\label{ex:4-93}
+\begin{xlist}
+\ex%93.a.
+\label{ex:4-93a}
+hoffentlich packt Karl nicht seine Sachen zusammen und verdrückt sich zur Fremdenlegion
+
+\ex%b.
+\label{ex:4-93b}
+Karl ist nicht zurückgekommen und hat seine Sachen geholt (sondern das Zeug steht immer noch hier rum)
+
+\ex%c.
+\label{ex:4-93c}
+Karl wird nicht den Hund füttern oder den Kater (sondern er wird mit seinem Kaninchen spielen)
+\end{xlist}
+\end{exe}
+In (\ref{ex:4-93a}) ist \textit{nicht} im Bereich von \textit{hoffentlich}; alle anderen Teile des Satzes sind (in einer naheliegenden Interpretation) im Bereich von \textit{nicht}. Für solche Fälle ist die Einschränkung "`abgesehen von Adverbialen\is{Adverbiale} wie \textit{A}"' in (\ref{ex:4-90}) gedacht. Auch andere Arten von Elementen können weiteren Bereich als \textit{nicht} haben:
+
+\begin{exe}
+\ex
+\label{ex:4-94}
+\begin{xlist}
+\ex%94.a.
+\label{ex:4-94a}
+in dieser Lage stellte Karl sich nicht auf die Hinterbeine und verteidigte seine Rechte (sondern er hielt den Mund)
+
+\ex%b.
+\label{ex:4-94b}
+deshalb hören viele Teilnehmer nicht zu und schreiben eifrig mit (sondern bohren in der Nase)
+\end{xlist}
+\end{exe}
+Wie man an (\ref{ex:4-94b}) sieht, sind Interaktionen zwischen \isi{Negation} und Quantifizierung von der Bereichsvorschrift (\ref{ex:4-90}) ausgenommen; \textit{viele Teilnehmer} hat hier größeren Bereich als \textit{nicht}.
+
+\section{Zusammenfassung}%4.
+\label{sec:4-4}
+
+\addlines
+% \begin{styleSeiteorii}
+% 31
+% \end{styleSeiteorii}
+Außer der charakterisierenden Eigenschaft (\ref{ex:4-41}) haben wir folgende Eigenschaften bei \isi{SLF}"=Koordinationen gefunden:
+
+\begin{exe}
+\ex
+\label{ex:4-95}
+\begin{xlist}
+\ex%95.a.
+\label{ex:4-95a}
+\textit{Weder~-- noch} und \textit{sowohl~-- als auch} sind nicht möglich.
+
+\ex%b.
+\label{ex:4-95b}
+In nicht"=ersten Konjunkten kann keine \isi{Konstituente} getilgt werden.
+
+\ex%c.
+\label{ex:4-95c}
+Nicht"=erste Konjunkte können keine freie Spur enthalten.
+
+\ex%d.
+\label{ex:4-95d}
+Im ersten \isi{Konjunkt} ist keine \isi{Linkstilgung} möglich.
+
+\ex%e.
+\label{ex:4-95e}
+\isi{Adverbiale} im ersten \isi{Konjunkt} können ihren Bereich auf die nicht"=ersten Konjunkte ausdehnen.
+
+\ex%f.
+\label{ex:4-95f}
+Die koordinierten Satzbestandteile werden als ‚fusioniert‘ interpretiert, wie es
+auch bei phrasaler \isi{Koordination} mit dem \isi{Subjekt} als gemeinsamem Bezug
+möglich ist.
+\end{xlist}
+\end{exe}
+Die Eigenschaften (\ref{ex:4-95a}) und (\ref{ex:4-95f}) sind ohne
+Erklärung. (\ref{ex:4-95b}) kann man so verstehen, daß in
+\isi{SLF}"=Koordinationen keine Tilgungen angewendet werden, die nicht auch
+in anderen Konstruktionen anwendbar sind. In (\ref{ex:4-95c}) zeigt
+sich möglicherweise eine allgemeine Eigenschaft aller Arten von
+nicht"=ersten Konjunkten. Die einzige Ausnahme sind phrasale
+Koordinationen; dort kann man das streng geregelte Auftreten von
+freien Spuren in nicht"=ersten Konjunkten wahrscheinlich als Folge der
+Kongruenzbedingung verstehen, der diese Konjunkte unterliegen. Wenn
+\textit{SL} keine syntaktische Realisierung hat, sind die Konjunkte
+von \isi{SLF}"=Koordinationen vermutlich nicht \isi{kongruent}. Aus dieser Annahme
+folgt wahrscheinlich auch (\ref{ex:4-95d}). (\ref{ex:4-95b})--(\ref{ex:4-95d}) führen zusammen dazu, daß
+die nicht"=ersten Konjunkte ausschließlich zum \isi{Subjekt} denselben
+grammatischen Bezug haben wie die koordinierten Teile des ersten
+Konjunkts. (\ref{ex:4-95e}) ist (mit gewissen Qualifikationen) eine allgemeine
+semantische Eigenschaft aller Koordinationstypen.
+
+In gewissem Maße scheint es also möglich zu sein, Eigenschaften von \isi{SLF}"=Koordinationen auf allgemeinere Gesetzmäßigkeiten zurückzuführen. Für die beiden charakterisierenden Eigenschaften in (\ref{ex:4-96}) fehlt jedoch jede Erklärung:
+
+% \begin{styleSeiteorii}
+% 32
+% \end{styleSeiteorii}
+
+\begin{exe}
+\ex
+\label{ex:4-96}
+\begin{xlist}
+\ex%96.a.
+\label{ex:4-96a}
+In nicht"=ersten Konjunkten fehlt das \isi{Subjekt}.
+
+\ex%b.
+\label{ex:4-96b}
+Die finiten Verben haben die Position, die sie in unkoordinierten F"=Sätzen hätten.
+\end{xlist}
+\end{exe}
+Bei phrasalen Koordinationen folgen die topologischen Eigenschaften der finiten Verben aus der Kongruenzeigenschaft der Konjunkte. Da den Konjunkten von \isi{SLF}"=Koordinationen diese Eigenschaft offenbar abgeht, ist es völlig offen, warum Beispiele wie in (\ref{ex:4-97}) oder (\ref{ex:4-98}) unmöglich sind:
+
+\begin{exe}
+\ex
+\label{ex:4-97}
+\begin{xlist}
+\ex[*]{%97.a.
+\label{ex:4-97a}
+ich hoffe, daß uns keiner sieht und zeigt uns an}
+
+\ex[*]{%b.
+\label{ex:4-97b}
+es ist zu hoffen, daß bald jemand einen Einfall hat und sagt uns die Lösung}
+
+\ex[*]{%c.
+\label{ex:4-97c}
+es ist unwahrscheinlich, daß Karl gestern gekommen ist und hat die Sachen abgeholt}
+\end{xlist}
+\ex
+\label{ex:4-98}
+\begin{xlist}
+\ex[*]{%98.a.
+\label{ex:4-98a}
+hoffentlich sieht uns keiner und uns anzeigt}
+
+\ex[*]{%b.
+\label{ex:4-98b}
+wann hat jemand einen Einfall und uns die Lösung sagt?}
+
+\ex[*]{%c.
+\label{ex:4-98c}
+gestern ist Karl gekommen und die Sachen abgeholt hat}
+\end{xlist}
+\end{exe}
+
+\sloppy  
+\printbibliography[heading=subbibliography,notkeyword=this]
+\refstepcounter{mylastpagecount}\label{chap-subjektluecken-end}
+\end{document}

@@ -1,0 +1,206 @@
+Konstituente
+Wortstellung
+Verb
+Verum
+Normalbetonung
+Fokusprojektion
+Anapher
+Deklarativsatz
+Interrogativsatz
+SLF
+Relativsatz
+Konjunkt
+Betonung
+Subjekt
+Topik
+Lexikonregel
+Pronomen
+Komplementierer
+Personalpronomen
+Fokusexponent
+Linkstilgung
+SVO
+Linksversetzung
+Extraktion
+som
+Hilfsverb
+Nominalphrase
+Gapping
+unmarkiert
+Inversionsform
+Skopus
+Infinitiv
+Kopula
+Wortfolge
+Adverbiale
+SOV
+Fragesatz
+definit
+Präpositionalphrase
+Satztyp
+Konditionalsatz
+VSO
+kontrastiv
+Komplement
+V1
+nominal
+dominant
+Implikation
+Rhema
+Partikel
+eingebettet
+Konstituentenfolge
+HPSG
+Anfangsstellung
+unbetont
+Nachfeld
+betont
+Fokus
+Negation
+kongruent
+Illokutionstyp
+Relativmodus
+Prädikat
+Imperativsatz
+Präfix
+satzwertig
+Infinitivkonstruktion
+Verbzusatz
+Nominativ
+Akkusativobjekt
+Koordination
+Verbform
+OSV
+Hauptakzent
+Schema
+Kasus
+Konjunktion
+Präsens
+Relativphrase
+Kontexttyp
+Konstituententype
+Satzadverbialen
+Extraposition
+Projektion
+prädikativ
+Tiefenstruktur
+CELR
+Kohärenzfeld
+Wortgruppe
+indefinit
+append
+emphatisch
+rekursiv
+Akkusativ
+Endstellung
+segmental
+NP
+Satzglied
+Substantiv
+normalbetont
+Subjektinversion
+SfVO
+deklarativ
+Basisposition
+Betonungsmuster
+intonation
+Wahrheitsbedingung
+Generalisierung
+anaphorisch
+normalisiert
+OVS
+Präteritum
+intonatorisch
+Hervorhebung
+Einzelsprache
+Topologie
+idiomatisch
+extrahiert
+Plural
+X2
+pragmatisch
+morphologisch
+fokusprojektiv
+Verbprojektion
+Thetaraster
+SELR
+Exklamativ
+Projektionsstufe
+Hervorhebungseffekt
+Selektionseigenschaft
+Koreferenz
+X1
+interrogativ
+Interrogativpronomen
+Dativobjekt
+Operator
+GPSG
+Satzende
+VP
+Dativ
+Tempus
+Verbzweitstellung
+Verberststellung
+Stellungsregularität
+Spracherwerbsdaten
+Einheitsplural
+rhematisch
+transformationell
+Gradpartikel
+Adverbialen
+proleptisch
+Imperativ
+Flexionsform
+Präposition
+Adäquatheit
+Ergänzungsfrage
+OV
+VOS
+Intonation
+Adjunkt
+VZ
+Partizip
+Flexion
+normale Abfolge
+normale Betonung
+topologisches Schema
+vorangestelltes Verb
+dominante Wortstellung
+markierte Abfolge
+syntaktische Funktion
+konversationelle Maxime
+Betonung des Verbs
+leere Relativphrase
+dominante Stellung
+adverbialer Ausdruck
+emphatische Betonung
+transformationelle Grammatik
+betonter Ausdruck
+kontrastive Betonung
+Deklarativsatz
+koordinierende Konjunktion
+deklarativer Satz
+Skopus der Negation
+Stelle der Kopula
+neutrale Stellung
+implizites Subjekt
+mehrfache Extraktion
+minimaler Fokus
+leere Kategorie
+idiomatischer Komplex
+kohärente Konstruktion
+definite Nominalphrase
+koordinierende Partikel
+Position des Verbs
+freier Relativsatz
+verknüpfter Satz
+normaler Satzakzent
+Subject Condition
+psychologisches Subjekt
+neutrale Abfolge
+adverbiale Bestimmung
+reines Diskursphänomen
+proleptischer Gebrauch
+bekannte Information
+leerer Komplementierer
+adverbiale Konjunktion
