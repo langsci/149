@@ -1,0 +1,59 @@
+%% -*- coding:utf-8 -*-
+\documentclass{scrbook}                          
+
+\usepackage{hyperref,xspace}
+
+\usepackage[backend=biber,natbib=true,
+  maxbibnames=99,
+	maxcitenames=2,
+	isbn=false,
+	doi=false,
+	url=false,
+	eprint=false,
+	indexing=cite]{biblatex}
+
+\usepackage{german}
+
+\newcommand{\inThisVolume}{%
+\iflanguage{german}{%
+{in diesem Band\xspace}}{%
+{in this volume\xspace}}}
+
+\newcommand{\pages}{%
+\iflanguage{german}{%
+{S.\,}}{%
+{pp.\,}}}
+
+
+\newcommand{\editors}{%
+\iflanguage{german}{%
+{Hrsg.}}{%
+{eds.}}}
+
+\newcommand{\volume}{%
+\iflanguage{german}{%
+{{Bd.\,}}}{%
+{{Vol.\,}}}}
+
+
+\bibliography{localbibliography} 
+
+\let\citew\citet
+
+\begin{document}
+
+Please download the book or order printed copies at:
+
+\bigskip
+
+\textbf{\url{http://langsci-press.org/catalog/book/149}}
+
+\bigskip
+
+Thanks for \href{http://langsci-press.org/supportUs}{supporting Language Science Press}!
+
+
+\nocite{*}
+\printbibliography 
+
+\end{document}
