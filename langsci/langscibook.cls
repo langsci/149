@@ -1030,7 +1030,8 @@ Chapter 2 Bouvier Verlag Grundmann;
 Chapter 3 Stauffenburg Verlag;
 Chapters 5--7, 11, 13 Walter de Gruyter GmbH;
 Chapters 8, 10 Springer Science+Business Media S.A.;
-Chapter 12 John Benjamins Publishing Company.\\ 
+Chapter 12 John Benjamins Publishing Company;
+Chapter 18 CSLI Publications.\\ 
 Published under the Creative Commons Attribution-NonCommercial- NoDerivatives  4.0 Licence (CC-BY-NC-ND 4.0);
 Chapters 1--4, 9, 12, 14--18 additionally published under the Creative Commons Attribution 4.0 Licence (CC-BY 4.0).
 \url{https://creativecommons.org/licenses/by-nc-nd/4.0};
